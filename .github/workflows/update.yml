@@ -67,3 +67,12 @@ jobs:
             git commit -m "Auto update: $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
           fi
+
+      - name: Deploy to Cloudflare Pages
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx wrangler@3 pages project create harrys-sensex-tracker --production-branch=main 2>/dev/null || true
+          npx wrangler@3 pages deploy docs --project-name=harrys-sensex-tracker --branch=main --commit-dirty=true

@@ -16,27 +16,6 @@ LTCG_MONTHS = 12            # long-term threshold for listed equity
 APPROACHING_WINDOW = 2      # months-before-LTCG to flag "hold a little longer"
 
 
-# ---- friction (delivery equity, discount-broker defaults; editable) --------
-BROKERAGE_PER_ORDER = 0.0     # ₹ flat (0 at discount brokers for delivery)
-STT_PCT = 0.001               # 0.1% on both buy & sell (delivery)
-EXCHANGE_PCT = 0.0000297      # NSE transaction charge
-SEBI_PCT = 0.000001           # SEBI turnover fee
-STAMP_PCT = 0.00015           # 0.015%, buy side only
-GST_PCT = 0.18                # on brokerage + exchange + SEBI
-DP_CHARGE_SELL = 15.34        # ₹ per scrip per sell day
-
-
-def friction_cost(value, side):
-    """Estimated transaction cost ₹ for one delivery trade of `value` (side: 'buy'|'sell')."""
-    stt = value * STT_PCT
-    exch = value * EXCHANGE_PCT
-    sebi = value * SEBI_PCT
-    stamp = value * STAMP_PCT if side == "buy" else 0.0
-    dp = DP_CHARGE_SELL if side == "sell" else 0.0
-    gst = (BROKERAGE_PER_ORDER + exch + sebi) * GST_PCT
-    return round(BROKERAGE_PER_ORDER + stt + exch + sebi + stamp + dp + gst, 2)
-
-
 def _parse(d):
     try:
         return dt.date.fromisoformat(str(d).strip())
@@ -122,12 +101,8 @@ def build_tax(rows, sells, today=None):
     # ---- realised gains from sells.csv -------------------------------------
     realised = []
     r_lt = r_st = r_tax = 0.0
-    friction_total = 0.0
     for s in sells:
         gain = (s["sell_price"] - s["buy_price"]) * s["qty"]
-        fr = friction_cost(s["qty"] * s["sell_price"], "sell") + \
-             friction_cost(s["qty"] * s["buy_price"], "buy")
-        friction_total += fr
         bd, sd = _parse(s.get("buy_date")), _parse(s.get("sell_date"))
         kind = "?"
         if bd and sd:
@@ -144,7 +119,6 @@ def build_tax(rows, sells, today=None):
         realised.append({
             "ticker": s["ticker"], "name": s["name"], "qty": s["qty"],
             "gain": round(gain), "kind": kind, "sell_date": s.get("sell_date", ""),
-            "friction": round(fr),
         })
 
     # ---- projected annual dividend income (trailing 12m × qty) -------------
@@ -163,8 +137,7 @@ def build_tax(rows, sells, today=None):
         },
         "approaching": sorted(approaching, key=lambda x: x["months_to_go"]),
         "realised": realised,
-        "realised_totals": {"ltcg": round(r_lt), "stcg": round(r_st), "tax": round(r_tax),
-                            "friction": round(friction_total)},
+        "realised_totals": {"ltcg": round(r_lt), "stcg": round(r_st), "tax": round(r_tax)},
         "xirr": port_xirr,
         "div_income": round(div_income),
         "rates": {"stcg": STCG_RATE, "ltcg": LTCG_RATE, "exemption": LTCG_EXEMPTION},

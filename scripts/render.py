@@ -185,6 +185,28 @@ footer{color:var(--muted);font-size:11.5px;margin-top:22px;line-height:1.6}
 .simrow select{min-width:180px}.simrow input{width:130px}
 .simbtn{border:none;background:var(--accent);color:#fff;border-radius:8px;padding:8px 16px;cursor:pointer;font-size:13px;font-weight:600}
 #simOut table{margin-top:8px}
+/* ---------- discipline ---------- */
+.floorbar{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-bottom:14px}
+.floorbar.breach{border-color:#f87171;background:#fef2f2}
+[data-theme="dark"] .floorbar.breach{background:rgba(242,109,109,.08);border-color:rgba(242,109,109,.4)}
+.floorhead{display:flex;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+.floorgrid{display:flex;gap:18px;flex-wrap:wrap}
+.flitem{display:flex;gap:6px;align-items:baseline;font-size:12.5px}
+.flitem .muted{font-size:11.5px}
+.adbadge{font-size:12.5px;font-weight:800;border:2px solid var(--line);border-radius:999px;padding:3px 12px}
+.adbadge.up{border-color:var(--up);color:var(--up)} .adbadge.down{border-color:var(--down);color:var(--down)}
+.stage{font-size:9.5px;font-weight:800;border-radius:6px;padding:2px 7px;letter-spacing:.3px}
+.stage.s-prove{background:#fef3c7;color:#b45309}.stage.s-monetize{background:#dbeafe;color:#1d4ed8}
+.stage.s-systematize{background:#e8f5e9;color:#047857}.stage.s-scale{background:#ede9fe;color:#6d28d9}
+.stage.s-—{background:#f1f5f9;color:#94a3b8}
+[data-theme="dark"] .stage.s-prove{background:rgba(237,161,0,.15);color:#fbbf24}
+[data-theme="dark"] .stage.s-monetize{background:rgba(57,135,229,.15);color:#7ab5f5}
+[data-theme="dark"] .stage.s-systematize{background:rgba(49,176,87,.15);color:#4ade80}
+[data-theme="dark"] .stage.s-scale{background:rgba(144,133,233,.15);color:#a99ff0}
+td.thz{font-size:12px;max-width:260px;line-height:1.45} td.thz.kill{color:#b45309}
+.jrow{padding:8px 2px;border-bottom:1px solid var(--line);font-size:13px}
+.jrow:last-child{border-bottom:none}
+.jnote{font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.5}
 /* ---------- dark mode ---------- */
 [data-theme="dark"]{--bg:#0b1220;--card:#141d2f;--ink:#e2e8f0;--muted:#8b98ab;--line:#243147;
 --sidebar:#0a0f1a;--sbink:#94a3b8;--accent:#3987e5;--up:#31b057;--down:#f26d6d}
@@ -238,7 +260,7 @@ table.ed input:focus{border-color:#94a3b8;background:#fff;outline:none}
 JS = """
 /* ---------- section nav ---------- */
 const navs=document.querySelectorAll('.nav a[data-sec]');
-const TITLES={overview:'Overview',holdings:'Holdings',corporate:'Corporate actions',news:'News',insights:'Insights',tax:'Tax & returns',watchlist:'Watchlist'};
+const TITLES={overview:'Overview',holdings:'Holdings',corporate:'Corporate actions',news:'News',insights:'Insights',discipline:'Discipline',booked:'Booked P/L',tax:'Tax & returns',watchlist:'Watchlist'};
 function show(sec){
   document.querySelectorAll('section[data-sec]').forEach(s=>s.classList.toggle('show',s.dataset.sec===sec));
   navs.forEach(a=>a.classList.toggle('active',a.dataset.sec===sec));
@@ -379,6 +401,23 @@ function drawMC(){
         y:{grid:{color:C_GRID},ticks:{color:C_TICK,font:{size:10.5},callback:v=>fmtINR(v)}}}}});
 }
 
+function drawBooked(){
+  const box=document.getElementById('bookedBox');
+  if(!box)return;
+  if(!window.Chart||!D.booked||!D.booked.length){
+    box.innerHTML='<div class="nochart">Chart appears once you have dated sales recorded.</div>';return;}
+  const ctx=document.getElementById('bookedChart').getContext('2d');
+  const g=ctx.createLinearGradient(0,0,0,220);
+  g.addColorStop(0,IS_DARK?'rgba(57,135,229,.3)':'rgba(42,120,214,.25)');g.addColorStop(1,'rgba(42,120,214,0)');
+  new Chart(ctx,{type:'line',data:{labels:D.booked.map(x=>x.date),
+    datasets:[{data:D.booked.map(x=>x.cum),borderColor:C_SERIES,backgroundColor:g,fill:true,
+      borderWidth:2,pointRadius:3,pointHitRadius:12,stepped:true}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Booked so far: '+fmtINR(c.parsed.y)}}},
+      scales:{x:{grid:{display:false},ticks:{maxTicksLimit:8,color:C_TICK,font:{size:10.5}}},
+        y:{grid:{color:C_GRID},ticks:{color:C_TICK,font:{size:10.5},callback:v=>fmtINR(v)}}}}});
+}
+
 /* ---------- sell simulator + tax-lot optimizer ---------- */
 const STCG_RATE=0.20,LTCG_RATE=0.125;
 function monthsBetween(d1,d2){return (d2.getFullYear()-d1.getFullYear())*12+(d2.getMonth()-d1.getMonth())-(d2.getDate()<d1.getDate()?1:0);}
@@ -414,6 +453,9 @@ function runSim(){
     plan.push({take,l});
   }
   const proceeds=qty*px;
+  // friction: STT 0.1% + exchange 0.00297% + SEBI + DP ₹15.34 + GST on charges
+  const exch=proceeds*0.0000297, sebi=proceeds*0.000001;
+  const friction=proceeds*0.001+exch+sebi+15.34+(exch+sebi)*0.18;
   const newVal=D.total-qty*r.price;
   const newPct=((r.qty-qty)*r.price/newVal*100);
   const fmt=v=>'₹'+Math.round(v).toLocaleString('en-IN');
@@ -423,7 +465,7 @@ function runSim(){
   out.innerHTML=`<div class="cards" style="margin:10px 0">
     <div class="card"><div class="k">Proceeds</div><div class="v" style="font-size:17px">${fmt(proceeds)}</div></div>
     <div class="card"><div class="k">Gain realised</div><div class="v ${gain>=0?'up':'down'}" style="font-size:17px">${fmt(gain)}</div><span class="muted" style="font-size:10.5px">LTCG ${fmt(ltG)} · STCG ${fmt(stG)}</span></div>
-    <div class="card"><div class="k">Est. tax</div><div class="v" style="font-size:17px">${fmt(tax)}</div><span class="muted" style="font-size:10.5px">before ₹1.25L LTCG exemption</span></div>
+    <div class="card"><div class="k">Est. tax + friction</div><div class="v" style="font-size:17px">${fmt(tax+friction)}</div><span class="muted" style="font-size:10.5px">tax ${fmt(tax)} · charges ${fmt(friction)} — the cost of the impulse, priced now</span></div>
     <div class="card"><div class="k">${r.tk} after sale</div><div class="v" style="font-size:17px">${(r.qty-qty).toLocaleString()} sh</div><span class="muted" style="font-size:10.5px">${newPct.toFixed(1)}% of portfolio</span></div>
   </div>
   <b style="font-size:12.5px">Smartest lots to sell (lowest tax first):</b>
@@ -439,7 +481,7 @@ document.querySelectorAll('.modebtns button').forEach(b=>b.addEventListener('cli
   document.querySelectorAll('.modebtns button').forEach(x=>x.classList.toggle('on',x===b));
   drawPerf(undefined,b.dataset.mode);
 }));
-window.addEventListener('load',()=>{drawPerf(0,'value');drawDiv();drawSector();drawMC();initSim();});
+window.addEventListener('load',()=>{drawPerf(0,'value');drawDiv();drawSector();drawMC();drawBooked();initSim();});
 
 /* ---------- portfolio editor (holdings + watchlist tabs) ---------- */
 const $=id=>document.getElementById(id);
@@ -450,6 +492,21 @@ const FILES={
     sha:null,orig:null,rows:[]},
   watchlist:{path:'watchlist.csv',head:['ticker','name','yahoo_symbol','target_price','notes'],
     cols:[['ticker','Ticker'],['name','Name'],['yahoo_symbol','Yahoo symbol'],['target_price','Target'],['notes','Notes']],
+    sha:null,orig:null,rows:[]},
+  discipline:{path:'discipline.csv',head:['ticker','stage','thesis','proof_metric','kill_condition','review_date','horizon_quarters'],
+    cols:[['ticker','Ticker'],['stage','Stage'],['thesis','Thesis'],['proof_metric','Proof metric'],['kill_condition','Kill condition'],['review_date','Review date'],['horizon_quarters','Qtrs']],
+    sha:null,orig:null,rows:[]},
+  journal:{path:'journal.csv',head:['date','ticker','action','note'],
+    cols:[['date','Date'],['ticker','Ticker (blank=portfolio)'],['action','Action'],['note','Note']],
+    sha:null,orig:null,rows:[]},
+  violations:{path:'violations.csv',head:['date','type','ticker','justification'],
+    cols:[['date','Date'],['type','Type'],['ticker','Ticker'],['justification','Justification']],
+    sha:null,orig:null,rows:[]},
+  sells:{path:'sells.csv',head:['ticker','name','qty','buy_price','buy_date','sell_price','sell_date'],
+    cols:[['ticker','Ticker'],['name','Name'],['qty','Qty'],['buy_price','Buy price'],['buy_date','Buy date'],['sell_price','Sell price'],['sell_date','Sell date']],
+    sha:null,orig:null,rows:[]},
+  floor:{path:'floor.csv',head:['key','value'],
+    cols:[['key','Setting'],['value','Value']],
     sha:null,orig:null,rows:[]}
 };
 let curTab='holdings';
@@ -495,7 +552,7 @@ async function loadFile(key){
   const{repo,tok}=cfg();const f=FILES[key];
   const headers=tok?{Authorization:'Bearer '+tok}:{};
   const res=await fetch(`https://api.github.com/repos/${repo}/contents/${f.path}?ref=main`,{headers});
-  if(res.status===404&&key==='watchlist'){f.sha=null;f.orig=null;f.rows=[];return;}
+  if(res.status===404&&key!=='holdings'){f.sha=null;f.orig=null;f.rows=[];return;}
   if(!res.ok)throw new Error(`${f.path}: GitHub API ${res.status} — check repo name and token`);
   const j=await res.json();f.sha=j.sha;
   const text=decodeURIComponent(escape(atob(j.content.replace(/\\n/g,''))));
@@ -506,11 +563,13 @@ async function openEditor(){
   if(!$('cfgTok').value)$('cfgTok').value=localStorage.getItem('st_tok')||'';
   modal.classList.add('open');edStatus.textContent='Loading…';
   try{
-    await loadFile('holdings');await loadFile('watchlist');
+    for(const k of Object.keys(FILES))await loadFile(k);
     renderTab();
-    edStatus.textContent=`${FILES.holdings.rows.length} holdings, ${FILES.watchlist.rows.length} watchlist loaded.`;
+    edStatus.textContent=`${FILES.holdings.rows.length} holdings, ${FILES.watchlist.rows.length} watchlist, ${FILES.journal.rows.length} journal entries loaded.`;
   }catch(e){$('edBody').innerHTML='';edStatus.textContent='⚠ '+e.message;}
 }
+const STRUCT_WORDS=/thesis|structur|kill|review|margin|order|result|manage|guidance|debt|demand|capex|market share|no structural change|promoter|regulat|capacity|launch|acquisi|merger|volume/i;
+const PRICE_ONLY=/^(the )?(price|stock|share)?\s*(went|is|was|moved|fell|rose|dropped|jumped|crashed|rallied|up|down)?[\s\d.,%₹+-]*$/i;
 function validate(){
   for(const r of FILES.holdings.rows){
     if(!r.yahoo_symbol)return`${r.ticker}: Yahoo symbol required (e.g. ${r.ticker}.NS)`;
@@ -520,6 +579,29 @@ function validate(){
   }
   for(const r of FILES.watchlist.rows){
     if(!r.yahoo_symbol)return`watchlist ${r.ticker}: Yahoo symbol required`;
+  }
+  for(const r of FILES.discipline.rows){
+    if(r.stage&&!['PROVE','MONETIZE','SYSTEMATIZE','SCALE'].includes(r.stage.toUpperCase()))
+      return`discipline ${r.ticker}: stage must be PROVE, MONETIZE, SYSTEMATIZE or SCALE (or blank)`;
+    if(r.review_date&&!/^\d{4}-\d{2}-\d{2}$/.test(r.review_date))
+      return`discipline ${r.ticker}: review date must be YYYY-MM-DD`;
+  }
+  for(const r of FILES.journal.rows){
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date))return`journal: date must be YYYY-MM-DD`;
+    const note=(r.note||'').trim();
+    if(note.length<15)return`journal ${r.date}: note too short — say what changed structurally, or "no structural change"`;
+    if(PRICE_ONLY.test(note)||( !STRUCT_WORDS.test(note) && /price|₹|%|up |down |fell|rose/i.test(note)))
+      return`journal ${r.date}: price commentary alone doesn't count — reference the thesis, a structural change, or state "no structural change"`;
+  }
+  for(const r of FILES.sells.rows){
+    if(!r.qty||isNaN(+r.qty)||+r.qty<=0)return`sells ${r.ticker}: quantity must be a positive number`;
+    if(isNaN(+r.buy_price)||isNaN(+r.sell_price))return`sells ${r.ticker}: buy and sell prices must be numbers`;
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(r.sell_date))return`sells ${r.ticker}: sell date must be YYYY-MM-DD`;
+    if(r.buy_date&&!/^\d{4}-\d{2}-\d{2}$/.test(r.buy_date))return`sells ${r.ticker}: buy date must be YYYY-MM-DD (or blank)`;
+  }
+  for(const r of FILES.violations.rows){
+    if((r.justification||'').trim().length<20)
+      return`violation ${r.date}: justification must be at least 20 characters — deviation is allowed, hiding it is not`;
   }
   return null;
 }
@@ -544,8 +626,9 @@ async function saveEditor(){
   localStorage.setItem('st_repo',repo);localStorage.setItem('st_tok',tok);
   $('edSave').disabled=true;edStatus.textContent='Committing…';
   try{
-    const a=await putFile('holdings');const b=await putFile('watchlist');
-    edStatus.textContent=(a||b)?'✅ Saved! Rebuilding — refresh in ~2 minutes.':'No changes to save.';
+    let any=false;
+    for(const k of Object.keys(FILES)){if(await putFile(k))any=true;}
+    edStatus.textContent=any?'✅ Saved! Rebuilding — refresh in ~2 minutes.':'No changes to save.';
   }catch(e){edStatus.textContent='⚠ '+e.message;}
   $('edSave').disabled=false;
 }
@@ -579,6 +662,9 @@ def render(model) -> str:
     tax = model.get("tax", {})
     unreal = tax.get("unrealised", {})
     risk = model.get("risk", {})
+    disc = model.get("discipline", {})
+    floor = disc.get("floor", {"items": [], "breached": False, "unattested": 0})
+    adherence = disc.get("adherence", {"score": None, "parts": []})
 
     # ---- overview pieces
     def pill(x, suffix="%"):
@@ -689,7 +775,8 @@ def render(model) -> str:
                          f"<th class='num'>Qty</th><th class='num'>Gain</th><th>Type</th><th>Sold</th></tr></thead>"
                          f"<tbody>{rrows}</tbody></table>"
                          f"<div class='muted' style='margin-top:8px'>Realised LTCG {_inr(rt.get('ltcg'))} · "
-                         f"STCG {_inr(rt.get('stcg'))} · est. tax {_inr(rt.get('tax'))}</div>")
+                         f"STCG {_inr(rt.get('stcg'))} · est. tax {_inr(rt.get('tax'))} · "
+                         f"friction (brokerage/STT/charges) {_inr(rt.get('friction'))}</div>")
     else:
         realised_html = ("<div class='muted'>No sales logged yet. Add rows to <code>sells.csv</code> "
                          "(ticker, qty, buy_price, buy_date, sell_price, sell_date) to track realised gains &amp; tax.</div>")
@@ -769,6 +856,80 @@ def render(model) -> str:
         f"<span class='slp'>{'today' if delta==0 else ('tomorrow' if delta==1 else f'in {delta}d')}</span></div>"
         for d, tk, kind, delta in events[:14]) or "<div class='muted'>No dated events in the next 30 days.</div>"
 
+    # ---- family floor + adherence + discipline section pieces
+    def floor_icon(ok):
+        return "✅" if ok else ("❌" if ok is False else "◻️")
+    floor_items_html = "".join(
+        f"<div class='flitem'><span>{floor_icon(i['ok'])}</span><b>{html.escape(i['label'])}</b>"
+        f"<span class='muted'>{html.escape(i['detail'])}</span></div>"
+        for i in floor.get("items", [])) or "<div class='muted'>Set your floor in ✎ Edit portfolio → Floor.</div>"
+    floor_cls = "breach" if floor.get("breached") else ""
+    floor_note = ("🚨 <b>Floor breached — resolve before opening new positions.</b>"
+                  if floor.get("breached") else
+                  ("The household floor comes before the portfolio. "
+                   + (f"{floor.get('unattested')} item(s) not yet attested." if floor.get("unattested") else "All good.")))
+
+    ad_score = adherence.get("score")
+    ad_cls = "up" if (ad_score or 0) >= 70 else ("down" if (ad_score or 0) < 45 else "")
+    ad_parts_html = "".join(
+        f"<div class='slrow'><span class='sln'>{html.escape(p['name'])} <span class='muted'>· {html.escape(p['detail'])}</span></span>"
+        f"<span class='slp'>{round(p['frac']*p['weight'])}/{p['weight']}</span></div>"
+        for p in adherence.get("parts", []))
+
+    dmap = disc.get("map", {})
+    drows_html = []
+    for r in rows:
+        if r.get("qty", 0) <= 0:
+            continue
+        d = dmap.get(r["ticker"], {})
+        stage = d.get("stage") or "—"
+        rd = d.get("review_date") or ""
+        rd_html = html.escape(rd) if rd else "<span class='addd'>set date</span>"
+        thesis = d.get("thesis") or ""
+        kill = d.get("kill_condition") or ""
+        drows_html.append(f"""<tr>
+          <td class="tk"><b>{html.escape(r['ticker'])}</b><div class="nm">{html.escape(r['name'])}</div></td>
+          <td><span class="stage s-{html.escape(stage.lower())}">{html.escape(stage)}</span></td>
+          <td class="thz">{html.escape(thesis) if thesis else "<span class='addd'>no thesis — position is a feeling, not an investment</span>"}</td>
+          <td class="thz">{html.escape(d.get('proof_metric','') or '—')}</td>
+          <td class="thz kill">{html.escape(kill) if kill else '—'}</td>
+          <td class="num">{rd_html}</td>
+        </tr>""")
+    disc_table = "\n".join(drows_html)
+
+    journal_html = "".join(
+        f"<div class='jrow'><span class='cald'>{html.escape(j['date'])}</span>"
+        f"<b>{html.escape(j['ticker'] or 'Portfolio')}</b> <span class='muted'>[{html.escape(j['action'])}]</span>"
+        f"<div class='jnote'>{html.escape(j['note'])}</div></div>"
+        for j in disc.get("journal", [])) or "<div class='muted'>No journal entries yet. If the record does not exist, the learning does not exist — add this week's note via ✎ Edit portfolio → Journal.</div>"
+
+    viol_html = "".join(
+        f"<div class='jrow'><span class='cald'>{html.escape(v['date'])}</span>"
+        f"<b>{html.escape(v['type'])}</b> <span class='muted'>{html.escape(v['ticker'])}</span>"
+        f"<div class='jnote'>{html.escape(v['justification'])}</div></div>"
+        for v in disc.get("violations", [])) or "<div class='muted'>No violations recorded. Clean process.</div>"
+    js_stats = disc.get("journal_stats", {})
+
+    # ---- booked P/L section pieces
+    booked = tax.get("booked", {})
+    b_rows = []
+    for x in reversed(tax.get("realised", [])):          # newest first
+        held_txt = f"{x['months']} mo" if x.get("months") is not None else "—"
+        pct_txt = f"{x['pct']:+.1f}%" if x.get("pct") is not None else "—"
+        b_rows.append(
+            f"<tr><td class='tk'><b>{html.escape(x['ticker'])}</b><div class='nm'>{html.escape(x.get('name',''))}</div></td>"
+            f"<td class='num'>{x['qty']:,.0f}</td>"
+            f"<td class='num'>{_inr(x.get('buy_price'),2)} → {_inr(x.get('sell_price'),2)}</td>"
+            f"<td class='num'>{held_txt}</td>"
+            f"<td class='num {_cls(x['gain'])}'><b>{_inr(x['gain'])}</b><div class='sub'>{pct_txt}</div></td>"
+            f"<td>{html.escape(x['kind'])}</td>"
+            f"<td class='num'>{_inr(x.get('tax'))}<div class='sub muted'>+{_inr(x.get('friction'))} chg</div></td>"
+            f"<td>{html.escape(x.get('sell_date',''))}</td></tr>")
+    booked_table = "".join(b_rows) or ("<tr><td colspan='8' class='muted' style='padding:18px'>"
+        "No sales recorded yet. When you book a profit or loss, add it via ✎ Edit portfolio → Sells "
+        "(and reduce the quantity in Holdings) — it appears here with your running total.</td></tr>")
+    b_total = booked.get("total", 0)
+
     # ---- holdings table rows
     trows = []
     for r in rows:
@@ -845,6 +1006,7 @@ def render(model) -> str:
                           "benchmark": model.get("benchmark"),
                           "sectors": model.get("sectors", []),
                           "mc": risk.get("montecarlo"),
+                          "booked": booked.get("series", []),
                           "total": s.get("current"),
                           "rows": sim_rows}, separators=(",", ":"))
     n_watch = len(watch)
@@ -853,12 +1015,13 @@ def render(model) -> str:
     return f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>Sensex Tracker</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0f172a">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <script>(function(){{var t=localStorage.getItem('st_theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}})();</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="chart.umd.min.js"></script>
 <style>{CSS}</style></head>
 <body>
 <div class="layout">
@@ -871,6 +1034,8 @@ def render(model) -> str:
       <a data-sec="corporate">🏛️ Corporate actions</a>
       <a data-sec="news">📰 News</a>
       <a data-sec="insights">🔬 Insights</a>
+      <a data-sec="discipline">🧭 Discipline</a>
+      <a data-sec="booked">💰 Booked P/L</a>
       <a data-sec="tax">🧾 Tax &amp; returns</a>
       <a data-sec="watchlist">⭐ Watchlist <span class="cnt">{n_watch}</span></a>
     </nav>
@@ -889,6 +1054,12 @@ def render(model) -> str:
 
     <!-- ================ OVERVIEW ================ -->
     <section data-sec="overview" class="show">
+      <div class="floorbar {floor_cls}">
+        <div class="floorhead"><b>🏠 Family floor</b><span class="muted" style="font-size:12px">{floor_note}</span>
+          <span class="sp" style="flex:1"></span>
+          <span class="adbadge {ad_cls}" title="Process-adherence score — discipline first, returns second">Process {ad_score if ad_score is not None else '—'}/100</span></div>
+        <div class="floorgrid">{floor_items_html}</div>
+      </div>
       <div class="cards">
         <div class="card"><div class="k">Invested</div><div class="v">{_inr(s['invested'])}</div></div>
         <div class="card"><div class="k">Current value</div><div class="v">{_inr(s['current'])}</div>{pill(s.get('day_pct'))}</div>
@@ -1019,6 +1190,58 @@ def render(model) -> str:
       <div class="newsgrid">{news_html_all}</div>
     </section>
 
+    <!-- ================ DISCIPLINE ================ -->
+    <section data-sec="discipline">
+      <div class="grid-main">
+        <div class="panel">
+          <h2>🎯 Process-adherence score <span class="sp"></span><span class="adbadge {ad_cls}">{ad_score if ad_score is not None else '—'}/100</span></h2>
+          <div class="muted" style="font-size:12.5px;margin-bottom:10px">Discipline is the tracked metric; the portfolio outcome is secondary. Formula in scripts/discipline.py.</div>
+          {ad_parts_html}
+        </div>
+        <div class="panel">
+          <h2>🚫 Violations <span class="sp"></span><span class="muted" style="font-size:11px">{len(disc.get('violations', []))} recorded</span></h2>
+          <div class="muted" style="font-size:12.5px;margin-bottom:10px">Rules can be broken — but never silently. Log any deviation with a typed justification (✎ Edit portfolio → Violations).</div>
+          {viol_html}
+        </div>
+      </div>
+      <div class="panel" style="margin-bottom:14px">
+        <h2>📖 Journal <span class="sp"></span><span class="muted" style="font-size:11px">{js_stats.get('weeks_covered','—')}/{js_stats.get('window','12')} recent weeks covered · {js_stats.get('entries_total',0)} entries</span></h2>
+        <div class="muted" style="font-size:12.5px;margin-bottom:10px">Weekly, thesis-focused notes — price commentary alone doesn't count. Say what changed structurally, or say "no structural change."</div>
+        {journal_html}
+      </div>
+      <div class="tablecard">
+        <div class="controls"><b style="font-size:13px;padding:4px">📜 Theses, kill conditions &amp; review dates</b>
+          <span class="muted" style="font-size:11.5px;align-self:center">A position without a written falsifiable thesis is a feeling. Edit via ✎ Edit portfolio → Discipline.</span></div>
+        <table class="data"><thead><tr>
+          <th>Position</th><th>Stage</th><th>Thesis</th><th>Proof metric</th><th>Kill condition</th><th class="num">Review</th>
+        </tr></thead><tbody>
+{disc_table}
+        </tbody></table>
+      </div>
+    </section>
+
+    <!-- ================ BOOKED P/L ================ -->
+    <section data-sec="booked">
+      <div class="cards">
+        <div class="card"><div class="k">Total booked so far</div><div class="v {_cls(b_total)}">{_inr(b_total)}</div><span class="muted" style="font-size:11px">across {booked.get('n',0)} sale(s)</span></div>
+        <div class="card"><div class="k">{html.escape(booked.get('fy_label','This FY'))}</div><div class="v {_cls(booked.get('fy',0))}">{_inr(booked.get('fy'))}</div><span class="muted" style="font-size:11px">est. tax {_inr(booked.get('fy_tax'))}</span></div>
+        <div class="card"><div class="k">Win rate</div><div class="v">{('—' if booked.get('win_rate') is None else f"{booked['win_rate']}%")}</div><span class="muted" style="font-size:11px">{booked.get('wins',0)} profitable of {booked.get('n',0)}</span></div>
+        <div class="card"><div class="k">Costs paid</div><div class="v" style="font-size:18px">{_inr(rt.get('tax'))} <span class="muted" style="font-size:12px">tax</span></div><span class="muted" style="font-size:11px">+ {_inr(rt.get('friction'))} friction (brokerage/STT/charges)</span></div>
+      </div>
+      <div class="panel" style="margin-bottom:14px">
+        <h2>Cumulative booked profit</h2>
+        <div class="chartbox sm" id="bookedBox"><canvas id="bookedChart"></canvas></div>
+      </div>
+      <div class="tablecard">
+        <div class="controls"><b style="font-size:13px;padding:4px">💰 Every booking</b>
+          <span class="muted" style="font-size:11.5px;align-self:center">Record a sale via ✎ Edit portfolio → Sells (ticker, qty, buy price/date, sell price/date) — and reduce the sold quantity in the Holdings tab.</span></div>
+        <table class="data" style="min-width:820px"><thead><tr>
+          <th>Stock</th><th class="num">Qty</th><th class="num">Buy → Sell</th><th class="num">Held</th>
+          <th class="num">Booked P/L</th><th>Type</th><th class="num">Tax + charges</th><th>Sold on</th>
+        </tr></thead><tbody>{booked_table}</tbody></table>
+      </div>
+    </section>
+
     <!-- ================ TAX & RETURNS ================ -->
     <section data-sec="tax">
       <div class="cards">
@@ -1079,6 +1302,11 @@ def render(model) -> str:
     <div class="tabs">
       <button data-tab="holdings" class="on">Holdings</button>
       <button data-tab="watchlist">Watchlist</button>
+      <button data-tab="discipline">Discipline</button>
+      <button data-tab="journal">Journal</button>
+      <button data-tab="violations">Violations</button>
+      <button data-tab="sells">Sells</button>
+      <button data-tab="floor">Floor</button>
     </div>
     <div class="edwrap">
       <table class="ed"><thead><tr id="edHead"></tr></thead><tbody id="edBody"></tbody></table>

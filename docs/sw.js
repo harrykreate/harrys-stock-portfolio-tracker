@@ -1,6 +1,6 @@
 // Minimal service worker: network-first for the dashboard, cached fallback offline.
-const CACHE = 'sensex-tracker-v1';
-const ASSETS = ['.', 'index.html', 'data.json', 'manifest.json'];
+const CACHE = 'sensex-tracker-v2';
+const ASSETS = ['.', 'index.html', 'data.json', 'manifest.json', 'chart.umd.min.js'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).catch(() => {}));

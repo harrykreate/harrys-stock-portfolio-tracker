@@ -1,0 +1,13 @@
+{
+  "name": "Sensex Tracker",
+  "short_name": "Sensex",
+  "description": "Rule-based portfolio monitor for Indian stocks — no AI, free data.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}

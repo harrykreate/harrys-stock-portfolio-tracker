@@ -1,0 +1,1849 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sensex Tracker</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f172a">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<script>(function(){var t=localStorage.getItem('st_theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;})();</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+:root{--bg:#f4f6fa;--card:#fff;--ink:#0f172a;--muted:#64748b;--line:#e6e8ef;
+--up:#008300;--down:#dc2626;--flat:#64748b;--accent:#2a78d6;--sidebar:#0f172a;--sbink:#cbd5e1;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+background:var(--bg);color:var(--ink);font-size:14px;line-height:1.45}
+.up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--flat)} .muted{color:var(--muted)}
+.layout{display:flex;min-height:100vh}
+/* ---------- sidebar ---------- */
+.sidebar{width:225px;background:var(--sidebar);color:var(--sbink);padding:20px 14px;display:flex;
+flex-direction:column;gap:4px;position:sticky;top:0;height:100vh;flex-shrink:0}
+.brand{color:#fff;font-size:17px;font-weight:800;letter-spacing:-.3px;padding:4px 10px 18px;display:flex;gap:8px;align-items:center}
+.navlbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:#64748b;padding:8px 10px 4px}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{color:var(--sbink);text-decoration:none;padding:9px 10px;border-radius:9px;font-size:13.5px;
+display:flex;align-items:center;gap:10px;cursor:pointer}
+.nav a:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav a.active{background:var(--accent);color:#fff;font-weight:600}
+.nav .cnt{margin-left:auto;font-size:10.5px;background:rgba(255,255,255,.14);border-radius:99px;padding:1px 7px}
+.sidefoot{margin-top:auto;display:flex;flex-direction:column;gap:8px}
+.editbtn{border:none;background:rgba(255,255,255,.1);color:#fff;border-radius:9px;padding:9px 12px;
+cursor:pointer;font-size:13px;font-weight:600;text-align:left}
+.editbtn:hover{background:rgba(255,255,255,.18)}
+.stamp{font-size:10.5px;color:#64748b;padding:0 10px;line-height:1.5}
+/* ---------- main ---------- */
+.main{flex:1;padding:22px 26px;min-width:0}
+.topbar{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.topbar h1{font-size:19px;margin:0;letter-spacing:-.3px}
+.topbar .sub{color:var(--muted);font-size:12.5px}
+section{display:none} section.show{display:block}
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px}
+.card .k{color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.4px}
+.card .v{font-size:21px;font-weight:800;margin-top:5px;letter-spacing:-.4px}
+.pill{display:inline-flex;align-items:center;font-size:11.5px;font-weight:700;border-radius:99px;padding:2px 9px;margin-top:6px}
+.pill.up{background:#e8f5e9;color:var(--up)} .pill.down{background:#fdecec;color:var(--down)}
+.grid-main{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.panel h2{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:0 0 12px;display:flex;align-items:center;gap:8px}
+.panel h2 .sp{flex:1}
+.rangebtns{display:flex;gap:4px}
+.rangebtns button{border:1px solid var(--line);background:#fff;border-radius:7px;padding:3px 9px;cursor:pointer;font-size:11.5px}
+.rangebtns button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chartbox{position:relative;height:260px}
+.chartbox.sm{height:220px}
+.nochart{color:var(--muted);font-size:12.5px;padding:30px 0;text-align:center}
+/* watch list rows */
+.wrow{display:flex;align-items:center;gap:11px;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wrow:last-child{border-bottom:none}
+.av{width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+font-size:11.5px;font-weight:800;color:hsl(var(--h),55%,32%);background:hsl(var(--h),70%,92%);flex-shrink:0}
+.wrow .wn{min-width:0} .wrow .wn b{font-size:13px} .wrow .wn div{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wrow .wp{margin-left:auto;text-align:right}
+.wrow .wp b{font-size:13px;font-variant-numeric:tabular-nums}
+.wrow .wp .pill{margin-top:2px}
+.mvgrid{display:flex;gap:8px;flex-wrap:wrap}
+.mvr{border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-width:90px}
+.mvr-t{font-weight:700;font-size:12.5px}.mvr-p{font-weight:700;font-size:13px}.mvr-s{font-size:10.5px;color:var(--muted)}
+.mvr.up{background:#f0f9f0}.mvr.down{background:#fdf2f2}
+ul.act{margin:0;padding-left:18px}ul.act li{margin-bottom:8px}
+.note{color:#b45309;font-size:12.5px}
+ul.corp{columns:2;column-gap:28px}ul.corp li{break-inside:avoid;margin-bottom:8px}
+.warnbar{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:10px;padding:8px 12px;font-size:12.5px;margin:10px 0}
+/* ---------- table ---------- */
+.tablecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px;overflow:auto}
+.controls{display:flex;gap:8px;padding:8px;flex-wrap:wrap;align-items:center}
+.controls button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12.5px}
+.controls button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.controls button.on::after{content:" ↓";font-size:11px}
+.controls button.on.asc::after{content:" ↑"}
+.controls input{border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:12.5px;width:150px;margin-left:auto}
+.controls input:focus{outline:none;border-color:#94a3b8}
+table.data{width:100%;border-collapse:collapse;font-size:13px;min-width:1000px}
+table.data th,table.data td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+table.data th{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);white-space:nowrap;position:sticky;top:0;background:var(--card);z-index:1}
+td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.tk .nm{color:var(--muted);font-size:11.5px;font-weight:400}
+td .sub{font-size:11px;color:var(--muted)}
+.badge{display:inline-block;margin-left:6px;font-size:9.5px;background:#f1f5f9;color:#64748b;border-radius:6px;padding:1px 5px;vertical-align:middle}
+.addd{color:#b45309;font-size:11px;border:1px dashed #fbbf24;border-radius:6px;padding:1px 5px}
+.chip{display:inline-block;border:1px solid var(--c);color:var(--c);border-radius:999px;padding:2px 8px;font-size:11px;margin:0 4px 4px 0;white-space:nowrap}
+td.sig{min-width:200px} td.nws{min-width:220px;max-width:300px}
+.fin{font-size:11.5px;line-height:1.5} td.finc{min-width:150px}
+a.news{display:block;color:#334155;text-decoration:none;font-size:12px;margin-bottom:5px;border-left:2px solid var(--line);padding-left:8px}
+a.news:hover{color:#0f172a} a.news em{color:var(--muted);font-style:normal;font-size:10.5px}
+a.news.neg{border-left-color:var(--down);color:#b91c1c}
+.newsgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.newscard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.newscard h3{margin:0 0 8px;font-size:13px;display:flex;gap:8px;align-items:center}
+footer{color:var(--muted);font-size:11.5px;margin-top:22px;line-height:1.6}
+/* ---------- allocation + tiles ---------- */
+.donutwrap{display:flex;gap:14px;align-items:center}
+.donutwrap .chartbox{flex:0 0 200px}
+.slegend{flex:1;min-width:0}
+.slrow{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:2px 0}
+.slrow .dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+.slrow .sln{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slrow .slp{font-variant-numeric:tabular-nums;color:var(--muted)}
+.minitiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mt{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.mt .k{color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.3px}
+.mt .v{font-size:18px;font-weight:800;margin:2px 0}
+.mt .sub{font-size:10.5px}
+.taxb{font-size:9px;font-weight:700;border-radius:5px;padding:1px 4px;vertical-align:middle}
+.taxb.ltcg{background:#e8f5e9;color:#047857} .taxb.stcg{background:#fef3c7;color:#b45309}
+.notes{font-size:11px;color:var(--muted);margin-top:2px;font-style:italic}
+.hb{display:inline-block;margin-left:6px;font-size:9.5px;font-weight:800;border-radius:6px;padding:1px 6px;vertical-align:middle}
+.hb.hgood{background:#e8f5e9;color:#047857}.hb.hmid{background:#f1f5f9;color:#64748b}.hb.hbad{background:#fdecec;color:#b91c1c}
+.calrow{display:flex;align-items:center;gap:10px;padding:7px 2px;border-bottom:1px solid var(--line);font-size:13px}
+.calrow:last-child{border-bottom:none}
+.cald{color:var(--muted);font-size:11.5px;width:86px;flex-shrink:0}
+.calrow .slp{margin-left:auto;color:var(--muted);font-size:11.5px}
+.simrow{display:flex;gap:8px;flex-wrap:wrap}
+.simrow select,.simrow input{border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px;background:var(--card);color:var(--ink)}
+.simrow select{min-width:180px}.simrow input{width:130px}
+.simbtn{border:none;background:var(--accent);color:#fff;border-radius:8px;padding:8px 16px;cursor:pointer;font-size:13px;font-weight:600}
+#simOut table{margin-top:8px}
+/* ---------- discipline ---------- */
+.floorbar{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-bottom:14px}
+.floorbar.breach{border-color:#f87171;background:#fef2f2}
+[data-theme="dark"] .floorbar.breach{background:rgba(242,109,109,.08);border-color:rgba(242,109,109,.4)}
+.floorhead{display:flex;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+.floorgrid{display:flex;gap:18px;flex-wrap:wrap}
+.flitem{display:flex;gap:6px;align-items:baseline;font-size:12.5px}
+.flitem .muted{font-size:11.5px}
+.adbadge{font-size:12.5px;font-weight:800;border:2px solid var(--line);border-radius:999px;padding:3px 12px}
+.adbadge.up{border-color:var(--up);color:var(--up)} .adbadge.down{border-color:var(--down);color:var(--down)}
+.stage{font-size:9.5px;font-weight:800;border-radius:6px;padding:2px 7px;letter-spacing:.3px}
+.stage.s-prove{background:#fef3c7;color:#b45309}.stage.s-monetize{background:#dbeafe;color:#1d4ed8}
+.stage.s-systematize{background:#e8f5e9;color:#047857}.stage.s-scale{background:#ede9fe;color:#6d28d9}
+.stage.s-—{background:#f1f5f9;color:#94a3b8}
+[data-theme="dark"] .stage.s-prove{background:rgba(237,161,0,.15);color:#fbbf24}
+[data-theme="dark"] .stage.s-monetize{background:rgba(57,135,229,.15);color:#7ab5f5}
+[data-theme="dark"] .stage.s-systematize{background:rgba(49,176,87,.15);color:#4ade80}
+[data-theme="dark"] .stage.s-scale{background:rgba(144,133,233,.15);color:#a99ff0}
+td.thz{font-size:12px;max-width:260px;line-height:1.45} td.thz.kill{color:#b45309}
+.jrow{padding:8px 2px;border-bottom:1px solid var(--line);font-size:13px}
+.jrow:last-child{border-bottom:none}
+.jnote{font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.5}
+/* ---------- dark mode ---------- */
+[data-theme="dark"]{--bg:#0b1220;--card:#141d2f;--ink:#e2e8f0;--muted:#8b98ab;--line:#243147;
+--sidebar:#0a0f1a;--sbink:#94a3b8;--accent:#3987e5;--up:#31b057;--down:#f26d6d}
+[data-theme="dark"] .controls button,[data-theme="dark"] .rangebtns button{background:var(--card);color:var(--ink)}
+[data-theme="dark"] .controls button.on,[data-theme="dark"] .rangebtns button.on{background:#e2e8f0;color:#0b1220;border-color:#e2e8f0}
+[data-theme="dark"] .mvr.up{background:rgba(49,176,87,.12)}[data-theme="dark"] .mvr.down{background:rgba(242,109,109,.12)}
+[data-theme="dark"] .pill.up{background:rgba(49,176,87,.15)}[data-theme="dark"] .pill.down{background:rgba(242,109,109,.15)}
+[data-theme="dark"] .taxb.ltcg,[data-theme="dark"] .hb.hgood{background:rgba(49,176,87,.15);color:#4ade80}
+[data-theme="dark"] .taxb.stcg{background:rgba(237,161,0,.15);color:#fbbf24}
+[data-theme="dark"] .hb.hbad{background:rgba(242,109,109,.15);color:#f26d6d}
+[data-theme="dark"] .hb.hmid{background:#1e293b;color:#8b98ab}
+[data-theme="dark"] .badge{background:#1e293b;color:#8b98ab}
+[data-theme="dark"] .warnbar{background:rgba(237,161,0,.08);border-color:rgba(237,161,0,.3);color:#fbbf24}
+[data-theme="dark"] .mbox,[data-theme="dark"] .tabs button.on{background:var(--card)}
+[data-theme="dark"] .tabs button{background:#0f1726;color:var(--ink)}
+[data-theme="dark"] table.ed input:focus{background:#0f1726}
+[data-theme="dark"] a.news{color:#b6c2d4} [data-theme="dark"] a.news:hover{color:#e2e8f0}
+[data-theme="dark"] .mrow button{background:var(--card);color:var(--ink)}
+[data-theme="dark"] .mrow button.primary{background:#e2e8f0;color:#0b1220;border-color:#e2e8f0}
+[data-theme="dark"] .cfg input{background:var(--card);color:var(--ink)}
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;align-items:flex-start;justify-content:center;padding:30px 12px;z-index:50;overflow:auto}
+.modal.open{display:flex}
+.mbox{background:#fff;border-radius:16px;max-width:1000px;width:100%;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.mbox h3{margin:0 0 4px;font-size:17px}
+.mbox .hint{color:var(--muted);font-size:12px;margin-bottom:12px;line-height:1.5}
+.cfg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.cfg input{border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:12.5px}
+.cfg input#cfgRepo{width:220px}.cfg input#cfgTok{flex:1;min-width:240px}
+.tabs{display:flex;gap:4px;margin-bottom:10px}
+.tabs button{border:1px solid var(--line);background:#f8fafc;border-radius:8px 8px 0 0;padding:7px 16px;cursor:pointer;font-size:13px}
+.tabs button.on{background:#fff;border-bottom-color:#fff;font-weight:700}
+table.ed{width:100%;border-collapse:collapse;font-size:12.5px;min-width:760px}
+table.ed th{font-size:10.5px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 4px}
+table.ed td{padding:3px 4px;border-bottom:1px solid var(--line)}
+table.ed input{width:100%;border:1px solid transparent;border-radius:6px;padding:5px 6px;font-size:12.5px;background:transparent}
+table.ed input:focus{border-color:#94a3b8;background:#fff;outline:none}
+.edwrap{overflow:auto;max-height:46vh;border:1px solid var(--line);border-radius:0 10px 10px 10px}
+.mrow{display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap}
+.mrow button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;cursor:pointer;font-size:13px}
+.mrow button.primary{background:#0f172a;color:#fff;border-color:#0f172a;font-weight:600}
+.mrow button:disabled{opacity:.5;cursor:default}
+#edStatus{font-size:12.5px}
+.delbtn{color:#b91c1c;cursor:pointer;border:none;background:none;font-size:15px;padding:2px 6px}
+@media(max-width:980px){.sidebar{display:none}.cards{grid-template-columns:repeat(2,1fr)}
+.grid-main{grid-template-columns:1fr}ul.corp{columns:1}}
+</style></head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">📈 Sensex Tracker</div>
+    <div class="navlbl">Menu</div>
+    <nav class="nav">
+      <a data-sec="overview" class="active">🏠 Overview</a>
+      <a data-sec="holdings">💼 Holdings <span class="cnt">46</span></a>
+      <a data-sec="corporate">🏛️ Corporate actions</a>
+      <a data-sec="news">📰 News</a>
+      <a data-sec="insights">🔬 Insights</a>
+      <a data-sec="discipline">🧭 Discipline</a>
+      <a data-sec="tax">🧾 Tax &amp; returns</a>
+      <a data-sec="watchlist">⭐ Watchlist <span class="cnt">3</span></a>
+    </nav>
+    <div class="sidefoot">
+      <button class="editbtn" id="themeBtn">🌙 Dark mode</button>
+      <button class="editbtn" id="editBtn">✎ Edit portfolio</button>
+      <div class="stamp">Updated 24 Jul 2026, 07:05 PM IST<br>46/46 priced live · rule-based, no AI</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1 id="secTitle">Overview</h1>
+      <span class="sub">Signals follow your rule: book only on ≥15% gain within 6 months, or a company issue.</span>
+    </div>
+
+    <!-- ================ OVERVIEW ================ -->
+    <section data-sec="overview" class="show">
+      <div class="floorbar breach">
+        <div class="floorhead"><b>🏠 Family floor</b><span class="muted" style="font-size:12px">🚨 <b>Floor breached — resolve before opening new positions.</b></span>
+          <span class="sp" style="flex:1"></span>
+          <span class="adbadge down" title="Process-adherence score — discipline first, returns second">Process 31/100</span></div>
+        <div class="floorgrid"><div class='flitem'><span>✅</span><b>Emergency fund</b><span class='muted'>₹650,000 of ₹600,000 target</span></div><div class='flitem'><span>✅</span><b>Term insurance</b><span class='muted'>valid till 09 Feb 2027</span></div><div class='flitem'><span>❌</span><b>Health insurance</b><span class='muted'>LAPSED 19 Jul 2026</span></div><div class='flitem'><span>✅</span><b>Investable ceiling</b><span class='muted'>₹11,086,162 invested of ₹12,000,000 ceiling</span></div></div>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="k">Invested</div><div class="v">₹89,33,485</div></div>
+        <div class="card"><div class="k">Current value</div><div class="v">₹1,10,86,162</div><span class="pill up">↑ 0.31%</span></div>
+        <div class="card"><div class="k">Total P/L</div><div class="v up">₹21,52,678</div><span class="pill up">↑ 24.10%</span></div>
+        <div class="card"><div class="k">Today</div><div class="v up">₹34,681</div>
+          <span class="muted" style="font-size:11.5px">2 to review · 1 flagged</span></div>
+      </div>
+      
+      <div class="grid-main">
+        <div class="panel">
+          <h2>Portfolio performance <span class="sp"></span>
+            <span class="rangebtns modebtns" style="margin-right:8px">
+              <button data-mode="value" class="on">₹ Value</button><button data-mode="nifty">vs Nifty</button>
+            </span>
+            <span class="rangebtns">
+              <button data-days="63">3M</button><button data-days="126">6M</button>
+              <button data-days="0" class="on">1Y</button>
+            </span></h2>
+          <div class="chartbox" id="perfBox"><canvas id="perfChart"></canvas></div>
+        </div>
+        <div class="panel">
+          <h2>My watchlist <span class="sp"></span><a data-sec="watchlist" class="muted" style="cursor:pointer;font-size:11px" onclick="show('watchlist')">view all →</a></h2>
+          <div class="wrow"><span class="av" style="--h:285">RE</span><div class="wn"><b>RELIANCE</b><div>Reliance Industries</div></div><div class="wp"><b>₹2,874.00</b><br><span class="pill up">↑ 1.52%</span></div></div><div class="wrow"><span class="av" style="--h:25">HD</span><div class="wn"><b>HDFCBANK</b><div>HDFC Bank</div></div><div class="wp"><b>₹1,642.00</b><br><span class="pill down">↓ 0.49%</span></div></div><div class="wrow"><span class="av" style="--h:210">IN</span><div class="wn"><b>INFY</b><div>Infosys</div></div><div class="wp"><b>₹1,519.00</b><br><span class="pill down">↓ 1.97%</span></div></div>
+        </div>
+      </div>
+      <div class="grid-main">
+        <div class="panel">
+          <h2>Top movers today</h2>
+          <div class="mvgrid"><div class="mvr up"><div class="mvr-t">KIRLPNU</div><div class="mvr-p up">+2.21%</div><div class="mvr-s">₹1,497.10</div></div><div class="mvr up"><div class="mvr-t">UNITDSPR</div><div class="mvr-p up">+2.20%</div><div class="mvr-s">₹1,467.20</div></div><div class="mvr up"><div class="mvr-t">WIPRO</div><div class="mvr-p up">+2.17%</div><div class="mvr-s">₹177.12</div></div><div class="mvr up"><div class="mvr-t">AXISBANK</div><div class="mvr-p up">+2.16%</div><div class="mvr-s">₹1,227.30</div></div><div class="mvr up"><div class="mvr-t">HINDCOPPER</div><div class="mvr-p up">+2.15%</div><div class="mvr-s">₹483.15</div></div></div>
+          <div style="height:10px"></div>
+          <div class="mvgrid"><div class="mvr down"><div class="mvr-t">VEDPOWER</div><div class="mvr-p down">-2.08%</div><div class="mvr-s">₹35.01</div></div><div class="mvr down"><div class="mvr-t">ITCHOTELS</div><div class="mvr-p down">-2.07%</div><div class="mvr-s">₹159.92</div></div><div class="mvr down"><div class="mvr-t">LT</div><div class="mvr-p down">-2.04%</div><div class="mvr-s">₹3,785.60</div></div><div class="mvr down"><div class="mvr-t">TCS</div><div class="mvr-p down">-2.02%</div><div class="mvr-s">₹2,254.30</div></div><div class="mvr down"><div class="mvr-t">BEL</div><div class="mvr-p down">-1.96%</div><div class="mvr-s">₹405.00</div></div></div>
+        </div>
+        <div class="panel">
+          <h2>Dividends received (12 mo)</h2>
+          <div class="chartbox sm" id="divBox"><canvas id="divChart"></canvas></div>
+        </div>
+      </div>
+      <div class="grid-main">
+        <div class="panel">
+          <h2>Sector allocation</h2>
+          <div class="donutwrap">
+            <div class="chartbox sm" style="height:200px" id="sectorBox"><canvas id="sectorChart"></canvas></div>
+            <div id="sectorLegend" class="slegend"></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Returns &amp; tax <span class="sp"></span><a class="muted" style="cursor:pointer;font-size:11px" onclick="show('tax')">details →</a></h2>
+          <div class="minitiles">
+            <div class="mt"><div class="k">Annualised return (XIRR)</div><div class="v up">+25.7%</div><div class="sub muted">needs buy dates</div></div>
+            <div class="mt"><div class="k">Est. dividend income / yr</div><div class="v">₹19,089</div><div class="sub muted">trailing 12m × qty</div></div>
+            <div class="mt"><div class="k">Tax if sold today</div><div class="v">₹3,18,403</div><div class="sub muted">LTCG ₹1,45,221 · STCG ₹1,73,182</div></div>
+            <div class="mt"><div class="k">Nearing 1-yr (LTCG)</div><div class="v">6</div><div class="sub muted">hold to cut tax</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-main">
+        <div class="panel"><h2>⭐ Booking review — ≥15% in 6 months</h2><ul class="act"><li><b>VAML</b> — Vedanta Aluminium (demerger) <span class='muted'>(+1047.52% vs cost)</span><br><span class='note'>+1048% in 4 mo — meets your ≥15%-in-6-months rule; review for medium-term exit</span></li><li><b>KALYANKJIL</b> — Kalyan Jewellers <span class='muted'>(+44.15% vs cost)</span><br><span class='note'>+44% in 4 mo — meets your ≥15%-in-6-months rule; review for medium-term exit</span></li></ul></div>
+        <div class="panel"><h2>⚠️ Possible company issues</h2><ul class="act"><li><b>DRREDDY</b> — Dr Reddys Laboratories <span class='muted'>(-13.78% vs cost)</span><br><span class='note'>Recent headline flagged — see the News tab.</span></li></ul></div>
+      </div>
+      <div class="panel"><h2>⚖️ Concentration &amp; rebalancing</h2><ul class="act"><li><b>EICHERMOT</b> (stock) is <b>13.7%</b> of your portfolio — above your 10% limit. Consider trimming or diversifying new money elsewhere.</li></ul></div>
+    </section>
+
+    <!-- ================ HOLDINGS ================ -->
+    <section data-sec="holdings">
+      <div class="tablecard">
+        <div class="controls">
+          <span class="muted" style="align-self:center;padding-right:4px">Sort:</span>
+          <button data-sort="val" class="on">Value</button>
+          <button data-sort="pnl" title="Lifetime gain %">Lifetime gain</button>
+          <button data-sort="day" title="Today's move %">Today's gain</button>
+          <button data-sort="date" title="When you bought">Buy date</button>
+          <button data-sort="price" title="Price per share">Share price</button>
+          <button data-sort="qty" title="Number of shares held">Shares held</button>
+          <input id="tkFilter" placeholder="Filter… e.g. TATA" spellcheck="false">
+        </div>
+        <table class="data" id="tbl"><thead><tr>
+          <th>Stock</th><th class="num">Price</th><th class="num">Day</th><th class="num">Qty</th>
+          <th class="num">Avg cost</th><th class="num">Held</th><th class="num">Value</th><th class="num">P/L</th>
+          <th>Trend</th><th>Financials</th><th>Signals</th><th>Recent news</th>
+        </tr></thead><tbody>
+<tr data-day="1.93" data-pnl="5.66" data-val="1517972.0" data-price="7628.0" data-qty="199.0" data-date="2025-08-24" data-tk="eichermot eicher motors">
+          <td class="tk"><b>EICHERMOT</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Eicher Motors</div></td>
+          <td class="num">₹7,628.00</td>
+          <td class="num up">+1.93%</td>
+          <td class="num">199</td>
+          <td class="num">₹7,219.45</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹15,17,972</td>
+          <td class="num up">₹81,301<div class="sub">+5.66%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 97</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 97 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="1.55" data-pnl="11.05" data-val="790230.0" data-price="11130.0" data-qty="71.0" data-date="2025-08-24" data-tk="bajaj-auto bajaj auto">
+          <td class="tk"><b>BAJAJ-AUTO</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Bajaj Auto</div></td>
+          <td class="num">₹11,130.00</td>
+          <td class="num up">+1.55%</td>
+          <td class="num">71</td>
+          <td class="num">₹10,022.45</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹7,90,230</td>
+          <td class="num up">₹78,636<div class="sub">+11.05%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 97</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 97 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.51" data-pnl="131.17" data-val="730680.0" data-price="182.67" data-qty="4000.0" data-date="2025-08-24" data-tk="tatasteel tata steel">
+          <td class="tk"><b>TATASTEEL</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>55</span><div class="nm">Tata Steel</div></td>
+          <td class="num">₹182.67</td>
+          <td class="num down">-1.51%</td>
+          <td class="num">4,000</td>
+          <td class="num">₹79.02</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹7,30,680</td>
+          <td class="num up">₹4,14,600<div class="sub">+131.17%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 42</div></td>
+          <td class="finc"><div class='fin'><b>Mar 2026</b><br>Rev ₹55,980 cr <span class='up'>(+2.1%)</span><br>PAT ₹1,240 cr <span class='up'>(+28.0%)</span><br><span class='muted'>results 30 Jul 2026</span><br><span class='muted'>PE 18.9 · ROE 10% · D/E 1.35 · Yld 2.0%</span></div></td>
+          <td class="sig"><span class="chip" style="--c:#475569">Results due 30 Jul 2026</span> <span class="chip" style="--c:#475569">Announcement: q1 results</span> <span class="chip" style="--c:#475569">Kill: EBITDA/tonne below ₹8,000 for 2 quarters, or China dumping r</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><a class="news " href="https://news.google.com/" target="_blank" rel="noopener">Tata Steel Q1 results: profit beats estimates on higher volumes <em>24 Jul 2026</em></a></td>
+        </tr>
+<tr data-day="1.74" data-pnl="1.05" data-val="607164.0" data-price="10652.0" data-qty="57.0" data-date="2025-05-24" data-tk="ofss oracle financial services">
+          <td class="tk"><b>OFSS</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Oracle Financial Services</div></td>
+          <td class="num">₹10,652.00</td>
+          <td class="num up">+1.74%</td>
+          <td class="num">57</td>
+          <td class="num">₹10,541.16</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹6,07,164</td>
+          <td class="num up">₹6,318<div class="sub">+1.05%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 97</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 97 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.45" data-pnl="44.26" data-val="604800.0" data-price="302.4" data-qty="2000.0" data-date="2025-05-24" data-tk="ltf l&amp;t finance">
+          <td class="tk"><b>LTF</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">L&amp;T Finance</div></td>
+          <td class="num">₹302.40</td>
+          <td class="num down">-1.45%</td>
+          <td class="num">2,000</td>
+          <td class="num">₹209.62</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹6,04,800</td>
+          <td class="num up">₹1,85,560<div class="sub">+44.26%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 8</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 7 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="0.15" data-pnl="1167.17" data-val="549165.0" data-price="354.3" data-qty="1550.0" data-date="2025-05-24" data-tk="federalbnk federal bank">
+          <td class="tk"><b>FEDERALBNK</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>70</span><div class="nm">Federal Bank</div></td>
+          <td class="num">₹354.30</td>
+          <td class="num up">+0.15%</td>
+          <td class="num">1,550</td>
+          <td class="num">₹27.96</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹5,49,165</td>
+          <td class="num up">₹5,05,827<div class="sub">+1167.17%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 90</div></td>
+          <td class="finc"><div class='fin'><b>Jun 2026</b><br>PAT ₹1,060 cr <span class='up'>(+11.3%)</span><br><span class='muted'>results 28 Jul 2026</span><br><span class='muted'>PE 12.1 · ROE 14% · Yld 0.4%</span></div></td>
+          <td class="sig"><span class="chip" style="--c:#475569">Results due 28 Jul 2026</span> <span class="chip" style="--c:#b45309">Review overdue since 12 Jul</span> <span class="chip" style="--c:#475569">Kill: GNPA &gt; 3% or CEO exit</span> <span class="chip" style="--c:#475569">Near 52-week high</span> <span class="chip" style="--c:#b91c1c">RSI 90 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="1.79" data-pnl="-21.32" data-val="535838.4" data-price="210.96" data-qty="2540.0" data-date="2025-08-24" data-tk="silverbees nippon india silver etf">
+          <td class="tk"><b>SILVERBEES</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Nippon India Silver ETF</div></td>
+          <td class="num">₹210.96</td>
+          <td class="num up">+1.79%</td>
+          <td class="num">2,540</td>
+          <td class="num">₹268.11</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹5,35,838</td>
+          <td class="num down">-₹1,45,161<div class="sub">-21.32%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 74</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 74 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="1.01" data-pnl="1047.52" data-val="531432.0" data-price="435.6" data-qty="1220.0" data-date="2026-03-24" data-tk="vaml vedanta aluminium (demerger)">
+          <td class="tk"><b>VAML</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Vedanta Aluminium (demerger)</div></td>
+          <td class="num">₹435.60</td>
+          <td class="num up">+1.01%</td>
+          <td class="num">1,220</td>
+          <td class="num">₹37.96</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹5,31,432</td>
+          <td class="num up">₹4,85,121<div class="sub">+1047.52%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 95</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#b45309">+1048% in 4 mo — meets your ≥15%-in-6-months rule; review for medium-term exit</span> <span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 95 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="0.75" data-pnl="138.02" data-val="509215.0" data-price="727.45" data-qty="700.0" data-date="2025-05-24" data-tk="indhotel indian hotels">
+          <td class="tk"><b>INDHOTEL</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Indian Hotels</div></td>
+          <td class="num">₹727.45</td>
+          <td class="num up">+0.75%</td>
+          <td class="num">700</td>
+          <td class="num">₹305.62</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹5,09,215</td>
+          <td class="num up">₹2,95,281<div class="sub">+138.02%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 94</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 94 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-2.02" data-pnl="-1.59" data-val="500454.6" data-price="2254.3" data-qty="222.0" data-date="2025-05-24" data-tk="tcs tata consultancy services">
+          <td class="tk"><b>TCS</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>70</span><div class="nm">Tata Consultancy Services</div></td>
+          <td class="num">₹2,254.30</td>
+          <td class="num down">-2.02%</td>
+          <td class="num">222</td>
+          <td class="num">₹2,290.75</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹5,00,455</td>
+          <td class="num down">-₹8,092<div class="sub">-1.59%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 9</div></td>
+          <td class="finc"><div class='fin'><b>Jun 2026</b><br>Rev ₹66,479 cr <span class='up'>(+5.4%)</span><br>PAT ₹12,760 cr <span class='up'>(+4.2%)</span><br><span class='muted'>PE 27.4 · ROE 51% · D/E 0.05 · Yld 1.6%</span></div></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 9 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-0.41" data-pnl="0.3" data-val="450999.0" data-price="5011.1" data-qty="90.0" data-date="2025-05-24" data-tk="heromotoco hero motocorp">
+          <td class="tk"><b>HEROMOTOCO</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">Hero MotoCorp</div></td>
+          <td class="num">₹5,011.10</td>
+          <td class="num down">-0.41%</td>
+          <td class="num">90</td>
+          <td class="num">₹4,996.28</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹4,50,999</td>
+          <td class="num up">₹1,334<div class="sub">+0.30%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 13</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 13 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="0.51" data-pnl="-7.49" data-val="369883.8" data-price="3161.4" data-qty="117.0" data-date="2026-03-24" data-tk="m&amp;m mahindra and mahindra">
+          <td class="tk"><b>M&amp;M</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>55</span><div class="nm">Mahindra and Mahindra</div></td>
+          <td class="num">₹3,161.40</td>
+          <td class="num up">+0.51%</td>
+          <td class="num">117</td>
+          <td class="num">₹3,417.35</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹3,69,884</td>
+          <td class="num down">-₹29,946<div class="sub">-7.49%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 37</div></td>
+          <td class="finc"><div class='fin'><b>Jun 2026</b><br>Rev ₹31,050 cr <span class='up'>(+14.7%)</span><br>PAT ₹3,220 cr <span class='up'>(+19.9%)</span><br><span class='muted'>results 05 Aug 2026</span><br><span class='muted'>PE 29.1 · ROE 18% · D/E 1.90 · Yld 0.6%</span></div></td>
+          <td class="sig"><span class="chip" style="--c:#475569">Results due 05 Aug 2026</span> <span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">High debt/equity (1.9)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="2.08" data-pnl="265.93" data-val="342930.0" data-price="571.55" data-qty="600.0" data-date="2025-08-24" data-tk="mahseamles maharashtra seamless">
+          <td class="tk"><b>MAHSEAMLES</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Maharashtra Seamless</div></td>
+          <td class="num">₹571.55</td>
+          <td class="num up">+2.08%</td>
+          <td class="num">600</td>
+          <td class="num">₹156.19</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹3,42,930</td>
+          <td class="num up">₹2,49,216<div class="sub">+265.93%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 87</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 87 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-2.04" data-pnl="-4.85" data-val="333132.8" data-price="3785.6" data-qty="88.0" data-date="2025-08-24" data-tk="lt larsen and toubro">
+          <td class="tk"><b>LT</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">Larsen and Toubro</div></td>
+          <td class="num">₹3,785.60</td>
+          <td class="num down">-2.04%</td>
+          <td class="num">88</td>
+          <td class="num">₹3,978.73</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹3,33,133</td>
+          <td class="num down">-₹16,995<div class="sub">-4.85%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 17</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 17 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="0.79" data-pnl="1.86" data-val="325803.5" data-price="8805.5" data-qty="37.0" data-date="2025-05-24" data-tk="apollohosp apollo hospitals">
+          <td class="tk"><b>APOLLOHOSP</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>65</span><div class="nm">Apollo Hospitals</div></td>
+          <td class="num">₹8,805.50</td>
+          <td class="num up">+0.79%</td>
+          <td class="num">37</td>
+          <td class="num">₹8,644.64</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹3,25,804</td>
+          <td class="num up">₹5,952<div class="sub">+1.86%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 45</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.04" data-pnl="-4.75" data-val="322873.0" data-price="264.65" data-qty="1220.0" data-date="2025-08-24" data-tk="vedl vedanta">
+          <td class="tk"><b>VEDL</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>45</span><div class="nm">Vedanta</div></td>
+          <td class="num">₹264.65</td>
+          <td class="num down">-1.04%</td>
+          <td class="num">1,220</td>
+          <td class="num">₹277.86</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹3,22,873</td>
+          <td class="num down">-₹16,116<div class="sub">-4.75%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 55</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="1.29" data-pnl="0" data-val="308784.0" data-price="147.04" data-qty="2100.0" data-date="2025-05-24" data-tk="kitex kitex garments">
+          <td class="tk"><b>KITEX</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Kitex Garments</div></td>
+          <td class="num">₹147.04</td>
+          <td class="num up">+1.29%</td>
+          <td class="num">2,100</td>
+          <td class="num">₹0.00</td>
+          <td class="num">14 mo</td>
+          <td class="num">₹3,08,784</td>
+          <td class="num up">₹3,08,784<div class="sub">—</div></td>
+          <td class="num">▲ up<div class="sub">RSI 96</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 96 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.96" data-pnl="-8.04" data-val="283500.0" data-price="405.0" data-qty="700.0" data-date="2026-03-24" data-tk="bel bharat electronics">
+          <td class="tk"><b>BEL</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">Bharat Electronics</div></td>
+          <td class="num">₹405.00</td>
+          <td class="num down">-1.96%</td>
+          <td class="num">700</td>
+          <td class="num">₹440.42</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹2,83,500</td>
+          <td class="num down">-₹24,794<div class="sub">-8.04%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 23</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">Announcement: bonus issue</span> <span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 23 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><a class="news " href="https://news.google.com/" target="_blank" rel="noopener">Bharat Electronics board to consider bonus issue on Aug 4 <em>23 Jul 2026</em></a></td>
+        </tr>
+<tr data-day="0.19" data-pnl="-7.86" data-val="279135.0" data-price="310.15" data-qty="900.0" data-date="2025-05-24" data-tk="bpcl bharat petroleum">
+          <td class="tk"><b>BPCL</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">Bharat Petroleum</div></td>
+          <td class="num">₹310.15</td>
+          <td class="num up">+0.19%</td>
+          <td class="num">900</td>
+          <td class="num">₹336.62</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹2,79,135</td>
+          <td class="num down">-₹23,823<div class="sub">-7.86%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 26</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 26 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.94" data-pnl="-14.84" data-val="218133.5" data-price="117.91" data-qty="1850.0" data-date="2025-08-24" data-tk="goldbees nippon india gold etf">
+          <td class="tk"><b>GOLDBEES</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">Nippon India Gold ETF</div></td>
+          <td class="num">₹117.91</td>
+          <td class="num down">-1.94%</td>
+          <td class="num">1,850</td>
+          <td class="num">₹138.46</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹2,18,134</td>
+          <td class="num down">-₹38,018<div class="sub">-14.84%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 8</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 8 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><a class="news " href="https://news.google.com/" target="_blank" rel="noopener">Gold ETFs see outflows as prices cool from record highs <em>23 Jul 2026</em></a></td>
+        </tr>
+<tr data-day="-2.07" data-pnl="-10.0" data-val="175912.0" data-price="159.92" data-qty="1100.0" data-date="2025-08-24" data-tk="itchotels itc hotels">
+          <td class="tk"><b>ITCHOTELS</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">ITC Hotels</div></td>
+          <td class="num">₹159.92</td>
+          <td class="num down">-2.07%</td>
+          <td class="num">1,100</td>
+          <td class="num">₹177.68</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹1,75,912</td>
+          <td class="num down">-₹19,536<div class="sub">-10.00%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 11</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 11 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="2.2" data-pnl="8.42" data-val="146720.0" data-price="1467.2" data-qty="100.0" data-date="2025-05-24" data-tk="unitdspr united spirits">
+          <td class="tk"><b>UNITDSPR</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">United Spirits</div></td>
+          <td class="num">₹1,467.20</td>
+          <td class="num up">+2.20%</td>
+          <td class="num">100</td>
+          <td class="num">₹1,353.30</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹1,46,720</td>
+          <td class="num up">₹11,390<div class="sub">+8.42%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 96</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 96 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-0.45" data-pnl="6.08" data-val="93835.0" data-price="1876.7" data-qty="50.0" data-date="2025-05-24" data-tk="bajajfinsv bajaj finserv">
+          <td class="tk"><b>BAJAJFINSV</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Bajaj Finserv</div></td>
+          <td class="num">₹1,876.70</td>
+          <td class="num down">-0.45%</td>
+          <td class="num">50</td>
+          <td class="num">₹1,769.13</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹93,835</td>
+          <td class="num up">₹5,378<div class="sub">+6.08%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 72</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 73 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.85" data-pnl="-1.36" data-val="92930.0" data-price="1858.6" data-qty="50.0" data-date="2025-08-24" data-tk="sbilife sbi life insurance">
+          <td class="tk"><b>SBILIFE</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">SBI Life Insurance</div></td>
+          <td class="num">₹1,858.60</td>
+          <td class="num down">-1.85%</td>
+          <td class="num">50</td>
+          <td class="num">₹1,884.31</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹92,930</td>
+          <td class="num down">-₹1,286<div class="sub">-1.36%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 29</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 29 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="2.16" data-pnl="-1.72" data-val="61365.0" data-price="1227.3" data-qty="50.0" data-date="2026-03-24" data-tk="axisbank axis bank">
+          <td class="tk"><b>AXISBANK</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Axis Bank</div></td>
+          <td class="num">₹1,227.30</td>
+          <td class="num up">+2.16%</td>
+          <td class="num">50</td>
+          <td class="num">₹1,248.83</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹61,365</td>
+          <td class="num down">-₹1,076<div class="sub">-1.72%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 91</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 91 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="1.95" data-pnl="-13.78" data-val="57585.0" data-price="1151.7" data-qty="50.0" data-date="2026-03-24" data-tk="drreddy dr reddys laboratories">
+          <td class="tk"><b>DRREDDY</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>70</span><div class="nm">Dr Reddys Laboratories</div></td>
+          <td class="num">₹1,151.70</td>
+          <td class="num up">+1.95%</td>
+          <td class="num">50</td>
+          <td class="num">₹1,335.71</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹57,585</td>
+          <td class="num down">-₹9,200<div class="sub">-13.78%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 81</div></td>
+          <td class="finc"><div class='fin'><span class='muted'>PE 17.2 · ROE 18% · D/E 0.09 · Yld 0.7%</span></div></td>
+          <td class="sig"><span class="chip" style="--c:#b91c1c">Possible company/scope issue in recent news — read before deciding</span> <span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 81 — overbought (short-term)</span></td>
+          <td class="nws"><a class="news neg" href="https://news.google.com/" target="_blank" rel="noopener">Dr Reddy&#x27;s shares slump after US FDA issues observations <em>22 Jul 2026</em></a></td>
+        </tr>
+<tr data-day="2.15" data-pnl="-16.35" data-val="48315.0" data-price="483.15" data-qty="100.0" data-date="2025-08-24" data-tk="hindcopper hindustan copper">
+          <td class="tk"><b>HINDCOPPER</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>70</span><div class="nm">Hindustan Copper</div></td>
+          <td class="num">₹483.15</td>
+          <td class="num up">+2.15%</td>
+          <td class="num">100</td>
+          <td class="num">₹577.61</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹48,315</td>
+          <td class="num down">-₹9,446<div class="sub">-16.35%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 97</div></td>
+          <td class="finc"><div class='fin'><span class='muted'>PE 44.0 · ROE 13% · D/E 0.11 · Yld 0.5%</span></div></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 97 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="1.58" data-pnl="-12.87" data-val="47140.0" data-price="942.8" data-qty="50.0" data-date="2026-03-24" data-tk="hindalco hindalco industries">
+          <td class="tk"><b>HINDALCO</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>65</span><div class="nm">Hindalco Industries</div></td>
+          <td class="num">₹942.80</td>
+          <td class="num up">+1.58%</td>
+          <td class="num">50</td>
+          <td class="num">₹1,082.02</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹47,140</td>
+          <td class="num down">-₹6,961<div class="sub">-12.87%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 67</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-2.08" data-pnl="-46.08" data-val="42712.2" data-price="35.01" data-qty="1220.0" data-date="2025-05-24" data-tk="vedpower vedanta power (demerger)">
+          <td class="tk"><b>VEDPOWER</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">Vedanta Power (demerger)</div></td>
+          <td class="num">₹35.01</td>
+          <td class="num down">-2.08%</td>
+          <td class="num">1,220</td>
+          <td class="num">₹64.93</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹42,712</td>
+          <td class="num down">-₹36,502<div class="sub">-46.08%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 13</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 13 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="0.83" data-pnl="-69.99" data-val="41760.6" data-price="34.23" data-qty="1220.0" data-date="2025-08-24" data-tk="vogl vedanta oil &amp; gas (demerger)">
+          <td class="tk"><b>VOGL</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>65</span><div class="nm">Vedanta Oil &amp; Gas (demerger)</div></td>
+          <td class="num">₹34.23</td>
+          <td class="num up">+0.83%</td>
+          <td class="num">1,220</td>
+          <td class="num">₹114.08</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹41,761</td>
+          <td class="num down">-₹97,417<div class="sub">-69.99%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 46</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.21" data-pnl="-15.81" data-val="37027.0" data-price="30.35" data-qty="1220.0" data-date="2026-03-24" data-tk="visl vedanta iron &amp; steel (demerger)">
+          <td class="tk"><b>VISL</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">Vedanta Iron &amp; Steel (demerger)</div></td>
+          <td class="num">₹30.35</td>
+          <td class="num down">-1.21%</td>
+          <td class="num">1,220</td>
+          <td class="num">₹36.05</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹37,027</td>
+          <td class="num down">-₹6,954<div class="sub">-15.81%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 8</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 8 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-0.97" data-pnl="1034.96" data-val="29104.04" data-price="234.71" data-qty="124.0" data-date="2025-05-24" data-tk="jiofin jio financial services">
+          <td class="tk"><b>JIOFIN</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">Jio Financial Services</div></td>
+          <td class="num">₹234.71</td>
+          <td class="num down">-0.97%</td>
+          <td class="num">124</td>
+          <td class="num">₹20.68</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹29,104</td>
+          <td class="num up">₹26,540<div class="sub">+1034.96%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 9</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 9 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="1.36" data-pnl="8.75" data-val="28682.0" data-price="1434.1" data-qty="20.0" data-date="2025-08-24" data-tk="torntpower torrent power">
+          <td class="tk"><b>TORNTPOWER</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>65</span><div class="nm">Torrent Power</div></td>
+          <td class="num">₹1,434.10</td>
+          <td class="num up">+1.36%</td>
+          <td class="num">20</td>
+          <td class="num">₹1,318.71</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹28,682</td>
+          <td class="num up">₹2,308<div class="sub">+8.75%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 61</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="2.05" data-pnl="12.42" data-val="26144.24" data-price="46.52" data-qty="562.0" data-date="2025-05-24" data-tk="southbank south indian bank">
+          <td class="tk"><b>SOUTHBANK</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">South Indian Bank</div></td>
+          <td class="num">₹46.52</td>
+          <td class="num up">+2.05%</td>
+          <td class="num">562</td>
+          <td class="num">₹41.38</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹26,144</td>
+          <td class="num up">₹2,889<div class="sub">+12.42%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 97</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 97 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-0.17" data-pnl="-3.61" data-val="14410.0" data-price="288.2" data-qty="50.0" data-date="2026-03-24" data-tk="powergrid power grid corporation">
+          <td class="tk"><b>POWERGRID</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Power Grid Corporation</div></td>
+          <td class="num">₹288.20</td>
+          <td class="num down">-0.17%</td>
+          <td class="num">50</td>
+          <td class="num">₹298.99</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹14,410</td>
+          <td class="num down">-₹540<div class="sub">-3.61%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 82</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 82 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.27" data-pnl="-11.11" data-val="12048.0" data-price="120.48" data-qty="100.0" data-date="2026-03-24" data-tk="ireda ireda">
+          <td class="tk"><b>IREDA</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>45</span><div class="nm">IREDA</div></td>
+          <td class="num">₹120.48</td>
+          <td class="num down">-1.27%</td>
+          <td class="num">100</td>
+          <td class="num">₹135.54</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹12,048</td>
+          <td class="num down">-₹1,506<div class="sub">-11.11%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 49</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="0.43" data-pnl="-0.83" data-val="10456.0" data-price="52.28" data-qty="200.0" data-date="2026-03-24" data-tk="suzlon suzlon energy">
+          <td class="tk"><b>SUZLON</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>80</span><div class="nm">Suzlon Energy</div></td>
+          <td class="num">₹52.28</td>
+          <td class="num up">+0.43%</td>
+          <td class="num">200</td>
+          <td class="num">₹52.72</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹10,456</td>
+          <td class="num down">-₹88<div class="sub">-0.83%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 92</div></td>
+          <td class="finc"><div class='fin'><b>Jun 2026</b><br>Rev ₹3,530 cr <span class='up'>(+73.0%)</span><br>PAT ₹890 cr <span class='up'>(+240.0%)</span><br><span class='muted'>results 25 Jul 2026</span><br><span class='muted'>PE 61.0 · ROE 22% · D/E 0.02</span></div></td>
+          <td class="sig"><span class="chip" style="--c:#475569">Results due 25 Jul 2026</span> <span class="chip" style="--c:#475569">Kill: Order book flat QoQ twice</span> <span class="chip" style="--c:#b91c1c">RSI 92 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-0.68" data-pnl="4.58" data-val="1559.5" data-price="1559.5" data-qty="1.0" data-date="2026-03-24" data-tk="techm tech mahindra">
+          <td class="tk"><b>TECHM</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">Tech Mahindra</div></td>
+          <td class="num">₹1,559.50</td>
+          <td class="num down">-0.68%</td>
+          <td class="num">1</td>
+          <td class="num">₹1,491.16</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹1,560</td>
+          <td class="num up">₹68<div class="sub">+4.58%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 11</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 11 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="2.21" data-pnl="-6.1" data-val="1497.1" data-price="1497.1" data-qty="1.0" data-date="2025-08-24" data-tk="kirlpnu kirloskar pneumatic">
+          <td class="tk"><b>KIRLPNU</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Kirloskar Pneumatic</div></td>
+          <td class="num">₹1,497.10</td>
+          <td class="num up">+2.21%</td>
+          <td class="num">1</td>
+          <td class="num">₹1,594.42</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹1,497</td>
+          <td class="num down">-₹97<div class="sub">-6.10%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 94</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 94 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-0.76" data-pnl="-27.24" data-val="1280.0" data-price="32.0" data-qty="40.0" data-date="2026-03-24" data-tk="kwil kwil">
+          <td class="tk"><b>KWIL</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>65</span><div class="nm">KWIL</div></td>
+          <td class="num">₹32.00</td>
+          <td class="num down">-0.76%</td>
+          <td class="num">40</td>
+          <td class="num">₹43.98</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹1,280</td>
+          <td class="num down">-₹479<div class="sub">-27.24%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 63</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.81" data-pnl="-6.58" data-val="1015.0" data-price="1015.0" data-qty="1.0" data-date="2025-05-24" data-tk="sbin state bank of india">
+          <td class="tk"><b>SBIN</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">State Bank of India</div></td>
+          <td class="num">₹1,015.00</td>
+          <td class="num down">-1.81%</td>
+          <td class="num">1</td>
+          <td class="num">₹1,086.49</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹1,015</td>
+          <td class="num down">-₹71<div class="sub">-6.58%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 7</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 7 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-0.09" data-pnl="8.78" data-val="1005.1" data-price="1005.1" data-qty="1.0" data-date="2026-03-24" data-tk="shriramfin shriram finance">
+          <td class="tk"><b>SHRIRAMFIN</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">Shriram Finance</div></td>
+          <td class="num">₹1,005.10</td>
+          <td class="num down">-0.09%</td>
+          <td class="num">1</td>
+          <td class="num">₹923.95</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹1,005</td>
+          <td class="num up">₹81<div class="sub">+8.78%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 17</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 17 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="1.09" data-pnl="44.15" data-val="573.55" data-price="573.55" data-qty="1.0" data-date="2026-03-24" data-tk="kalyankjil kalyan jewellers">
+          <td class="tk"><b>KALYANKJIL</b><span class='hb hgood' title='Rule-based health score (formula in engine.py)'>65</span><div class="nm">Kalyan Jewellers</div></td>
+          <td class="num">₹573.55</td>
+          <td class="num up">+1.09%</td>
+          <td class="num">1</td>
+          <td class="num">₹397.88</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹574</td>
+          <td class="num up">₹176<div class="sub">+44.15%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 53</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#b45309">+44% in 4 mo — meets your ≥15%-in-6-months rule; review for medium-term exit</span> <span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.66" data-pnl="3.11" data-val="417.3" data-price="417.3" data-qty="1.0" data-date="2025-08-24" data-tk="bhel bhel">
+          <td class="tk"><b>BHEL</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>40</span><div class="nm">BHEL</div></td>
+          <td class="num">₹417.30</td>
+          <td class="num down">-1.66%</td>
+          <td class="num">1</td>
+          <td class="num">₹404.71</td>
+          <td class="num">11 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹417</td>
+          <td class="num up">₹13<div class="sub">+3.11%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 7</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#047857">RSI 7 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="-1.68" data-pnl="-98.2" data-val="366.0" data-price="1.0" data-qty="366.0" data-date="2026-03-24" data-tk="gold1g gold etf">
+          <td class="tk"><b>GOLD1G</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>45</span><div class="nm">Gold ETF</div></td>
+          <td class="num">₹1.00</td>
+          <td class="num down">-1.68%</td>
+          <td class="num">366</td>
+          <td class="num">₹55.62</td>
+          <td class="num">4 mo <span class='taxb stcg'>STCG</span></td>
+          <td class="num">₹366</td>
+          <td class="num down">-₹19,991<div class="sub">-98.20%</div></td>
+          <td class="num">▼ down<div class="sub">RSI 36</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+<tr data-day="2.17" data-pnl="1.21" data-val="177.12" data-price="177.12" data-qty="1.0" data-date="2025-05-24" data-tk="wipro wipro">
+          <td class="tk"><b>WIPRO</b><span class='hb hmid' title='Rule-based health score (formula in engine.py)'>60</span><div class="nm">Wipro</div></td>
+          <td class="num">₹177.12</td>
+          <td class="num up">+2.17%</td>
+          <td class="num">1</td>
+          <td class="num">₹175.01</td>
+          <td class="num">14 mo <span class='taxb ltcg'>LTCG</span></td>
+          <td class="num">₹177</td>
+          <td class="num up">₹2<div class="sub">+1.21%</div></td>
+          <td class="num">▲ up<div class="sub">RSI 91</div></td>
+          <td class="finc"><span class='muted'>—</span></td>
+          <td class="sig"><span class="chip" style="--c:#475569">No written thesis — add one in ✎ Discipline</span> <span class="chip" style="--c:#b91c1c">RSI 91 — overbought (short-term)</span></td>
+          <td class="nws"><span class='muted'>—</span></td>
+        </tr>
+        </tbody></table>
+      </div>
+    </section>
+
+    <!-- ================ CORPORATE ================ -->
+    <section data-sec="corporate">
+      <div class="grid-main">
+        <div class="panel"><h2>📅 Upcoming — next 30 days</h2><div class='calrow'><span class='cald'>Sat 25 Jul</span><b>SUZLON</b> <span class='muted'>results</span><span class='slp'>tomorrow</span></div><div class='calrow'><span class='cald'>Tue 28 Jul</span><b>FEDERALBNK</b> <span class='muted'>results</span><span class='slp'>in 4d</span></div><div class='calrow'><span class='cald'>Thu 30 Jul</span><b>TATASTEEL</b> <span class='muted'>results</span><span class='slp'>in 6d</span></div><div class='calrow'><span class='cald'>Wed 05 Aug</span><b>M&amp;M</b> <span class='muted'>results</span><span class='slp'>in 12d</span></div></div>
+        <div class="panel"><h2>ℹ️</h2><div class="muted" style="font-size:12.5px">Dates come from Yahoo's earnings calendar and headline scanning — always confirm on the exchange before acting. Dividend/split history is in the list below.</div></div>
+      </div>
+      <div class="panel"><h2>🏛️ Corporate actions, results &amp; events</h2><ul class="act corp"><li><b>TATASTEEL</b> — results due <b>30 Jul 2026</b></li><li><b>TATASTEEL</b> — dividend ₹3.6 <span class='muted'>(20 Jun 2026)</span></li><li><b>TATASTEEL</b> — <a href='https://news.google.com/' target='_blank' rel='noopener'>Tata Steel Q1 results: profit beats estimates on higher volumes</a> <span class='muted'>[q1 results]</span></li><li><b>FEDERALBNK</b> — results due <b>28 Jul 2026</b></li><li><b>TCS</b> — dividend ₹10.0 <span class='muted'>(16 Jul 2026)</span></li><li><b>M&amp;M</b> — results due <b>05 Aug 2026</b></li><li><b>M&amp;M</b> — dividend ₹21.1 <span class='muted'>(05 Jul 2026)</span></li><li><b>BEL</b> — <a href='https://news.google.com/' target='_blank' rel='noopener'>Bharat Electronics board to consider bonus issue on Aug 4</a> <span class='muted'>[bonus issue]</span></li><li><b>SUZLON</b> — results due <b>25 Jul 2026</b></li><li><b>RELIANCE</b> — <a href='https://news.google.com/' target='_blank' rel='noopener'>Reliance Industries Q1 results on July 29; retail arm in focus</a> <span class='muted'>[results]</span></li></ul></div>
+    </section>
+
+    <!-- ================ INSIGHTS ================ -->
+    <section data-sec="insights">
+      <div class="cards">
+        <div class="card"><div class="k">Annualised return</div><div class="v up">+13.5%</div><span class="muted" style="font-size:11px">from history</span></div>
+        <div class="card"><div class="k">Volatility (ann.)</div><div class="v">0.6%</div><span class="muted" style="font-size:11px">daily σ × √252</span></div>
+        <div class="card"><div class="k">Max drawdown</div><div class="v" style="font-size:17px"><span class='down'>-0.0%</span><div class='sub muted'>2025-08-07 → 2025-08-12 · recovered 2025-08-14</div></div></div>
+        <div class="card"><div class="k">Beta vs Nifty · risk-adj.</div><div class="v">-0.11 · 11.67</div><span class="muted" style="font-size:11px">&gt;1 = swings more than market · higher is better</span></div>
+      </div>
+      <div class="warnbar">📸 Recording daily snapshots since <b>2026-07-24</b> (1 so far) — history before that is reconstructed from today's holdings.</div>
+      <div class="grid-main">
+        <div class="panel">
+          <h2>Where could this go? — 3-year Monte Carlo</h2>
+          <div class="chartbox" id="mcBox"><canvas id="mcChart"></canvas></div>
+          <div class="muted" style="font-size:11.5px;margin-top:8px">1000 simulations bootstrapped from your portfolio's real daily returns. Bands are the 10th–90th percentile; the middle line is the median. A projection, not a promise.</div>
+        </div>
+        <div class="panel">
+          <h2>Move-together pairs <span class="sp"></span><span class="muted" style="font-size:11px">diversification 100/100</span></h2>
+          <div class="muted" style="font-size:11.5px;margin-bottom:8px">Highest return-correlation among your larger holdings — pairs near +1.00 behave like one position.</div>
+          <div class='slrow'><span class='sln'><b>GOLDBEES</b> ↔ <b>TCS</b></span><span class='slp'>+0.99</span></div><div class='slrow'><span class='sln'><b>ITCHOTELS</b> ↔ <b>TCS</b></span><span class='slp'>+0.99</span></div><div class='slrow'><span class='sln'><b>BEL</b> ↔ <b>LT</b></span><span class='slp'>+0.99</span></div><div class='slrow'><span class='sln'><b>BAJAJ-AUTO</b> ↔ <b>OFSS</b></span><span class='slp'>+0.99</span></div><div class='slrow'><span class='sln'><b>EICHERMOT</b> ↔ <b>OFSS</b></span><span class='slp'>+0.99</span></div><div class='slrow'><span class='sln'><b>INDHOTEL</b> ↔ <b>VAML</b></span><span class='slp'>+0.99</span></div><div class='slrow'><span class='sln'><b>BAJAJ-AUTO</b> ↔ <b>KITEX</b></span><span class='slp'>+0.99</span></div><div class='slrow'><span class='sln'><b>APOLLOHOSP</b> ↔ <b>M&amp;M</b></span><span class='slp'>+0.99</span></div><div class='slrow'><span class='sln'><b>KITEX</b> ↔ <b>VAML</b></span><span class='slp'>+0.99</span></div><div class='slrow'><span class='sln'><b>SILVERBEES</b> ↔ <b>TATASTEEL</b></span><span class='slp'>-0.98</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>🧪 Your rule, backtested — sell at +15% within 6 months vs buy &amp; hold</h2>
+        <div style="font-size:13px;margin-bottom:10px">Over this window buy-and-hold <b class='down'>beat your rule</b> by 22.4 pts (value-weighted) — the rule sold winners early 16 of 46 times.</div>
+        <div style="overflow:auto"><table class="data" style="min-width:560px"><thead><tr>
+          <th>Stock</th><th class="num">Buy &amp; hold</th><th class="num">Your rule</th><th>Rule action</th>
+        </tr></thead><tbody><tr><td><b>EICHERMOT</b></td><td class='num up'>+74.2%</td><td class='num up'>+15.4%</td><td>sold day 52</td></tr><tr><td><b>BAJAJ-AUTO</b></td><td class='num up'>+65.4%</td><td class='num up'>+15.1%</td><td>sold day 58</td></tr><tr><td><b>TATASTEEL</b></td><td class='num down'>-10.1%</td><td class='num down'>-10.1%</td><td>never triggered</td></tr><tr><td><b>OFSS</b></td><td class='num up'>+70.5%</td><td class='num up'>+15.2%</td><td>sold day 53</td></tr><tr><td><b>LTF</b></td><td class='num down'>-22.7%</td><td class='num down'>-22.7%</td><td>never triggered</td></tr><tr><td><b>FEDERALBNK</b></td><td class='num up'>+26.0%</td><td class='num up'>+26.0%</td><td>never triggered</td></tr><tr><td><b>SILVERBEES</b></td><td class='num up'>+35.1%</td><td class='num up'>+15.1%</td><td>sold day 111</td></tr><tr><td><b>VAML</b></td><td class='num up'>+50.0%</td><td class='num up'>+15.1%</td><td>sold day 90</td></tr><tr><td><b>INDHOTEL</b></td><td class='num up'>+42.3%</td><td class='num up'>+15.0%</td><td>sold day 94</td></tr><tr><td><b>TCS</b></td><td class='num down'>-24.6%</td><td class='num down'>-24.6%</td><td>never triggered</td></tr><tr><td><b>HEROMOTOCO</b></td><td class='num down'>-13.3%</td><td class='num down'>-13.3%</td><td>never triggered</td></tr><tr><td><b>M&amp;M</b></td><td class='num up'>-0.0%</td><td class='num up'>-0.0%</td><td>never triggered</td></tr><tr><td><b>MAHSEAMLES</b></td><td class='num up'>+51.5%</td><td class='num up'>+15.0%</td><td>sold day 96</td></tr><tr><td><b>LT</b></td><td class='num down'>-21.4%</td><td class='num down'>-21.4%</td><td>never triggered</td></tr><tr><td><b>APOLLOHOSP</b></td><td class='num up'>+5.3%</td><td class='num up'>+5.3%</td><td>never triggered</td></tr></tbody></table></div>
+        <div class="muted" style="font-size:11.5px;margin-top:8px">Simplified test over the last year of prices: entry at window start, cash after a rule-sell, top 15 by value shown. It measures the rule's tendency, not an exact replay of your trades.</div>
+      </div>
+    </section>
+
+    <!-- ================ NEWS ================ -->
+    <section data-sec="news">
+      <div class="newsgrid"><div class="newscard"><h3><span class="av" style="--h:285">TA</span> TATASTEEL<span class="muted" style="font-weight:400">Tata Steel</span></h3><a class="news " href="https://news.google.com/" target="_blank" rel="noopener">Tata Steel Q1 results: profit beats estimates on higher volumes <em>24 Jul 2026</em></a></div><div class="newscard"><h3><span class="av" style="--h:25">BE</span> BEL<span class="muted" style="font-weight:400">Bharat Electronics</span></h3><a class="news " href="https://news.google.com/" target="_blank" rel="noopener">Bharat Electronics board to consider bonus issue on Aug 4 <em>23 Jul 2026</em></a></div><div class="newscard"><h3><span class="av" style="--h:25">GO</span> GOLDBEES<span class="muted" style="font-weight:400">Nippon India Gold ETF</span></h3><a class="news " href="https://news.google.com/" target="_blank" rel="noopener">Gold ETFs see outflows as prices cool from record highs <em>23 Jul 2026</em></a></div><div class="newscard"><h3><span class="av" style="--h:260">DR</span> DRREDDY<span class="muted" style="font-weight:400">Dr Reddys Laboratories</span></h3><a class="news neg" href="https://news.google.com/" target="_blank" rel="noopener">Dr Reddy&#x27;s shares slump after US FDA issues observations <em>22 Jul 2026</em></a></div><div class="newscard"><h3><span class="av" style="--h:285">RE</span> RELIANCE<span class="muted" style="font-weight:400">Reliance Industries</span></h3><a class="news " href="https://news.google.com/" target="_blank" rel="noopener">Reliance Industries Q1 results on July 29; retail arm in focus <em>23 Jul 2026</em></a></div></div>
+    </section>
+
+    <!-- ================ DISCIPLINE ================ -->
+    <section data-sec="discipline">
+      <div class="grid-main">
+        <div class="panel">
+          <h2>🎯 Process-adherence score <span class="sp"></span><span class="adbadge down">31/100</span></h2>
+          <div class="muted" style="font-size:12.5px;margin-bottom:10px">Discipline is the tracked metric; the portfolio outcome is secondary. Formula in scripts/discipline.py.</div>
+          <div class='slrow'><span class='sln'>Theses written <span class='muted'>· 3/46 positions have a written thesis</span></span><span class='slp'>2/30</span></div><div class='slrow'><span class='sln'>Review dates current <span class='muted'>· 2/46 have a future review date</span></span><span class='slp'>1/20</span></div><div class='slrow'><span class='sln'>Journal cadence <span class='muted'>· 2/12 recent weeks journalled</span></span><span class='slp'>4/25</span></div><div class='slrow'><span class='sln'>Violations <span class='muted'>· 1 in the last 12 months</span></span><span class='slp'>14/15</span></div><div class='slrow'><span class='sln'>Friction <span class='muted'>· 0.00% of portfolio this year</span></span><span class='slp'>10/10</span></div>
+        </div>
+        <div class="panel">
+          <h2>🚫 Violations <span class="sp"></span><span class="muted" style="font-size:11px">1 recorded</span></h2>
+          <div class="muted" style="font-size:12.5px;margin-bottom:10px">Rules can be broken — but never silently. Log any deviation with a typed justification (✎ Edit portfolio → Violations).</div>
+          <div class='jrow'><span class='cald'>2026-06-14</span><b>sell_before_review</b> <span class='muted'>KWIL</span><div class='jnote'>Exited before review date on liquidity concerns — accepted the violation.</div></div>
+        </div>
+      </div>
+      <div class="panel" style="margin-bottom:14px">
+        <h2>📖 Journal <span class="sp"></span><span class="muted" style="font-size:11px">2/12 recent weeks covered · 2 entries</span></h2>
+        <div class="muted" style="font-size:12.5px;margin-bottom:10px">Weekly, thesis-focused notes — price commentary alone doesn't count. Say what changed structurally, or say "no structural change."</div>
+        <div class='jrow'><span class='cald'>2026-07-24</span><b>TATASTEEL</b> <span class='muted'>[note]</span><div class='jnote'>Q1 results: EBITDA/tonne ₹12,400 — proof metric holding. No structural change.</div></div><div class='jrow'><span class='cald'>2026-07-17</span><b>Portfolio</b> <span class='muted'>[note]</span><div class='jnote'>Weekly sweep: no structural change across portfolio. Metals capex commentary positive.</div></div>
+      </div>
+      <div class="tablecard">
+        <div class="controls"><b style="font-size:13px;padding:4px">📜 Theses, kill conditions &amp; review dates</b>
+          <span class="muted" style="font-size:11.5px;align-self:center">A position without a written falsifiable thesis is a feeling. Edit via ✎ Edit portfolio → Discipline.</span></div>
+        <table class="data"><thead><tr>
+          <th>Position</th><th>Stage</th><th>Thesis</th><th>Proof metric</th><th>Kill condition</th><th class="num">Review</th>
+        </tr></thead><tbody>
+<tr>
+          <td class="tk"><b>EICHERMOT</b><div class="nm">Eicher Motors</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>BAJAJ-AUTO</b><div class="nm">Bajaj Auto</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>TATASTEEL</b><div class="nm">Tata Steel</div></td>
+          <td><span class="stage s-systematize">SYSTEMATIZE</span></td>
+          <td class="thz">India steel demand compounding with infra capex; TSL cost curve improving post-UK restructuring</td>
+          <td class="thz">EBITDA/tonne &gt; ₹12,000 for 2 consecutive quarters</td>
+          <td class="thz kill">EBITDA/tonne below ₹8,000 for 2 quarters, or China dumping resumes</td>
+          <td class="num">2026-09-07</td>
+        </tr>
+<tr>
+          <td class="tk"><b>OFSS</b><div class="nm">Oracle Financial Services</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>LTF</b><div class="nm">L&amp;T Finance</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>FEDERALBNK</b><div class="nm">Federal Bank</div></td>
+          <td><span class="stage s-scale">SCALE</span></td>
+          <td class="thz">Best-in-class mid bank; NIM expansion + branch productivity story intact</td>
+          <td class="thz">ROA ≥ 1.3% sustained</td>
+          <td class="thz kill">GNPA &gt; 3% or CEO exit</td>
+          <td class="num">2026-07-12</td>
+        </tr>
+<tr>
+          <td class="tk"><b>SILVERBEES</b><div class="nm">Nippon India Silver ETF</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>VAML</b><div class="nm">Vedanta Aluminium (demerger)</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>INDHOTEL</b><div class="nm">Indian Hotels</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>TCS</b><div class="nm">Tata Consultancy Services</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>HEROMOTOCO</b><div class="nm">Hero MotoCorp</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>M&amp;M</b><div class="nm">Mahindra and Mahindra</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>MAHSEAMLES</b><div class="nm">Maharashtra Seamless</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>LT</b><div class="nm">Larsen and Toubro</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>APOLLOHOSP</b><div class="nm">Apollo Hospitals</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>VEDL</b><div class="nm">Vedanta</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>KITEX</b><div class="nm">Kitex Garments</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>BEL</b><div class="nm">Bharat Electronics</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>BPCL</b><div class="nm">Bharat Petroleum</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>GOLDBEES</b><div class="nm">Nippon India Gold ETF</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>ITCHOTELS</b><div class="nm">ITC Hotels</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>UNITDSPR</b><div class="nm">United Spirits</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>BAJAJFINSV</b><div class="nm">Bajaj Finserv</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>SBILIFE</b><div class="nm">SBI Life Insurance</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>AXISBANK</b><div class="nm">Axis Bank</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>DRREDDY</b><div class="nm">Dr Reddys Laboratories</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>HINDCOPPER</b><div class="nm">Hindustan Copper</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>HINDALCO</b><div class="nm">Hindalco Industries</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>VEDPOWER</b><div class="nm">Vedanta Power (demerger)</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>VOGL</b><div class="nm">Vedanta Oil &amp; Gas (demerger)</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>VISL</b><div class="nm">Vedanta Iron &amp; Steel (demerger)</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>JIOFIN</b><div class="nm">Jio Financial Services</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>TORNTPOWER</b><div class="nm">Torrent Power</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>SOUTHBANK</b><div class="nm">South Indian Bank</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>POWERGRID</b><div class="nm">Power Grid Corporation</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>IREDA</b><div class="nm">IREDA</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>SUZLON</b><div class="nm">Suzlon Energy</div></td>
+          <td><span class="stage s-prove">PROVE</span></td>
+          <td class="thz">Wind capex cycle turning; order book conversion is the test</td>
+          <td class="thz">2 quarters of positive FCF</td>
+          <td class="thz kill">Order book flat QoQ twice</td>
+          <td class="num">2026-09-07</td>
+        </tr>
+<tr>
+          <td class="tk"><b>TECHM</b><div class="nm">Tech Mahindra</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>KIRLPNU</b><div class="nm">Kirloskar Pneumatic</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>KWIL</b><div class="nm">KWIL</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>SBIN</b><div class="nm">State Bank of India</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>SHRIRAMFIN</b><div class="nm">Shriram Finance</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>KALYANKJIL</b><div class="nm">Kalyan Jewellers</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>BHEL</b><div class="nm">BHEL</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>GOLD1G</b><div class="nm">Gold ETF</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+<tr>
+          <td class="tk"><b>WIPRO</b><div class="nm">Wipro</div></td>
+          <td><span class="stage s-—">—</span></td>
+          <td class="thz"><span class='addd'>no thesis — position is a feeling, not an investment</span></td>
+          <td class="thz">—</td>
+          <td class="thz kill">—</td>
+          <td class="num"><span class='addd'>set date</span></td>
+        </tr>
+        </tbody></table>
+      </div>
+    </section>
+
+    <!-- ================ TAX & RETURNS ================ -->
+    <section data-sec="tax">
+      <div class="cards">
+        <div class="card"><div class="k">Annualised return (XIRR)</div><div class="v up">+25.7%</div><span class="muted" style="font-size:11px">across dated lots</span></div>
+        <div class="card"><div class="k">Unrealised LTCG</div><div class="v up">₹12,86,766</div><span class="muted" style="font-size:11px">est. tax ₹1,45,221</span></div>
+        <div class="card"><div class="k">Unrealised STCG</div><div class="v up">₹8,65,912</div><span class="muted" style="font-size:11px">est. tax ₹1,73,182</span></div>
+        <div class="card"><div class="k">Est. dividend income / yr</div><div class="v">₹19,089</div><span class="muted" style="font-size:11px">trailing 12m × qty</span></div>
+      </div>
+      <div class="warnbar">🧾 Estimates only, <b>not tax advice</b>. Assumes STT-paid listed equity; no surcharge/cess. Rates used: STCG 20% · LTCG 12.5% with ₹125,000 annual LTCG exemption. Editable in scripts/tax.py.
+        </div>
+      <div class="grid-main">
+        <div class="panel"><h2>⏳ Approaching long-term (save tax by holding)</h2><ul class="act"><li><b>EICHERMOT</b> — Eicher Motors: ~1 month(s) to the 1-year mark <span class='muted'>(gain ₹81,301 would move from 20% STCG to 12.5% LTCG)</span></li><li><b>BAJAJ-AUTO</b> — Bajaj Auto: ~1 month(s) to the 1-year mark <span class='muted'>(gain ₹78,636 would move from 20% STCG to 12.5% LTCG)</span></li><li><b>TATASTEEL</b> — Tata Steel: ~1 month(s) to the 1-year mark <span class='muted'>(gain ₹4,14,600 would move from 20% STCG to 12.5% LTCG)</span></li><li><b>MAHSEAMLES</b> — Maharashtra Seamless: ~1 month(s) to the 1-year mark <span class='muted'>(gain ₹2,49,216 would move from 20% STCG to 12.5% LTCG)</span></li><li><b>TORNTPOWER</b> — Torrent Power: ~1 month(s) to the 1-year mark <span class='muted'>(gain ₹2,308 would move from 20% STCG to 12.5% LTCG)</span></li><li><b>BHEL</b> — BHEL: ~1 month(s) to the 1-year mark <span class='muted'>(gain ₹13 would move from 20% STCG to 12.5% LTCG)</span></li></ul></div>
+        <div class="panel"><h2>💸 Realised gains (from sells.csv)</h2><table class='data' style='min-width:520px'><thead><tr><th>Stock</th><th class='num'>Qty</th><th class='num'>Gain</th><th>Type</th><th>Sold</th></tr></thead><tbody><tr><td><b>IRCTC</b></td><td class='num'>100</td><td class='num up'>₹32,000</td><td>LTCG</td><td>2025-03-15</td></tr><tr><td><b>ZOMATO</b></td><td class='num'>500</td><td class='num up'>₹33,500</td><td>STCG</td><td>2025-06-20</td></tr></tbody></table><div class='muted' style='margin-top:8px'>Realised LTCG ₹32,000 · STCG ₹33,500 · est. tax ₹10,700 · friction (brokerage/STT/charges) ₹390</div></div>
+      </div>
+      <div class="panel">
+        <h2>🧮 Sell simulator — what happens if I sell?</h2>
+        <div class="simrow">
+          <select id="simStock"></select>
+          <input id="simQty" type="number" min="1" placeholder="Qty">
+          <input id="simPrice" type="number" step="0.05" placeholder="Price (blank = last)">
+          <button id="simGo" class="simbtn">Simulate</button>
+        </div>
+        <div id="simOut" class="muted" style="font-size:13px;margin-top:10px">Pick a stock, quantity and (optionally) a price — you'll see the estimated tax, the smartest lots to sell (lowest-tax first), and how your allocation changes. Nothing is executed anywhere; it's pure arithmetic.</div>
+      </div>
+    </section>
+
+    <!-- ================ WATCHLIST ================ -->
+    <section data-sec="watchlist">
+      <div class="panel" style="margin-bottom:14px">
+        <h2>⭐ Watchlist <span class="sp"></span>
+        <button class="editbtn" id="editBtn2" style="background:var(--ink);padding:7px 12px">✎ Edit watchlist</button></h2>
+        <div class="muted" style="font-size:12.5px">Stocks you're tracking but don't own. They get the same price, trend, RSI and news scanning as your holdings — add one here first, buy later when it looks right.</div>
+      </div>
+      <div class="newsgrid"><div class="newscard"><h3><span class="av" style="--h:285">RE</span> RELIANCE <span class="muted" style="font-weight:400">Reliance Industries</span><span class="sp" style="flex:1"></span><b>₹2,874.00</b> <span class="pill up">↑ 1.52%</span></h3><div class="muted" style="font-size:11.5px;margin-bottom:6px">Trend ▲ up · RSI 97</div><div><span class="chip" style="--c:#475569">Announcement: results</span> <span class="chip" style="--c:#b91c1c">RSI 97 — overbought (short-term)</span></div><a class="news " href="https://news.google.com/" target="_blank" rel="noopener">Reliance Industries Q1 results on July 29; retail arm in focus <em>23 Jul 2026</em></a></div><div class="newscard"><h3><span class="av" style="--h:25">HD</span> HDFCBANK <span class="muted" style="font-weight:400">HDFC Bank</span><span class="sp" style="flex:1"></span><b>₹1,642.00</b> <span class="pill down">↓ 0.49%</span></h3><div class="muted" style="font-size:11.5px;margin-bottom:6px">Trend ▲ up · RSI 71</div><div><span class="chip" style="--c:#b91c1c">RSI 71 — overbought (short-term)</span></div><span class=muted>No recent news.</span></div><div class="newscard"><h3><span class="av" style="--h:210">IN</span> INFY <span class="muted" style="font-weight:400">Infosys</span><span class="sp" style="flex:1"></span><b>₹1,519.00</b> <span class="pill down">↓ 1.97%</span></h3><div class="muted" style="font-size:11.5px;margin-bottom:6px">Trend ▼ down · RSI 22</div><div><span class="chip" style="--c:#047857">RSI 22 — oversold (possible add-on zone)</span> <span class="chip" style="--c:#475569">Trading below 200DMA — long-term trend weak</span></div><span class=muted>No recent news.</span></div></div>
+    </section>
+
+    <footer>
+      Prices &amp; fundamentals via Yahoo Finance · news via Google News RSS · indicators (50/200-DMA, RSI-14) computed locally.
+      This is information, not investment advice. Signals are mechanical rules — always read the news and use your judgment.
+    </footer>
+  </main>
+</div>
+
+<!-- ---------------- Portfolio editor modal ---------------- -->
+<div class="modal" id="edModal">
+  <div class="mbox">
+    <h3>✎ Edit portfolio</h3>
+    <div class="hint">
+      Edit your holdings and watchlist; saving commits the files to your GitHub repo and the tracker
+      rebuilds in ~1–2 minutes. One-time setup: create a <b>fine-grained personal access token</b>
+      (GitHub → Settings → Developer settings → Tokens) scoped to <i>only this repository</i> with
+      <b>Contents: Read &amp; write</b>. The token stays in this browser only.
+    </div>
+    <div class="cfg">
+      <input id="cfgRepo" placeholder="owner/repo e.g. harry/sensex-tracker" spellcheck="false">
+      <input id="cfgTok" placeholder="GitHub token (github_pat_…)" type="password" spellcheck="false">
+    </div>
+    <div class="tabs">
+      <button data-tab="holdings" class="on">Holdings</button>
+      <button data-tab="watchlist">Watchlist</button>
+      <button data-tab="discipline">Discipline</button>
+      <button data-tab="journal">Journal</button>
+      <button data-tab="violations">Violations</button>
+      <button data-tab="floor">Floor</button>
+    </div>
+    <div class="edwrap">
+      <table class="ed"><thead><tr id="edHead"></tr></thead><tbody id="edBody"></tbody></table>
+    </div>
+    <div class="mrow">
+      <button id="addRow">+ Add stock</button>
+      <span style="flex:1"></span>
+      <span id="edStatus" class="muted"></span>
+      <button id="edCancel">Cancel</button>
+      <button id="edSave" class="primary">Save to GitHub</button>
+    </div>
+  </div>
+</div>
+
+<script>window.__DATA={"history":{"dates":["2025-07-28","2025-07-29","2025-07-30","2025-07-31","2025-08-01","2025-08-04","2025-08-05","2025-08-06","2025-08-07","2025-08-08","2025-08-11","2025-08-12","2025-08-13","2025-08-14","2025-08-15","2025-08-18","2025-08-19","2025-08-20","2025-08-21","2025-08-22","2025-08-25","2025-08-26","2025-08-27","2025-08-28","2025-08-29","2025-09-01","2025-09-02","2025-09-03","2025-09-04","2025-09-05","2025-09-08","2025-09-09","2025-09-10","2025-09-11","2025-09-12","2025-09-15","2025-09-16","2025-09-17","2025-09-18","2025-09-19","2025-09-22","2025-09-23","2025-09-24","2025-09-25","2025-09-26","2025-09-29","2025-09-30","2025-10-01","2025-10-02","2025-10-03","2025-10-06","2025-10-07","2025-10-08","2025-10-09","2025-10-10","2025-10-13","2025-10-14","2025-10-15","2025-10-16","2025-10-17","2025-10-20","2025-10-21","2025-10-22","2025-10-23","2025-10-24","2025-10-27","2025-10-28","2025-10-29","2025-10-30","2025-10-31","2025-11-03","2025-11-04","2025-11-05","2025-11-06","2025-11-07","2025-11-10","2025-11-11","2025-11-12","2025-11-13","2025-11-14","2025-11-17","2025-11-18","2025-11-19","2025-11-20","2025-11-21","2025-11-24","2025-11-25","2025-11-26","2025-11-27","2025-11-28","2025-12-01","2025-12-02","2025-12-03","2025-12-04","2025-12-05","2025-12-08","2025-12-09","2025-12-10","2025-12-11","2025-12-12","2025-12-15","2025-12-16","2025-12-17","2025-12-18","2025-12-19","2025-12-22","2025-12-23","2025-12-24","2025-12-25","2025-12-26","2025-12-29","2025-12-30","2025-12-31","2026-01-01","2026-01-02","2026-01-05","2026-01-06","2026-01-07","2026-01-08","2026-01-09","2026-01-12","2026-01-13","2026-01-14","2026-01-15","2026-01-16","2026-01-19","2026-01-20","2026-01-21","2026-01-22","2026-01-23","2026-01-26","2026-01-27","2026-01-28","2026-01-29","2026-01-30","2026-02-02","2026-02-03","2026-02-04","2026-02-05","2026-02-06","2026-02-09","2026-02-10","2026-02-11","2026-02-12","2026-02-13","2026-02-16","2026-02-17","2026-02-18","2026-02-19","2026-02-20","2026-02-23","2026-02-24","2026-02-25","2026-02-26","2026-02-27","2026-03-02","2026-03-03","2026-03-04","2026-03-05","2026-03-06","2026-03-09","2026-03-10","2026-03-11","2026-03-12","2026-03-13","2026-03-16","2026-03-17","2026-03-18","2026-03-19","2026-03-20","2026-03-23","2026-03-24","2026-03-25","2026-03-26","2026-03-27","2026-03-30","2026-03-31","2026-04-01","2026-04-02","2026-04-03","2026-04-06","2026-04-07","2026-04-08","2026-04-09","2026-04-10","2026-04-13","2026-04-14","2026-04-15","2026-04-16","2026-04-17","2026-04-20","2026-04-21","2026-04-22","2026-04-23","2026-04-24","2026-04-27","2026-04-28","2026-04-29","2026-04-30","2026-05-01","2026-05-04","2026-05-05","2026-05-06","2026-05-07","2026-05-08","2026-05-11","2026-05-12","2026-05-13","2026-05-14","2026-05-15","2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22","2026-05-25","2026-05-26","2026-05-27","2026-05-28","2026-05-29","2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05","2026-06-08","2026-06-09","2026-06-10","2026-06-11","2026-06-12","2026-06-15","2026-06-16","2026-06-17","2026-06-18","2026-06-19","2026-06-22","2026-06-23","2026-06-24","2026-06-25","2026-06-26","2026-06-29","2026-06-30","2026-07-01","2026-07-02","2026-07-03","2026-07-06","2026-07-07","2026-07-08","2026-07-09","2026-07-10","2026-07-13","2026-07-14","2026-07-15","2026-07-16","2026-07-17","2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24"],"values":[9731086,9733420,9735272,9736686,9737710,9738399,9738811,9739007,9739051,9739010,9738950,9738938,9739042,9739326,9739853,9740684,9741875,9743478,9745539,9748099,9751194,9754852,9759095,9763935,9769381,9775432,9782079,9789308,9797095,9805411,9814220,9823480,9833143,9843157,9853465,9864005,9874715,9885529,9896380,9907201,9917925,9928487,9938821,9948869,9958571,9967876,9976734,9985104,9992948,10000236,10006945,10013059,10018569,10023473,10027777,10031495,10034648,10037263,10039375,10041023,10042255,10043121,10043678,10043985,10044104,10044101,10044043,10043996,10044029,10044206,10044592,10045249,10046236,10047607,10049411,10051692,10054490,10057836,10061756,10066267,10071380,10077100,10083421,10090333,10097817,10105847,10114390,10123409,10132857,10142685,10152839,10163259,10173884,10184649,10195488,10206334,10217119,10227778,10238245,10248457,10258356,10267885,10276994,10285637,10293773,10301370,10308399,10314841,10320683,10325919,10330551,10334589,10338049,10340955,10343338,10345236,10346690,10347750,10348470,10348906,10349120,10349176,10349140,10349079,10349059,10349149,10349412,10349913,10350712,10351866,10353426,10355441,10357951,10360993,10364595,10368780,10373562,10378949,10384941,10391531,10398704,10406437,10414704,10423466,10432684,10442311,10452293,10462574,10473095,10483791,10494598,10505448,10516275,10527012,10537592,10547951,10558029,10567768,10577113,10586017,10594436,10602332,10609676,10616442,10622615,10628183,10633146,10637508,10641283,10644490,10647156,10649315,10651006,10652276,10653176,10653760,10654088,10654223,10654229,10654173,10654123,10654144,10654304,10654667,10655296,10656248,10657579,10659339,10661572,10664318,10667610,10671472,10675925,10680980,10686641,10692904,10699759,10707188,10715166,10723661,10732635,10742044,10751837,10761962,10772359,10782967,10793721,10804556,10815404,10826198,10836872,10847360,10857600,10867532,10877099,10886251,10894941,10903128,10910779,10917864,10924364,10930265,10935560,10940251,10944346,10947861,10950820,10953253,10955195,10956691,10957787,10958537,10958998,10959231,10959300,10959270,10959208,10959181,10959257,10959501,10959977,10960744,10961861,10963379,10965348,10967808,10970797,10974343,10978470,10983194,10988522,10994455,11000987,11008104,11015785,11024001,11032717,11041893,11051481,11086162.35]},"div":{"labels":["Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26","Jul 26"],"values":[0,0,0,0,0,0,0,0,0,0,14400,4689]},"benchmark":{"portfolio":[100.0,100.02,100.04,100.06,100.07,100.08,100.08,100.08,100.08,100.08,100.08,100.08,100.08,100.08,100.09,100.1,100.11,100.13,100.15,100.17,100.21,100.24,100.29,100.34,100.39,100.46,100.52,100.6,100.68,100.76,100.85,100.95,101.05,101.15,101.26,101.37,101.48,101.59,101.7,101.81,101.92,102.03,102.13,102.24,102.34,102.43,102.52,102.61,102.69,102.77,102.83,102.9,102.95,103.0,103.05,103.09,103.12,103.15,103.17,103.19,103.2,103.21,103.21,103.22,103.22,103.22,103.22,103.22,103.22,103.22,103.22,103.23,103.24,103.25,103.27,103.29,103.32,103.36,103.4,103.44,103.5,103.56,103.62,103.69,103.77,103.85,103.94,104.03,104.13,104.23,104.33,104.44,104.55,104.66,104.77,104.88,104.99,105.1,105.21,105.32,105.42,105.52,105.61,105.7,105.78,105.86,105.93,106.0,106.06,106.11,106.16,106.2,106.24,106.27,106.29,106.31,106.33,106.34,106.34,106.35,106.35,106.35,106.35,106.35,106.35,106.35,106.35,106.36,106.37,106.38,106.4,106.42,106.44,106.47,106.51,106.55,106.6,106.66,106.72,106.79,106.86,106.94,107.03,107.12,107.21,107.31,107.41,107.52,107.63,107.74,107.85,107.96,108.07,108.18,108.29,108.39,108.5,108.6,108.69,108.79,108.87,108.95,109.03,109.1,109.16,109.22,109.27,109.31,109.35,109.39,109.41,109.44,109.45,109.47,109.48,109.48,109.49,109.49,109.49,109.49,109.49,109.49,109.49,109.49,109.5,109.51,109.52,109.54,109.56,109.59,109.62,109.66,109.71,109.76,109.82,109.88,109.95,110.03,110.11,110.2,110.29,110.39,110.49,110.59,110.7,110.81,110.92,111.03,111.14,111.25,111.36,111.47,111.58,111.68,111.78,111.87,111.96,112.04,112.12,112.2,112.26,112.32,112.38,112.43,112.47,112.5,112.53,112.56,112.58,112.59,112.61,112.61,112.62,112.62,112.62,112.62,112.62,112.62,112.62,112.62,112.63,112.64,112.65,112.66,112.68,112.71,112.74,112.78,112.82,112.87,112.92,112.98,113.05,113.12,113.2,113.29,113.38,113.47,113.57,113.93],"nifty":[100.0,100.14,100.27,100.41,100.54,100.67,100.8,100.93,101.05,101.17,101.28,101.39,101.49,101.59,101.68,101.76,101.84,101.91,101.97,102.03,102.08,102.12,102.15,102.18,102.21,102.22,102.23,102.24,102.24,102.23,102.22,102.21,102.19,102.17,102.14,102.11,102.09,102.06,102.03,102.0,101.97,101.94,101.92,101.9,101.88,101.86,101.85,101.84,101.84,101.84,101.85,101.86,101.88,101.91,101.94,101.98,102.03,102.08,102.14,102.21,102.28,102.37,102.45,102.55,102.65,102.75,102.86,102.98,103.1,103.22,103.35,103.48,103.61,103.75,103.88,104.02,104.16,104.3,104.43,104.57,104.7,104.83,104.96,105.08,105.2,105.31,105.42,105.53,105.62,105.72,105.8,105.88,105.96,106.02,106.08,106.13,106.18,106.22,106.25,106.27,106.29,106.31,106.31,106.31,106.31,106.3,106.29,106.27,106.25,106.23,106.2,106.17,106.15,106.12,106.09,106.06,106.03,106.0,105.98,105.96,105.94,105.93,105.92,105.91,105.91,105.92,105.93,105.95,105.97,106.0,106.04,106.08,106.14,106.19,106.26,106.33,106.41,106.49,106.58,106.68,106.78,106.89,107.01,107.12,107.25,107.37,107.5,107.63,107.77,107.9,108.04,108.18,108.32,108.45,108.59,108.72,108.85,108.98,109.11,109.23,109.34,109.45,109.56,109.66,109.76,109.84,109.93,110.0,110.07,110.13,110.19,110.24,110.28,110.31,110.34,110.36,110.38,110.39,110.39,110.39,110.38,110.37,110.35,110.33,110.31,110.29,110.26,110.23,110.2,110.17,110.15,110.12,110.09,110.07,110.04,110.02,110.01,110.0,109.99,109.99,109.99,110.0,110.02,110.04,110.07,110.1,110.14,110.19,110.24,110.31,110.38,110.45,110.53,110.62,110.72,110.82,110.92,111.04,111.15,111.27,111.4,111.53,111.66,111.79,111.93,112.06,112.2,112.34,112.47,112.61,112.74,112.88,113.01,113.13,113.25,113.37,113.49,113.59,113.7,113.79,113.89,113.97,114.05,114.12,114.19,114.24,114.29,114.34,114.38,114.41,114.43,114.45,114.46,114.46,114.46,114.46,114.45,114.44,114.42,114.4]},"sectors":[{"name":"Auto","value":3129085,"pct":28.2},{"name":"Metals","value":2060397,"pct":18.6},{"name":"IT","value":1109355,"pct":10.0},{"name":"Commodity ETF","value":754338,"pct":6.8},{"name":"Financial Services","value":740792,"pct":6.7},{"name":"Hospitality","value":685127,"pct":6.2},{"name":"Banking","value":637689,"pct":5.8},{"name":"Capital Goods","value":336327,"pct":3.0},{"name":"Healthcare","value":325804,"pct":2.9},{"name":"Oil & Gas","value":320896,"pct":2.9},{"name":"Textiles","value":308784,"pct":2.8},{"name":"Defence","value":283500,"pct":2.6},{"name":"Consumer","value":147294,"pct":1.3},{"name":"Insurance","value":92930,"pct":0.8},{"name":"Utilities","value":85804,"pct":0.8},{"name":"Pharma","value":57585,"pct":0.5},{"name":"Renewables","value":10456,"pct":0.1}],"mc":{"start":11086162,"months":[0.2,0.5,0.7,1.0,1.2,1.4,1.7,1.9,2.1,2.4,2.6,2.9,3.1,3.3,3.6,3.8,4.0,4.3,4.5,4.8,5.0,5.2,5.5,5.7,6.0,6.2,6.4,6.7,6.9,7.1,7.4,7.6,7.9,8.1,8.3,8.6,8.8,9.0,9.3,9.5,9.8,10.0,10.2,10.5,10.7,11.0,11.2,11.4,11.7,11.9,12.1,12.4,12.6,12.9,13.1,13.3,13.6,13.8,14.0,14.3,14.5,14.8,15.0,15.2,15.5,15.7,16.0,16.2,16.4,16.7,16.9,17.1,17.4,17.6,17.9,18.1,18.3,18.6,18.8,19.0,19.3,19.5,19.8,20.0,20.2,20.5,20.7,21.0,21.2,21.4,21.7,21.9,22.1,22.4,22.6,22.9,23.1,23.3,23.6,23.8,24.0,24.3,24.5,24.8,25.0,25.2,25.5,25.7,26.0,26.2,26.4,26.7,26.9,27.1,27.4,27.6,27.9,28.1,28.3,28.6,28.8,29.0,29.3,29.5,29.8,30.0,30.2,30.5,30.7,31.0,31.2,31.4,31.7,31.9,32.1,32.4,32.6,32.9,33.1,33.3,33.6,33.8,34.0,34.3,34.5,34.8,35.0,35.2,35.5,35.7,36.0],"p10":[11101948,11125054,11148901,11174277,11199412,11224876,11249591,11275240,11301965,11328274,11354760,11381645,11408594,11433993,11462244,11488512,11515109,11542616,11570218,11599356,11627084,11654943,11682544,11709921,11739225,11765980,11796155,11824469,11852517,11880041,11906449,11935724,11964291,11996285,12024781,12051669,12081911,12109829,12138901,12169846,12201261,12230276,12262015,12291523,12321477,12348590,12379903,12410152,12438236,12473793,12502566,12533776,12566626,12597606,12627972,12656864,12688085,12718656,12749101,12775997,12807967,12840201,12871393,12901530,12934913,12968956,13002777,13033877,13066306,13096726,13126673,13162822,13195769,13229717,13262008,13295551,13329227,13361410,13395961,13426225,13461150,13492080,13528156,13562571,13594752,13630961,13664130,13695508,13730844,13765063,13798795,13831328,13862156,13898840,13932012,13968116,14002400,14039992,14073177,14106785,14142644,14174951,14208524,14244832,14279850,14316921,14350455,14385228,14416184,14455042,14494215,14532891,14568676,14600472,14634220,14674253,14711071,14746635,14782233,14817678,14852336,14893791,14926590,14963893,15001754,15038985,15076197,15110443,15146689,15183789,15223068,15261630,15298452,15337562,15374181,15416157,15452108,15488642,15528690,15563717,15601205,15641471,15676912,15714809,15757516,15793521,15834500,15874647,15913694,15954300,15999910],"p50":[11114004,11141877,11169862,11197797,11225825,11254374,11282550,11311249,11340989,11370148,11398613,11426301,11454411,11482871,11512220,11542059,11571238,11599539,11628387,11659012,11688405,11718982,11745543,11776088,11805556,11833802,11863033,11895297,11922805,11951360,11981468,12011734,12043660,12074776,12107735,12136892,12166908,12199652,12229186,12259597,12290222,12322042,12353631,12386014,12416931,12448717,12481590,12512386,12544151,12575974,12608138,12639158,12669201,12700383,12732199,12764508,12797721,12829475,12862586,12893700,12925278,12958532,12990575,13022597,13055648,13091471,13123506,13157281,13193150,13226080,13256712,13290580,13323574,13357966,13390054,13426099,13459364,13490091,13526413,13560073,13594202,13630422,13659829,13695056,13730354,13764145,13799168,13831717,13869110,13906391,13941103,13977130,14012671,14045828,14079918,14118348,14153473,14190479,14225451,14260212,14296335,14331929,14371485,14409181,14443778,14480065,14518468,14557208,14594087,14629346,14663857,14701185,14740168,14777634,14816908,14852742,14889301,14926316,14963702,15003259,15038276,15077471,15116550,15152990,15188418,15229704,15266517,15306085,15345523,15382155,15423761,15459201,15497903,15537599,15575711,15611574,15654759,15693774,15732519,15768824,15808742,15853190,15892162,15928355,15971667,16010836,16051323,16091517,16131825,16171749,16217508],"p90":[11126466,11160523,11192044,11223308,11253153,11285285,11316378,11348387,11377882,11408733,11438210,11472074,11500576,11529808,11563136,11594292,11625971,11657997,11687853,11718687,11750617,11783335,11811463,11845501,11876247,11909567,11941606,11971382,12003056,12032452,12065323,12098133,12127161,12159034,12189865,12221994,12254750,12290891,12323463,12356698,12388882,12420320,12449359,12480068,12509540,12544780,12577342,12607481,12639945,12675035,12707180,12740595,12770994,12805131,12838442,12871204,12907830,12941523,12970709,13006439,13040161,13073161,13105728,13141277,13176472,13211896,13244140,13277724,13312752,13347043,13378015,13417866,13453053,13485759,13520427,13554972,13589413,13623970,13658754,13692345,13728987,13764705,13800416,13837733,13873818,13909120,13945020,13983771,14017045,14054569,14091817,14125231,14163647,14203672,14239958,14277398,14309818,14348558,14384409,14425833,14465622,14499333,14538916,14580058,14615384,14653725,14694315,14729167,14769402,14803101,14845843,14880498,14922819,14966511,14998185,15039125,15078153,15115681,15154281,15188681,15228868,15268288,15308711,15351305,15390241,15433666,15473311,15515466,15550417,15588015,15628186,15676649,15714628,15750712,15791451,15823494,15866544,15913845,15953852,15993145,16037479,16076608,16117049,16162791,16200783,16244585,16281482,16320143,16361015,16402504,16445787],"years":3,"sims":1000},"total":11086162.35,"rows":[{"tk":"EICHERMOT","name":"Eicher Motors","price":7628.0,"qty":199.0,"sector":"Auto","lots":[{"qty":199.0,"buy_price":7219.45,"buy_date":"2025-08-24"}]},{"tk":"BAJAJ-AUTO","name":"Bajaj Auto","price":11130.0,"qty":71.0,"sector":"Auto","lots":[{"qty":71.0,"buy_price":10022.45,"buy_date":"2025-08-24"}]},{"tk":"TATASTEEL","name":"Tata Steel","price":182.67,"qty":4000.0,"sector":"Metals","lots":[{"qty":4000.0,"buy_price":79.02,"buy_date":"2025-08-24"}]},{"tk":"OFSS","name":"Oracle Financial Services","price":10652.0,"qty":57.0,"sector":"IT","lots":[{"qty":57.0,"buy_price":10541.16,"buy_date":"2025-05-24"}]},{"tk":"LTF","name":"L&T Finance","price":302.4,"qty":2000.0,"sector":"Financial Services","lots":[{"qty":2000.0,"buy_price":209.62,"buy_date":"2025-05-24"}]},{"tk":"FEDERALBNK","name":"Federal Bank","price":354.3,"qty":1550.0,"sector":"Banking","lots":[{"qty":1550.0,"buy_price":27.96,"buy_date":"2025-05-24"}]},{"tk":"SILVERBEES","name":"Nippon India Silver ETF","price":210.96,"qty":2540.0,"sector":"Commodity ETF","lots":[{"qty":2540.0,"buy_price":268.11,"buy_date":"2025-08-24"}]},{"tk":"VAML","name":"Vedanta Aluminium (demerger)","price":435.6,"qty":1220.0,"sector":"Metals","lots":[{"qty":1220.0,"buy_price":37.96,"buy_date":"2026-03-24"}]},{"tk":"INDHOTEL","name":"Indian Hotels","price":727.45,"qty":700.0,"sector":"Hospitality","lots":[{"qty":700.0,"buy_price":305.62,"buy_date":"2025-05-24"}]},{"tk":"TCS","name":"Tata Consultancy Services","price":2254.3,"qty":222.0,"sector":"IT","lots":[{"qty":222.0,"buy_price":2290.75,"buy_date":"2025-05-24"}]},{"tk":"HEROMOTOCO","name":"Hero MotoCorp","price":5011.1,"qty":90.0,"sector":"Auto","lots":[{"qty":90.0,"buy_price":4996.28,"buy_date":"2025-05-24"}]},{"tk":"M&M","name":"Mahindra and Mahindra","price":3161.4,"qty":117.0,"sector":"Auto","lots":[{"qty":117.0,"buy_price":3417.35,"buy_date":"2026-03-24"}]},{"tk":"MAHSEAMLES","name":"Maharashtra Seamless","price":571.55,"qty":600.0,"sector":"Metals","lots":[{"qty":600.0,"buy_price":156.19,"buy_date":"2025-08-24"}]},{"tk":"LT","name":"Larsen and Toubro","price":3785.6,"qty":88.0,"sector":"Capital Goods","lots":[{"qty":88.0,"buy_price":3978.73,"buy_date":"2025-08-24"}]},{"tk":"APOLLOHOSP","name":"Apollo Hospitals","price":8805.5,"qty":37.0,"sector":"Healthcare","lots":[{"qty":37.0,"buy_price":8644.64,"buy_date":"2025-05-24"}]},{"tk":"VEDL","name":"Vedanta","price":264.65,"qty":1220.0,"sector":"Metals","lots":[{"qty":1220.0,"buy_price":277.86,"buy_date":"2025-08-24"}]},{"tk":"KITEX","name":"Kitex Garments","price":147.04,"qty":2100.0,"sector":"Textiles","lots":[{"qty":2100.0,"buy_price":0.0,"buy_date":"2025-05-24"}]},{"tk":"BEL","name":"Bharat Electronics","price":405.0,"qty":700.0,"sector":"Defence","lots":[{"qty":700.0,"buy_price":440.42,"buy_date":"2026-03-24"}]},{"tk":"BPCL","name":"Bharat Petroleum","price":310.15,"qty":900.0,"sector":"Oil & Gas","lots":[{"qty":900.0,"buy_price":336.62,"buy_date":"2025-05-24"}]},{"tk":"GOLDBEES","name":"Nippon India Gold ETF","price":117.91,"qty":1850.0,"sector":"Commodity ETF","lots":[{"qty":1850.0,"buy_price":138.46,"buy_date":"2025-08-24"}]},{"tk":"ITCHOTELS","name":"ITC Hotels","price":159.92,"qty":1100.0,"sector":"Hospitality","lots":[{"qty":1100.0,"buy_price":177.68,"buy_date":"2025-08-24"}]},{"tk":"UNITDSPR","name":"United Spirits","price":1467.2,"qty":100.0,"sector":"Consumer","lots":[{"qty":100.0,"buy_price":1353.3,"buy_date":"2025-05-24"}]},{"tk":"BAJAJFINSV","name":"Bajaj Finserv","price":1876.7,"qty":50.0,"sector":"Financial Services","lots":[{"qty":50.0,"buy_price":1769.13,"buy_date":"2025-05-24"}]},{"tk":"SBILIFE","name":"SBI Life Insurance","price":1858.6,"qty":50.0,"sector":"Insurance","lots":[{"qty":50.0,"buy_price":1884.31,"buy_date":"2025-08-24"}]},{"tk":"AXISBANK","name":"Axis Bank","price":1227.3,"qty":50.0,"sector":"Banking","lots":[{"qty":50.0,"buy_price":1248.83,"buy_date":"2026-03-24"}]},{"tk":"DRREDDY","name":"Dr Reddys Laboratories","price":1151.7,"qty":50.0,"sector":"Pharma","lots":[{"qty":50.0,"buy_price":1335.71,"buy_date":"2026-03-24"}]},{"tk":"HINDCOPPER","name":"Hindustan Copper","price":483.15,"qty":100.0,"sector":"Metals","lots":[{"qty":100.0,"buy_price":577.61,"buy_date":"2025-08-24"}]},{"tk":"HINDALCO","name":"Hindalco Industries","price":942.8,"qty":50.0,"sector":"Metals","lots":[{"qty":50.0,"buy_price":1082.02,"buy_date":"2026-03-24"}]},{"tk":"VEDPOWER","name":"Vedanta Power (demerger)","price":35.01,"qty":1220.0,"sector":"Utilities","lots":[{"qty":1220.0,"buy_price":64.93,"buy_date":"2025-05-24"}]},{"tk":"VOGL","name":"Vedanta Oil & Gas (demerger)","price":34.23,"qty":1220.0,"sector":"Oil & Gas","lots":[{"qty":1220.0,"buy_price":114.08,"buy_date":"2025-08-24"}]},{"tk":"VISL","name":"Vedanta Iron & Steel (demerger)","price":30.35,"qty":1220.0,"sector":"Metals","lots":[{"qty":1220.0,"buy_price":36.05,"buy_date":"2026-03-24"}]},{"tk":"JIOFIN","name":"Jio Financial Services","price":234.71,"qty":124.0,"sector":"Financial Services","lots":[{"qty":124.0,"buy_price":20.68,"buy_date":"2025-05-24"}]},{"tk":"TORNTPOWER","name":"Torrent Power","price":1434.1,"qty":20.0,"sector":"Utilities","lots":[{"qty":20.0,"buy_price":1318.71,"buy_date":"2025-08-24"}]},{"tk":"SOUTHBANK","name":"South Indian Bank","price":46.52,"qty":562.0,"sector":"Banking","lots":[{"qty":562.0,"buy_price":41.38,"buy_date":"2025-05-24"}]},{"tk":"POWERGRID","name":"Power Grid Corporation","price":288.2,"qty":50.0,"sector":"Utilities","lots":[{"qty":50.0,"buy_price":298.99,"buy_date":"2026-03-24"}]},{"tk":"IREDA","name":"IREDA","price":120.48,"qty":100.0,"sector":"Financial Services","lots":[{"qty":100.0,"buy_price":135.54,"buy_date":"2026-03-24"}]},{"tk":"SUZLON","name":"Suzlon Energy","price":52.28,"qty":200.0,"sector":"Renewables","lots":[{"qty":200.0,"buy_price":52.72,"buy_date":"2026-03-24"}]},{"tk":"TECHM","name":"Tech Mahindra","price":1559.5,"qty":1.0,"sector":"IT","lots":[{"qty":1.0,"buy_price":1491.16,"buy_date":"2026-03-24"}]},{"tk":"KIRLPNU","name":"Kirloskar Pneumatic","price":1497.1,"qty":1.0,"sector":"Capital Goods","lots":[{"qty":1.0,"buy_price":1594.42,"buy_date":"2025-08-24"}]},{"tk":"KWIL","name":"KWIL","price":32.0,"qty":40.0,"sector":"Capital Goods","lots":[{"qty":40.0,"buy_price":43.98,"buy_date":"2026-03-24"}]},{"tk":"SBIN","name":"State Bank of India","price":1015.0,"qty":1.0,"sector":"Banking","lots":[{"qty":1.0,"buy_price":1086.49,"buy_date":"2025-05-24"}]},{"tk":"SHRIRAMFIN","name":"Shriram Finance","price":1005.1,"qty":1.0,"sector":"Financial Services","lots":[{"qty":1.0,"buy_price":923.95,"buy_date":"2026-03-24"}]},{"tk":"KALYANKJIL","name":"Kalyan Jewellers","price":573.55,"qty":1.0,"sector":"Consumer","lots":[{"qty":1.0,"buy_price":397.88,"buy_date":"2026-03-24"}]},{"tk":"BHEL","name":"BHEL","price":417.3,"qty":1.0,"sector":"Capital Goods","lots":[{"qty":1.0,"buy_price":404.71,"buy_date":"2025-08-24"}]},{"tk":"GOLD1G","name":"Gold ETF","price":1.0,"qty":366.0,"sector":"Commodity ETF","lots":[{"qty":366.0,"buy_price":55.62,"buy_date":"2026-03-24"}]},{"tk":"WIPRO","name":"Wipro","price":177.12,"qty":1.0,"sector":"IT","lots":[{"qty":1.0,"buy_price":175.01,"buy_date":"2025-05-24"}]}]};</script>
+<script>
+/* ---------- section nav ---------- */
+const navs=document.querySelectorAll('.nav a[data-sec]');
+const TITLES={overview:'Overview',holdings:'Holdings',corporate:'Corporate actions',news:'News',insights:'Insights',discipline:'Discipline',tax:'Tax & returns',watchlist:'Watchlist'};
+function show(sec){
+  document.querySelectorAll('section[data-sec]').forEach(s=>s.classList.toggle('show',s.dataset.sec===sec));
+  navs.forEach(a=>a.classList.toggle('active',a.dataset.sec===sec));
+  const t=document.getElementById('secTitle');if(t)t.textContent=TITLES[sec]||sec;
+  location.hash=sec;
+}
+navs.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.sec);}));
+show(location.hash&&document.querySelector(`section[data-sec="${location.hash.slice(1)}"]`)?location.hash.slice(1):'overview');
+
+/* ---------- holdings table sort + filter ---------- */
+const tb=document.querySelector('#tbl tbody');
+let curKey='val',curDir=1;
+function sortBy(key){
+  if(key===curKey)curDir*=-1;else{curKey=key;curDir=1;}
+  const rows=[...tb.querySelectorAll('tr')];
+  rows.sort((a,b)=>{
+    if(key==='date'){
+      const x=a.dataset.date||'',y=b.dataset.date||'';
+      if(!x&&!y)return 0;if(!x)return 1;if(!y)return -1;
+      return (x<y?1:x>y?-1:0)*curDir;
+    }
+    return ((parseFloat(b.dataset[key])||0)-(parseFloat(a.dataset[key])||0))*curDir;
+  });
+  rows.forEach(r=>tb.appendChild(r));
+  document.querySelectorAll('.controls button[data-sort]').forEach(b=>{
+    b.classList.toggle('on',b.dataset.sort===key);
+    b.classList.toggle('asc',b.dataset.sort===key&&curDir===-1);
+  });
+}
+document.querySelectorAll('.controls button[data-sort]').forEach(b=>b.addEventListener('click',()=>sortBy(b.dataset.sort)));
+const tkF=document.getElementById('tkFilter');
+if(tkF)tkF.addEventListener('input',e=>{
+  const q=e.target.value.trim().toLowerCase();
+  tb.querySelectorAll('tr').forEach(r=>{r.style.display=!q||r.dataset.tk.includes(q)?'':'none';});
+});
+
+/* ---------- theme + PWA ---------- */
+const IS_DARK=document.documentElement.dataset.theme==='dark';
+const C_SERIES=IS_DARK?'#3987e5':'#2a78d6', C_GRID=IS_DARK?'#243147':'#eef1f6',
+      C_TICK=IS_DARK?'#8b98ab':'#64748b', C_BENCH=IS_DARK?'#8b98ab':'#64748b',
+      C_RING=IS_DARK?'#141d2f':'#fff';
+const tBtn=document.getElementById('themeBtn');
+if(tBtn){
+  tBtn.textContent=IS_DARK?'☀️ Light mode':'🌙 Dark mode';
+  tBtn.addEventListener('click',()=>{
+    localStorage.setItem('st_theme',IS_DARK?'light':'dark');location.reload();
+  });
+}
+if('serviceWorker' in navigator&&location.protocol==='https:')
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+/* ---------- charts ---------- */
+const D=window.__DATA||{};
+function fmtINR(v){
+  const a=Math.abs(v);let s;
+  if(a>=1e7)s=(v/1e7).toFixed(2)+' cr';else if(a>=1e5)s=(v/1e5).toFixed(1)+' L';
+  else s=v.toLocaleString('en-IN');
+  return '₹'+s;
+}
+let perfChart=null,perfDays=0,perfMode='value';
+function drawPerf(days,mode){
+  if(days!==undefined)perfDays=days; if(mode)perfMode=mode;
+  const box=document.getElementById('perfBox');
+  if(!window.Chart||!D.history||!D.history.dates.length){
+    box.innerHTML='<div class="nochart">Chart appears when data & internet are available.</div>';return;
+  }
+  if(!box.querySelector('canvas'))box.innerHTML='<canvas id="perfChart"></canvas>';
+  const n=D.history.dates.length,start=perfDays?Math.max(0,n-perfDays):0;
+  const labels=D.history.dates.slice(start);
+  const ctx=document.getElementById('perfChart').getContext('2d');
+  const g=ctx.createLinearGradient(0,0,0,260);
+  g.addColorStop(0,IS_DARK?'rgba(57,135,229,.3)':'rgba(42,120,214,.25)');g.addColorStop(1,'rgba(42,120,214,0)');
+  if(perfChart)perfChart.destroy();
+  let datasets,fmtY,showLegend=false;
+  if(perfMode==='nifty'&&D.benchmark){
+    // re-index both to 100 at the visible window start for a fair comparison
+    const rebase=arr=>{const s=arr.slice(start),b=s[0]||1;return s.map(v=>+(v/b*100).toFixed(2));};
+    datasets=[
+      {label:'My portfolio',data:rebase(D.benchmark.portfolio),borderColor:C_SERIES,borderWidth:2,pointRadius:0,pointHitRadius:12,tension:.25},
+      {label:'Nifty 50',data:rebase(D.benchmark.nifty),borderColor:C_BENCH,borderWidth:2,borderDash:[5,4],pointRadius:0,pointHitRadius:12,tension:.25}];
+    fmtY=v=>v.toFixed(0);showLegend=true;
+  }else{
+    datasets=[{label:'Value',data:D.history.values.slice(start),borderColor:C_SERIES,
+      backgroundColor:g,fill:true,borderWidth:2,pointRadius:0,pointHitRadius:12,tension:.25}];
+    fmtY=v=>fmtINR(v);
+  }
+  perfChart=new Chart(ctx,{type:'line',data:{labels,datasets},
+    options:{responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:showLegend,position:'top',align:'end',labels:{boxWidth:10,boxHeight:10,usePointStyle:true,font:{size:11}}},
+        tooltip:{callbacks:{label:c=>c.dataset.label+': '+(perfMode==='nifty'?c.parsed.y.toFixed(1):fmtINR(c.parsed.y))}}},
+      scales:{x:{grid:{display:false},ticks:{maxTicksLimit:7,color:C_TICK,font:{size:10.5}}},
+        y:{grid:{color:C_GRID},ticks:{color:C_TICK,font:{size:10.5},callback:fmtY}}}}});
+}
+const SECTOR_COLORS=['#2a78d6','#eb6834','#1baf7a','#eda100','#e87ba4','#008300','#4a3aa7','#94a3b8'];
+function drawSector(){
+  const box=document.getElementById('sectorBox');
+  if(!window.Chart||!D.sectors||!D.sectors.length){box.innerHTML='<div class="nochart">No allocation data.</div>';return;}
+  // top 7 by value, fold the rest into "Others"
+  let items=D.sectors.slice();
+  if(items.length>8){const top=items.slice(0,7);const rest=items.slice(7);
+    const o=rest.reduce((a,x)=>a+x.value,0);const op=rest.reduce((a,x)=>a+x.pct,0);
+    items=top.concat([{name:'Others',value:o,pct:+op.toFixed(1)}]);}
+  const ctx=document.getElementById('sectorChart').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:items.map(s=>s.name),
+    datasets:[{data:items.map(s=>s.value),backgroundColor:SECTOR_COLORS.slice(0,items.length),
+      borderColor:C_RING,borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.label+': '+fmtINR(c.parsed)+' ('+items[c.dataIndex].pct+'%)'}}}}});
+  document.getElementById('sectorLegend').innerHTML=items.map((s,i)=>
+    `<div class="slrow"><span class="dot" style="background:${SECTOR_COLORS[i]}"></span>`
+    +`<span class="sln">${s.name}</span><span class="slp">${s.pct}%</span></div>`).join('');
+}
+function drawDiv(){
+  if(!window.Chart||!D.div||!D.div.labels.length)
+    {document.getElementById('divBox').innerHTML='<div class="nochart">No dividend data yet.</div>';return;}
+  const ctx=document.getElementById('divChart').getContext('2d');
+  new Chart(ctx,{type:'bar',data:{labels:D.div.labels,datasets:[{data:D.div.values,
+    backgroundColor:C_SERIES,borderRadius:4,maxBarThickness:26}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmtINR(c.parsed.y)+' received'}}},
+      scales:{x:{grid:{display:false},ticks:{color:C_TICK,font:{size:10}}},
+        y:{grid:{color:C_GRID},ticks:{color:C_TICK,font:{size:10.5},callback:v=>fmtINR(v)}}}}});
+}
+function drawMC(){
+  const box=document.getElementById('mcBox');
+  if(!box)return;
+  if(!window.Chart||!D.mc){box.innerHTML='<div class="nochart">Projection appears after enough price history.</div>';return;}
+  const m=D.mc,labels=m.months.map(x=>x<12?x+'m':(x/12).toFixed(1).replace(/\.0$/,'')+'y');
+  const ctx=document.getElementById('mcChart').getContext('2d');
+  new Chart(ctx,{type:'line',data:{labels,datasets:[
+    {label:'90th percentile',data:m.p90,borderColor:'transparent',backgroundColor:IS_DARK?'rgba(57,135,229,.16)':'rgba(42,120,214,.12)',fill:'+1',pointRadius:0,tension:.3},
+    {label:'Median',data:m.p50,borderColor:C_SERIES,borderWidth:2,pointRadius:0,pointHitRadius:12,tension:.3},
+    {label:'10th percentile',data:m.p10,borderColor:'transparent',backgroundColor:IS_DARK?'rgba(57,135,229,.16)':'rgba(42,120,214,.12)',fill:'-1',pointRadius:0,tension:.3}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmtINR(c.parsed.y)}}},
+      scales:{x:{grid:{display:false},ticks:{maxTicksLimit:8,color:C_TICK,font:{size:10.5}}},
+        y:{grid:{color:C_GRID},ticks:{color:C_TICK,font:{size:10.5},callback:v=>fmtINR(v)}}}}});
+}
+
+/* ---------- sell simulator + tax-lot optimizer ---------- */
+const STCG_RATE=0.20,LTCG_RATE=0.125;
+function monthsBetween(d1,d2){return (d2.getFullYear()-d1.getFullYear())*12+(d2.getMonth()-d1.getMonth())-(d2.getDate()<d1.getDate()?1:0);}
+function initSim(){
+  const sel=document.getElementById('simStock');
+  if(!sel||!D.rows)return;
+  sel.innerHTML=D.rows.map((r,i)=>`<option value="${i}">${r.tk} — ${r.qty} @ ₹${r.price.toFixed(2)}</option>`).join('');
+  document.getElementById('simGo').addEventListener('click',runSim);
+}
+function runSim(){
+  const out=document.getElementById('simOut');
+  const r=D.rows[+document.getElementById('simStock').value];
+  let qty=parseFloat(document.getElementById('simQty').value);
+  const px=parseFloat(document.getElementById('simPrice').value)||r.price;
+  if(!r||!qty||qty<=0){out.innerHTML='⚠ Enter a quantity.';return;}
+  qty=Math.min(qty,r.qty);
+  const today=new Date();
+  // build lots with tax kind; unknown dates treated as STCG (conservative)
+  let lots=r.lots.map(l=>{
+    const d=l.buy_date?new Date(l.buy_date):null;
+    const lt=d?monthsBetween(d,today)>=12:false;
+    const gainPS=px-l.buy_price;
+    const taxPS=gainPS>0?gainPS*(lt?LTCG_RATE:STCG_RATE):0;
+    return {...l,lt,gainPS,taxPS,known:!!d};
+  });
+  lots.sort((a,b)=>a.taxPS-b.taxPS);            // cheapest-tax lots first
+  let rem=qty,gain=0,tax=0,ltG=0,stG=0;const plan=[];
+  for(const l of lots){
+    if(rem<=0)break;
+    const take=Math.min(rem,l.qty);rem-=take;
+    const g=take*l.gainPS;gain+=g;tax+=take*l.taxPS;
+    if(g>0)(l.lt?ltG+=g:stG+=g);
+    plan.push({take,l});
+  }
+  const proceeds=qty*px;
+  // friction: STT 0.1% + exchange 0.00297% + SEBI + DP ₹15.34 + GST on charges
+  const exch=proceeds*0.0000297, sebi=proceeds*0.000001;
+  const friction=proceeds*0.001+exch+sebi+15.34+(exch+sebi)*0.18;
+  const newVal=D.total-qty*r.price;
+  const newPct=((r.qty-qty)*r.price/newVal*100);
+  const fmt=v=>'₹'+Math.round(v).toLocaleString('en-IN');
+  let planHtml=plan.map(p=>`<tr><td>${p.take.toLocaleString()} sh</td><td class="num">₹${p.l.buy_price.toFixed(2)}</td>`
+    +`<td>${p.l.known?(p.l.lt?'LTCG':'STCG'):'STCG?*'}</td><td class="num ${p.take*p.l.gainPS>=0?'up':'down'}">${fmt(p.take*p.l.gainPS)}</td>`
+    +`<td class="num">${fmt(p.take*p.l.taxPS)}</td></tr>`).join('');
+  out.innerHTML=`<div class="cards" style="margin:10px 0">
+    <div class="card"><div class="k">Proceeds</div><div class="v" style="font-size:17px">${fmt(proceeds)}</div></div>
+    <div class="card"><div class="k">Gain realised</div><div class="v ${gain>=0?'up':'down'}" style="font-size:17px">${fmt(gain)}</div><span class="muted" style="font-size:10.5px">LTCG ${fmt(ltG)} · STCG ${fmt(stG)}</span></div>
+    <div class="card"><div class="k">Est. tax + friction</div><div class="v" style="font-size:17px">${fmt(tax+friction)}</div><span class="muted" style="font-size:10.5px">tax ${fmt(tax)} · charges ${fmt(friction)} — the cost of the impulse, priced now</span></div>
+    <div class="card"><div class="k">${r.tk} after sale</div><div class="v" style="font-size:17px">${(r.qty-qty).toLocaleString()} sh</div><span class="muted" style="font-size:10.5px">${newPct.toFixed(1)}% of portfolio</span></div>
+  </div>
+  <b style="font-size:12.5px">Smartest lots to sell (lowest tax first):</b>
+  <div style="overflow:auto"><table class="data" style="min-width:480px"><thead><tr><th>Sell</th><th class="num">Bought at</th><th>Type</th><th class="num">Gain</th><th class="num">Est. tax</th></tr></thead><tbody>${planHtml}</tbody></table></div>
+  <div class="muted" style="font-size:11px;margin-top:6px">*Lots without a buy date are treated as STCG (conservative). Brokers sell FIFO by default — ask for specific-lot selling if your broker supports it. Estimates only, not tax advice.</div>`;
+}
+
+document.querySelectorAll('.rangebtns:not(.modebtns) button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.rangebtns:not(.modebtns) button').forEach(x=>x.classList.toggle('on',x===b));
+  drawPerf(parseInt(b.dataset.days)||0,undefined);
+}));
+document.querySelectorAll('.modebtns button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.modebtns button').forEach(x=>x.classList.toggle('on',x===b));
+  drawPerf(undefined,b.dataset.mode);
+}));
+window.addEventListener('load',()=>{drawPerf(0,'value');drawDiv();drawSector();drawMC();initSim();});
+
+/* ---------- portfolio editor (holdings + watchlist tabs) ---------- */
+const $=id=>document.getElementById(id);
+const modal=$('edModal'),edStatus=$('edStatus');
+const FILES={
+  holdings:{path:'holdings.csv',head:['ticker','name','yahoo_symbol','qty','buy_price','buy_date','seed_price','sector','target_price','stop_loss','notes'],
+    cols:[['ticker','Ticker'],['name','Name'],['yahoo_symbol','Yahoo symbol'],['qty','Qty'],['buy_price','Buy price'],['buy_date','Buy date'],['sector','Sector'],['target_price','Target'],['stop_loss','Stop'],['notes','Notes']],
+    sha:null,orig:null,rows:[]},
+  watchlist:{path:'watchlist.csv',head:['ticker','name','yahoo_symbol','target_price','notes'],
+    cols:[['ticker','Ticker'],['name','Name'],['yahoo_symbol','Yahoo symbol'],['target_price','Target'],['notes','Notes']],
+    sha:null,orig:null,rows:[]},
+  discipline:{path:'discipline.csv',head:['ticker','stage','thesis','proof_metric','kill_condition','review_date','horizon_quarters'],
+    cols:[['ticker','Ticker'],['stage','Stage'],['thesis','Thesis'],['proof_metric','Proof metric'],['kill_condition','Kill condition'],['review_date','Review date'],['horizon_quarters','Qtrs']],
+    sha:null,orig:null,rows:[]},
+  journal:{path:'journal.csv',head:['date','ticker','action','note'],
+    cols:[['date','Date'],['ticker','Ticker (blank=portfolio)'],['action','Action'],['note','Note']],
+    sha:null,orig:null,rows:[]},
+  violations:{path:'violations.csv',head:['date','type','ticker','justification'],
+    cols:[['date','Date'],['type','Type'],['ticker','Ticker'],['justification','Justification']],
+    sha:null,orig:null,rows:[]},
+  floor:{path:'floor.csv',head:['key','value'],
+    cols:[['key','Setting'],['value','Value']],
+    sha:null,orig:null,rows:[]}
+};
+let curTab='holdings';
+function guessRepo(){
+  const h=location.hostname,parts=location.pathname.split('/').filter(Boolean);
+  if(h.endsWith('.github.io')&&parts.length)return h.split('.')[0]+'/'+parts[0];
+  return localStorage.getItem('st_repo')||'';
+}
+function cfg(){return{repo:$('cfgRepo').value.trim(),tok:$('cfgTok').value.trim()};}
+function parseCSV(text){
+  const lines=text.replace(/\r/g,'').split('\n').filter(l=>l.trim()!=='');
+  const parse=l=>{const out=[];let cur='',q=false;
+    for(let i=0;i<l.length;i++){const ch=l[i];
+      if(q){if(ch==='"'){if(l[i+1]==='"'){cur+='"';i++;}else q=false;}else cur+=ch;}
+      else{if(ch==='"')q=true;else if(ch===','){out.push(cur);cur='';}else cur+=ch;}
+    }out.push(cur);return out;};
+  const head=parse(lines[0]);
+  return{head,rows:lines.slice(1).map(parse).map(cells=>{
+    const o={};head.forEach((h,i)=>o[h]=cells[i]!==undefined?cells[i]:'');return o;})};
+}
+function csvField(v){v=String(v==null?'':v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
+function toCSV(head,rows){return head.join(',')+'\n'+rows.map(r=>head.map(h=>csvField(r[h])).join(',')).join('\n')+'\n';}
+function rowHTML(f,r){
+  const tds=f.cols.map(([k])=>`<td><input data-k="${k}" value="${String(r[k]||'').replace(/"/g,'&quot;')}"${k==='buy_date'?' placeholder="YYYY-MM-DD"':''}${k==='yahoo_symbol'?' placeholder="TCS.NS"':''}></td>`).join('');
+  return`<tr>${tds}<td><button class="delbtn" title="Remove">✕</button></td></tr>`;
+}
+function renderTab(){
+  const f=FILES[curTab];
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===curTab));
+  $('edHead').innerHTML=f.cols.map(([,l])=>`<th>${l}</th>`).join('')+'<th></th>';
+  $('edBody').innerHTML=f.rows.map(r=>rowHTML(f,r)).join('');
+}
+function captureTab(){
+  const f=FILES[curTab];
+  f.rows=[...$('edBody').querySelectorAll('tr')].map(tr=>{
+    const o={};tr.querySelectorAll('input').forEach(inp=>o[inp.dataset.k]=inp.value.trim());
+    const prev=f.rows.find(r=>r.ticker===o.ticker)||{};
+    f.head.forEach(h=>{if(!(h in o))o[h]=prev[h]||(h==='seed_price'?'0':'');});
+    return o;
+  }).filter(r=>r.ticker);
+}
+async function loadFile(key){
+  const{repo,tok}=cfg();const f=FILES[key];
+  const headers=tok?{Authorization:'Bearer '+tok}:{};
+  const res=await fetch(`https://api.github.com/repos/${repo}/contents/${f.path}?ref=main`,{headers});
+  if(res.status===404&&key!=='holdings'){f.sha=null;f.orig=null;f.rows=[];return;}
+  if(!res.ok)throw new Error(`${f.path}: GitHub API ${res.status} — check repo name and token`);
+  const j=await res.json();f.sha=j.sha;
+  const text=decodeURIComponent(escape(atob(j.content.replace(/\n/g,''))));
+  f.orig=text;f.rows=parseCSV(text).rows;
+}
+async function openEditor(){
+  if(!$('cfgRepo').value)$('cfgRepo').value=localStorage.getItem('st_repo')||guessRepo();
+  if(!$('cfgTok').value)$('cfgTok').value=localStorage.getItem('st_tok')||'';
+  modal.classList.add('open');edStatus.textContent='Loading…';
+  try{
+    for(const k of Object.keys(FILES))await loadFile(k);
+    renderTab();
+    edStatus.textContent=`${FILES.holdings.rows.length} holdings, ${FILES.watchlist.rows.length} watchlist, ${FILES.journal.rows.length} journal entries loaded.`;
+  }catch(e){$('edBody').innerHTML='';edStatus.textContent='⚠ '+e.message;}
+}
+const STRUCT_WORDS=/thesis|structur|kill|review|margin|order|result|manage|guidance|debt|demand|capex|market share|no structural change|promoter|regulat|capacity|launch|acquisi|merger|volume/i;
+const PRICE_ONLY=/^(the )?(price|stock|share)?\s*(went|is|was|moved|fell|rose|dropped|jumped|crashed|rallied|up|down)?[\s\d.,%₹+-]*$/i;
+function validate(){
+  for(const r of FILES.holdings.rows){
+    if(!r.yahoo_symbol)return`${r.ticker}: Yahoo symbol required (e.g. ${r.ticker}.NS)`;
+    if(!r.qty||isNaN(+r.qty)||+r.qty<=0)return`${r.ticker}: quantity must be a positive number`;
+    if(r.buy_price===''||isNaN(+r.buy_price)||+r.buy_price<0)return`${r.ticker}: buy price must be a number`;
+    if(r.buy_date&&!/^\d{4}-\d{2}-\d{2}$/.test(r.buy_date))return`${r.ticker}: buy date must be YYYY-MM-DD (or blank)`;
+  }
+  for(const r of FILES.watchlist.rows){
+    if(!r.yahoo_symbol)return`watchlist ${r.ticker}: Yahoo symbol required`;
+  }
+  for(const r of FILES.discipline.rows){
+    if(r.stage&&!['PROVE','MONETIZE','SYSTEMATIZE','SCALE'].includes(r.stage.toUpperCase()))
+      return`discipline ${r.ticker}: stage must be PROVE, MONETIZE, SYSTEMATIZE or SCALE (or blank)`;
+    if(r.review_date&&!/^\d{4}-\d{2}-\d{2}$/.test(r.review_date))
+      return`discipline ${r.ticker}: review date must be YYYY-MM-DD`;
+  }
+  for(const r of FILES.journal.rows){
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date))return`journal: date must be YYYY-MM-DD`;
+    const note=(r.note||'').trim();
+    if(note.length<15)return`journal ${r.date}: note too short — say what changed structurally, or "no structural change"`;
+    if(PRICE_ONLY.test(note)||( !STRUCT_WORDS.test(note) && /price|₹|%|up |down |fell|rose/i.test(note)))
+      return`journal ${r.date}: price commentary alone doesn't count — reference the thesis, a structural change, or state "no structural change"`;
+  }
+  for(const r of FILES.violations.rows){
+    if((r.justification||'').trim().length<20)
+      return`violation ${r.date}: justification must be at least 20 characters — deviation is allowed, hiding it is not`;
+  }
+  return null;
+}
+async function putFile(key){
+  const{repo,tok}=cfg();const f=FILES[key];
+  const content=toCSV(f.head,f.rows);
+  if(f.orig!==null&&content===f.orig)return false;      // unchanged
+  const body={message:`${f.path} edit via dashboard`,content:btoa(unescape(encodeURIComponent(content))),branch:'main'};
+  if(f.sha)body.sha=f.sha;
+  const res=await fetch(`https://api.github.com/repos/${repo}/contents/${f.path}`,{
+    method:'PUT',headers:{Authorization:'Bearer '+tok,'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(!res.ok){const j=await res.json().catch(()=>({}));throw new Error(`${f.path}: GitHub ${res.status} ${j.message||''}`);}
+  const j=await res.json();f.sha=j.content&&j.content.sha;f.orig=content;
+  return true;
+}
+async function saveEditor(){
+  const{repo,tok}=cfg();
+  if(!repo||!tok){edStatus.textContent='⚠ Enter repo and token first.';return;}
+  captureTab();
+  const err=validate();
+  if(err){edStatus.textContent='⚠ '+err;return;}
+  localStorage.setItem('st_repo',repo);localStorage.setItem('st_tok',tok);
+  $('edSave').disabled=true;edStatus.textContent='Committing…';
+  try{
+    let any=false;
+    for(const k of Object.keys(FILES)){if(await putFile(k))any=true;}
+    edStatus.textContent=any?'✅ Saved! Rebuilding — refresh in ~2 minutes.':'No changes to save.';
+  }catch(e){edStatus.textContent='⚠ '+e.message;}
+  $('edSave').disabled=false;
+}
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  captureTab();curTab=b.dataset.tab;renderTab();
+}));
+$('editBtn').addEventListener('click',openEditor);
+$('editBtn2').addEventListener('click',openEditor);
+$('edCancel').addEventListener('click',()=>modal.classList.remove('open'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open');});
+$('addRow').addEventListener('click',()=>{
+  const f=FILES[curTab];captureTab();
+  const empty={};f.head.forEach(h=>empty[h]=h==='seed_price'?'0':'');
+  f.rows.push(empty);renderTab();
+});
+$('edBody').addEventListener('click',e=>{
+  if(e.target.classList.contains('delbtn')){e.target.closest('tr').remove();captureTab();}
+});
+$('edSave').addEventListener('click',saveEditor);
+</script>
+</body></html>

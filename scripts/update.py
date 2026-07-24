@@ -568,3 +568,5 @@ def build(demo=False):
 
 if __name__ == "__main__":
     build(demo="--demo" in sys.argv)
+
+# build: v7-cf1

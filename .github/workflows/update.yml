@@ -16,6 +16,7 @@ on:
       - "floor.csv"
       - "sells.csv"
       - "scripts/**"
+      - ".github/workflows/**"
   workflow_dispatch:          # manual run from the Actions tab
 
 permissions:

@@ -70,10 +70,10 @@ jobs:
           fi
 
       - name: Deploy to Cloudflare Pages
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then echo "No Cloudflare token configured - skipping deploy."; exit 0; fi
           npx wrangler@3 pages project create harrys-sensex-tracker --production-branch=main 2>/dev/null || true
           npx wrangler@3 pages deploy docs --project-name=harrys-sensex-tracker --branch=main --commit-dirty=true

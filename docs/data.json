@@ -56,7 +56,7 @@
           "rev_yoy": 66.2,
           "profit_yoy": 118.3,
           "q_label": "Mar 2026",
-          "pe": 47.26884,
+          "pe": 46.652607,
           "pb": 9.946698,
           "roe": 24.3,
           "de": 0.97,
@@ -189,14 +189,14 @@
           "rev_yoy": 12.1,
           "profit_yoy": 9.2,
           "q_label": "Jun 2026",
-          "pe": 17.09682,
+          "pe": 17.40961,
           "pb": 7.9138255,
           "roe": 47.7,
           "de": 0.1,
-          "mcap": null,
+          "mcap": 8676173676544.0,
           "wk_high": 3350.0,
           "wk_low": 1976.8,
-          "div_yield": 2.88
+          "div_yield": 2.83
         },
         "invested": 508546.5,
         "current": 532356.0,
@@ -348,6 +348,13 @@
             "event": null
           },
           {
+            "title": "Tech Mahindra rises Tuesday, outperforms market - MarketWatch",
+            "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQQzNFZ0k2TkxsWDF5NE1wRG5BSUE5ZU15R1R4MWlmbG1DMlMyTFpKaVFVVXNGaXRmUm1HU3dTQjQ2MmxVd1FIbnJLZUdLOU9MZVdYSGRjTWV2bmFsM3ZDcXRvU2xGRzhkSXhVWEZWeUN6ckVWYi1TOFV1bVNFT2ZCZDN1bmlJSmlCTWlDYU13N2RoUU9jLU1KQnBkc2ZiN0JtX3g4azB4NjVQSEl6eVl4aUZ3d25ETXdDQTBhY1F4NjE4QQ?oc=5",
+            "published": "28 Jul 2026",
+            "negative": false,
+            "event": null
+          },
+          {
             "title": "FICO Honors Tech Mahindra for Bold Solution Tackling India's E-Commerce Returns Crisis - Yahoo Finance Singapore",
             "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNOFo5VWZ3YnVRX29nclE2LWI0LTNUZkJDNjkzYWNjcG12WThiWDhYbXB4R2JBQWtWUzR1akdXdGF4elF2dktmV0YyNXA3cVlkS3RqMk1RUjhkMVpXRGd3c1NpZW56dUlCeDlqT05ndjd4VUFvelR0cUtjd1NFVHh0MzhoTVlldw?oc=5",
             "published": "28 Jul 2026",
@@ -355,15 +362,8 @@
             "event": null
           },
           {
-            "title": "India's Tech Mahindra tops quarterly revenue views on manufacturing segment growth - Reuters",
-            "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbVlCSjBKUVFnZnZ3Z1M5Zi1MQkRVR2ViRnpFYlRYV0tSZVhLckFHS3VteGtYY0RKb3g4YXd4d042TWkwUkpyaERwV1ozSlpXZHJPU2xhQkVDRnZBUzc1Vm9Ra1E1anVKX3NGOHlPbWpvZ21WTVRLc1RENVRLR2xMOGNnZEFkNVZOUjFrd1k0UUE1STY4Mkkxdlk4TVBURHdhQUdB?oc=5",
-            "published": "16 Jul 2026",
-            "negative": false,
-            "event": null
-          },
-          {
-            "title": "Tech Mahindra launches Engineering Experience Centre - Zawya",
-            "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOcmVEa3V6NllJREw3Q3U1REU3VVQ5bFJBeGUyeWJQMGxZUEQ1ZVprVHJ6V3dENzQxVEVsd0daMHk0MG53WHd0emUyZWJZMjVTbWxrWExyb0kwR293VkJydUpoS0JSZVJ5bE5XTG4yTHFDbnlQUUN4RHFneEt3RHRCb2tRcTUxOVJkOWRENlFCSWdjZkNiUEszYUZlMVdXU01kUkF6anVLMzJVZVpPcE42VlhmSQ?oc=5",
+            "title": "Tech Mahindra Launches Engineering Experience Centre To Empower Engineering Organizations Turn Ideas Into Impact Faster. - TRIPURA STAR NEWS",
+            "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQSmpZRFdEOEFiX3hzUzlubGRDMUR1TU91RnViUzJPOHNNYTB0Z1NPVU5Kbk01eHgxdXJyWU9SQTcwLXAzNEk1OUNHY0xGTTRSTndneEpSY3ZMVWlSZ2lBLU96czh5M2dSZWJaQ3RYNGRLaGRHczlERHltMmMtbHpzWXhwYVR6ZUFwRGtzaTFyY2ZOdVRuZ3c1c09ubTBZNS0zTHFubEkta1YxQ3Uta3F4aFpfYnNhSlhmMWFGXzJlWVBWQXVOemlvTXQxajVZWjhJd3hnSWNqNHZ3OUpjTXhwMEh2Qk96Xzg?oc=5",
             "published": "28 Jul 2026",
             "negative": false,
             "event": null
@@ -446,7 +446,7 @@
           "mcap": 986913832960.0,
           "wk_high": 11979.0,
           "wk_low": 6234.5,
-          "div_yield": 6.24
+          "div_yield": 6.0
         },
         "invested": 600846.12,
         "current": 646038.0,
@@ -563,14 +563,14 @@
           "rev_yoy": -8.1,
           "profit_yoy": 10.0,
           "q_label": "Jun 2026",
-          "pe": 62.840485,
+          "pe": 63.235542,
           "pb": 11.966151,
           "roe": null,
           "de": 0.05,
           "mcap": 1071331672064.0,
           "wk_high": 1511.9,
           "wk_low": 1210.8,
-          "div_yield": 1.16
+          "div_yield": 1.15
         },
         "invested": 135330.0,
         "current": 150880.0,
@@ -592,18 +592,18 @@
             "event": null
           },
           {
-            "title": "United Spirits stock gains over 1% after Q1 earnings; Nomura raises target price to Rs 1,600 - TradingView",
-            "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPNFBIZjVkR1A5anBQeVkybW1yZmZFTm5BSDRSZlY5WDNibUVfTUd2X2N1MGswXzRUOUNHWTM4UUIxMzFsN1RjbDVwYU1KaEJKNndUUEFERlhadFBCT1pUOHFuS0VRdHhMQVZDM1lRZXFOcm9sSUlyNUdNSWt3akFmdTN0RkdyTlJPNFNteVRFd2kxUmpHTnhWa0VrN0E4VHdsb2NCNTktd2VlR2lpSDlOWmhpaWkyQXJDc0F0RXZfd2hHRUhEYkNTX1kyTkktSWdybUMwR2NQUTFncDN2Rk82Nl9IajhrdzFu?oc=5",
-            "published": "27 Jul 2026",
-            "negative": false,
-            "event": "earnings"
-          },
-          {
             "title": "United Spirits Q1 Results: Profit Jumps Over 50% Even As Revenue Sees Modest Uptick - NDTV Profit",
             "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPSEdOQUVzVGtFd01XYml4QkFxSkdicXhRbE5Gd0xlenhSRy1JLWthU211Q3hHb042cmFwYWN2Y1VWTHBVYjVacW4xRTdoZ0diT2dUSnFueTZ2TE5jVzVlRXRNNThuSEN2VVRyMzhBNzljd3g0Z3RReTRVR0N1d2NNRWpQaW5tRDlpX1R3cFZ6cHh6cjc3T3VXZmV0TFd5a3RJY251OTBFRWkwai1VZGh5cmhqdEtndGxoSGxsUHNoTWNteUnSAcsBQVVfeXFMUFhrVnFIcEV5UjBUSklSS05sMVJrelNFc3JjeURzTzVGekNpSUd1ejRlOU9YdzktdFVjOEp2a3hvS1RPb1J1T1hyVUFMR1V0YjBLVUNDb2RYZ2FSSkh3TzBhOWNBYmx0WWlsT3Y2eC10Q29Va19aajF4ZktlTUdJYkF6NTJmRXN0cFkxd25QNWQyY2RRWURqN3E2UmdxYmliUTN3a3p6Z0dnaXQ2VWFldVZWeHhzUThFWmM0Zk1fa01zekVQSEZkVlJIREk?oc=5",
             "published": "22 Jul 2026",
             "negative": false,
             "event": "q1 results"
+          },
+          {
+            "title": "United Spirits stock gains over 1% after Q1 earnings; Nomura raises target price to Rs 1,600 - TradingView",
+            "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPNFBIZjVkR1A5anBQeVkybW1yZmZFTm5BSDRSZlY5WDNibUVfTUd2X2N1MGswXzRUOUNHWTM4UUIxMzFsN1RjbDVwYU1KaEJKNndUUEFERlhadFBCT1pUOHFuS0VRdHhMQVZDM1lRZXFOcm9sSUlyNUdNSWt3akFmdTN0RkdyTlJPNFNteVRFd2kxUmpHTnhWa0VrN0E4VHdsb2NCNTktd2VlR2lpSDlOWmhpaWkyQXJDc0F0RXZfd2hHRUhEYkNTX1kyTkktSWdybUMwR2NQUTFncDN2Rk82Nl9IajhrdzFu?oc=5",
+            "published": "27 Jul 2026",
+            "negative": false,
+            "event": "earnings"
           },
           {
             "title": "United Spirits Q1 net profit beats estimates, jumps 52% on higher revenue - CNBC TV18",
@@ -676,7 +676,7 @@
         },
         "months_held": null,
         "tax_status": null,
-        "health": 70,
+        "health": 55,
         "corp": {
           "dividends": [],
           "splits": [],
@@ -687,10 +687,10 @@
           "profit_yoy": 188.0,
           "q_label": "Mar 2026",
           "pe": 20.78788,
-          "pb": null,
+          "pb": 6.9806657,
           "roe": 40.6,
           "de": 0.06,
-          "mcap": null,
+          "mcap": 659984875520.0,
           "wk_high": 66.81,
           "wk_low": 38.19,
           "div_yield": null
@@ -708,25 +708,25 @@
         "cross": null,
         "news": [
           {
+            "title": "Why Suzlon Energy shares plunged more than 9% after Q1 results - Fortune India",
+            "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxORUZuNmN2VG5mbFpJT2tJZms2VzF3TmZkNElrajlKNWtjX2xweGYxUzg2c1Z3SGJXMk5wbDRzTjA5UHpseDVISkgyUDlILUlobVZLalByTVJ0X2xQa0Y4cURnS3o4OG94YlhiX1VmdktwMDBZaHp0NnBEZHdaaWp5RUk2S3Y4QzdoQklUN0U2MjRuUTRDVzdwd1I0OGV0a1o2aV9Vb0ZR0gGzAUFVX3lxTE5wMmY1WDhwOFhQZW51RGJNNUFtd2ptNWxVa2gwTERXelJUT1lISU5YMDhlYWRKQVpMVnlZWDQtNmtWTTEtaDh0ZWdDeWFSdk04U0Y1aU9meFM4UldZOUdYeTA5ZEJEZngxR1h0SzZ4dG1Bcm94dHlTbFUwVWRDYjdxMm9GM0YwX1hpNzc5d0l6eVdmZkktVkpRcGhlcGpNT1FoenlhNGxvb3AzNEtiVkx3X2xz?oc=5",
+            "published": "28 Jul 2026",
+            "negative": true,
+            "event": "q1 results"
+          },
+          {
+            "title": "Suzlon Energy Q1 Net Profit Falls to \u20b9305 Crore, Missing Estimates of \u20b9400 Crore - Sahi",
+            "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPcGhPNUxDWFhvVTRRRFcxNzY0NzhtR0JvTXpFMmw3OWxDTUdocjlsc0dmQy1aT0RlTUt4cTFwSk5aTjdWZWQ4UjRrUWNfbDNJUHhBdENKOGNCdGFsNzJRSWRCM3E2YjBCSTZEakJ1MmYtMzVoR3I2YnljMW9MOC1tMVBJdS1kTFd4alRFTU8ydmJteTRTTGFsQ1NBM0l2Sk5zTDlvSXpBcXFVNzYtMFdMYzF0UzFMY2M?oc=5",
+            "published": "28 Jul 2026",
+            "negative": false,
+            "event": null
+          },
+          {
             "title": "Suzlon Energy Q1 Results Today: Time, Dividend News, Earnings Call Schedule, Key Things To Watch, Share Price - NDTV Profit",
             "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQa0JGWHlqMkpqMFFLRGpuOU52MUdNZHlaNmV4aWRSTzNPMkZxWlR6dExUMGU5WEFwYUNOem9EbFlnWGRQZ3hRZzQ5Y0lwZGdCMGhfS0ZRZFVsZFJZT2x4bUZFWVNacldsVVVZZjJ5MS1lNTBuVlJVeElEaG1Mb1BwSHotS0Y0Y0VCYjQ1cGVVR0JHTGlPQ19lNFl1TGRyaHNiaGR3R0lMYVZlaXNYbjJmNjUyMTVjTDFKWUZ0bjdyTm15MmtXQ05YcUtVbUYtVUxZaFhnMUNiLXp6RlE0T25jajJB0gHqAUFVX3lxTE10MzFuZkJ4dHpqVVVXT2pOU19fQVA5bzh6dy1BNWxhNks0TjBUd1dfdWs0TVl5V1hqOEtSelpDMEtrLVB3djRUcGVMVmpHdjhwLTZaYUstLXpYV2xBTzZ4MDJTWXE4YWFKTDc2cE5yUDFiVFB5Q1hRM1RZeW54bk12MXppN3dQWjRsSTZxbjJva3dwWVBKV1NqOWZPdV9qMHFNQjFtTmliZGxpTXk1RURlc2ZOSG1wTnpDRVdYeWk2X0I0LVoyejQ0dkVpMHFpdjh1UXBpVFFhYXVCSkxIYWNGRzE4MzBqV3FhUQ?oc=5",
             "published": "28 Jul 2026",
             "negative": false,
             "event": "dividend"
-          },
-          {
-            "title": "Suzlon Energy Q1 Results: Stock falls 10% as margins narrow despite 22% revenue growth - CNBC TV18",
-            "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOYlNzVWZDMENHTkRDS044cVQwOXJuMk5QeU9ZVDBzdlBfblNwUlhWZzlCbW9sUFVIaUlobG1BVFNxOW1pUnYtN055T1FaV09oWUVuNWxRUVZKSWdPaVNxRGxQVnJFNFhfQmoxLWhpRHVNdklSVFVCNVlmU0R4Qmp0ck1WR2tLX1o2Q1ZYLW5VeEc4dGlSVm9wQkR5UHoxNUdnNzhSWmN4VDRrOGVqVDhjcGJ1QUlid09PQkd0UXQxU2RiUdIBxwFBVV95cUxNb1J2MjZZM2V4ek1VMWozVGd0MUtfUHBqYWtORU5EMGIwcmtlcmVGcGp3M2doZkMwVDhWbW1ScGV6blV1RkVMX1dQNm02R2FLOEFpNkpoemdMaHFIbkdaeU9YN01LeTNTT3d3aElQbE54czd6eDZCdzZmNFNvOW1pSV9jd01qdnVFdFA2V283X3FaNEZWdDdZd0dYNXp5Uk9ISFR1RElrRmoxQ0lhRGxjTE9lWGUyd2tjZjBJeGZTaERpcUdNWWhF?oc=5",
-            "published": "28 Jul 2026",
-            "negative": false,
-            "event": "q1 results"
-          },
-          {
-            "title": "Suzlon Energy Q1 Results: Net profit declines 6% to \u20b9305 crore, revenue up 22% - livemint.com",
-            "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPby0yT2lENTlPOTZRS21oQl8xb3RrU1lfbHRWZnA1R21sZzhEMkhvSUFTWTRya2pIeDg1NGFHWVNWRFZEMUFFSHpRMWh1Um80LWFITU41ZmNPeExjOVZzekIxTXBxQjY2LUF1VnNDV2E4a3RjNWhtdnlvTTdJc0pQNjBXT3lOYVoycUJ0OTBLQlRZNlBCREswazA1NlBaQmRZUFYxeEdtckdiRWxjUHRwdktNMnlwVE1rYTgzNElLbUc2YkFTazdqbmk5ay0wSk1VWGg4SWpFV0htZkxXNlVr0gHkAUFVX3lxTFAwV0R3VFFhbDladm1Ob2kwaXFnZHlvMUNhM1h6cnliT1dlQjJ5WDJ6aGNIYlRFZzhFSVVSVUtCUG15emcyWkw5a1h2czRNTzdaZ2t2NnpQYlU4LWxsa1otSnkxeTBYOEtwQ184M0NIVmZfN2gxS3dnMlQ5VVFnWWdkbjJ4VDZiUVFnVHlOX0dxZFNZX1gwZmo2NDMxRE1SaFBDeGU1SmR4blNrbVNSLUcxaW82RXBvVTMtVHpKVE14eV9PcU0zclpVSWpkeHE3VldVVWZUVDVmS21LTWhoNVR6V29Kdw?oc=5",
-            "published": "28 Jul 2026",
-            "negative": false,
-            "event": "q1 results"
           },
           {
             "title": "Suzlon net profit falls 6% YoY to Rs 305 crore in Q1, shares decline 6% - Moneycontrol.com",
@@ -737,6 +737,11 @@
           }
         ],
         "signals": [
+          {
+            "type": "issue_watch",
+            "level": "warn",
+            "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+          },
           {
             "type": "earnings_soon",
             "level": "info",
@@ -797,7 +802,7 @@
         },
         "months_held": null,
         "tax_status": null,
-        "health": 70,
+        "health": 60,
         "corp": {
           "dividends": [
             {
@@ -818,7 +823,7 @@
           "q_label": "Mar 2026",
           "pe": 46.36472,
           "pb": 11.853612,
-          "roe": 27.6,
+          "roe": null,
           "de": 0.0,
           "mcap": 2843504017408.0,
           "wk_high": 473.45,
@@ -852,25 +857,25 @@
             "event": null
           },
           {
-            "title": "Bharat Electronics shares fall over 3% after Q1 results. Here's what Nomura, Motilal Oswal and other broke - The Economic Times",
-            "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPd2lzR29DclJ6ZWVEWTExVWI5bmFoMUJvS2tVaDY0Rk9zWW9yYTItM09VcE5KTVVDYkRjdUlIY1pidmM1M1NQVkV6RkxraEt0TkNXLVp3b0FCSFNqUU9xOVBObE0wbkNtOXlGT2ptclhyN1FFcUpwTjFybHp0Sjg4eWxjMVhQeXdKUHJ5Zi16TW0wWFR6Y2dQblVJM3pZYWhNTXlrcDVBV1owYm8yWXZ6RkwtcUwyUzkxRUtPMEdVczh3WWNmcnFzcktLNV90LWZkS1FiWlhqeUNfYmdiV1FIT1Z2TTMyYmdTWmtLWk1iSEV6YjJab1dEUHRzVWJQb09hUDJkTnBveGNNdEFSYjliQWNrSdIBmAJBVV95cUxPaG8wZ1M0WUpvRmRPZ2VzM0pjaTAwODdmUk5tNy1icW5Sb0NjX012dmY3cjhzNlplNVg1Y2JZVE1nVkVKTHk0R1lLWnRUWjM5aXFMV2VZMGJzMWZYZGt6SF9tWDg5MFdwNlY5WGhDYVlfbEdnWU9FT1dtakdvRzQya1RPOUZDQlZSQWpCaEsxQ1FKT21ld2tza0U1UnZVM3c2b3Q1eGlRN2g3QmI1dEJaZzF3NHU3aXVaYzRYZDJQTlV5WFhnaWhoUkQ5aUxIMVJ6TXdsQnBsWHM0Nzhha3RWMDNhZVUyWDVpRXZrV3FxM1NWZURjc1hkMW9xT29hWG1rSTVZQS1hNWlKaW1BbHpVbHF2VDVSZ0NJ?oc=5",
+            "title": "Bharat Electronics Shares Fall 4% After Q1 Results As Margins Disappoint Investors - HDFC Sky",
+            "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNeF9LdmpRMThzM1VtY3VoMmgyNE93eXN0UEx2d3FWalNIb1FWQlhWcGhQQklOc2FUbzZaUE1PaE9wVDVST1dRNUpZQWtRdlFlNXZzY2l0YjBSOG5tVGVjZksxd2ktYTdBMndxWkVBMG9KbWdRSVNHNWJBLXpCWndQNFg4UVlyaGc?oc=5",
             "published": "28 Jul 2026",
             "negative": false,
             "event": "q1 results"
           },
           {
-            "title": "Earnings call transcript: Bharat Electronics posts Q1 2026 EPS beat, shares edge up - Investing.com",
-            "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOQUJYWXJhd2tZZzlpWlRmSmdDbTYxcVFuOG9KZlNvYnFVVjF6dGptV3JtY21ZVENJTDRqWm1rZ2ZBanZUc3JKUnp2U3BvNXVGTWFkaVd6RWdJN2dtbW9BZGNFa1VLTXlsVE9pOTVfcHFaRGN0a2xkM3JMbVVEa0p4aE5oYVEtTU9DNWxjUzczdFYzbVl3cDBjSVJCdF9ET0tIWFFCM215U3Y5dGVzT2Yxb0pJdmt6TVJTeTN0WjRMN00wa1Azd0swYXdRNmgyNVRBSWtv?oc=5",
-            "published": "27 Jul 2026",
+            "title": "Why Bharat Electronics Share Price Is Falling - Equitymaster",
+            "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbzFEbV9mUDJKc3poTVc1Sms4RjltUFN2WDdtV0prOThteHI5Uy0wdDBHWl9LeUJzNy1kT0ZJRm1PbVFQc1hMay15VG9rc3dqdFVQa0V3U09SWlZBNEFsbFVPNEVscXl4UC1zeTRkSXFnWFZRNDhJWUtPMjlFbFRLRVYtZ1ZMUUF4M3RzUTV0VVhXMUJqLVZnOVZDcXpPMzI0S21VWEp6azdsQ0lLU01xUndBdWtWQQ?oc=5",
+            "published": "28 Jul 2026",
             "negative": false,
-            "event": "earnings"
+            "event": null
           }
         ],
         "signals": [
           {
             "type": "corp_event",
             "level": "info",
-            "text": "Announcement: earnings, q1 results"
+            "text": "Announcement: q1 results"
           },
           {
             "type": "no_thesis",
@@ -1067,13 +1072,6 @@
             "event": null
           },
           {
-            "title": "Akshaya Tritiya ETF Volume Led By Nippon India MF - fintechbiznews.com",
-            "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNb1l0SzIycU1ZRF92U1VldW54cVl6dzRWY1RCYUI5Y1pPUmNoNnJsWEdCNE5DRm9wT0w4RUdENVlKb083dzU4bGFtal9qYzdaZ05Fd25FVF9IblpKeUJxQVJnM2ZfbzJOS3B5YW1rSGdVVjdvR25hMGV0U2ZoSGpkUlhKZ2lubUlramZLSF9pVEdBSzFCWWhnTTRtazRjdw?oc=5",
-            "published": "09 Jul 2026",
-            "negative": false,
-            "event": null
-          },
-          {
             "title": "Nippon India Silver ETF Share Price NSE/BSE - Live Price Charts & Performance - HDFC Sky",
             "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB6SFNKTE5HVXphYURpS20tZXhJWHJFNGNFc1Fqa05rME1pdWFIY1FFZmlyNUFiNjJQZVNFYklfWElJLU9DSUttRXNqQ0NEbkFfTnZCMmRCZC1PZkE?oc=5",
             "published": "03 Mar 2026",
@@ -1084,6 +1082,13 @@
             "title": "Nippon India Mutual Fund dominates Akshaya Tritiya ETF volumes with 63% market share - The Economic Times",
             "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPM0U4R2RBa1dpdVpCdW92QTdtcWg5bF83bkVLNVVqbTl4bVZ0Y1IzYTFLOE1ZNXFha19KaU81NGhfYWQ0eXJJS0Z4aTZNb2tWN2xRcnVnb0VwTXpBTmxkY3dMaWttNDNYWTBSN01PMHZWQmpTLXhsNFJVT0NBMWJydEZoTlpnR1JYNnFmN2FtUVBpWUtWOXV2cVczd2prR25TM082R3dRbzN3WFhnZXVLTjNIaVh1Y1lhLUtGZER2ekkwZGxzU0kxbkdCdVctd2xwX0dKSGJDYkgtQ2wyYy1VMllR0gHnAUFVX3lxTFB2dDg0a0ZJQmVldElzWXVNVXFKZEJzRVV2UndKS19XZFN1YU1YWUs3VVhGNUZYM0k1R1ZQRk9JSHI1Y2JLRnlTaXE5cFVFLUZJWlVpRGlhWVp3a2R6bmR5UFg4TEk4UzZ0M2hPZGRnRGFRSmtLMzlxR1hENGlNZFNiREQ0c2J6a2Q1dDRpUDhNeEZCaHIyclJoSWVqZGkzaTM3N2w5SzB4dUJYekJVRzRVQjk4azFvek5XX1dRTXBQM1ExckxTTEEtWm9jN3d0QnNQak1GcXJUSldaekltZzdGbEhmNlpabw?oc=5",
             "published": "20 Apr 2026",
+            "negative": false,
+            "event": null
+          },
+          {
+            "title": "Nippon India MF commands \u20b91,118 crore Akshaya Tritiya ETF trades, grabs 63% share as gold, silver volumes surge - Fortune India",
+            "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxOcXQ0Qk5KWlJNZzQ2Q0ZTN0ZzaEE1MlMzWFhoRWZtbmFqN24wTnRQMHFRODllT3JoT1MyQ0JmTFBSWEhabnZaUDVPVjZobVE1b0NUNTM3NXg1OG51c0JGalF4X014a2pKblJwNTh6QUJUNkVYTHRLY3NsT0FTRkpocnpqTVJKRUtjU09rdmRkZnE0SXdPc2FuNTBrc3lmQUFDMm9aSXpoUzZzRTlYbFh5TzlDVTZLVUZGbGowWXNEdDRLWW9SR3QxeDZtSU1SZmUyTXlrT2FHOXpTN3RHYklkVXhfWUlXWVc2NnhXTWo0bWFyTml1MUdpRDliQdIBiAJBVV95cUxPbEFHOG5ZVUcxQmpoRndVNXVFZlVET2VzdUJ1N3FmcHJubEM5WnBmaXNnQU9FaHVfTTFmTWZ2VHpSc0xiTnBYQzh2RUJoWnN5OUJXaU5OUU9RWDY4elhEZmUtTks2ejZuSGhITDJsWWlXVzFFQXhqMFlXRGpmT1JkT1E3M2hCZjhNVVJZTUktcGxMS1ROSDBGdVlTY0Vob0hFNlR5c29LV2JzamVtT0dNZWlNY05wN3ItQllxWWp4RVRVbmN6bmNtd2xtSEtyMk9MSmlZYl9XQnVmc3A2aWNlZjUzdjhiT3M0Z010WlBDMTU5QzdnRDhwSDJlbUNNOUJSR2lPU293TWw?oc=5",
+            "published": "19 Apr 2026",
             "negative": false,
             "event": null
           }
@@ -1153,14 +1158,14 @@
           "rev_yoy": -48.8,
           "profit_yoy": -58.3,
           "q_label": "Jun 2026",
-          "pe": 35.860268,
+          "pe": 35.59477,
           "pb": 7.502094,
           "roe": null,
           "de": 0.0,
           "mcap": 93696417792.0,
           "wk_high": 2197.1,
           "wk_low": 990.1,
-          "div_yield": 0.8
+          "div_yield": 0.81
         },
         "invested": 1594.42,
         "current": 1442.3,
@@ -1397,14 +1402,14 @@
           "rev_yoy": 32.3,
           "profit_yoy": 41.9,
           "q_label": "Jun 2026",
-          "pe": 23.776758,
+          "pe": 24.526814,
           "pb": 2.774655,
           "roe": null,
           "de": 3.93,
           "mcap": 779260329984.0,
           "wk_high": 338.6,
           "wk_low": 194.4,
-          "div_yield": 0.91
+          "div_yield": 0.88
         },
         "invested": 419240.0,
         "current": 622000.0,
@@ -1690,16 +1695,16 @@
             "event": "demerger"
           },
           {
-            "title": "The Vedanta Playbook: Which newly listed stock offers the purest long-term value play? - financialexpress.com",
-            "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQZWZ5OHBCcEFKUEd0STUzU0w3b3J4TWJXWThLM2FCY21sM1dPencxQXhwX2t6MTlhNFh5a0l3M0hwdTdrd2pIaWlURXc2aW5ZUldLbk84WllGOXhBQ3pKeW5ac3pMYWlyak8xbzMxaXI2SV9UVUdDM0FxNUVsbk5kLUl6RmhKU0ZLVmNBYktpNEliai1PNmQxMTVPWVpzYUhUV2Etc0FNdV9MUUVad3dLZy1BRC1TVGdKSnp5VXYwLTNvYnRtNEpsV1lRN3Fjd9IB1AFBVV95cUxNTzZ2YVI1djdQV0xZOXdScHo2NFdTMldIUU5PVUVCN1psVnJSVXh1MHlRZWdLZ1VJaFlwdXhWeHpfN0M2QXB2Y0d4cFBxRkdWMUNKbE5CWm1ydkdubzg3WWZ3U3c2RlpabzJiTnA4eHJvZGwxU1dqSXV6SXpHdUpwRUVmVDN4M1dqTzVjNUctbjBQZ1BKclhEcEd3ZnhlRzA1c3NYR2N1UVotamlrTHNGanc2TURlUEx1a1hNbHBobWw4OFhyMTAtbnhidmpNcURHQ0NIcA?oc=5",
-            "published": "18 Jun 2026",
+            "title": "Vedanta Aluminium set for 22% rally? Nuvama initiates coverage, expects India\u2019s largest primary aluminium producer to cut debt sharply - financialexpress.com",
+            "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOVDJrMDEtUXI2dmozYkUyNzRJcWJmM3RZU21DUFNKVERrOGpKMmRKMjJ4a0FvZDVvS2J6R28wQ0pWdlZOZnJQQ0g3QTFNaFJjcENDbmFzenFrYnBET2JHM2ZSdVVOZ3piS09MUlduUXJtRDhlT2hVbW1pVklTTWVxY24xTUxGYnZmRlpCbTFJeVZQQmpycEVVeUd1Ykh5enNjYjlITjk1MmswYWg4czlxel96WUNJeFRGa1Z3bk5wZHBFU1dnTUE4ZUFFWGVTVkRWN1ZFNDFZdlNyNm9TNXo3SDNldlloTWxJUGs2b1hZNi1MdEI2STg1VWpoSU9SUjQxaG9vR0F2YU9razDSAZICQVVfeXFMTU5Xb2hIdUpUTkhXOW5GNDh5ZVRPQnFKdlVRX3Vuc1NNNXdWUllNc1lHUjVUVEZ4NWZjcWhaRWxhTHBHaE5XOXJhQkdmRlZDOHh0MjhEQzFQcWZHRmotZ2lDSWRxV3BfbVJfZDl6WU4wQkthdnlKZ2syLURDRi1DQ1lJLUtQMHFRd1NON3owN0tCTUFlTGRrdldDRUtqTUJLRVNJWEtrUGhlT04tbFEya01GdXFkbHY0Ql84THNLT3VrR0RsQVJnSVBObWdNTk44SmJfd3ZtaXlfeTFRRnNUb2puNWgtODVyZWFkRnBZOThvRU1UQU51MEViUVN4V1pwb1c1S0pJdnQ3cG9ieWNXTUQ2Zw?oc=5",
+            "published": "13 Jul 2026",
             "negative": false,
             "event": null
           },
           {
-            "title": "Vedanta Aluminium set for 22% rally? Nuvama initiates coverage, expects India\u2019s largest primary aluminium producer to cut debt sharply - financialexpress.com",
-            "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOVDJrMDEtUXI2dmozYkUyNzRJcWJmM3RZU21DUFNKVERrOGpKMmRKMjJ4a0FvZDVvS2J6R28wQ0pWdlZOZnJQQ0g3QTFNaFJjcENDbmFzenFrYnBET2JHM2ZSdVVOZ3piS09MUlduUXJtRDhlT2hVbW1pVklTTWVxY24xTUxGYnZmRlpCbTFJeVZQQmpycEVVeUd1Ykh5enNjYjlITjk1MmswYWg4czlxel96WUNJeFRGa1Z3bk5wZHBFU1dnTUE4ZUFFWGVTVkRWN1ZFNDFZdlNyNm9TNXo3SDNldlloTWxJUGs2b1hZNi1MdEI2STg1VWpoSU9SUjQxaG9vR0F2YU9razDSAZICQVVfeXFMTU5Xb2hIdUpUTkhXOW5GNDh5ZVRPQnFKdlVRX3Vuc1NNNXdWUllNc1lHUjVUVEZ4NWZjcWhaRWxhTHBHaE5XOXJhQkdmRlZDOHh0MjhEQzFQcWZHRmotZ2lDSWRxV3BfbVJfZDl6WU4wQkthdnlKZ2syLURDRi1DQ1lJLUtQMHFRd1NON3owN0tCTUFlTGRrdldDRUtqTUJLRVNJWEtrUGhlT04tbFEya01GdXFkbHY0Ql84THNLT3VrR0RsQVJnSVBObWdNTk44SmJfd3ZtaXlfeTFRRnNUb2puNWgtODVyZWFkRnBZOThvRU1UQU51MEViUVN4V1pwb1c1S0pJdnQ3cG9ieWNXTUQ2Zw?oc=5",
-            "published": "13 Jul 2026",
+            "title": "The Vedanta Playbook: Which newly listed stock offers the purest long-term value play? - financialexpress.com",
+            "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQZWZ5OHBCcEFKUEd0STUzU0w3b3J4TWJXWThLM2FCY21sM1dPencxQXhwX2t6MTlhNFh5a0l3M0hwdTdrd2pIaWlURXc2aW5ZUldLbk84WllGOXhBQ3pKeW5ac3pMYWlyak8xbzMxaXI2SV9UVUdDM0FxNUVsbk5kLUl6RmhKU0ZLVmNBYktpNEliai1PNmQxMTVPWVpzYUhUV2Etc0FNdV9MUUVad3dLZy1BRC1TVGdKSnp5VXYwLTNvYnRtNEpsV1lRN3Fjd9IB1AFBVV95cUxNTzZ2YVI1djdQV0xZOXdScHo2NFdTMldIUU5PVUVCN1psVnJSVXh1MHlRZWdLZ1VJaFlwdXhWeHpfN0M2QXB2Y0d4cFBxRkdWMUNKbE5CWm1ydkdubzg3WWZ3U3c2RlpabzJiTnA4eHJvZGwxU1dqSXV6SXpHdUpwRUVmVDN4M1dqTzVjNUctbjBQZ1BKclhEcEd3ZnhlRzA1c3NYR2N1UVotamlrTHNGanc2TURlUEx1a1hNbHBobWw4OFhyMTAtbnhidmpNcURHQ0NIcA?oc=5",
+            "published": "18 Jun 2026",
             "negative": false,
             "event": null
           }
@@ -1777,7 +1782,7 @@
           "mcap": 1045795635200.0,
           "wk_high": 811.95,
           "wk_low": 565.0,
-          "div_yield": 0.45
+          "div_yield": 0.44
         },
         "invested": 213934.0,
         "current": 514290.01,
@@ -1891,7 +1896,7 @@
           "rev_yoy": -9.1,
           "profit_yoy": -44.7,
           "q_label": "Mar 2026",
-          "pe": 10.966571,
+          "pe": 10.972859,
           "pb": 1.119304,
           "roe": 10.6,
           "de": 0.0,
@@ -2128,7 +2133,7 @@
           "rev_yoy": 66.2,
           "profit_yoy": 118.3,
           "q_label": "Mar 2026",
-          "pe": 47.26884,
+          "pe": 46.652607,
           "pb": 9.946698,
           "roe": 24.3,
           "de": 0.97,
@@ -2399,14 +2404,14 @@
           "rev_yoy": 12.1,
           "profit_yoy": 9.2,
           "q_label": "Jun 2026",
-          "pe": 17.09682,
+          "pe": 17.40961,
           "pb": 7.9138255,
           "roe": 47.7,
           "de": 0.1,
-          "mcap": null,
+          "mcap": 8676173676544.0,
           "wk_high": 3350.0,
           "wk_low": 1976.8,
-          "div_yield": 2.88
+          "div_yield": 2.83
         },
         "invested": 508546.5,
         "current": 532356.0,
@@ -2661,7 +2666,7 @@
           "mcap": 335379988480.0,
           "wk_high": 253.67,
           "wk_low": 137.3,
-          "div_yield": 0.63
+          "div_yield": 0.6
         },
         "invested": 195448.0,
         "current": 177110.99,
@@ -2683,6 +2688,13 @@
             "event": null
           },
           {
+            "title": "ITC Hotels signs Welcomhotel by ITC Hotels, Rajgir; strengthens presence in Biha - The Times of India",
+            "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQc1JkNXd1MUFBeDZRWDJ4NXBVdXd3dTRfcUM0SVBuYlJiUE5GS2luYU1vcGx2d0N4c0ZWUFp5eTdEQWJHazZEWWt2aWFWV2F0Z3NfTjN5QndDeHdGcWdNYnFIODJGMU5PQ1ZTZGd3RVBXeGxnblh0OVNKRUVkYWNpZUxzazN1cS1HZzZsUFJXa083ZmZZdHpZMGQ2c2RXZHFZZVdaU3JFcDdXRmticjk1SzNpNy16Wjh0M0JNWHpHZ0ZpUTRET1RHYWRPMnAzdDgtdlB5RW9POUpXSUx2OVBnREg4OEnSAeQBQVVfeXFMUHNSZDV3dTFBQXg2UVgyeDVwVXV3d3U0X3FDNElQbmJSYlBORktpbmFNb3BsdndDeHNGVlBaeXk3REFiR2s2RFlrdmlhVldhdGdzX04zeUJ3Q3h3RnFnTWJxSDgyRjFOT0NWU2Rnd0VQV3hsZ25YdDlTSkVFZGFjaWVMc2szdXEtR2c2bFBSV2tPN2ZmWXR6WTBkNnNkV2RxWWVXWlNyRXA3V0ZrYnI5NUszaTctelo4dDNCTVh6R2dGaVE0RE9UR2FkTzJwM3Q4LXZQeUVvTzlKV0lMdjlQZ0RIODhJ?oc=5",
+            "published": "28 Jul 2026",
+            "negative": false,
+            "event": null
+          },
+          {
             "title": "Hotel Stock BLOCK DEAL: FMGC Giant ITC-Backed ITC Hotels Stock Nears Day's High Despite GQG's Stake Sale; BUY? - Goodreturns",
             "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNRXA1RGZzRV9CcEJiOHNmZkN0aEZEZGFwUGc4TDhNbF9yQ1VRTXIyMU5JOVRyZ3dRa3E3c2dMWl9PY3JzRTNRRFRHRm4wTE04WVdlVTYtZ1dPMVVIRFFvNE1DaFNjTDFRREdtUC1pcXVuSWhmVE41Q2tNWnZ1U1NzR2x4TUh4cFFaNE5WN0w3ZlJsV0hYVTFrRE5ubTAzeDBMdEZSa3FYMlEwQWxqOGx5TklUUlJFa2NEQjQ3RG1IS1JBU2RwSVhyWjlMd2hzNndrQ1FtQWNUZ1NZTGVW?oc=5",
             "published": "26 Jul 2026",
@@ -2695,13 +2707,6 @@
             "published": "16 Jul 2026",
             "negative": false,
             "event": "q1 results"
-          },
-          {
-            "title": "ITC Hotels Q1 Result: Net Profit Rises 35% To Rs 180 Crore, Revenue Up 15% - NDTV Profit",
-            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPak5RZFhjZFFZN1p0NHg5SzZHeWVfbGVaUXZ0MUdwcHdYN05Jd0RfVXJXRmlIeFNkNEJsNWJ3d3dFaF85N0dNN0EtaXFaZ1o1Vkk5YWE3WUdHbmZxUnlYcWdIbFRzSkozbWl0eVZtVmlxWnkwZDNWaTV2NjN5WmlieDNhUWgxUlhzcFZYM1lmMXVLSzItMzc3SGpjRmlVZFExc2hMY2dTRGpzekg0MDZfakJTZi3SAbwBQVVfeXFMUEhqTGVLSE1DUFZwM1huQlU3a1hBaDJYemROaENxcWJuNGxLWm5nMHVWamFwLV9Lem1TbVB2MWxXdHY0Z2QwUUYzY1Y4a0VRYjMwT2ZNVkhUMGstQ1F4RHVJWER2MnRXV1EzX3hQajlFQzFvNUE0a2VZTVhWcWVnc3V0d0FpNHBKcnI2eXlSVS12c3NsbU1GT2txUDRseHVWbjJhcTNKMXhrWWoxaEZQbi1EN3RnRndRcjdrQlU?oc=5",
-            "published": "16 Jul 2026",
-            "negative": false,
-            "event": null
           }
         ],
         "signals": [
@@ -2727,6 +2732,132 @@
           }
         ],
         "pct_of_portfolio": 1.6
+      },
+      {
+        "ticker": "BAJAJFINSV",
+        "name": "Bajaj Finserv",
+        "yahoo_symbol": "BAJAJFINSV.NS",
+        "qty": 50.0,
+        "buy_date": "",
+        "seed_price": 1876.7,
+        "sector": "Financial Services",
+        "target_price": null,
+        "stop_loss": null,
+        "notes": "",
+        "lots": [
+          {
+            "qty": 50.0,
+            "buy_price": 1769.13,
+            "buy_date": ""
+          }
+        ],
+        "avg_cost": 1769.13,
+        "price": 1927.9000244140625,
+        "prev_close": 1913.0,
+        "has_price": true,
+        "discipline": {
+          "stage": "",
+          "thesis": "",
+          "proof_metric": "",
+          "kill_condition": "",
+          "review_date": "",
+          "horizon_quarters": ""
+        },
+        "months_held": null,
+        "tax_status": null,
+        "health": 50,
+        "corp": {
+          "dividends": [
+            {
+              "date": "30 Jun 2026",
+              "amount": 1.5
+            }
+          ],
+          "splits": [],
+          "next_earnings": "31 Jul 2026",
+          "q_revenue": 334825500000.0,
+          "q_profit": 25386700000.0,
+          "rev_yoy": 7.6,
+          "profit_yoy": 5.1,
+          "q_label": "Mar 2026",
+          "pe": 31.594559,
+          "pb": 3.9558678,
+          "roe": 14.6,
+          "de": 2.56,
+          "mcap": 3082197925888.0,
+          "wk_high": 2195.0,
+          "wk_low": 1597.0,
+          "div_yield": 0.07
+        },
+        "invested": 88456.5,
+        "current": 96395.0,
+        "pnl": 7938.5,
+        "pnl_pct": 8.97,
+        "day_pct": 0.78,
+        "sma_fast": 1800.92,
+        "sma_slow": 1912.42,
+        "rsi": 63.3,
+        "ret_6m": -1.0,
+        "trend": "up",
+        "cross": null,
+        "news": [
+          {
+            "title": "Bajaj Finserv shares gain 2.12 percent in today's session - Moneycontrol.com",
+            "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQQTJRVTVrX3VmUE82VkhTV3RHSy1RTkE2a1ZVeWZXS25NNGY2dmp1cHlGYjhiNHRhcXFjU1Z5TldVY2UxQkhVRzhKS2l1dlRtU3NCVTRJTFBuT1hZeGtoT2tsMzNXc0ltdkVnU0kxdUpDdHVid1hkZDk5Mlg2WFRJdzNLajVFNzdQR3lWczhfSFEtMUkyODJxX0RUc0RNWENfeDZDcWc1N0FRWEZXb3p3d09DWFFoU09SSUlNYU14ejM0cDBLOElkWUNYTHo1dFFH0gHWAUFVX3lxTFBhMmRrc1lPWXYtWXdkVFZ6UWpxRmRmTUtaNFhRLVM3dWVFRVBEVVgzXzNyLV9wUTZ4S0RIbGhZNlRTcnB5cU5NZlotRXlJS3Z5LVh2YXQwWUM2dkQyel94NjN0b3Uyb1A2LVVVTTRyWWkwdDRjekI4WEtuN2YxVVRpaGMzVUp2OEdxeFpNRU9UaDVrRmh1S1J4Q2E0S3RnbFdiQjF4a3NwY181enJLRVphbTZmOGV2NGgxM19jYTRSYndiT0pKM3VZb0NwLU9kTGxaaXlldEE?oc=5",
+            "published": "27 Jul 2026",
+            "negative": false,
+            "event": null
+          },
+          {
+            "title": "Stock ideas by Kotak Securities: 'Buy' Bajaj Finserv; 'Add' on Century Ply - Business Standard",
+            "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPd1IwaVNXQmpLM1gwS1lVUnlKSFI5djJvMVhIdXNfa2lTMFZHeDRlNmlhQ252WU10TU9sYTlXbWJyVUhTczIzeFhhM3BFWVFWTG5ORUFhWHhKZ2JnbzQtb2gzWTN4ZmZoTHpwal9qcG1FcEFFc25oR3VBQzV3OXhwSWhrcXFuRXhIeElHTVF3N29RMG9VbWNwelpGakxkeU9MZnROUGpuLXZaWUlZRFBwaTlWU0k5ckQ2N1J3ZEp4Y3lLR0d0cHRYb2J1eUFveHp3TVVCbWNDTTd6b3l5UjRXQl83SjZYajRuQ3k5eTB30gHzAUFVX3lxTE9hTGN2WHlaZ0RYZXRvcmpKWDlZNFNSZ2Y3Y2pDVEp6TDEybWJJOVF3ZUw3VVUzTXdZQXJ4UXRnU1BRS19TT2NCWTlpc2FySXl6dHdhSWVPQXRxOTBlbmh6SXhJM0pCaG9PdUpZR01hSU5zQjEtX1hCOWEtQUZMc1FJWEw4V1NlaGU5ZEpwTzcwVnNUMVJWclBPRmdCYVJQWjhfbFpZdWgyVGxmbloxX0ZzbW9LSVFGRzYxN3NfQndRUEF2TTNlcnFPTzF3ZUZ0WTcwd29FUElhYjRCem04ZVRBd1JtMm93enlwRmwyVHRxVGRWUQ?oc=5",
+            "published": "23 Jun 2026",
+            "negative": false,
+            "event": null
+          },
+          {
+            "title": "Bajaj Finserv moves Q1FY27 earnings call to 5:15 PM IST on July 31 - scanx.trade",
+            "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPdnNVMGZOUlE5cjZxMU1xQllMbTI1X19xd2ZnUVV0TEwxd2dKY2RRZXlQSFRjZ29DdkxkVTJ1UkJvYWhxM3FrclFuOHNqN2lMX2R5UFQzTVZEbFlfMW9abFlMbDRQTGRvTGRkcG5zdWE4VC11TlZCVXRyVmp3SUtFTTdZaHJhMGh0Mkl6bDI1czU0R3lnY2pCYV9Eb2tIbFo3MEhySElCelF5NFFFSkVv?oc=5",
+            "published": "25 Jul 2026",
+            "negative": false,
+            "event": "earnings"
+          },
+          {
+            "title": "Bajaj Finserv BSE Top 10 Banks ETF (BANK10BETF) Share Price - Business Today",
+            "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRHJGRmwtVUtndnJxUHU4ZXoyOWNmX24zV1BLeXZzbE80RGxSVU9TX0h2dXpEbUJCVnBBWk1zcDc0Y2xnVG01Mms2aFlmY3FZYmh4YWxRbi03N0s4LUtHYXVNeGMtX3d3N3FhckoyeWlPVUt1Qkl6RXFsZ2xUWW03Wk4yLWFaT3IwdFZnQ3BjSDh4d1NMUUJWbzVqcV96RTJERUE?oc=5",
+            "published": "27 Jul 2026",
+            "negative": true,
+            "event": null
+          }
+        ],
+        "signals": [
+          {
+            "type": "issue_watch",
+            "level": "warn",
+            "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+          },
+          {
+            "type": "earnings_soon",
+            "level": "info",
+            "text": "Results due 31 Jul 2026"
+          },
+          {
+            "type": "corp_event",
+            "level": "info",
+            "text": "Announcement: earnings"
+          },
+          {
+            "type": "no_thesis",
+            "level": "info",
+            "text": "No written thesis \u2014 add one in \u270e Discipline"
+          },
+          {
+            "type": "high_debt",
+            "level": "warn",
+            "text": "High debt/equity (2.6)"
+          }
+        ],
+        "pct_of_portfolio": 0.9
       },
       {
         "ticker": "AXISBANK",
@@ -2775,7 +2906,7 @@
           "rev_yoy": 5.3,
           "profit_yoy": 2.1,
           "q_label": "Jun 2026",
-          "pe": 13.768849,
+          "pe": 13.7673,
           "pb": 1.7051148,
           "roe": 13.4,
           "de": null,
@@ -2908,7 +3039,7 @@
           "mcap": 945954881536.0,
           "wk_high": 1414.9,
           "wk_low": 1101.0,
-          "div_yield": 0.69
+          "div_yield": 0.7
         },
         "invested": 66785.5,
         "current": 56780.0,
@@ -2986,131 +3117,6 @@
         "pct_of_portfolio": 0.5
       },
       {
-        "ticker": "HINDCOPPER",
-        "name": "Hindustan Copper",
-        "yahoo_symbol": "HINDCOPPER.NS",
-        "qty": 100.0,
-        "buy_date": "",
-        "seed_price": 483.15,
-        "sector": "Metals",
-        "target_price": null,
-        "stop_loss": null,
-        "notes": "",
-        "lots": [
-          {
-            "qty": 100.0,
-            "buy_price": 577.61,
-            "buy_date": ""
-          }
-        ],
-        "avg_cost": 577.61,
-        "price": 473.1499938964844,
-        "prev_close": 482.3999938964844,
-        "has_price": true,
-        "discipline": {
-          "stage": "",
-          "thesis": "",
-          "proof_metric": "",
-          "kill_condition": "",
-          "review_date": "",
-          "horizon_quarters": ""
-        },
-        "months_held": null,
-        "tax_status": null,
-        "health": 55,
-        "corp": {
-          "dividends": [
-            {
-              "date": "18 Sep 2025",
-              "amount": 1.46
-            },
-            {
-              "date": "13 Feb 2026",
-              "amount": 1.0
-            }
-          ],
-          "splits": [],
-          "next_earnings": null,
-          "q_revenue": 11560800000.0,
-          "q_profit": 4442700000.0,
-          "rev_yoy": 58.1,
-          "profit_yoy": 137.3,
-          "q_label": "Mar 2026",
-          "pe": 49.805264,
-          "pb": 13.702578,
-          "roe": 30.6,
-          "de": 0.03,
-          "mcap": 457547415552.0,
-          "wk_high": 760.05,
-          "wk_low": 226.7,
-          "div_yield": 0.51
-        },
-        "invested": 57761.0,
-        "current": 47315.0,
-        "pnl": -10446.0,
-        "pnl_pct": -18.08,
-        "day_pct": -1.92,
-        "sma_fast": 509.97,
-        "sma_slow": 486.84,
-        "rsi": 35.0,
-        "ret_6m": -11.6,
-        "trend": "down",
-        "cross": null,
-        "news": [
-          {
-            "title": "Vedanta, Tata Steel, Hindustan Zinc, Nalco, Hindustan Copper: Why Are Metal Stocks Falling Today? - Goodreturns",
-            "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxONC1EdmV1VDF5bjlKWExUQzNJNFZIaVdwVDRUY1gxUC1IZ19hcy0tU3hlc0daRXhXWk5KcnRvVVh2al9neW1jMkM2bGNLN2p2SWoyRjliNWIzSjhKbmxaNzBWTVhPQTlaZUZqNnRSLWY0SHpISTVZNWRnWURoeklXUmxjdm10bjlqbWRiQ1lmZ1N3RUJXX25yZEFGb0FGc3JHLW1aYzZXVVZXX0EyV1VrN0dRWV9ONTVxNWI2T0laV2JYOW1Qay1jUV9XOTFfWDAtcGc?oc=5",
-            "published": "27 Jul 2026",
-            "negative": false,
-            "event": null
-          },
-          {
-            "title": "Hindustan Copper Ltd Revenue Breakdown \u2013 NSE:HINDCOPPER - TradingView",
-            "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBKNThIT1c2RTNEWUhqbmhBNjdFLVR1QnZXOFhENFNnajVNTlVRT01RMVFFS0hQVlVqNGxOT3o5SUVCclV4OXNYQVlveG90c2c2NG13VW5WNFoxcTlfa1JiOEdmSURKcFREOTlsLWNMMzlJamprWmNFSTZlOA?oc=5",
-            "published": "24 Jul 2026",
-            "negative": false,
-            "event": null
-          },
-          {
-            "title": "This Broker Just Slashed Their Hindustan Copper Limited (NSE:HINDCOPPER) Earnings Forecasts - simplywall.st",
-            "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQblhNVXpMX3lfby1HRU11YlRJRGVZSHl0UURVSG55cmZ5cUMwNXp5NjNDV2U1NGxsTHZDN3NkV2VYRUhaaW5LY092UXM0Tkt1WlNjd2Jhd0tWeVZhQzYtZVc3bFpMT1lLcEdIQjd1WW45ekJidk1uRVYwVjJOdzZON19Lb0ZjeUtqcF9LaTVRLUFsNEJXZmVJWTlNNEJ3ZjllVU92WndvdjVlOEJQSHJqVHNLTy13T2FpbVE4ZUpUaHpLT3RoNEhmZm50RENtMHB1NE1WajBoSnd2TVlOWURN0gHkAUFVX3lxTE1EQ3lqbXdsYk9KV0pPY3hZT2dISzJ3bU1DUzVQOTh0YUVfeXNMS1ZmLVp1ZXZLQm9pRDRJMTFvc0xkWjN0NXNleFZTSzNLbi1QaTdzZ3ljb016OTFPSk9BMVZQYmNqQUJiQjBERlRXUnE1cU5rZS1NQWtFMUx2aU11c0RLV0FkU1IxdWxmUDh3aW9NMHd3ZUNCQjNDR3ByZkJGcVdyb1I2Zl82RWxDRkxUY0dDYU0wMVdFRXJiUldlTlFiYm9BZjY1amJERFkwcmFvLTlrTk5NUVhaS045dFZBUDVYYg?oc=5",
-            "published": "21 May 2026",
-            "negative": false,
-            "event": "earnings"
-          },
-          {
-            "title": "Buy, Sell Or Hold: Hindustan Copper, Bharti Airtel, LIC And Sun Pharma, Canara Bank \u2014 Ask Profit - NDTV Profit",
-            "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQcmtyRTdRX25GSzA5V3l2ejN3VXpld1BfdHF0WExKRVpNY1dUWWNtRHNJZEJ3TDFUaUlTeUhkcjRvcDhHVlRYY195emxXRGx5RUszMzlPNkZHdmNrTDI5VndxcGliVjZBTjRvWnR2M0ZUMUVXZ0NYMjBObnRTS2h1dEV0UldnamtZcVBlb1lDUndoTF9zWU1salY3bmVVZjY2VUpGUGs1QnFsdVp3M1pyTmM1cUVCY0hKNkRQdFJocUQxbHFmNDlfSXFodERMa05LdlZFZUpR0gHWAUFVX3lxTFBya3JFN1FfbkZLMDlXeXZ6M3dVemV3UF90cXRYTEpFWk1jV1RZY21Ec0lkQndMMVRpSVN5SGRyNG9wOEdWVFhjX3l6bFdEbHlFSzMzOU82Rkd2Y2tMMjlWd3FwaWJWNkFONG9adHYzRlQxRVdnQ1gyME5udFNLaHV0RXRSV2dqa1lxUGVvWUNSd2hMX3NZTWxqVjduZVVmNjZVSkZQazVCcWx1WnczWnJOYzVxRUJjSEo2RFB0UmhxRDFscWY0OV9JcWh0RExrTkt2VkVlSlE?oc=5",
-            "published": "27 Jul 2026",
-            "negative": true,
-            "event": null
-          }
-        ],
-        "signals": [
-          {
-            "type": "issue_watch",
-            "level": "warn",
-            "text": "Possible company/scope issue in recent news \u2014 read before deciding"
-          },
-          {
-            "type": "corp_event",
-            "level": "info",
-            "text": "Announcement: earnings"
-          },
-          {
-            "type": "no_thesis",
-            "level": "info",
-            "text": "No written thesis \u2014 add one in \u270e Discipline"
-          },
-          {
-            "type": "below_200dma",
-            "level": "info",
-            "text": "Trading below 200DMA \u2014 long-term trend weak"
-          }
-        ],
-        "pct_of_portfolio": 0.4
-      },
-      {
         "ticker": "SOUTHBANK",
         "name": "South Indian Bank",
         "yahoo_symbol": "SOUTHBANK.NS",
@@ -3186,15 +3192,15 @@
             "event": null
           },
           {
-            "title": "South Indian Bank files FY26 BRSR, reports 14.6% business growth - scanx.trade",
-            "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRndqQmhhamwyeDh2d3BzemlSV3M1RlM2eXNpYWZGTlFhTVZxRVJJWG1fdWhfQjVycXpmalBRcjB2Qm9rTnV2Qy1QX0RYNTR4S2NzeEZ2ZUxzcUo2Tk1PVXE4SHAycDhOYTVKNDN4SUVmVWNjYmNMZzNEZElWNF9qMUZjMUNEcnhDYzBPMU5neXhiYUNSUzV2alRJZnItZk1yYlhBaC1BVDBrT1Q0TEN6QjRUZmNmTkxkX3RZ?oc=5",
+            "title": "South Indian Bank Limited Revenue Breakdown \u2013 NSE:SOUTHBANK - TradingView",
+            "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB6UG5SVW5faGVEZHBoNGRzQklCZzJCWEJwZy1McFFmMld2UGpkUGZSSXJONWlfQ0R0cXU0SHpUQUF1WDU3UTlRVHFONG1pbDBWbGNwT2MyR0lESkN0VnhHTHdrMS1DTjlvNGZ5a0J6WndSRW1EUFkwZndB?oc=5",
             "published": "27 Jul 2026",
             "negative": true,
             "event": null
           },
           {
-            "title": "South Indian Bank Limited Revenue Breakdown \u2013 NSE:SOUTHBANK - TradingView",
-            "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB6UG5SVW5faGVEZHBoNGRzQklCZzJCWEJwZy1McFFmMld2UGpkUGZSSXJONWlfQ0R0cXU0SHpUQUF1WDU3UTlRVHFONG1pbDBWbGNwT2MyR0lESkN0VnhHTHdrMS1DTjlvNGZ5a0J6WndSRW1EUFkwZndB?oc=5",
+            "title": "South Indian Bank files FY26 BRSR, reports 14.6% business growth - scanx.trade",
+            "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRndqQmhhamwyeDh2d3BzemlSV3M1RlM2eXNpYWZGTlFhTVZxRVJJWG1fdWhfQjVycXpmalBRcjB2Qm9rTnV2Qy1QX0RYNTR4S2NzeEZ2ZUxzcUo2Tk1PVXE4SHAycDhOYTVKNDN4SUVmVWNjYmNMZzNEZElWNF9qMUZjMUNEcnhDYzBPMU5neXhiYUNSUzV2alRJZnItZk1yYlhBaC1BVDBrT1Q0TEN6QjRUZmNmTkxkX3RZ?oc=5",
             "published": "27 Jul 2026",
             "negative": true,
             "event": null
@@ -3290,6 +3296,13 @@
         "cross": null,
         "news": [
           {
+            "title": "IREDA vs Inox Wind: Renewable Energy Stocks Down 7%, Buy The Dip Or Stay Away? - Goodreturns",
+            "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNQjc5VUdPalFxNEdOaUNrb1FOUm9xVGFmSmMzdUlQdVl3NG1ZWmdjenN3OUhnVFBmclo2dGNDYTJQbjUtSGN2ME9vb29LVHBfWVVFWFRtSEVFd2NyV0ZSdmFRZVdjRUdxaDNOQlYzTGFlZVNBeklNUWNJMVBTSTZDUHNVVjZXcGVCcHh4cHdITHhIQXJHZWU1WWZ6eHFKeEJnbVV3amc5dk9jMGdPeUx5VzFJX1Q0d2pxeWtN?oc=5",
+            "published": "28 Jul 2026",
+            "negative": false,
+            "event": null
+          },
+          {
             "title": "Suzlon Energy vs IREDA: Which Is A Better Renewable Energy Stock? MCap, Roe, Dividend Comparison - Goodreturns",
             "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNX1lIQ0YwbmpFX2VIS2pXTnk1eHRIYkRsX3hpN1hoTTF3SW5XYlRsOUgycHU2d3pxLUVBZlIxX3RxMnNnYWUtdzVDeGs3RXFPRWNvMWlVcXZQTXF5U3UyUkhVSXBzMjY2OHhtaG9yWDl2TmY4MHJUcjhHTG1ONmxQX1JJT1BCRl90OVIxUHVPMmtGY2JCS1libTBhdmdDeTI0alBULTZaTnBRbHgzR2plRDlZOGV6WHBMSnR6NUVwZVRlejdjSGdSNDdNd05mNWlwSUxr?oc=5",
             "published": "23 Jul 2026",
@@ -3308,13 +3321,6 @@
             "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQVUJPSkdKSEhUOXZaMVVfQmN6UklEaXRHM1Z3VEttVFNxMlp2NkVrWlhTWUp5eFFUMUlnbVBoNDl4dlpNRFJ3WTI5aTRjbm9OTXdwZTlKcHNMYmVRUE5hVk5QN21wbEZueGI5amN0MndGMXJ4TWszWTRyeHM0eEg1ajZUcnBZbzN2aFR5cHdGTHBfMldIWWpCeUF4ZGIzRDJ0bmxZSy1aM1RqN1NEWThJcUg1cjBwNHdHSFp0TzRTTTJZdnhOUUpTYi12VjDSAdIBQVVfeXFMTXJQaU93OEQ1LWM2SVVDWGpwYnQ2bVFTQ1NkU0Y3SWVEcXNvaEpTUXVSYUpFN1RXSW1ISEtlQTBubjJqakRuUnl1M01xdi1MR1RpV1RSVlZMQlFYci1Ta3M0Qm1wTmNUMlhMdVpqOW81d1lfTE5TelE1N1NOc0ZjeU1UR0lMSndSTE5McW1aejVIbHJIQXpWOXRsVGhsSkMwVHpzV0FQazFUaFN1eXZaYzdjRE9iUXZ6VjVGMEpPSkY2eEJ4U1ZTTjI0Y0cyZGp3X2d3?oc=5",
             "published": "23 Jul 2026",
             "negative": false,
-            "event": null
-          },
-          {
-            "title": "IREDA classifies Gensol Engineering, subsidiary as fraud accounts - BusinessLine",
-            "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxONGsteGlhTnptTjBNeTVBWW11T3ZBS3NCMEl0S0VIRExMN0xkWUtiZHRtUm5qTXJIMlpnWGdjZDR4am9EaE5qR01RYmNoZTU2V1E2c0FpNDJTODlzWnZLaVM2S3FFU2NRSi1jN3Zud1p5LTdGUXYzTDZ6Sk1MYVE4eEVWd0tncURtRjR0TENYd0JXdFF0c2lmVlp4ZklQUXpvLUxxajdqSm9Uc1ZlQldEWUUxVGl5U0FYSGsxTWMzVlR3TVNRYk9xUjFieVBtQzFRNDBmRXRhYzZyUEVOZzFhNDVKV0hNV2UybU5wSmU2blBvTkHSAfoBQVVfeXFMTkMyQ1o2VlRXSzYtZldKZGRWNGM4NjNVQXBIa3NCVDFURWZFQ3pLaHFrck1EcUFCdXhvZjZTanEwWkYwVXFHTjdjREd3cUp0YTFkN2p2Z080QTluTXFSWENDVE1EQjdQWjhxVzJnMUxfRzdIaDB5eFd1OFJsbllySElfcWdYQ3ctYWVYazNTdXV4cXdYQ3ZHYjdNdW1RWE5SVFJtWnQtZDFUX0VqUzFUZ2NSWnYxUml4UnA1VzJhT2NVWXYzaTFKbXV0em4wbC1xWGc4cW44Q2t6dHRZSnhUODlKWUlqdEtnbE9HZkxlcF93b3I1RlFuM21nUQ?oc=5",
-            "published": "11 Jul 2026",
-            "negative": true,
             "event": null
           }
         ],
@@ -3338,6 +3344,132 @@
             "type": "high_debt",
             "level": "warn",
             "text": "High debt/equity (5.7)"
+          },
+          {
+            "type": "below_200dma",
+            "level": "info",
+            "text": "Trading below 200DMA \u2014 long-term trend weak"
+          }
+        ],
+        "pct_of_portfolio": 0.1
+      },
+      {
+        "ticker": "SUZLON",
+        "name": "Suzlon Energy",
+        "yahoo_symbol": "SUZLON.NS",
+        "qty": 200.0,
+        "buy_date": "",
+        "seed_price": 52.28,
+        "sector": "Renewables",
+        "target_price": null,
+        "stop_loss": null,
+        "notes": "",
+        "lots": [
+          {
+            "qty": 200.0,
+            "buy_price": 52.72,
+            "buy_date": ""
+          }
+        ],
+        "avg_cost": 52.72,
+        "price": 48.02000045776367,
+        "prev_close": 53.150001525878906,
+        "has_price": true,
+        "discipline": {
+          "stage": "",
+          "thesis": "",
+          "proof_metric": "",
+          "kill_condition": "",
+          "review_date": "",
+          "horizon_quarters": ""
+        },
+        "months_held": null,
+        "tax_status": null,
+        "health": 55,
+        "corp": {
+          "dividends": [],
+          "splits": [],
+          "next_earnings": "28 Jul 2026",
+          "q_revenue": 54680600000.0,
+          "q_profit": 11143500000.0,
+          "rev_yoy": 84.2,
+          "profit_yoy": 188.0,
+          "q_label": "Mar 2026",
+          "pe": 20.78788,
+          "pb": 6.9806657,
+          "roe": 40.6,
+          "de": 0.06,
+          "mcap": 659984875520.0,
+          "wk_high": 66.81,
+          "wk_low": 38.19,
+          "div_yield": null
+        },
+        "invested": 10544.0,
+        "current": 9604.0,
+        "pnl": -940.0,
+        "pnl_pct": -8.92,
+        "day_pct": -9.65,
+        "sma_fast": 55.05,
+        "sma_slow": 51.48,
+        "rsi": 26.9,
+        "ret_6m": 5.1,
+        "trend": "down",
+        "cross": null,
+        "news": [
+          {
+            "title": "Why Suzlon Energy shares plunged more than 9% after Q1 results - Fortune India",
+            "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxORUZuNmN2VG5mbFpJT2tJZms2VzF3TmZkNElrajlKNWtjX2xweGYxUzg2c1Z3SGJXMk5wbDRzTjA5UHpseDVISkgyUDlILUlobVZLalByTVJ0X2xQa0Y4cURnS3o4OG94YlhiX1VmdktwMDBZaHp0NnBEZHdaaWp5RUk2S3Y4QzdoQklUN0U2MjRuUTRDVzdwd1I0OGV0a1o2aV9Vb0ZR0gGzAUFVX3lxTE5wMmY1WDhwOFhQZW51RGJNNUFtd2ptNWxVa2gwTERXelJUT1lISU5YMDhlYWRKQVpMVnlZWDQtNmtWTTEtaDh0ZWdDeWFSdk04U0Y1aU9meFM4UldZOUdYeTA5ZEJEZngxR1h0SzZ4dG1Bcm94dHlTbFUwVWRDYjdxMm9GM0YwX1hpNzc5d0l6eVdmZkktVkpRcGhlcGpNT1FoenlhNGxvb3AzNEtiVkx3X2xz?oc=5",
+            "published": "28 Jul 2026",
+            "negative": true,
+            "event": "q1 results"
+          },
+          {
+            "title": "Suzlon Energy Q1 Net Profit Falls to \u20b9305 Crore, Missing Estimates of \u20b9400 Crore - Sahi",
+            "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPcGhPNUxDWFhvVTRRRFcxNzY0NzhtR0JvTXpFMmw3OWxDTUdocjlsc0dmQy1aT0RlTUt4cTFwSk5aTjdWZWQ4UjRrUWNfbDNJUHhBdENKOGNCdGFsNzJRSWRCM3E2YjBCSTZEakJ1MmYtMzVoR3I2YnljMW9MOC1tMVBJdS1kTFd4alRFTU8ydmJteTRTTGFsQ1NBM0l2Sk5zTDlvSXpBcXFVNzYtMFdMYzF0UzFMY2M?oc=5",
+            "published": "28 Jul 2026",
+            "negative": false,
+            "event": null
+          },
+          {
+            "title": "Suzlon Energy Q1 Results Today: Time, Dividend News, Earnings Call Schedule, Key Things To Watch, Share Price - NDTV Profit",
+            "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQa0JGWHlqMkpqMFFLRGpuOU52MUdNZHlaNmV4aWRSTzNPMkZxWlR6dExUMGU5WEFwYUNOem9EbFlnWGRQZ3hRZzQ5Y0lwZGdCMGhfS0ZRZFVsZFJZT2x4bUZFWVNacldsVVVZZjJ5MS1lNTBuVlJVeElEaG1Mb1BwSHotS0Y0Y0VCYjQ1cGVVR0JHTGlPQ19lNFl1TGRyaHNiaGR3R0lMYVZlaXNYbjJmNjUyMTVjTDFKWUZ0bjdyTm15MmtXQ05YcUtVbUYtVUxZaFhnMUNiLXp6RlE0T25jajJB0gHqAUFVX3lxTE10MzFuZkJ4dHpqVVVXT2pOU19fQVA5bzh6dy1BNWxhNks0TjBUd1dfdWs0TVl5V1hqOEtSelpDMEtrLVB3djRUcGVMVmpHdjhwLTZaYUstLXpYV2xBTzZ4MDJTWXE4YWFKTDc2cE5yUDFiVFB5Q1hRM1RZeW54bk12MXppN3dQWjRsSTZxbjJva3dwWVBKV1NqOWZPdV9qMHFNQjFtTmliZGxpTXk1RURlc2ZOSG1wTnpDRVdYeWk2X0I0LVoyejQ0dkVpMHFpdjh1UXBpVFFhYXVCSkxIYWNGRzE4MzBqV3FhUQ?oc=5",
+            "published": "28 Jul 2026",
+            "negative": false,
+            "event": "dividend"
+          },
+          {
+            "title": "Suzlon net profit falls 6% YoY to Rs 305 crore in Q1, shares decline 6% - Moneycontrol.com",
+            "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOUWpneWQwaGFsbUV4VlhJbGVXd0pLWktrdllBZXVLdUNVOUhwaXdWUUF6WmRrSno3c1pneUZmSDFBV2xlMzJwdDZwREJaSnctWDNTWTAyN1lvUGxzY29xX2RIdWNoTUV2TlVvZDBXcU9oVl9Hd1FxN1hhaWRTNTdYQXZUdXVlWjAyMktWVFgyY3A1ejJ6b3pXMDZtMUZYQWdRVHpYbWphN2pmaGNtUGZ5Tjdib1FwZEFEeXU2cW4wYnItT3Y2c2FPQ2c2TdIB0AFBVV95cUxOYmZGdUtEbTk0b29sMXlQVE1FdjB5ak9GbVFoa29wZm5kT29HY3BjdlNicnVPS1VQMkJESlRsbDB3ZUR6c1o5eDBLLXNuNVR4VWhsRHp6VFZ1TnJJRkRDc3h6UENaTGh6OThmUmoxcEJwS0lCQlZMODZxOHFUa0U4b0lvbElOSFp6SnJPSjlZVGEzRE1xMDA2Z1dmaGExUlZkb2tERG54RzZvZ2lXeHFucDJ1QXFyalZWdzNoSFJWZkR4YWc4NWd1Mk90b2k5TDcw?oc=5",
+            "published": "28 Jul 2026",
+            "negative": false,
+            "event": null
+          }
+        ],
+        "signals": [
+          {
+            "type": "issue_watch",
+            "level": "warn",
+            "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+          },
+          {
+            "type": "earnings_soon",
+            "level": "info",
+            "text": "Results due 28 Jul 2026"
+          },
+          {
+            "type": "corp_event",
+            "level": "info",
+            "text": "Announcement: dividend, q1 results"
+          },
+          {
+            "type": "no_thesis",
+            "level": "info",
+            "text": "No written thesis \u2014 add one in \u270e Discipline"
+          },
+          {
+            "type": "oversold",
+            "level": "good",
+            "text": "RSI 27 \u2014 oversold (possible add-on zone)"
           },
           {
             "type": "below_200dma",
@@ -3416,10 +3548,10 @@
         "cross": "golden",
         "news": [
           {
-            "title": "SBI to host analyst meet on Aug 7 after declaring Q1FY27 results - scanx.trade",
-            "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQbEQ4Z3hHaVBRZUNEYzlsSUcySXhIMTh4dVpQZDNKczRuQ3dRcmtxMDdvTHVNZExacVpnMjZxeXA3VlN5YUV0VUZXbzJBTEM2cjhiUzBhWkJxUW10X0pneGh1b1FHSUhUZ1dUSUJwYVZ2UWhjdGZxdGQyN2JrdXR5Z1FUSUczUE52VGRueFVBUjlOWWV5Z1dldXZFX21TSXhJYlE1Vnl2bGN0S255SVJLUDF3ZjZZOGllbFBCUXgyNVA4Zw?oc=5",
-            "published": "27 Jul 2026",
-            "negative": false,
+            "title": "State Bank of India sees Crisil ESG upgrade to Leadership in FY26 - scanx.trade",
+            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPTDNKTEpnQzVQaGVZV3E1YzFtcGRnV2VDU0RRNmM4blZlWkpfTXBtTW8wYm1MN3BJckZoMHM4Ny13Y1c2LWJtbG9YS2xRZ1ZDSThiVTdGQ0VjRjdrT3RBU2doTG1ySkFacGwta0NsX0x4clRvbmRBaDJGRTBXLWxBb0I2UGRFQTM3MlNqSUJvclJ3cW1RY0lDWktyb2R3Mnd0OFVDT0RjaXpEamNVc2lQVnNvUW9KYVZXWUR3azZSaw?oc=5",
+            "published": "28 Jul 2026",
+            "negative": true,
             "event": null
           },
           {
@@ -3430,17 +3562,17 @@
             "event": null
           },
           {
+            "title": "Sensex, Nifty end lower as FMCG, energy weigh; IT stocks outperform - Business Today",
+            "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPdl94V2c3Z25BTjVNNFpaMTUtZHh1bWZyNzQ0QVBLSHlkT2hVcTQ2Yl84bkFyYkZGamxneHlDMHJDVm5fZjRFUV91Zzl2TnJVZ2UtWXRrWFNEVEhBZEM1Z2FUWmRCcEw3NkJueWZkMEw0bTNDS1puSnkzQlZZdkZzeHp3eUNLMzFnTEtTcEE2YXhFTjRDdnY0Mllnemk1dDNwc2ZkSnR1TmdwMUhXT3NEdFlhdGFfdVF1YkU1OXNzQ2JCUkxSR3E4TzQtT0bSAdIBQVVfeXFMT1JUMFhsazRBYWVrWWZRZlJnTnMzUUV5aW4yaWVuaGpOR2FPNHNxMWYzamlCQmY4ZjJhSXpiQVkzNGRNX3RubTB0d2RkeEMycW5HWFlNRHRBazdQMUtDdHFxVnByTmt0OHg5RGIxSDZHYV8yR0NFXzZnX1hleDZ4bDVGLU0xRlFPX3BQamwzT0h1TW1PVmctNzlRdUx4N252VHRVaGUyQVRrSWxYSmVIckFvZFRTbTJDR2NITlJfVjBnUGEtbGs4SDktSkJHanNBeWZR?oc=5",
+            "published": "28 Jul 2026",
+            "negative": false,
+            "event": null
+          },
+          {
             "title": "State Bank of India climbs Friday, outperforms market - MarketWatch",
             "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQajUyZldLajNDTFdZQWFBc19KZjlNdkhsNWJlNThLT3ZJZG1oc0tIX3RCRUdnNm4wQWsyR3ZPanUxM1NUMHFyQnd5WXlHVEg2UWNWa0tfRXVvTWdIUUliclFfaEU4a3JyLTZsRXpSTk9XNFVEaDd6Uk9aOHZEd3hMS3JpcGVvVjZBa1ZCWmNVaG9ucTJvYThyUGFUV0NvYl80ODYxcHUtaFlmZGVx?oc=5",
             "published": "24 Jul 2026",
             "negative": true,
-            "event": null
-          },
-          {
-            "title": "Positive Breakout: These 14 stocks cross above their 200 DMAs - The Economic Times",
-            "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPMkEyZGs4cE5WOE04WkhkMUphdWRESFpuNTdXU2s3c0RuZTB1eVkxcXV0bWFCcVVGZ09FaFByT19uRnozNjg2S2VSVmNrQzkxTnBza0c1RlBYZENuRUhZalpLQ0daQ3Q1M3ZoX0tPN3I1b0dtRUJsSnJ2eEkyZ3ZMdWN2dTZrc3dTWEgwaVBOaEttb0E2WFNURGpMdnl0ekphbEFHeHZjWEVWcllKcW1PcGlwd250R3QyZWluX2N3ZmdodkkyajRKMjkzV0gwbkloVHJ1LWdiUENMUGhCNkE?oc=5",
-            "published": "28 Jul 2026",
-            "negative": false,
             "event": null
           }
         ],
@@ -3656,14 +3788,14 @@
         "rev_yoy": 15.7,
         "profit_yoy": 11.6,
         "q_label": "Mar 2026",
-        "pe": 38.34785,
+        "pe": 39.092045,
         "pb": 8.563653,
         "roe": 23.8,
         "de": 0.02,
         "mcap": 2150962692096.0,
         "wk_high": 8230.0,
         "wk_low": 5353.0,
-        "div_yield": 1.07
+        "div_yield": 1.06
       },
       "invested": 1436670.55,
       "current": 1559364.0,
@@ -3692,16 +3824,16 @@
           "event": "dividend"
         },
         {
-          "title": "Eicher Motors Shares Gain 2.09 percent in Today's Session - Moneycontrol.com",
-          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQUU1qVWdZXzRJZGlXR29ybzM1d1otTURsMjFjRFl0UERfZ3dHc2t4LXNESHBOb1JPRDllN3MxcjBhM2syM0JIS3M4d2s1RGpreWRjT2VkdEZXV1pLUmVHY1VCanlka0NvVDVUVUwwNVk0cUdZU2FnczRvcTlySEJScFRMdDFabEVFbDlTeDhQYUZtSzVHZTVNT0tDNmFVRGthU2RkaVljVGJMcHZuSU1GZTB3eC1TdlJtakUwZUtVNkdwcV81ZWdWN3psSUVQWVJU0gHWAUFVX3lxTE5mYmxkU0lITVg0TU9VWGZYRG4tNi0zQjFWSy02LUpQVTE0dzVqUk1SWjBYQUJtT3ZSNk9CUGNsWGNlZVlieVNsakRFck9ScHBJRkszZ0lWWHk3dnNNTHVQaUZPaHJMdFFQNENjbExiYk9GUDNhTGJDV2o3RXYyUDZoUmR5VXBlVXAxR1J6NnZSS2ZpRGR2NlZCVlliUkR1WWVsVVNGM2V4bUxxdjQ4QUZmalRrcGdEaE0wYzJsU21pV01wOHNNX1ZneXNtMDBkRVVfNWpNTFE?oc=5",
-          "published": "27 Jul 2026",
+          "title": "Eicher Motors Limited Actuals & Estimates (NSE:EICHERMOT) - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNZVpHVmJHSG00d1JvVlNxSGZKc1RpQ1dWallMOHR0d3pTaEhUOUNoSlpaZEU4Z2VDYWdmZGV1TXJpNVlPeG9rRnI5YTdudjI5LXFiNEVIWFd1OGFXN1dibHdiTVY4TEFsclZIeUY2bGxuVW5fSDlLempVRVd5TkpuOXhtN1pLLWNQ?oc=5",
+          "published": "19 Jul 2026",
           "negative": false,
           "event": null
         },
         {
-          "title": "Eicher Motors Limited Actuals & Estimates (NSE:EICHERMOT) - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNZVpHVmJHSG00d1JvVlNxSGZKc1RpQ1dWallMOHR0d3pTaEhUOUNoSlpaZEU4Z2VDYWdmZGV1TXJpNVlPeG9rRnI5YTdudjI5LXFiNEVIWFd1OGFXN1dibHdiTVY4TEFsclZIeUY2bGxuVW5fSDlLempVRVd5TkpuOXhtN1pLLWNQ?oc=5",
-          "published": "19 Jul 2026",
+          "title": "Eicher Motors Shares Gain 2.09 percent in Today's Session - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQUU1qVWdZXzRJZGlXR29ybzM1d1otTURsMjFjRFl0UERfZ3dHc2t4LXNESHBOb1JPRDllN3MxcjBhM2syM0JIS3M4d2s1RGpreWRjT2VkdEZXV1pLUmVHY1VCanlka0NvVDVUVUwwNVk0cUdZU2FnczRvcTlySEJScFRMdDFabEVFbDlTeDhQYUZtSzVHZTVNT0tDNmFVRGthU2RkaVljVGJMcHZuSU1GZTB3eC1TdlJtakUwZUtVNkdwcV81ZWdWN3psSUVQWVJU0gHWAUFVX3lxTE5mYmxkU0lITVg0TU9VWGZYRG4tNi0zQjFWSy02LUpQVTE0dzVqUk1SWjBYQUJtT3ZSNk9CUGNsWGNlZVlieVNsakRFck9ScHBJRkszZ0lWWHk3dnNNTHVQaUZPaHJMdFFQNENjbExiYk9GUDNhTGJDV2o3RXYyUDZoUmR5VXBlVXAxR1J6NnZSS2ZpRGR2NlZCVlliUkR1WWVsVVNGM2V4bUxxdjQ4QUZmalRrcGdEaE0wYzJsU21pV01wOHNNX1ZneXNtMDBkRVVfNWpNTFE?oc=5",
+          "published": "27 Jul 2026",
           "negative": false,
           "event": null
         }
@@ -3772,14 +3904,14 @@
         "rev_yoy": 65.0,
         "profit_yoy": 45.9,
         "q_label": "Jun 2026",
-        "pe": 27.03525,
+        "pe": 27.048752,
         "pb": 8.186574,
         "roe": null,
         "de": 0.56,
         "mcap": 3123047038976.0,
-        "wk_high": 11410.0,
+        "wk_high": 11410.5,
         "wk_low": 7858.5,
-        "div_yield": 1.35
+        "div_yield": 1.34
       },
       "invested": 711593.95,
       "current": 807554.0,
@@ -3801,9 +3933,9 @@
           "event": "q1 results"
         },
         {
-          "title": "Bajaj Auto stock outlook: Brokerages optimistic after Q1 margin beat; eye exports, new launches driving growth - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOLUJVWGZNWkxTeWU1MkZTX25uUzVHTE00ZG9EVmwtWDdsRWNJY3dOS2lPRU1kU0t0WlNLVTZob3VxRkdYVDhPaUNMQU14aGl3SEprS2NZU08tMnJzQUtWR3pCQkVFcXJhZldsUmFuWGg1RF9faThudDgzRGpuTVI4WldoLTlreno1c0VJVUFmQ3dXZF9tRG9uQVctTVd3VXpPZkQ3aUwydThvUlVHMDlLOGtXT1FlWV9LcDVLOU5aZmhuLWo0d1B5b0V2b002MXBTZmh6aEZwUUY0ZWJkSzBpSlJQaXBLbUVMYWZGc24wcWFuc0E1eGx6aHlGYVFwRnc?oc=5",
-          "published": "22 Jul 2026",
+          "title": "Bajaj Auto Limited Revenue Breakdown \u2013 NSE:BAJAJ_AUTO - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1VUGFZOXhfR1U4VlhWMmx0dFVoYVN1c0ZMV05JUm81SDlSM3BUVGp4TnMxMFd6czRUNHlPbEw4dGZRTzhjTnFockJWOTF5amZBX2ZjWWgtSTBQaGtrdUR0MEZVWGlSbG9PVHE1d3lBbzY2dU4xeS1MOE82MA?oc=5",
+          "published": "24 Jul 2026",
           "negative": false,
           "event": null
         },
@@ -4035,7 +4167,7 @@
         "mcap": 986913832960.0,
         "wk_high": 11979.0,
         "wk_low": 6234.5,
-        "div_yield": 6.24
+        "div_yield": 6.0
       },
       "invested": 600846.12,
       "current": 646038.0,
@@ -4144,14 +4276,14 @@
         "rev_yoy": 32.3,
         "profit_yoy": 41.9,
         "q_label": "Jun 2026",
-        "pe": 23.776758,
+        "pe": 24.526814,
         "pb": 2.774655,
         "roe": null,
         "de": 3.93,
         "mcap": 779260329984.0,
         "wk_high": 338.6,
         "wk_low": 194.4,
-        "div_yield": 0.91
+        "div_yield": 0.88
       },
       "invested": 419240.0,
       "current": 622000.0,
@@ -4418,14 +4550,14 @@
         "rev_yoy": 12.1,
         "profit_yoy": 9.2,
         "q_label": "Jun 2026",
-        "pe": 17.09682,
+        "pe": 17.40961,
         "pb": 7.9138255,
         "roe": 47.7,
         "de": 0.1,
-        "mcap": null,
+        "mcap": 8676173676544.0,
         "wk_high": 3350.0,
         "wk_low": 1976.8,
-        "div_yield": 2.88
+        "div_yield": 2.83
       },
       "invested": 508546.5,
       "current": 532356.0,
@@ -4575,16 +4707,16 @@
           "event": "demerger"
         },
         {
-          "title": "The Vedanta Playbook: Which newly listed stock offers the purest long-term value play? - financialexpress.com",
-          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQZWZ5OHBCcEFKUEd0STUzU0w3b3J4TWJXWThLM2FCY21sM1dPencxQXhwX2t6MTlhNFh5a0l3M0hwdTdrd2pIaWlURXc2aW5ZUldLbk84WllGOXhBQ3pKeW5ac3pMYWlyak8xbzMxaXI2SV9UVUdDM0FxNUVsbk5kLUl6RmhKU0ZLVmNBYktpNEliai1PNmQxMTVPWVpzYUhUV2Etc0FNdV9MUUVad3dLZy1BRC1TVGdKSnp5VXYwLTNvYnRtNEpsV1lRN3Fjd9IB1AFBVV95cUxNTzZ2YVI1djdQV0xZOXdScHo2NFdTMldIUU5PVUVCN1psVnJSVXh1MHlRZWdLZ1VJaFlwdXhWeHpfN0M2QXB2Y0d4cFBxRkdWMUNKbE5CWm1ydkdubzg3WWZ3U3c2RlpabzJiTnA4eHJvZGwxU1dqSXV6SXpHdUpwRUVmVDN4M1dqTzVjNUctbjBQZ1BKclhEcEd3ZnhlRzA1c3NYR2N1UVotamlrTHNGanc2TURlUEx1a1hNbHBobWw4OFhyMTAtbnhidmpNcURHQ0NIcA?oc=5",
-          "published": "18 Jun 2026",
+          "title": "Vedanta Aluminium set for 22% rally? Nuvama initiates coverage, expects India\u2019s largest primary aluminium producer to cut debt sharply - financialexpress.com",
+          "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOVDJrMDEtUXI2dmozYkUyNzRJcWJmM3RZU21DUFNKVERrOGpKMmRKMjJ4a0FvZDVvS2J6R28wQ0pWdlZOZnJQQ0g3QTFNaFJjcENDbmFzenFrYnBET2JHM2ZSdVVOZ3piS09MUlduUXJtRDhlT2hVbW1pVklTTWVxY24xTUxGYnZmRlpCbTFJeVZQQmpycEVVeUd1Ykh5enNjYjlITjk1MmswYWg4czlxel96WUNJeFRGa1Z3bk5wZHBFU1dnTUE4ZUFFWGVTVkRWN1ZFNDFZdlNyNm9TNXo3SDNldlloTWxJUGs2b1hZNi1MdEI2STg1VWpoSU9SUjQxaG9vR0F2YU9razDSAZICQVVfeXFMTU5Xb2hIdUpUTkhXOW5GNDh5ZVRPQnFKdlVRX3Vuc1NNNXdWUllNc1lHUjVUVEZ4NWZjcWhaRWxhTHBHaE5XOXJhQkdmRlZDOHh0MjhEQzFQcWZHRmotZ2lDSWRxV3BfbVJfZDl6WU4wQkthdnlKZ2syLURDRi1DQ1lJLUtQMHFRd1NON3owN0tCTUFlTGRrdldDRUtqTUJLRVNJWEtrUGhlT04tbFEya01GdXFkbHY0Ql84THNLT3VrR0RsQVJnSVBObWdNTk44SmJfd3ZtaXlfeTFRRnNUb2puNWgtODVyZWFkRnBZOThvRU1UQU51MEViUVN4V1pwb1c1S0pJdnQ3cG9ieWNXTUQ2Zw?oc=5",
+          "published": "13 Jul 2026",
           "negative": false,
           "event": null
         },
         {
-          "title": "Vedanta Aluminium set for 22% rally? Nuvama initiates coverage, expects India\u2019s largest primary aluminium producer to cut debt sharply - financialexpress.com",
-          "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOVDJrMDEtUXI2dmozYkUyNzRJcWJmM3RZU21DUFNKVERrOGpKMmRKMjJ4a0FvZDVvS2J6R28wQ0pWdlZOZnJQQ0g3QTFNaFJjcENDbmFzenFrYnBET2JHM2ZSdVVOZ3piS09MUlduUXJtRDhlT2hVbW1pVklTTWVxY24xTUxGYnZmRlpCbTFJeVZQQmpycEVVeUd1Ykh5enNjYjlITjk1MmswYWg4czlxel96WUNJeFRGa1Z3bk5wZHBFU1dnTUE4ZUFFWGVTVkRWN1ZFNDFZdlNyNm9TNXo3SDNldlloTWxJUGs2b1hZNi1MdEI2STg1VWpoSU9SUjQxaG9vR0F2YU9razDSAZICQVVfeXFMTU5Xb2hIdUpUTkhXOW5GNDh5ZVRPQnFKdlVRX3Vuc1NNNXdWUllNc1lHUjVUVEZ4NWZjcWhaRWxhTHBHaE5XOXJhQkdmRlZDOHh0MjhEQzFQcWZHRmotZ2lDSWRxV3BfbVJfZDl6WU4wQkthdnlKZ2syLURDRi1DQ1lJLUtQMHFRd1NON3owN0tCTUFlTGRrdldDRUtqTUJLRVNJWEtrUGhlT04tbFEya01GdXFkbHY0Ql84THNLT3VrR0RsQVJnSVBObWdNTk44SmJfd3ZtaXlfeTFRRnNUb2puNWgtODVyZWFkRnBZOThvRU1UQU51MEViUVN4V1pwb1c1S0pJdnQ3cG9ieWNXTUQ2Zw?oc=5",
-          "published": "13 Jul 2026",
+          "title": "The Vedanta Playbook: Which newly listed stock offers the purest long-term value play? - financialexpress.com",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQZWZ5OHBCcEFKUEd0STUzU0w3b3J4TWJXWThLM2FCY21sM1dPencxQXhwX2t6MTlhNFh5a0l3M0hwdTdrd2pIaWlURXc2aW5ZUldLbk84WllGOXhBQ3pKeW5ac3pMYWlyak8xbzMxaXI2SV9UVUdDM0FxNUVsbk5kLUl6RmhKU0ZLVmNBYktpNEliai1PNmQxMTVPWVpzYUhUV2Etc0FNdV9MUUVad3dLZy1BRC1TVGdKSnp5VXYwLTNvYnRtNEpsV1lRN3Fjd9IB1AFBVV95cUxNTzZ2YVI1djdQV0xZOXdScHo2NFdTMldIUU5PVUVCN1psVnJSVXh1MHlRZWdLZ1VJaFlwdXhWeHpfN0M2QXB2Y0d4cFBxRkdWMUNKbE5CWm1ydkdubzg3WWZ3U3c2RlpabzJiTnA4eHJvZGwxU1dqSXV6SXpHdUpwRUVmVDN4M1dqTzVjNUctbjBQZ1BKclhEcEd3ZnhlRzA1c3NYR2N1UVotamlrTHNGanc2TURlUEx1a1hNbHBobWw4OFhyMTAtbnhidmpNcURHQ0NIcA?oc=5",
+          "published": "18 Jun 2026",
           "negative": false,
           "event": null
         }
@@ -4679,13 +4811,6 @@
           "event": null
         },
         {
-          "title": "Akshaya Tritiya ETF Volume Led By Nippon India MF - fintechbiznews.com",
-          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNb1l0SzIycU1ZRF92U1VldW54cVl6dzRWY1RCYUI5Y1pPUmNoNnJsWEdCNE5DRm9wT0w4RUdENVlKb083dzU4bGFtal9qYzdaZ05Fd25FVF9IblpKeUJxQVJnM2ZfbzJOS3B5YW1rSGdVVjdvR25hMGV0U2ZoSGpkUlhKZ2lubUlramZLSF9pVEdBSzFCWWhnTTRtazRjdw?oc=5",
-          "published": "09 Jul 2026",
-          "negative": false,
-          "event": null
-        },
-        {
           "title": "Nippon India Silver ETF Share Price NSE/BSE - Live Price Charts & Performance - HDFC Sky",
           "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB6SFNKTE5HVXphYURpS20tZXhJWHJFNGNFc1Fqa05rME1pdWFIY1FFZmlyNUFiNjJQZVNFYklfWElJLU9DSUttRXNqQ0NEbkFfTnZCMmRCZC1PZkE?oc=5",
           "published": "03 Mar 2026",
@@ -4696,6 +4821,13 @@
           "title": "Nippon India Mutual Fund dominates Akshaya Tritiya ETF volumes with 63% market share - The Economic Times",
           "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPM0U4R2RBa1dpdVpCdW92QTdtcWg5bF83bkVLNVVqbTl4bVZ0Y1IzYTFLOE1ZNXFha19KaU81NGhfYWQ0eXJJS0Z4aTZNb2tWN2xRcnVnb0VwTXpBTmxkY3dMaWttNDNYWTBSN01PMHZWQmpTLXhsNFJVT0NBMWJydEZoTlpnR1JYNnFmN2FtUVBpWUtWOXV2cVczd2prR25TM082R3dRbzN3WFhnZXVLTjNIaVh1Y1lhLUtGZER2ekkwZGxzU0kxbkdCdVctd2xwX0dKSGJDYkgtQ2wyYy1VMllR0gHnAUFVX3lxTFB2dDg0a0ZJQmVldElzWXVNVXFKZEJzRVV2UndKS19XZFN1YU1YWUs3VVhGNUZYM0k1R1ZQRk9JSHI1Y2JLRnlTaXE5cFVFLUZJWlVpRGlhWVp3a2R6bmR5UFg4TEk4UzZ0M2hPZGRnRGFRSmtLMzlxR1hENGlNZFNiREQ0c2J6a2Q1dDRpUDhNeEZCaHIyclJoSWVqZGkzaTM3N2w5SzB4dUJYekJVRzRVQjk4azFvek5XX1dRTXBQM1ExckxTTEEtWm9jN3d0QnNQak1GcXJUSldaekltZzdGbEhmNlpabw?oc=5",
           "published": "20 Apr 2026",
+          "negative": false,
+          "event": null
+        },
+        {
+          "title": "Nippon India MF commands \u20b91,118 crore Akshaya Tritiya ETF trades, grabs 63% share as gold, silver volumes surge - Fortune India",
+          "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxOcXQ0Qk5KWlJNZzQ2Q0ZTN0ZzaEE1MlMzWFhoRWZtbmFqN24wTnRQMHFRODllT3JoT1MyQ0JmTFBSWEhabnZaUDVPVjZobVE1b0NUNTM3NXg1OG51c0JGalF4X014a2pKblJwNTh6QUJUNkVYTHRLY3NsT0FTRkpocnpqTVJKRUtjU09rdmRkZnE0SXdPc2FuNTBrc3lmQUFDMm9aSXpoUzZzRTlYbFh5TzlDVTZLVUZGbGowWXNEdDRLWW9SR3QxeDZtSU1SZmUyTXlrT2FHOXpTN3RHYklkVXhfWUlXWVc2NnhXTWo0bWFyTml1MUdpRDliQdIBiAJBVV95cUxPbEFHOG5ZVUcxQmpoRndVNXVFZlVET2VzdUJ1N3FmcHJubEM5WnBmaXNnQU9FaHVfTTFmTWZ2VHpSc0xiTnBYQzh2RUJoWnN5OUJXaU5OUU9RWDY4elhEZmUtTks2ejZuSGhITDJsWWlXVzFFQXhqMFlXRGpmT1JkT1E3M2hCZjhNVVJZTUktcGxMS1ROSDBGdVlTY0Vob0hFNlR5c29LV2JzamVtT0dNZWlNY05wN3ItQllxWWp4RVRVbmN6bmNtd2xtSEtyMk9MSmlZYl9XQnVmc3A2aWNlZjUzdjhiT3M0Z010WlBDMTU5QzdnRDhwSDJlbUNNOUJSR2lPU293TWw?oc=5",
+          "published": "19 Apr 2026",
           "negative": false,
           "event": null
         }
@@ -4768,7 +4900,7 @@
         "mcap": 1045795635200.0,
         "wk_high": 811.95,
         "wk_low": 565.0,
-        "div_yield": 0.45
+        "div_yield": 0.44
       },
       "invested": 213934.0,
       "current": 514290.01,
@@ -4886,14 +5018,14 @@
         "rev_yoy": 30.2,
         "profit_yoy": 25.7,
         "q_label": "Mar 2026",
-        "pe": 17.620935,
+        "pe": 17.966745,
         "pb": 4.7721686,
         "roe": 28.0,
         "de": 0.04,
         "mcap": 1031339048960.0,
         "wk_high": 6388.5,
         "wk_low": 4201.0,
-        "div_yield": 3.69
+        "div_yield": 3.62
       },
       "invested": 449665.2,
       "current": 463886.98,
@@ -5050,9 +5182,9 @@
           "event": null
         },
         {
-          "title": "Mahindra & Mahindra Financial Services shares extend rally for second consecutive day; what analysts say on Q1 show - Upstox",
-          "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxQc1pFTEdnVnpGdzZYOVc0bnE4MmV2dS13S1pxYUJmWTEwV1JTVldFeV9uTVdvcGg2YTB5eHNzUVNqdWVqc0IwVDNkOVc3M3g0RXZrbGtTdlF3Y1ExcUoxeG80bXlFQnhuWTdQcFhET3J3cUI3M1U2eGdKd0pGNVF1QTFxaW1MVlgzdFh2MjhxY2lubWpSLWZ1OExqWHJSUU54ajJUWTNDLWZ5aUhNN1Z5b1FUazFRY2FlTjU5VDREeVNnZFJ1VFB5NXJsYUFPV0dCM0xZeHZyTmlYOC1BTVpWNHRUUU8xdzlsRmFqYTNxdUxBMUM5cl9xYzJtUVJrbnJncElqM1h3?oc=5",
-          "published": "22 Jul 2026",
+          "title": "Mahindra & Mahindra shares recover 4% from intraday low; here's why the stock is buzzing on Thursday - Upstox",
+          "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQbFdHUy1RbnhEZUZjNW5lbVc5WEZ4QTZDVnd2NkxwQi1sQlpGRjlNVnVKajhGdlNYYkFEcnl4X0p0dHV6ci0xcGRPMzZqZXF6UFdfdlBiV3p6dVRtV1E4aFpWaE1zcHVvMmVZTmd3dFlOOGdwa3ZaS1hybldCckdYS0wyYXQ2XzRpU0c0aUZPRHQ3OXg5enp5MFlGYzBpQVJOemxKTGJzbV9XUk1jOE1zU3BLX2FkWGJ5WkFOblFiN2t5YlZtbnF4dDlkb3RlNGZkNE9HNTI2N3cweHh3RlZaZTVRQVRjWDFfaGpzNTdrZG9fU1NfRzJyNWxPYw?oc=5",
+          "published": "11 Jun 2026",
           "negative": false,
           "event": null
         }
@@ -5123,7 +5255,7 @@
         "rev_yoy": -9.1,
         "profit_yoy": -44.7,
         "q_label": "Mar 2026",
-        "pe": 10.966571,
+        "pe": 10.972859,
         "pb": 1.119304,
         "roe": 10.6,
         "de": 0.0,
@@ -5239,7 +5371,7 @@
         "rev_yoy": 28.0,
         "profit_yoy": 58.6,
         "q_label": "Mar 2026",
-        "pe": 32.582264,
+        "pe": 32.79699,
         "pb": 4.8233414,
         "roe": 17.0,
         "de": 0.98,
@@ -5268,6 +5400,13 @@
           "event": "q1 results"
         },
         {
+          "title": "L&T Q1 beats the Street as net profit jumps 14% on strong order inflows; revenue up 7% - CNBC TV18",
+          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9hWUMyY2ozUy1LY2F0a21neVRCZmJWZ2JFM2FLNFgzLW9VbTJ4ZnZiV3l6VVhEM0dEZzBaZkV0WGw5NzQwN3F4TmdRYnFtUjY4bk9zWUxyaXVtY24tU0RsQmtBdW16RjRsTVNRVWUxdEJRWnpT0gF6QVVfeXFMT3NqSmxYeG5PVWsyQXU1ZWlZZkZ0Vk9uMVVleGRKUUlsQ2ZaT0U3NFM4V3VUMkxjTE5TVW0yTy00dml4bEJwRHF0OHBIbjZKdlB4dlRYMk9rb2QycDQxNlJzbDBUUjBOdEVnZUpSc0ZZdDd4X1pSUXdOaFE?oc=5",
+          "published": "28 Jul 2026",
+          "negative": false,
+          "event": null
+        },
+        {
           "title": "Q1 results 2026: L&T to HUL among companies to declare Q1 results today; full list here - livemint.com",
           "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPaFc5aWYtLVd6UFhjT2kyY1N0Z1dKYkJMNnlSYXYtVFZuYnBpcDBmTGhVeExOV0NBc19ia1FHTGVUb2x0dXR5bEZUVkwwV19zVktKdkl0dkdEVG5qcE1JOFcxNG9PWXBWZzROellUSFB6dS02VnZzeUNNYUM1SFAzQWVmeVRmV2xaODljNEtGQWlKV3ZhLW9VdzJsajNaM2NFbkFjUTZtLTFPVThoYng4N3FjWlpPb3VocEd5bGphMEFNM2dqNFhaY3kwZmF0WnJVUE82V0lVVlJRR2ZRbGhjRUFNVmdUdWU0N1ZN0gHwAUFVX3lxTFBXdklOVkZpZjBBWUI4V0xyUU5sVWJJdFBxSDd4ak9DbVhlcE9iekhKTC0xQ0dzSnBTVG5QdDA3NU1FakRwRkZpS0JtanlUOC1TaFNacW1JdzVkZy1weUc1bzJRME9XOEpqWDlFRlM2ZTBGb1RMUnl3QmhHbUU0eVdCdGVpaXB3QllEbmZjcUx4TndRWk9adTNyeW91alBfaEZ3N1ZzdHhSVmpFaWJJeVdTTDAxM0hOSV9zU19zZENUZjNDeHhSZFRVd3FsWVpUVXBTUXZQa3NlM1pVbmpuSWVMSDlCekFzMC1LbXRMOXNZbg?oc=5",
           "published": "28 Jul 2026",
@@ -5275,16 +5414,9 @@
           "event": "q1 results"
         },
         {
-          "title": "L&T wins 'ultra-mega' order worth over \u20b915,000 crore for 2 GW offshore wind programme - CNBC TV18",
-          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQc1dsWjBkdm15bVFWZlhTVGIzZENoSlVHTGN4bDM1cEI1Wmo1eVdOMndvZ085eUpxVWhDaWxpOHNBcmdPd1hUekJhOXJ3dlR6S2xMVUlMNHN4ck5CWjlvc25CQkFxN09FVlR4VnpQTHpfVTUzbVdJcV8zdkNOb1Y4WVpMeGxJQ3Nic2QxRkxMRWVQYXdIVkItYUlveVc0cnEwcG9TOU1yMldpRDJCb0xZMDUwVnFud25hVDM3d3lXVDBzZGhQZk9DeTA3UC1xQVI1ZVF0WNIB2gFBVV95cUxNYWk1SmgwRjVRcGM1eDBqNnFOaVR6aDdoOXV0YjI4Q3FtVDJyeVBaVkNTcmZDQmFyUEFfUXJ4SUhxYV9jVW1SYlBEX1BSV0JvNFBDTnFkOFpfcElLSjlCT0hfNVBtU2lMWkpHUXVsZUtkRmM5UmVHQ3hOZ2VmR2R4WUl1Q3ZBMHVQWWE2WF9rd2xKZ3BHMnJURW51TGxFVDVPc1NjR3NWLTRrbFZkY1NuZjlPMlBUa2dYNHVlbmNnYkhwQ1dQQXZfSGtWaXlEbURkWmJPUWstMGdFdw?oc=5",
+          "title": "Larsen & Toubro Q1 results: Net profit jumps 14% YoY to \u20b94,123 crore, revenue rises 7% - Upstox",
+          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOdEd4Wm1fNzc1cldFeGtybHRHTUU2Mk9HaDNZZDY2cTdjNWR6X2U4ZnhJbjJCWDJvSE5na3VMbW40clRlYnUySGdKMTJVMGdwZGJZTGo4djItdjY2TUpvcDZyNVRWRTg4SmM0eUxNSmk1QzR4dUdfYk1QY19mb29WMW54Y0VMb3pRSWNpMTRLX3pXUDNfNllYRm4zNWxWRDdjMEhtMkxXRzRJM2IySzZqaE5EckVYZVpaV1ZGZERBaVBnOHNodlF2TUI1ZHNaZlVXUmJnWS13bWRsSXI2Zmc?oc=5",
           "published": "28 Jul 2026",
-          "negative": false,
-          "event": null
-        },
-        {
-          "title": "L&T Q1 Results Preview: West Asia Conflict to Slow Execution, Flat Revenue Expected - outlookbusiness.com",
-          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQYUt6VW96YWR3dDNSV3RoaC1fMmJ5OG9mU1dWZ3dSRG5jazBHR1NwRnQ1MVMwYUN0MUx2clMwTk43ZFhfTmFVS1FVN0VfVmx0bXNVQ3lIb1ZoaFVxV2MzQU82TzNkM2pKQWRHbjBESmpVS245cVd0OGp1b2FxODJydEV5eThHcFlPNUkyM1dWVHNHdElDOWRXa0JlaXA0ckdFNUhyLXpCUVYxNmxpbUk1UTZxTkdRNnUxbldRVHJfSDJTYXdqOTVoOU1VbmtSb29JblFsS2VyODJjRDDSAegBQVVfeXFMUG1uVmR5VkQ0X0x2TmxlNFhicXBTdTNVb1dfTnYyZ2p4cFhCbVY0R0Y4dmR6QlNVNEFwZTBDWlZkRk9xYXZsNkRIbzZEdVNBaEZDV0lidnRwY2RMNm0yQy1tbENoSXBSdDFlVDBTZnpUNkNSbnJGaVVlb1ZXWWs1eG42S3ByUkdEMngyMElpelV5OGU4WVg4V3dqdHplR2s5cWN3cWowSVB1eVNTdlV5SExZM1ByUk5VazBLeW4xRnZ1SHdnNWJaVFJzWGx4TzJJdnNvQ1FRMDMxc1ppZzBpWlItbUtBWTliNA?oc=5",
-          "published": "27 Jul 2026",
           "negative": false,
           "event": "q1 results"
         }
@@ -5407,9 +5539,9 @@
           "event": null
         },
         {
-          "title": "Apollo Hospitals share price turns negative after hitting record high of \u20b98,948.10 apiece on BSE. Do you own? - livemint.com",
-          "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxPSXg0ZTlrbUlVQ1o5UEVubjk3RkxWeXRZNWhKc25KaDhJa20zQ3huNEpDcDdkZmQ2czdyZ2JqU1Zpc1U5d25HcXRNZTJMTnVMOVRpZm9uODh4NlJMc0tMT2VDVTM1a0RySGRNY0sxU1l6cDktUkhPbFJzbEVOSUhsTm4zNS1yMjBzWGdLM00xMGNaaWVoaDdlSU1sNVFLT0JqVlk1S0FHZ21WX0xfVWFWd2NKRU5rMmpDNW9ta2w2N2FJejRQSXBqOTRHTHVRcHpDeVAzLVJDTFJyWFhrbFVuczI3bXdKZEE5c0JfZlVnMHlsX29Nd1laUVNFSy04QVN2YlhNRFJmTmMzY2PSAZACQVVfeXFMTkhPOFI1NkFwRlRsMGtRZlFINGFJYl9menE5OEhKSUxqNFVoSnAtZ1JFVVVCenA2bXdVZDZLNkkwVFgyby12R2RqVXg5RnZsUS1jWVNBVVVYVkFoZGMwZGJDRGcwWFJFRmVVbTR5Z0V4RUJWbjdHb3lBRE5iMTlpa1RrVVlsZGlIcWtxeEd2TERDQnZJQ20zWDUyVzg4ejNMa0JvT3BYejI1azBBOVN0eTVzZGhIU0x1SFZuSDJZNEwyRkMxUEl0WGFfNi0tcG5JY01OZzc2QzFPRDhvSmZ0TlppbTk5dTRIQ01MWHRCbUYxcHhFUG0xUWdCOW90OVNsb0Z4NVg1ay1FREtWVnE1VXE?oc=5",
-          "published": "07 Jul 2026",
+          "title": "Zydus Lifesciences Share Rises 3% To Hit One-year High After Apollo Hospitals Pact for Cancer Detection Test - HDFC Sky",
+          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNNWl6THZQRF9DZ0M2V242alVPNUJJRXN5YUtjbVJLZ0FobG5IMTRyb0RkSV9WUWJiLWpXSTQ4a3prWnZNRjA2T2p6eDVTV2ZXeE1XQkFOeEhYM1hxUkJnNzU1OVlrV2hXbTRPLU1xTHBuUktjRWp6TDhtbnk0UGRxVFVDNXB2MlpEYlU3TDF3b3hDeHY4NVFvdWhGQ19SWW5weWo1SXRHRWpfaUh4UXU4bHFwWGtFUjJjcE1oM0pFblBhTjJUSUUtREV0a0dzc1lCQTZQckpR?oc=5",
+          "published": "03 Jul 2026",
           "negative": false,
           "event": null
         }
@@ -5511,6 +5643,13 @@
       "cross": null,
       "news": [
         {
+          "title": "Vedanta Power Q1 Results: Date, Time, Dividend News, Earnings Call Schedule And More - NDTV Profit",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPZmtKUDVvU0laMGszQkhOVU9NOENBbVJfcVk1VG4zZm44OTJaSmZINTR0X1FNc2d3MDN6cTY0RjhxUlFFZUJkYVB1MnhicFBSdXQ5UEE2di0wVXBYYmhPOUc4WmlPQjc4SXVtME1tVUxMVzlMc1BpQnRaZi1wYXZSZjViRXFhOTFoci16aF8xb05GRDUydmtScDhNaGNKMGdsVW02ZE5EN2Qzbi1leUFPTnpPSFVzMS1sMXduWnJvR0dyd9IBygFBVV95cUxOLTc4LXJneFVLOWNiYW0yQzRXR2E1T1VYMmFvUEV6NnVHaFAxUWJHeUtPY0YyVXBiMVctWXhjSm9pNHZXb2RTOFpjOEY0cHl5LXQwT2lnVjJJYkRtUjh3RG1KVm9Gd1JKbFE4MW1IYUx3YmlRZGl2eGd4cE4zaXNUb1JodGJESk96Y0tfNUEyWlo5eXVMQjR1djlrNjhiTlFlOUozT1ozX191NHp5ckV6d0R6eFUxUS1VeGJtdWU4M1pSVkNDSEgxaEZ3?oc=5",
+          "published": "27 Jul 2026",
+          "negative": false,
+          "event": "dividend"
+        },
+        {
           "title": "Vedanta Oil and Gas Ltd. Share Price Today - Vedanta Oil and Gas Ltd. Stock Price Live NSE/BSE - CNBC TV18",
           "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQanlKcVVhVjZ5YmFsWTNIb015ekNYb1JGN0FGMEtiVW81QVJ0bDhDTUVvTDVYTlhCOUxqWDFoYWxKcm16LTZmWUNJTGZuTXdvYTBMcGNKQVdwalpCajllOFNCdzZsbTZ6TG51VXA3ejZLYkY4UllscktFVEdIRlVOWFJ4Y0NkRG5oNHc?oc=5",
           "published": "28 Jul 2026",
@@ -5525,18 +5664,11 @@
           "event": "record date"
         },
         {
-          "title": "Vedanta Power Q1 Results: Date, Time, Dividend News, Earnings Call Schedule And More - NDTV Profit",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPZmtKUDVvU0laMGszQkhOVU9NOENBbVJfcVk1VG4zZm44OTJaSmZINTR0X1FNc2d3MDN6cTY0RjhxUlFFZUJkYVB1MnhicFBSdXQ5UEE2di0wVXBYYmhPOUc4WmlPQjc4SXVtME1tVUxMVzlMc1BpQnRaZi1wYXZSZjViRXFhOTFoci16aF8xb05GRDUydmtScDhNaGNKMGdsVW02ZE5EN2Qzbi1leUFPTnpPSFVzMS1sMXduWnJvR0dyd9IBygFBVV95cUxOLTc4LXJneFVLOWNiYW0yQzRXR2E1T1VYMmFvUEV6NnVHaFAxUWJHeUtPY0YyVXBiMVctWXhjSm9pNHZXb2RTOFpjOEY0cHl5LXQwT2lnVjJJYkRtUjh3RG1KVm9Gd1JKbFE4MW1IYUx3YmlRZGl2eGd4cE4zaXNUb1JodGJESk96Y0tfNUEyWlo5eXVMQjR1djlrNjhiTlFlOUozT1ozX191NHp5ckV6d0R6eFUxUS1VeGJtdWU4M1pSVkNDSEgxaEZ3?oc=5",
-          "published": "27 Jul 2026",
+          "title": "Vedanta To Host Q1 Earnings Call On July 30 At 5 PM - Sahi",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQcl9XYThobjNITkZNaUg1RlY1c25Lcmo4TEpjQ2hnYTc3dzRMZ3RNd2VwNDlqcU1sNkppdVZ6QTdUWG9SQ3l1Qm56ZkdWZkVIOHZXY1Z6SDMwaFMwd2I1a2JBNExuNTZEeTQ4YnRXSDVTZ3JCLVFSZ0NjMGI3WS1QeVVJRmZmMGhna2Z5ZTNoZERTNWc5?oc=5",
+          "published": "24 Jul 2026",
           "negative": false,
-          "event": "dividend"
-        },
-        {
-          "title": "Vedanta Demerger Update: When Will Vedanta\u2019s Four New Entities List In Stock Market? Here\u2019s What We Know - Goodreturns",
-          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNQlUyRnNnUEhwcGVYSlpvLWFCY1NjWFQ5dU44enBCMXE0d29IR3p2c0RvQmJpQVJSU1JYTUEwWFpvQk1YOUd4dEVRZG5OOEc2RFFCb0dsUkNjSHBBSUxaR3k4WUdreFNraG9fdXFxTFc5MW5uOUxPcjlfem1XaE04WW5VcC1xMGN4LXN0SG1XUDNoMDByU3lVbzBpYVBQLWYybWVPaXJCdjZuNlNhekxYbkY0V2luUUlvOF9lN2x0UUotTlBTbHUtLWRZTkxuVXhaQUpLTFFPOVp4UQ?oc=5",
-          "published": "27 Jul 2026",
-          "negative": false,
-          "event": "demerger"
+          "event": "earnings"
         }
       ],
       "signals": [
@@ -5548,7 +5680,7 @@
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: demerger, dividend, record date"
+          "text": "Announcement: dividend, earnings, record date"
         },
         {
           "type": "no_thesis",
@@ -5615,7 +5747,7 @@
         "roe": -1.1,
         "de": 0.97,
         "mcap": 28933484544.0,
-        "wk_high": 264.75,
+        "wk_high": 251.85,
         "wk_low": 138.2,
         "div_yield": 0.34
       },
@@ -5632,18 +5764,18 @@
       "cross": null,
       "news": [
         {
-          "title": "Kitex Garments secures shareholder and creditor approval for demerger scheme - scanx.trade",
-          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOdFVJVUQ1UmRwTng4T21qV3E1YXhuNldrS2FFOXNXNURiVWxEWDJSSy1mZVB3RnNuTks2MTJYTFJtQU9Sa3d2Q3FidEgtWk9PNExWei1wVGdrRC04b2d6b1MySWpTMUdxRW1meE1kQk5uX0ZwcDFpblhVVmoybXNERGVxNmljUFRDVEcxclBua3kyT29ETmZ3aUxkLV8wMnVwY3dEaE92QnB2ODQtQVZRM0x0QnI2ek5QYk51Unp4TXBRak9wYW9janI2MFYwdw?oc=5",
-          "published": "27 Jul 2026",
-          "negative": false,
-          "event": "demerger"
-        },
-        {
           "title": "Kitex Garments Limited Revenue Breakdown \u2013 NSE:KITEX - TradingView",
           "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE42dHVobGpoTXNrdXNZT1F1ZVFKRHQ3dmFpWW5lMi00U0hhXzMydnV5RzJNdDdBVDd2UjlpTWhDRThFVUNvMnE0VTg5Ukx3R0hIVEQxaEFzOWdiemtqMDJOZ3NwcEZpRjdLQ2VqT000SmRrRGlS?oc=5",
           "published": "25 Jul 2026",
           "negative": false,
           "event": null
+        },
+        {
+          "title": "Kitex Garments secures shareholder and creditor approval for demerger scheme - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOdFVJVUQ1UmRwTng4T21qV3E1YXhuNldrS2FFOXNXNURiVWxEWDJSSy1mZVB3RnNuTks2MTJYTFJtQU9Sa3d2Q3FidEgtWk9PNExWei1wVGdrRC04b2d6b1MySWpTMUdxRW1meE1kQk5uX0ZwcDFpblhVVmoybXNERGVxNmljUFRDVEcxclBua3kyT29ETmZ3aUxkLV8wMnVwY3dEaE92QnB2ODQtQVZRM0x0QnI2ek5QYk51Unp4TXBRak9wYW9janI2MFYwdw?oc=5",
+          "published": "27 Jul 2026",
+          "negative": false,
+          "event": "demerger"
         },
         {
           "title": "What Kitex Garments Limited's (NSE:KITEX) 25% Share Price Gain Is Not Telling You - simplywall.st",
@@ -5845,7 +5977,7 @@
       },
       "months_held": null,
       "tax_status": null,
-      "health": 70,
+      "health": 60,
       "corp": {
         "dividends": [
           {
@@ -5866,7 +5998,7 @@
         "q_label": "Mar 2026",
         "pe": 46.36472,
         "pb": 11.853612,
-        "roe": 27.6,
+        "roe": null,
         "de": 0.0,
         "mcap": 2843504017408.0,
         "wk_high": 473.45,
@@ -5900,25 +6032,25 @@
           "event": null
         },
         {
-          "title": "Bharat Electronics shares fall over 3% after Q1 results. Here's what Nomura, Motilal Oswal and other broke - The Economic Times",
-          "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPd2lzR29DclJ6ZWVEWTExVWI5bmFoMUJvS2tVaDY0Rk9zWW9yYTItM09VcE5KTVVDYkRjdUlIY1pidmM1M1NQVkV6RkxraEt0TkNXLVp3b0FCSFNqUU9xOVBObE0wbkNtOXlGT2ptclhyN1FFcUpwTjFybHp0Sjg4eWxjMVhQeXdKUHJ5Zi16TW0wWFR6Y2dQblVJM3pZYWhNTXlrcDVBV1owYm8yWXZ6RkwtcUwyUzkxRUtPMEdVczh3WWNmcnFzcktLNV90LWZkS1FiWlhqeUNfYmdiV1FIT1Z2TTMyYmdTWmtLWk1iSEV6YjJab1dEUHRzVWJQb09hUDJkTnBveGNNdEFSYjliQWNrSdIBmAJBVV95cUxPaG8wZ1M0WUpvRmRPZ2VzM0pjaTAwODdmUk5tNy1icW5Sb0NjX012dmY3cjhzNlplNVg1Y2JZVE1nVkVKTHk0R1lLWnRUWjM5aXFMV2VZMGJzMWZYZGt6SF9tWDg5MFdwNlY5WGhDYVlfbEdnWU9FT1dtakdvRzQya1RPOUZDQlZSQWpCaEsxQ1FKT21ld2tza0U1UnZVM3c2b3Q1eGlRN2g3QmI1dEJaZzF3NHU3aXVaYzRYZDJQTlV5WFhnaWhoUkQ5aUxIMVJ6TXdsQnBsWHM0Nzhha3RWMDNhZVUyWDVpRXZrV3FxM1NWZURjc1hkMW9xT29hWG1rSTVZQS1hNWlKaW1BbHpVbHF2VDVSZ0NJ?oc=5",
+          "title": "Bharat Electronics Shares Fall 4% After Q1 Results As Margins Disappoint Investors - HDFC Sky",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNeF9LdmpRMThzM1VtY3VoMmgyNE93eXN0UEx2d3FWalNIb1FWQlhWcGhQQklOc2FUbzZaUE1PaE9wVDVST1dRNUpZQWtRdlFlNXZzY2l0YjBSOG5tVGVjZksxd2ktYTdBMndxWkVBMG9KbWdRSVNHNWJBLXpCWndQNFg4UVlyaGc?oc=5",
           "published": "28 Jul 2026",
           "negative": false,
           "event": "q1 results"
         },
         {
-          "title": "Earnings call transcript: Bharat Electronics posts Q1 2026 EPS beat, shares edge up - Investing.com",
-          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOQUJYWXJhd2tZZzlpWlRmSmdDbTYxcVFuOG9KZlNvYnFVVjF6dGptV3JtY21ZVENJTDRqWm1rZ2ZBanZUc3JKUnp2U3BvNXVGTWFkaVd6RWdJN2dtbW9BZGNFa1VLTXlsVE9pOTVfcHFaRGN0a2xkM3JMbVVEa0p4aE5oYVEtTU9DNWxjUzczdFYzbVl3cDBjSVJCdF9ET0tIWFFCM215U3Y5dGVzT2Yxb0pJdmt6TVJTeTN0WjRMN00wa1Azd0swYXdRNmgyNVRBSWtv?oc=5",
-          "published": "27 Jul 2026",
+          "title": "Why Bharat Electronics Share Price Is Falling - Equitymaster",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbzFEbV9mUDJKc3poTVc1Sms4RjltUFN2WDdtV0prOThteHI5Uy0wdDBHWl9LeUJzNy1kT0ZJRm1PbVFQc1hMay15VG9rc3dqdFVQa0V3U09SWlZBNEFsbFVPNEVscXl4UC1zeTRkSXFnWFZRNDhJWUtPMjlFbFRLRVYtZ1ZMUUF4M3RzUTV0VVhXMUJqLVZnOVZDcXpPMzI0S21VWEp6azdsQ0lLU01xUndBdWtWQQ?oc=5",
+          "published": "28 Jul 2026",
           "negative": false,
-          "event": "earnings"
+          "event": null
         }
       ],
       "signals": [
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: earnings, q1 results"
+          "text": "Announcement: q1 results"
         },
         {
           "type": "no_thesis",
@@ -6093,7 +6225,7 @@
         "mcap": 335379988480.0,
         "wk_high": 253.67,
         "wk_low": 137.3,
-        "div_yield": 0.63
+        "div_yield": 0.6
       },
       "invested": 195448.0,
       "current": 177110.99,
@@ -6115,6 +6247,13 @@
           "event": null
         },
         {
+          "title": "ITC Hotels signs Welcomhotel by ITC Hotels, Rajgir; strengthens presence in Biha - The Times of India",
+          "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQc1JkNXd1MUFBeDZRWDJ4NXBVdXd3dTRfcUM0SVBuYlJiUE5GS2luYU1vcGx2d0N4c0ZWUFp5eTdEQWJHazZEWWt2aWFWV2F0Z3NfTjN5QndDeHdGcWdNYnFIODJGMU5PQ1ZTZGd3RVBXeGxnblh0OVNKRUVkYWNpZUxzazN1cS1HZzZsUFJXa083ZmZZdHpZMGQ2c2RXZHFZZVdaU3JFcDdXRmticjk1SzNpNy16Wjh0M0JNWHpHZ0ZpUTRET1RHYWRPMnAzdDgtdlB5RW9POUpXSUx2OVBnREg4OEnSAeQBQVVfeXFMUHNSZDV3dTFBQXg2UVgyeDVwVXV3d3U0X3FDNElQbmJSYlBORktpbmFNb3BsdndDeHNGVlBaeXk3REFiR2s2RFlrdmlhVldhdGdzX04zeUJ3Q3h3RnFnTWJxSDgyRjFOT0NWU2Rnd0VQV3hsZ25YdDlTSkVFZGFjaWVMc2szdXEtR2c2bFBSV2tPN2ZmWXR6WTBkNnNkV2RxWWVXWlNyRXA3V0ZrYnI5NUszaTctelo4dDNCTVh6R2dGaVE0RE9UR2FkTzJwM3Q4LXZQeUVvTzlKV0lMdjlQZ0RIODhJ?oc=5",
+          "published": "28 Jul 2026",
+          "negative": false,
+          "event": null
+        },
+        {
           "title": "Hotel Stock BLOCK DEAL: FMGC Giant ITC-Backed ITC Hotels Stock Nears Day's High Despite GQG's Stake Sale; BUY? - Goodreturns",
           "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNRXA1RGZzRV9CcEJiOHNmZkN0aEZEZGFwUGc4TDhNbF9yQ1VRTXIyMU5JOVRyZ3dRa3E3c2dMWl9PY3JzRTNRRFRHRm4wTE04WVdlVTYtZ1dPMVVIRFFvNE1DaFNjTDFRREdtUC1pcXVuSWhmVE41Q2tNWnZ1U1NzR2x4TUh4cFFaNE5WN0w3ZlJsV0hYVTFrRE5ubTAzeDBMdEZSa3FYMlEwQWxqOGx5TklUUlJFa2NEQjQ3RG1IS1JBU2RwSVhyWjlMd2hzNndrQ1FtQWNUZ1NZTGVW?oc=5",
           "published": "26 Jul 2026",
@@ -6127,13 +6266,6 @@
           "published": "16 Jul 2026",
           "negative": false,
           "event": "q1 results"
-        },
-        {
-          "title": "ITC Hotels Q1 Result: Net Profit Rises 35% To Rs 180 Crore, Revenue Up 15% - NDTV Profit",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPak5RZFhjZFFZN1p0NHg5SzZHeWVfbGVaUXZ0MUdwcHdYN05Jd0RfVXJXRmlIeFNkNEJsNWJ3d3dFaF85N0dNN0EtaXFaZ1o1Vkk5YWE3WUdHbmZxUnlYcWdIbFRzSkozbWl0eVZtVmlxWnkwZDNWaTV2NjN5WmlieDNhUWgxUlhzcFZYM1lmMXVLSzItMzc3SGpjRmlVZFExc2hMY2dTRGpzekg0MDZfakJTZi3SAbwBQVVfeXFMUEhqTGVLSE1DUFZwM1huQlU3a1hBaDJYemROaENxcWJuNGxLWm5nMHVWamFwLV9Lem1TbVB2MWxXdHY0Z2QwUUYzY1Y4a0VRYjMwT2ZNVkhUMGstQ1F4RHVJWER2MnRXV1EzX3hQajlFQzFvNUE0a2VZTVhWcWVnc3V0d0FpNHBKcnI2eXlSVS12c3NsbU1GT2txUDRseHVWbjJhcTNKMXhrWWoxaEZQbi1EN3RnRndRcjdrQlU?oc=5",
-          "published": "16 Jul 2026",
-          "negative": false,
-          "event": null
         }
       ],
       "signals": [
@@ -6215,14 +6347,14 @@
         "rev_yoy": -8.1,
         "profit_yoy": 10.0,
         "q_label": "Jun 2026",
-        "pe": 62.840485,
+        "pe": 63.235542,
         "pb": 11.966151,
         "roe": null,
         "de": 0.05,
         "mcap": 1071331672064.0,
         "wk_high": 1511.9,
         "wk_low": 1210.8,
-        "div_yield": 1.16
+        "div_yield": 1.15
       },
       "invested": 135330.0,
       "current": 150880.0,
@@ -6244,18 +6376,18 @@
           "event": null
         },
         {
-          "title": "United Spirits stock gains over 1% after Q1 earnings; Nomura raises target price to Rs 1,600 - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPNFBIZjVkR1A5anBQeVkybW1yZmZFTm5BSDRSZlY5WDNibUVfTUd2X2N1MGswXzRUOUNHWTM4UUIxMzFsN1RjbDVwYU1KaEJKNndUUEFERlhadFBCT1pUOHFuS0VRdHhMQVZDM1lRZXFOcm9sSUlyNUdNSWt3akFmdTN0RkdyTlJPNFNteVRFd2kxUmpHTnhWa0VrN0E4VHdsb2NCNTktd2VlR2lpSDlOWmhpaWkyQXJDc0F0RXZfd2hHRUhEYkNTX1kyTkktSWdybUMwR2NQUTFncDN2Rk82Nl9IajhrdzFu?oc=5",
-          "published": "27 Jul 2026",
-          "negative": false,
-          "event": "earnings"
-        },
-        {
           "title": "United Spirits Q1 Results: Profit Jumps Over 50% Even As Revenue Sees Modest Uptick - NDTV Profit",
           "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPSEdOQUVzVGtFd01XYml4QkFxSkdicXhRbE5Gd0xlenhSRy1JLWthU211Q3hHb042cmFwYWN2Y1VWTHBVYjVacW4xRTdoZ0diT2dUSnFueTZ2TE5jVzVlRXRNNThuSEN2VVRyMzhBNzljd3g0Z3RReTRVR0N1d2NNRWpQaW5tRDlpX1R3cFZ6cHh6cjc3T3VXZmV0TFd5a3RJY251OTBFRWkwai1VZGh5cmhqdEtndGxoSGxsUHNoTWNteUnSAcsBQVVfeXFMUFhrVnFIcEV5UjBUSklSS05sMVJrelNFc3JjeURzTzVGekNpSUd1ejRlOU9YdzktdFVjOEp2a3hvS1RPb1J1T1hyVUFMR1V0YjBLVUNDb2RYZ2FSSkh3TzBhOWNBYmx0WWlsT3Y2eC10Q29Va19aajF4ZktlTUdJYkF6NTJmRXN0cFkxd25QNWQyY2RRWURqN3E2UmdxYmliUTN3a3p6Z0dnaXQ2VWFldVZWeHhzUThFWmM0Zk1fa01zekVQSEZkVlJIREk?oc=5",
           "published": "22 Jul 2026",
           "negative": false,
           "event": "q1 results"
+        },
+        {
+          "title": "United Spirits stock gains over 1% after Q1 earnings; Nomura raises target price to Rs 1,600 - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPNFBIZjVkR1A5anBQeVkybW1yZmZFTm5BSDRSZlY5WDNibUVfTUd2X2N1MGswXzRUOUNHWTM4UUIxMzFsN1RjbDVwYU1KaEJKNndUUEFERlhadFBCT1pUOHFuS0VRdHhMQVZDM1lRZXFOcm9sSUlyNUdNSWt3akFmdTN0RkdyTlJPNFNteVRFd2kxUmpHTnhWa0VrN0E4VHdsb2NCNTktd2VlR2lpSDlOWmhpaWkyQXJDc0F0RXZfd2hHRUhEYkNTX1kyTkktSWdybUMwR2NQUTFncDN2Rk82Nl9IajhrdzFu?oc=5",
+          "published": "27 Jul 2026",
+          "negative": false,
+          "event": "earnings"
         },
         {
           "title": "United Spirits Q1 net profit beats estimates, jumps 52% on higher revenue - CNBC TV18",
@@ -6326,7 +6458,7 @@
       },
       "months_held": null,
       "tax_status": null,
-      "health": 65,
+      "health": 50,
       "corp": {
         "dividends": [
           {
@@ -6341,7 +6473,7 @@
         "rev_yoy": 7.6,
         "profit_yoy": 5.1,
         "q_label": "Mar 2026",
-        "pe": 31.6101,
+        "pe": 31.594559,
         "pb": 3.9558678,
         "roe": 14.6,
         "de": 2.56,
@@ -6363,13 +6495,6 @@
       "cross": null,
       "news": [
         {
-          "title": "Bajaj Finserv Limited Revenue Breakdown \u2013 NSE:BAJAJFINSV - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFA2VGRnTkpCSFM2eTlvcTJNVnRJMjQtcjg1U28yVmFSMmd2WW9Lb1gwWjB2NDA3YTNHQVFBZ0czYnlEZjhCMUVHdTlja21QdUhqbF9qZ1hUZ3RhZEY3OFdMNkVGWUxDSVlOa3VSUUUybjBsTm9CNWVvSnBYMA?oc=5",
-          "published": "27 Jul 2026",
-          "negative": false,
-          "event": null
-        },
-        {
           "title": "Bajaj Finserv shares gain 2.12 percent in today's session - Moneycontrol.com",
           "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQQTJRVTVrX3VmUE82VkhTV3RHSy1RTkE2a1ZVeWZXS25NNGY2dmp1cHlGYjhiNHRhcXFjU1Z5TldVY2UxQkhVRzhKS2l1dlRtU3NCVTRJTFBuT1hZeGtoT2tsMzNXc0ltdkVnU0kxdUpDdHVid1hkZDk5Mlg2WFRJdzNLajVFNzdQR3lWczhfSFEtMUkyODJxX0RUc0RNWENfeDZDcWc1N0FRWEZXb3p3d09DWFFoU09SSUlNYU14ejM0cDBLOElkWUNYTHo1dFFH0gHWAUFVX3lxTFBhMmRrc1lPWXYtWXdkVFZ6UWpxRmRmTUtaNFhRLVM3dWVFRVBEVVgzXzNyLV9wUTZ4S0RIbGhZNlRTcnB5cU5NZlotRXlJS3Z5LVh2YXQwWUM2dkQyel94NjN0b3Uyb1A2LVVVTTRyWWkwdDRjekI4WEtuN2YxVVRpaGMzVUp2OEdxeFpNRU9UaDVrRmh1S1J4Q2E0S3RnbFdiQjF4a3NwY181enJLRVphbTZmOGV2NGgxM19jYTRSYndiT0pKM3VZb0NwLU9kTGxaaXlldEE?oc=5",
           "published": "27 Jul 2026",
@@ -6389,9 +6514,21 @@
           "published": "25 Jul 2026",
           "negative": false,
           "event": "earnings"
+        },
+        {
+          "title": "Bajaj Finserv BSE Top 10 Banks ETF (BANK10BETF) Share Price - Business Today",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRHJGRmwtVUtndnJxUHU4ZXoyOWNmX24zV1BLeXZzbE80RGxSVU9TX0h2dXpEbUJCVnBBWk1zcDc0Y2xnVG01Mms2aFlmY3FZYmh4YWxRbi03N0s4LUtHYXVNeGMtX3d3N3FhckoyeWlPVUt1Qkl6RXFsZ2xUWW03Wk4yLWFaT3IwdFZnQ3BjSDh4d1NMUUJWbzVqcV96RTJERUE?oc=5",
+          "published": "27 Jul 2026",
+          "negative": true,
+          "event": null
         }
       ],
       "signals": [
+        {
+          "type": "issue_watch",
+          "level": "warn",
+          "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+        },
         {
           "type": "earnings_soon",
           "level": "info",
@@ -6484,11 +6621,11 @@
       "cross": null,
       "news": [
         {
-          "title": "SBI Life Insurance Co Ltd (NSE:SBILIFE) Q1 2027 Earnings Call Highlights: Strong Growth in New ... - Yahoo Finance",
-          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeENwUUwxdF95YVVlRUVfYVpjcG5JdXJ3V1p0NWE2UVk4emZOd28xcE41RXo5SkMxXy1ud21wTjAwSklBd1RHMnVhQVZuMlg1U1FtTGZfdUVHbHJ4NWVHaktjR0xqOUJwTEpqcldmWjY0TC1rSTdIVFJZQ0ZGVDlSQjhVVEdKLUFfa2liWXVzQ0xNUWpo?oc=5",
-          "published": "24 Jul 2026",
+          "title": "SBI Life Insurance registers New Business Premium of \u20b98,908 crores for the period ended on 30th June, 2026 - Yahoo Finance UK",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOU1BjaFY1dVBwRndjRUZ3bVNlZFJuZTktWW9rVEtkUHdSaHFtb3VxZzRTOG1KUXh2XzRFZlp0dmlCWEJzWHJvaHVuQms5bHUtYkVDeW1HV2htbUpaTllOMGdLS0M0X29VcWxPXzhXbC1QcTg5LU54M3JJSUdDVlBjelVRdmRxa0Q1ZHNwMS15SQ?oc=5",
+          "published": "28 Jul 2026",
           "negative": false,
-          "event": "earnings"
+          "event": null
         },
         {
           "title": "Do SBI Life Insurance's (NSE:SBILIFE) Earnings Warrant Your Attention? - simplywall.st",
@@ -6505,11 +6642,11 @@
           "event": null
         },
         {
-          "title": "SBI Life targets higher FY27 margins as product mix improves, protection to gain share - CNBC TV18",
-          "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOMzc0S3lYVkFhbnNacW5DUVpGVm5VOUNzaFRIZzlubFZrWERsTl9PV1ZVcjh1WHVZMFRDZzVIZUIxbmNieFhHT1ZzQnJTdnVsU3hpeWtWd3J1S1N3NW9ybWN2MHB5a2pocUZSVFNFRnZQVUdVa0doWTRRTTg3ZlpobTdhU3dCemVqaTE3VGRDRGotdlNpZi1NVXVXNDk2enNfaXZnN3Z5TlNqNjZBUS1pRFNwaVhmcjNCclUtcENydnpkR3J0ZUZwaDlsWFJTWXE4YmxoVkpTbmpnZ2VYYjJ3cVl5Y3nSAeoBQVVfeXFMTTU0Z0hMZ0FobXpLVG9MTkZfeVhiMHdDWUFGa0xyOHI1VDY3aG41OXRiSWR4UmNHZF9tWlppVlg1TWUtdkNvVmRfcGdKcUIyVjdxTVRYYkF2SkwtVnJwRlJvd1YtWGQ4OG9UWjNWZG9HSi15VTdTbEo4NnRsVkktSE43YklSVHJmQk5HS08yNG5lNElVX0F2U0JDNDItNUc5eGtybU1TQV9aS3ZQOU93RHF6SUxtNDRvUEc5alV1RERHay1Jc0ZuSGJMTjlXYnB1SWNkWXBXbllwTlptUEd1VmhuT3RDSVNUNExR?oc=5",
-          "published": "27 Jul 2026",
+          "title": "Earnings call transcript: SBI Life posts strong q1 2027 growth, shares little changed - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNNzJNWHJRcXhJeHQ0OHZza0E1bGZJS2V6dmdTMnJoT0cweXBvaGFtM2JEeG5HbFJFUHRCVElPdm5EVjZiS3dQdDRNQmFFUFRWQnFiVjdreEdTR2t6Yzk4d1MwNHlYSS1LN1RHaGx0RUwyZmo0Z1JxQjJmakNPb3lZcXFjMnFSdF9nTlFEQnJ5eWdPd2pIbUN4ODk5RE1FVnF0X2haWXplZWp3RG9SaXRhOTZtU2dvcWw0ZWFkYkZXZ0c3N1Boa1lGZnJDc2dvSWJucWZtOXlB?oc=5",
+          "published": "24 Jul 2026",
           "negative": false,
-          "event": null
+          "event": "earnings"
         }
       ],
       "signals": [
@@ -6583,7 +6720,7 @@
         "rev_yoy": 5.3,
         "profit_yoy": 2.1,
         "q_label": "Jun 2026",
-        "pe": 13.768849,
+        "pe": 13.7673,
         "pb": 1.7051148,
         "roe": 13.4,
         "de": null,
@@ -6716,7 +6853,7 @@
         "mcap": 945954881536.0,
         "wk_high": 1414.9,
         "wk_low": 1101.0,
-        "div_yield": 0.69
+        "div_yield": 0.7
       },
       "invested": 66785.5,
       "current": 56780.0,
@@ -6825,7 +6962,7 @@
       },
       "months_held": null,
       "tax_status": null,
-      "health": 55,
+      "health": 70,
       "corp": {
         "dividends": [
           {
@@ -6887,19 +7024,14 @@
           "event": "earnings"
         },
         {
-          "title": "Buy, Sell Or Hold: Hindustan Copper, Bharti Airtel, LIC And Sun Pharma, Canara Bank \u2014 Ask Profit - NDTV Profit",
-          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQcmtyRTdRX25GSzA5V3l2ejN3VXpld1BfdHF0WExKRVpNY1dUWWNtRHNJZEJ3TDFUaUlTeUhkcjRvcDhHVlRYY195emxXRGx5RUszMzlPNkZHdmNrTDI5VndxcGliVjZBTjRvWnR2M0ZUMUVXZ0NYMjBObnRTS2h1dEV0UldnamtZcVBlb1lDUndoTF9zWU1salY3bmVVZjY2VUpGUGs1QnFsdVp3M1pyTmM1cUVCY0hKNkRQdFJocUQxbHFmNDlfSXFodERMa05LdlZFZUpR0gHWAUFVX3lxTFBya3JFN1FfbkZLMDlXeXZ6M3dVemV3UF90cXRYTEpFWk1jV1RZY21Ec0lkQndMMVRpSVN5SGRyNG9wOEdWVFhjX3l6bFdEbHlFSzMzOU82Rkd2Y2tMMjlWd3FwaWJWNkFONG9adHYzRlQxRVdnQ1gyME5udFNLaHV0RXRSV2dqa1lxUGVvWUNSd2hMX3NZTWxqVjduZVVmNjZVSkZQazVCcWx1WnczWnJOYzVxRUJjSEo2RFB0UmhxRDFscWY0OV9JcWh0RExrTkt2VkVlSlE?oc=5",
-          "published": "27 Jul 2026",
-          "negative": true,
+          "title": "Buy Hindustan Copper; target of Rs 715: Anand Rathi - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPNFpXVWZyVjJyN3d4RDJYWHN3RXV1Nmx4a1FIaTI2MlJ6NHlsSlRKbzZLNmdzQWJidFI2SDZxeXJkREdrbmlGZ0hnT0F2TXNscDVqeU5zd3cwYUFDWjVLZ2Y1anpEd0w5RlF0dmRNTTREXy1laHBINmNWRDJOQzNkY2RiYWYxZVlQM25sMWFaRWlTbVA0Y3p0aHpSTG8xbzVHS2lmYVAxU3VKbnJQRXNuZDVHMNIBuAFBVV95cUxPOHRZcmFIQktlZ2s5aG1UX0htNmxhTzF2QmMtQWUtLW5mbENmQ0t2MDBveWxsN1l2NkpzM3hOSHd4Y3UxaElvVTdELXNvQ1dtY1Z2b2hlYllKWVNrWUJCeEd3RTYxZWZXa2otZHVWdHdrNzNFdUZ6QnRfVDdtOHN3OFg3SURBYUVoZXQ1TjU2R0ZRVURzRTc5T3JfcXREMFdHNFVpZ2dtNUwxYXFweHlrN2RIMXgtV0VH?oc=5",
+          "published": "25 Jun 2026",
+          "negative": false,
           "event": null
         }
       ],
       "signals": [
-        {
-          "type": "issue_watch",
-          "level": "warn",
-          "text": "Possible company/scope issue in recent news \u2014 read before deciding"
-        },
         {
           "type": "corp_event",
           "level": "info",
@@ -7187,7 +7319,7 @@
         "profit_yoy": null,
         "q_label": null,
         "pe": 244.14285,
-        "pb": null,
+        "pb": -0.16842666,
         "roe": null,
         "de": null,
         "mcap": 133444042752.0,
@@ -7605,15 +7737,15 @@
           "event": null
         },
         {
-          "title": "South Indian Bank files FY26 BRSR, reports 14.6% business growth - scanx.trade",
-          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRndqQmhhamwyeDh2d3BzemlSV3M1RlM2eXNpYWZGTlFhTVZxRVJJWG1fdWhfQjVycXpmalBRcjB2Qm9rTnV2Qy1QX0RYNTR4S2NzeEZ2ZUxzcUo2Tk1PVXE4SHAycDhOYTVKNDN4SUVmVWNjYmNMZzNEZElWNF9qMUZjMUNEcnhDYzBPMU5neXhiYUNSUzV2alRJZnItZk1yYlhBaC1BVDBrT1Q0TEN6QjRUZmNmTkxkX3RZ?oc=5",
+          "title": "South Indian Bank Limited Revenue Breakdown \u2013 NSE:SOUTHBANK - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB6UG5SVW5faGVEZHBoNGRzQklCZzJCWEJwZy1McFFmMld2UGpkUGZSSXJONWlfQ0R0cXU0SHpUQUF1WDU3UTlRVHFONG1pbDBWbGNwT2MyR0lESkN0VnhHTHdrMS1DTjlvNGZ5a0J6WndSRW1EUFkwZndB?oc=5",
           "published": "27 Jul 2026",
           "negative": true,
           "event": null
         },
         {
-          "title": "South Indian Bank Limited Revenue Breakdown \u2013 NSE:SOUTHBANK - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB6UG5SVW5faGVEZHBoNGRzQklCZzJCWEJwZy1McFFmMld2UGpkUGZSSXJONWlfQ0R0cXU0SHpUQUF1WDU3UTlRVHFONG1pbDBWbGNwT2MyR0lESkN0VnhHTHdrMS1DTjlvNGZ5a0J6WndSRW1EUFkwZndB?oc=5",
+          "title": "South Indian Bank files FY26 BRSR, reports 14.6% business growth - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRndqQmhhamwyeDh2d3BzemlSV3M1RlM2eXNpYWZGTlFhTVZxRVJJWG1fdWhfQjVycXpmalBRcjB2Qm9rTnV2Qy1QX0RYNTR4S2NzeEZ2ZUxzcUo2Tk1PVXE4SHAycDhOYTVKNDN4SUVmVWNjYmNMZzNEZElWNF9qMUZjMUNEcnhDYzBPMU5neXhiYUNSUzV2alRJZnItZk1yYlhBaC1BVDBrT1Q0TEN6QjRUZmNmTkxkX3RZ?oc=5",
           "published": "27 Jul 2026",
           "negative": true,
           "event": null
@@ -7695,7 +7827,7 @@
         "rev_yoy": 3.9,
         "profit_yoy": 17.7,
         "q_label": "Mar 2026",
-        "pe": 14.151785,
+        "pe": 14.194029,
         "pb": 2.6394424,
         "roe": 16.5,
         "de": 1.51,
@@ -7838,6 +7970,13 @@
       "cross": null,
       "news": [
         {
+          "title": "IREDA vs Inox Wind: Renewable Energy Stocks Down 7%, Buy The Dip Or Stay Away? - Goodreturns",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNQjc5VUdPalFxNEdOaUNrb1FOUm9xVGFmSmMzdUlQdVl3NG1ZWmdjenN3OUhnVFBmclo2dGNDYTJQbjUtSGN2ME9vb29LVHBfWVVFWFRtSEVFd2NyV0ZSdmFRZVdjRUdxaDNOQlYzTGFlZVNBeklNUWNJMVBTSTZDUHNVVjZXcGVCcHh4cHdITHhIQXJHZWU1WWZ6eHFKeEJnbVV3amc5dk9jMGdPeUx5VzFJX1Q0d2pxeWtN?oc=5",
+          "published": "28 Jul 2026",
+          "negative": false,
+          "event": null
+        },
+        {
           "title": "Suzlon Energy vs IREDA: Which Is A Better Renewable Energy Stock? MCap, Roe, Dividend Comparison - Goodreturns",
           "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNX1lIQ0YwbmpFX2VIS2pXTnk1eHRIYkRsX3hpN1hoTTF3SW5XYlRsOUgycHU2d3pxLUVBZlIxX3RxMnNnYWUtdzVDeGs3RXFPRWNvMWlVcXZQTXF5U3UyUkhVSXBzMjY2OHhtaG9yWDl2TmY4MHJUcjhHTG1ONmxQX1JJT1BCRl90OVIxUHVPMmtGY2JCS1libTBhdmdDeTI0alBULTZaTnBRbHgzR2plRDlZOGV6WHBMSnR6NUVwZVRlejdjSGdSNDdNd05mNWlwSUxr?oc=5",
           "published": "23 Jul 2026",
@@ -7856,13 +7995,6 @@
           "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQVUJPSkdKSEhUOXZaMVVfQmN6UklEaXRHM1Z3VEttVFNxMlp2NkVrWlhTWUp5eFFUMUlnbVBoNDl4dlpNRFJ3WTI5aTRjbm9OTXdwZTlKcHNMYmVRUE5hVk5QN21wbEZueGI5amN0MndGMXJ4TWszWTRyeHM0eEg1ajZUcnBZbzN2aFR5cHdGTHBfMldIWWpCeUF4ZGIzRDJ0bmxZSy1aM1RqN1NEWThJcUg1cjBwNHdHSFp0TzRTTTJZdnhOUUpTYi12VjDSAdIBQVVfeXFMTXJQaU93OEQ1LWM2SVVDWGpwYnQ2bVFTQ1NkU0Y3SWVEcXNvaEpTUXVSYUpFN1RXSW1ISEtlQTBubjJqakRuUnl1M01xdi1MR1RpV1RSVlZMQlFYci1Ta3M0Qm1wTmNUMlhMdVpqOW81d1lfTE5TelE1N1NOc0ZjeU1UR0lMSndSTE5McW1aejVIbHJIQXpWOXRsVGhsSkMwVHpzV0FQazFUaFN1eXZaYzdjRE9iUXZ6VjVGMEpPSkY2eEJ4U1ZTTjI0Y0cyZGp3X2d3?oc=5",
           "published": "23 Jul 2026",
           "negative": false,
-          "event": null
-        },
-        {
-          "title": "IREDA classifies Gensol Engineering, subsidiary as fraud accounts - BusinessLine",
-          "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxONGsteGlhTnptTjBNeTVBWW11T3ZBS3NCMEl0S0VIRExMN0xkWUtiZHRtUm5qTXJIMlpnWGdjZDR4am9EaE5qR01RYmNoZTU2V1E2c0FpNDJTODlzWnZLaVM2S3FFU2NRSi1jN3Zud1p5LTdGUXYzTDZ6Sk1MYVE4eEVWd0tncURtRjR0TENYd0JXdFF0c2lmVlp4ZklQUXpvLUxxajdqSm9Uc1ZlQldEWUUxVGl5U0FYSGsxTWMzVlR3TVNRYk9xUjFieVBtQzFRNDBmRXRhYzZyUEVOZzFhNDVKV0hNV2UybU5wSmU2blBvTkHSAfoBQVVfeXFMTkMyQ1o2VlRXSzYtZldKZGRWNGM4NjNVQXBIa3NCVDFURWZFQ3pLaHFrck1EcUFCdXhvZjZTanEwWkYwVXFHTjdjREd3cUp0YTFkN2p2Z080QTluTXFSWENDVE1EQjdQWjhxVzJnMUxfRzdIaDB5eFd1OFJsbllySElfcWdYQ3ctYWVYazNTdXV4cXdYQ3ZHYjdNdW1RWE5SVFJtWnQtZDFUX0VqUzFUZ2NSWnYxUml4UnA1VzJhT2NVWXYzaTFKbXV0em4wbC1xWGc4cW44Q2t6dHRZSnhUODlKWUlqdEtnbE9HZkxlcF93b3I1RlFuM21nUQ?oc=5",
-          "published": "11 Jul 2026",
-          "negative": true,
           "event": null
         }
       ],
@@ -7927,7 +8059,7 @@
       },
       "months_held": null,
       "tax_status": null,
-      "health": 70,
+      "health": 55,
       "corp": {
         "dividends": [],
         "splits": [],
@@ -7938,10 +8070,10 @@
         "profit_yoy": 188.0,
         "q_label": "Mar 2026",
         "pe": 20.78788,
-        "pb": null,
+        "pb": 6.9806657,
         "roe": 40.6,
         "de": 0.06,
-        "mcap": null,
+        "mcap": 659984875520.0,
         "wk_high": 66.81,
         "wk_low": 38.19,
         "div_yield": null
@@ -7959,25 +8091,25 @@
       "cross": null,
       "news": [
         {
+          "title": "Why Suzlon Energy shares plunged more than 9% after Q1 results - Fortune India",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxORUZuNmN2VG5mbFpJT2tJZms2VzF3TmZkNElrajlKNWtjX2xweGYxUzg2c1Z3SGJXMk5wbDRzTjA5UHpseDVISkgyUDlILUlobVZLalByTVJ0X2xQa0Y4cURnS3o4OG94YlhiX1VmdktwMDBZaHp0NnBEZHdaaWp5RUk2S3Y4QzdoQklUN0U2MjRuUTRDVzdwd1I0OGV0a1o2aV9Vb0ZR0gGzAUFVX3lxTE5wMmY1WDhwOFhQZW51RGJNNUFtd2ptNWxVa2gwTERXelJUT1lISU5YMDhlYWRKQVpMVnlZWDQtNmtWTTEtaDh0ZWdDeWFSdk04U0Y1aU9meFM4UldZOUdYeTA5ZEJEZngxR1h0SzZ4dG1Bcm94dHlTbFUwVWRDYjdxMm9GM0YwX1hpNzc5d0l6eVdmZkktVkpRcGhlcGpNT1FoenlhNGxvb3AzNEtiVkx3X2xz?oc=5",
+          "published": "28 Jul 2026",
+          "negative": true,
+          "event": "q1 results"
+        },
+        {
+          "title": "Suzlon Energy Q1 Net Profit Falls to \u20b9305 Crore, Missing Estimates of \u20b9400 Crore - Sahi",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPcGhPNUxDWFhvVTRRRFcxNzY0NzhtR0JvTXpFMmw3OWxDTUdocjlsc0dmQy1aT0RlTUt4cTFwSk5aTjdWZWQ4UjRrUWNfbDNJUHhBdENKOGNCdGFsNzJRSWRCM3E2YjBCSTZEakJ1MmYtMzVoR3I2YnljMW9MOC1tMVBJdS1kTFd4alRFTU8ydmJteTRTTGFsQ1NBM0l2Sk5zTDlvSXpBcXFVNzYtMFdMYzF0UzFMY2M?oc=5",
+          "published": "28 Jul 2026",
+          "negative": false,
+          "event": null
+        },
+        {
           "title": "Suzlon Energy Q1 Results Today: Time, Dividend News, Earnings Call Schedule, Key Things To Watch, Share Price - NDTV Profit",
           "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQa0JGWHlqMkpqMFFLRGpuOU52MUdNZHlaNmV4aWRSTzNPMkZxWlR6dExUMGU5WEFwYUNOem9EbFlnWGRQZ3hRZzQ5Y0lwZGdCMGhfS0ZRZFVsZFJZT2x4bUZFWVNacldsVVVZZjJ5MS1lNTBuVlJVeElEaG1Mb1BwSHotS0Y0Y0VCYjQ1cGVVR0JHTGlPQ19lNFl1TGRyaHNiaGR3R0lMYVZlaXNYbjJmNjUyMTVjTDFKWUZ0bjdyTm15MmtXQ05YcUtVbUYtVUxZaFhnMUNiLXp6RlE0T25jajJB0gHqAUFVX3lxTE10MzFuZkJ4dHpqVVVXT2pOU19fQVA5bzh6dy1BNWxhNks0TjBUd1dfdWs0TVl5V1hqOEtSelpDMEtrLVB3djRUcGVMVmpHdjhwLTZaYUstLXpYV2xBTzZ4MDJTWXE4YWFKTDc2cE5yUDFiVFB5Q1hRM1RZeW54bk12MXppN3dQWjRsSTZxbjJva3dwWVBKV1NqOWZPdV9qMHFNQjFtTmliZGxpTXk1RURlc2ZOSG1wTnpDRVdYeWk2X0I0LVoyejQ0dkVpMHFpdjh1UXBpVFFhYXVCSkxIYWNGRzE4MzBqV3FhUQ?oc=5",
           "published": "28 Jul 2026",
           "negative": false,
           "event": "dividend"
-        },
-        {
-          "title": "Suzlon Energy Q1 Results: Stock falls 10% as margins narrow despite 22% revenue growth - CNBC TV18",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOYlNzVWZDMENHTkRDS044cVQwOXJuMk5QeU9ZVDBzdlBfblNwUlhWZzlCbW9sUFVIaUlobG1BVFNxOW1pUnYtN055T1FaV09oWUVuNWxRUVZKSWdPaVNxRGxQVnJFNFhfQmoxLWhpRHVNdklSVFVCNVlmU0R4Qmp0ck1WR2tLX1o2Q1ZYLW5VeEc4dGlSVm9wQkR5UHoxNUdnNzhSWmN4VDRrOGVqVDhjcGJ1QUlid09PQkd0UXQxU2RiUdIBxwFBVV95cUxNb1J2MjZZM2V4ek1VMWozVGd0MUtfUHBqYWtORU5EMGIwcmtlcmVGcGp3M2doZkMwVDhWbW1ScGV6blV1RkVMX1dQNm02R2FLOEFpNkpoemdMaHFIbkdaeU9YN01LeTNTT3d3aElQbE54czd6eDZCdzZmNFNvOW1pSV9jd01qdnVFdFA2V283X3FaNEZWdDdZd0dYNXp5Uk9ISFR1RElrRmoxQ0lhRGxjTE9lWGUyd2tjZjBJeGZTaERpcUdNWWhF?oc=5",
-          "published": "28 Jul 2026",
-          "negative": false,
-          "event": "q1 results"
-        },
-        {
-          "title": "Suzlon Energy Q1 Results: Net profit declines 6% to \u20b9305 crore, revenue up 22% - livemint.com",
-          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPby0yT2lENTlPOTZRS21oQl8xb3RrU1lfbHRWZnA1R21sZzhEMkhvSUFTWTRya2pIeDg1NGFHWVNWRFZEMUFFSHpRMWh1Um80LWFITU41ZmNPeExjOVZzekIxTXBxQjY2LUF1VnNDV2E4a3RjNWhtdnlvTTdJc0pQNjBXT3lOYVoycUJ0OTBLQlRZNlBCREswazA1NlBaQmRZUFYxeEdtckdiRWxjUHRwdktNMnlwVE1rYTgzNElLbUc2YkFTazdqbmk5ay0wSk1VWGg4SWpFV0htZkxXNlVr0gHkAUFVX3lxTFAwV0R3VFFhbDladm1Ob2kwaXFnZHlvMUNhM1h6cnliT1dlQjJ5WDJ6aGNIYlRFZzhFSVVSVUtCUG15emcyWkw5a1h2czRNTzdaZ2t2NnpQYlU4LWxsa1otSnkxeTBYOEtwQ184M0NIVmZfN2gxS3dnMlQ5VVFnWWdkbjJ4VDZiUVFnVHlOX0dxZFNZX1gwZmo2NDMxRE1SaFBDeGU1SmR4blNrbVNSLUcxaW82RXBvVTMtVHpKVE14eV9PcU0zclpVSWpkeHE3VldVVWZUVDVmS21LTWhoNVR6V29Kdw?oc=5",
-          "published": "28 Jul 2026",
-          "negative": false,
-          "event": "q1 results"
         },
         {
           "title": "Suzlon net profit falls 6% YoY to Rs 305 crore in Q1, shares decline 6% - Moneycontrol.com",
@@ -7988,6 +8120,11 @@
         }
       ],
       "signals": [
+        {
+          "type": "issue_watch",
+          "level": "warn",
+          "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+        },
         {
           "type": "earnings_soon",
           "level": "info",
@@ -8096,6 +8233,13 @@
           "event": null
         },
         {
+          "title": "Tech Mahindra rises Tuesday, outperforms market - MarketWatch",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQQzNFZ0k2TkxsWDF5NE1wRG5BSUE5ZU15R1R4MWlmbG1DMlMyTFpKaVFVVXNGaXRmUm1HU3dTQjQ2MmxVd1FIbnJLZUdLOU9MZVdYSGRjTWV2bmFsM3ZDcXRvU2xGRzhkSXhVWEZWeUN6ckVWYi1TOFV1bVNFT2ZCZDN1bmlJSmlCTWlDYU13N2RoUU9jLU1KQnBkc2ZiN0JtX3g4azB4NjVQSEl6eVl4aUZ3d25ETXdDQTBhY1F4NjE4QQ?oc=5",
+          "published": "28 Jul 2026",
+          "negative": false,
+          "event": null
+        },
+        {
           "title": "FICO Honors Tech Mahindra for Bold Solution Tackling India's E-Commerce Returns Crisis - Yahoo Finance Singapore",
           "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNOFo5VWZ3YnVRX29nclE2LWI0LTNUZkJDNjkzYWNjcG12WThiWDhYbXB4R2JBQWtWUzR1akdXdGF4elF2dktmV0YyNXA3cVlkS3RqMk1RUjhkMVpXRGd3c1NpZW56dUlCeDlqT05ndjd4VUFvelR0cUtjd1NFVHh0MzhoTVlldw?oc=5",
           "published": "28 Jul 2026",
@@ -8103,15 +8247,8 @@
           "event": null
         },
         {
-          "title": "India's Tech Mahindra tops quarterly revenue views on manufacturing segment growth - Reuters",
-          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbVlCSjBKUVFnZnZ3Z1M5Zi1MQkRVR2ViRnpFYlRYV0tSZVhLckFHS3VteGtYY0RKb3g4YXd4d042TWkwUkpyaERwV1ozSlpXZHJPU2xhQkVDRnZBUzc1Vm9Ra1E1anVKX3NGOHlPbWpvZ21WTVRLc1RENVRLR2xMOGNnZEFkNVZOUjFrd1k0UUE1STY4Mkkxdlk4TVBURHdhQUdB?oc=5",
-          "published": "16 Jul 2026",
-          "negative": false,
-          "event": null
-        },
-        {
-          "title": "Tech Mahindra launches Engineering Experience Centre - Zawya",
-          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOcmVEa3V6NllJREw3Q3U1REU3VVQ5bFJBeGUyeWJQMGxZUEQ1ZVprVHJ6V3dENzQxVEVsd0daMHk0MG53WHd0emUyZWJZMjVTbWxrWExyb0kwR293VkJydUpoS0JSZVJ5bE5XTG4yTHFDbnlQUUN4RHFneEt3RHRCb2tRcTUxOVJkOWRENlFCSWdjZkNiUEszYUZlMVdXU01kUkF6anVLMzJVZVpPcE42VlhmSQ?oc=5",
+          "title": "Tech Mahindra Launches Engineering Experience Centre To Empower Engineering Organizations Turn Ideas Into Impact Faster. - TRIPURA STAR NEWS",
+          "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQSmpZRFdEOEFiX3hzUzlubGRDMUR1TU91RnViUzJPOHNNYTB0Z1NPVU5Kbk01eHgxdXJyWU9SQTcwLXAzNEk1OUNHY0xGTTRSTndneEpSY3ZMVWlSZ2lBLU96czh5M2dSZWJaQ3RYNGRLaGRHczlERHltMmMtbHpzWXhwYVR6ZUFwRGtzaTFyY2ZOdVRuZ3c1c09ubTBZNS0zTHFubEkta1YxQ3Uta3F4aFpfYnNhSlhmMWFGXzJlWVBWQXVOemlvTXQxajVZWjhJd3hnSWNqNHZ3OUpjTXhwMEh2Qk96Xzg?oc=5",
           "published": "28 Jul 2026",
           "negative": false,
           "event": null
@@ -8187,14 +8324,14 @@
         "rev_yoy": -48.8,
         "profit_yoy": -58.3,
         "q_label": "Jun 2026",
-        "pe": 35.860268,
+        "pe": 35.59477,
         "pb": 7.502094,
         "roe": null,
         "de": 0.0,
         "mcap": 93696417792.0,
         "wk_high": 2197.1,
         "wk_low": 990.1,
-        "div_yield": 0.8
+        "div_yield": 0.81
       },
       "invested": 1594.42,
       "current": 1442.3,
@@ -8418,7 +8555,7 @@
         "rev_yoy": 30.6,
         "profit_yoy": 61.1,
         "q_label": "Jun 2026",
-        "pe": 18.39371,
+        "pe": 18.39696,
         "pb": 2.9711225,
         "roe": 18.5,
         "de": 2.76,
@@ -8556,10 +8693,10 @@
       "cross": "golden",
       "news": [
         {
-          "title": "SBI to host analyst meet on Aug 7 after declaring Q1FY27 results - scanx.trade",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQbEQ4Z3hHaVBRZUNEYzlsSUcySXhIMTh4dVpQZDNKczRuQ3dRcmtxMDdvTHVNZExacVpnMjZxeXA3VlN5YUV0VUZXbzJBTEM2cjhiUzBhWkJxUW10X0pneGh1b1FHSUhUZ1dUSUJwYVZ2UWhjdGZxdGQyN2JrdXR5Z1FUSUczUE52VGRueFVBUjlOWWV5Z1dldXZFX21TSXhJYlE1Vnl2bGN0S255SVJLUDF3ZjZZOGllbFBCUXgyNVA4Zw?oc=5",
-          "published": "27 Jul 2026",
-          "negative": false,
+          "title": "State Bank of India sees Crisil ESG upgrade to Leadership in FY26 - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPTDNKTEpnQzVQaGVZV3E1YzFtcGRnV2VDU0RRNmM4blZlWkpfTXBtTW8wYm1MN3BJckZoMHM4Ny13Y1c2LWJtbG9YS2xRZ1ZDSThiVTdGQ0VjRjdrT3RBU2doTG1ySkFacGwta0NsX0x4clRvbmRBaDJGRTBXLWxBb0I2UGRFQTM3MlNqSUJvclJ3cW1RY0lDWktyb2R3Mnd0OFVDT0RjaXpEamNVc2lQVnNvUW9KYVZXWUR3azZSaw?oc=5",
+          "published": "28 Jul 2026",
+          "negative": true,
           "event": null
         },
         {
@@ -8570,17 +8707,17 @@
           "event": null
         },
         {
+          "title": "Sensex, Nifty end lower as FMCG, energy weigh; IT stocks outperform - Business Today",
+          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPdl94V2c3Z25BTjVNNFpaMTUtZHh1bWZyNzQ0QVBLSHlkT2hVcTQ2Yl84bkFyYkZGamxneHlDMHJDVm5fZjRFUV91Zzl2TnJVZ2UtWXRrWFNEVEhBZEM1Z2FUWmRCcEw3NkJueWZkMEw0bTNDS1puSnkzQlZZdkZzeHp3eUNLMzFnTEtTcEE2YXhFTjRDdnY0Mllnemk1dDNwc2ZkSnR1TmdwMUhXT3NEdFlhdGFfdVF1YkU1OXNzQ2JCUkxSR3E4TzQtT0bSAdIBQVVfeXFMT1JUMFhsazRBYWVrWWZRZlJnTnMzUUV5aW4yaWVuaGpOR2FPNHNxMWYzamlCQmY4ZjJhSXpiQVkzNGRNX3RubTB0d2RkeEMycW5HWFlNRHRBazdQMUtDdHFxVnByTmt0OHg5RGIxSDZHYV8yR0NFXzZnX1hleDZ4bDVGLU0xRlFPX3BQamwzT0h1TW1PVmctNzlRdUx4N252VHRVaGUyQVRrSWxYSmVIckFvZFRTbTJDR2NITlJfVjBnUGEtbGs4SDktSkJHanNBeWZR?oc=5",
+          "published": "28 Jul 2026",
+          "negative": false,
+          "event": null
+        },
+        {
           "title": "State Bank of India climbs Friday, outperforms market - MarketWatch",
           "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQajUyZldLajNDTFdZQWFBc19KZjlNdkhsNWJlNThLT3ZJZG1oc0tIX3RCRUdnNm4wQWsyR3ZPanUxM1NUMHFyQnd5WXlHVEg2UWNWa0tfRXVvTWdIUUliclFfaEU4a3JyLTZsRXpSTk9XNFVEaDd6Uk9aOHZEd3hMS3JpcGVvVjZBa1ZCWmNVaG9ucTJvYThyUGFUV0NvYl80ODYxcHUtaFlmZGVx?oc=5",
           "published": "24 Jul 2026",
           "negative": true,
-          "event": null
-        },
-        {
-          "title": "Positive Breakout: These 14 stocks cross above their 200 DMAs - The Economic Times",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPMkEyZGs4cE5WOE04WkhkMUphdWRESFpuNTdXU2s3c0RuZTB1eVkxcXV0bWFCcVVGZ09FaFByT19uRnozNjg2S2VSVmNrQzkxTnBza0c1RlBYZENuRUhZalpLQ0daQ3Q1M3ZoX0tPN3I1b0dtRUJsSnJ2eEkyZ3ZMdWN2dTZrc3dTWEgwaVBOaEttb0E2WFNURGpMdnl0ekphbEFHeHZjWEVWcllKcW1PcGlwd250R3QyZWluX2N3ZmdodkkyajRKMjkzV0gwbkloVHJ1LWdiUENMUGhCNkE?oc=5",
-          "published": "28 Jul 2026",
-          "negative": false,
           "event": null
         }
       ],
@@ -8655,7 +8792,7 @@
         "rev_yoy": 66.2,
         "profit_yoy": 118.3,
         "q_label": "Mar 2026",
-        "pe": 47.26884,
+        "pe": 46.652607,
         "pb": 9.946698,
         "roe": 24.3,
         "de": 0.97,
@@ -8809,16 +8946,16 @@
           "event": null
         },
         {
-          "title": "BHEL soars 4%, trades higher for 4th straight day; here's why - Business Standard",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNM2M2Uk91eXRUZ0ZxUW5halE0bXd3bEVyS0draXN6c0xwMDdlaEtoUEE1NVZPN3VyUlNhRjJBU0RsZkUtd0pLdnUwbk9UaFl2TjFfYVFYMHJiWVRvRENsUGtEUUxrM2c3UEF1S3RNMGpDMW5Ra1ZBckRXaUt3VHF3QW5EVlI5X3F4MXNBOUhTT1dVck1RX29seDRXX05LNTFXNlZzRVE0a0pKVHhKTUMxd05qX2xBLTFVQ3Y1d0tZMU9BY1nSAcgBQVVfeXFMTWV1MFVvWnNlTUFIT1dJTjlZTU9sSmZzdFVxUER6R0F0QlNpeTgtVGp6amFJSTdQNkkwZ2ZYWWRtSHQ3Rk84bFdpelVvY3lXV2lYdU5HYmxYRlZTTldyWlJTanNIWHkwcFdfeEFzWVhwNUhldDZWRzJaMHV0amZBV3BSTXl4bGFqcW9WLXNxNjRtS2Q1YUI2cWU5VHMxdU1rSmI1elJZVzFobWpNNkktdlI2ZlBXQUJuc2ZfeW9zckdLaF9aYWtxTzA?oc=5",
-          "published": "13 Jul 2026",
+          "title": "Who will be the Director (HR) of BHEL? - Whispers in the Corridors",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA0M3NCQUpjQjBxc1ZIc0VtRERxQXd0RVlJRzFUdTB4X0ZmLWdCMFA2ZVg3VmRxMGVKMGhFT3JRbEtpQ0s3cklnT2l4Z0NFSU8takVacTNFZktpNGFhRVBLb3dfSkgyR1gzMUl5NkVaNG5ycTdOVXRUaEtFRWhJZ2c?oc=5",
+          "published": "28 Jul 2026",
           "negative": false,
           "event": null
         },
         {
-          "title": "Who will be the Director (HR) of BHEL? - Whispers in the Corridors",
-          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA0M3NCQUpjQjBxc1ZIc0VtRERxQXd0RVlJRzFUdTB4X0ZmLWdCMFA2ZVg3VmRxMGVKMGhFT3JRbEtpQ0s3cklnT2l4Z0NFSU8takVacTNFZktpNGFhRVBLb3dfSkgyR1gzMUl5NkVaNG5ycTdOVXRUaEtFRWhJZ2c?oc=5",
-          "published": "28 Jul 2026",
+          "title": "BHEL soars 4%, trades higher for 4th straight day; here's why - Business Standard",
+          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNM2M2Uk91eXRUZ0ZxUW5halE0bXd3bEVyS0draXN6c0xwMDdlaEtoUEE1NVZPN3VyUlNhRjJBU0RsZkUtd0pLdnUwbk9UaFl2TjFfYVFYMHJiWVRvRENsUGtEUUxrM2c3UEF1S3RNMGpDMW5Ra1ZBckRXaUt3VHF3QW5EVlI5X3F4MXNBOUhTT1dVck1RX29seDRXX05LNTFXNlZzRVE0a0pKVHhKTUMxd05qX2xBLTFVQ3Y1d0tZMU9BY1nSAcgBQVVfeXFMTWV1MFVvWnNlTUFIT1dJTjlZTU9sSmZzdFVxUER6R0F0QlNpeTgtVGp6amFJSTdQNkkwZ2ZYWWRtSHQ3Rk84bFdpelVvY3lXV2lYdU5HYmxYRlZTTldyWlJTanNIWHkwcFdfeEFzWVhwNUhldDZWRzJaMHV0amZBV3BSTXl4bGFqcW9WLXNxNjRtS2Q1YUI2cWU5VHMxdU1rSmI1elJZVzFobWpNNkktdlI2ZlBXQUJuc2ZfeW9zckdLaF9aYWtxTzA?oc=5",
+          "published": "13 Jul 2026",
           "negative": false,
           "event": null
         },
@@ -9115,10 +9252,10 @@
         "profit_yoy": 7.9,
         "q_label": "Jun 2026",
         "pe": 22.978067,
-        "pb": null,
+        "pb": 1.8976266,
         "roe": null,
         "de": 0.37,
-        "mcap": null,
+        "mcap": 17155114401792.0,
         "wk_high": 1611.8,
         "wk_low": 1249.8,
         "div_yield": 0.47
@@ -9136,7 +9273,7 @@
       "cross": null,
       "news": [
         {
-          "title": "Jio Platforms' IPO key driver for RIL stock - Rediff",
+          "title": "Jio Platforms' IPO key driver for RIL stock - rediff.com",
           "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNR05BY0NYeTZPU3JzcWIzbU9HUDd0YXg0Z3pQRkFNejdOUFhWWXUtNkJFRnRhUXBZY0t1YmhwaDhJVmtWdDBzSkZrNlVsQmI0Mll6VkxjS0xOVmlkbm0yX1RsVGZvYXVRR1F5ZWN0dGFQVDl1VzFCMzRaM0kxdUdyQkNuWGJ4OVZ4bUNCZWFBYjc3NklWSjlSZi1lNm9YYlpSejgxaG1KOUxJcVFSa1A1UHhjY1hhdTVnODdxOGNZdnBwNFUwc3k40gHKAUFVX3lxTE1idTRNRjRNT3pfQkNQWWRVWEJNbV9uSzNUM3lIQjgxSWJxUjZLYWN3aTFNNXRpUUQ3a1VWZ1RrWTZXR2pfN1gwVDdpZ2lBOWFWcHh2cHZpTGllLVhHeGpxS29xeTVfMFBwWXRPTWZqZ29OZ0ExX1Y2Y2NuamZycjBpWXBRNldPZDNyRWFqckdXOEJMeHM5OXRUSUVmeEo5aVJ1X1ROZlVoN0lWc1F1LXZtS3pSOFItX3pNeUFZZ0JQR0tJUWZJSnUxemc?oc=5",
           "published": "27 Jul 2026",
           "negative": false,
@@ -9226,14 +9363,14 @@
         "rev_yoy": null,
         "profit_yoy": null,
         "q_label": "Jun 2025",
-        "pe": 16.492487,
+        "pe": 16.407854,
         "pb": 1.8673838,
         "roe": 13.8,
         "de": null,
         "mcap": 11328853901312.0,
         "wk_high": 1020.5,
         "wk_low": 726.65,
-        "div_yield": 1.75
+        "div_yield": 1.76
       },
       "invested": 0.0,
       "current": 0.0,
@@ -9269,8 +9406,8 @@
           "event": null
         },
         {
-          "title": "HDFC Bank Share Outlook: Why Investors Are Worried Despite Reasonable Valuations - Business Today",
-          "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNXzNFRUs4anBka3pjX2tPenRTazFaQ29RbFBGYnFkNE9CY19odnJuRlRiZ1F0QzI5OXYyalJPZk52VlMzUUJsZTJERkZyUldZOTk3OG1BRE9CWFZ1TUpYeGMzMWpxUXZnejU5Ykdxak9zNUtBUVRWV0dNY0hndW0zRF9QQ2RXS05qZC1jZW5XZ1FTNG5SU21xOHUxZnNBQ0Exa1hBdGFuS3JHTjVmSUhfdUJsMncwZjlpT0dHMDBhd0JTZzV0Q285QkExWDJpYzRSa2JhM0FJZmNOUGtnZzZwc0Z2eVZoZ9IB6wFBVV95cUxNTHdPVzhHTXI5dXZnQnVzeUlvRGlqR2J6di1MTU1nSjZkaUVfd092N1ltUzMxVGswVTk1VU03VXJhb1FESVVCdEJfTUs2YWE0WFYzYnZsdDNMWm5UUnVuelAwM2JsUkJwZ3o1X2RISUFHOC1rbGFwMDF2TFVZbURLcEswanBBV2xMZldxbnU3N016U0tSTHlQcHNuYVZKM1FlaUZ1eXVKRXNFNlBLLVY1UnYxNHBfWVBOOVlOTVBGUmpsbHI2VFBuMEY2OXp5MlVvNnI2MV9KYW5OTDhDYVJtTjIwVnZ1TTJDWUhJ?oc=5",
+          "title": "HDFC Bank shares slip after CEO, CFO penalised in \u20b945 crore MSRDC case - theweek.in",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNMlRRMmR2N0NlcEVKQk1fOE1mMF95Z01DNFF4VURTQWVsYlUySGF0Y2xFNmlqLXRRaW9nTVJBakczTC1iLXNFcGZ6Qk0ySjdZT0V2RWp1WmU5SWl0em1VQl9ieHl1T3dOX29id2xQY0sxaXpobkRHUkduV2VQV1J4XzR6S080Ti04VXI4WDVhXzlSTUdUelNjOEloWEhseFRSdk1UY2FUUFJlRXJEVk92cTMxcWRnWWVlcE9NVktYSGl2TnBCQW45bEpBeTRBZ9IB0wFBVV95cUxQZTBrN0hlLUJ5ZjRNZVJWMjJBc3d2OFhhQklFdUxCbS0xTGZlQUt1cDJMcVBCWmZ2dy1KUTlGRFJxb3l1a002MlhtYkxWMkZ6SkpYd2prWDRNa09MU3VTbWJpdUo5dVV6eUZSblpzNC1ad3pveW9SWUZBN2xMLUVObFVvb1o2Ql9LU1pFbXBWSEUzc2xTZUJuYi1KeS1pSjhqQktRdG5PQ3EtQ2VkRkpWUjNmdlg1UHpHbFdJdmNIZUJOazltRGRkNTZRUk9kUS1UZlhv?oc=5",
           "published": "28 Jul 2026",
           "negative": true,
           "event": null
@@ -9375,11 +9512,11 @@
           "event": null
         },
         {
-          "title": "Why was Infosys fined nearly Rs 2 crore in France? - The Indian Express",
-          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZGt5VmlRWUgzNll2TmV4UDlzRmxpMlNMUWJMYUNXSXV2NC1GMjJ4WE1ueFZsYlB5aDJ3c0dPVE05YmRBRmVZRTFMZ3VYUUNFcWE5STg2OWltbjB5THEzN09NS2Y2ZmotbU5vRGVoR1EtdEFJYlBKU1JSMXdlVThRdU5SSlE4dnFlLXFKLWROVllEZTFFLVI5VDVuclkwM2lCeDNIVm5DdldmZ0ZRZkszMVJiekdFTl90NFN5dGdqM3hENGcyVHFKbNIBzwFBVV95cUxPQmFzbHN3bkJFdExsa0Y3SXF2V0tiejdvTVNtRV8yU1AtMFRreGVwcGh2S0lCVWFRYWlPaDlvWFRGS0tHVDFNUXVteXB4a283OUlvbDJXWEJoTUYweFU1VXR6SkNYeUNEU2N5S2kwWGFDWlRBMDk3cG1ZeU1GYTZKTGpXcFVrSVJvZ3JwU196SUxmQ2FXYk1JLXN3ZEZpUnhPNEZYQ0ZoY1dBZlpsenJMSEZBU3hiWlMyR0ttODJ4N1Aza2Q4YnlZSGNfRjFEMGc?oc=5",
-          "published": "28 Jul 2026",
+          "title": "Infosys shares fall 2% after multiple downgrades, price target cuts after Q1 results - CNBC TV18",
+          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOUGtIWGt3SXdGdl9CQkRfQVprNGVfRmU5T0RNb0N4MmljcGVmelVqMTJrOThxWVdsUzBuMV9XTndoemczclpveGk0X2xIOVFhck5ac2RQTGJuMDNwQk5vU1ZTeXJBbEwxbFhiVTBKdDhBQXc3THp1a0tHMUlUZ1BmZDI5ekhTSlJyNEgtR2J5V2NQWjlTY19SZVdUamhNR0lmZjJQUURvb3JjYjlacTJKSTZnSU1JcnRQbnFEY1NFenNzZlNYZnhQMGxpdEJVZTNf0gHWAUFVX3lxTE1QSE9EOXdNN2tHdXBaU2V6QWF0a2NicmhsWXozbWdtSHJHWURmWVNyWkNGVGlrSmxOV0I5M2VjenFJcjM2N18xZERDQzlFbjZaQWt5Z0FFeDMzYW9yTDhYM0JRZ0ZIM0tiSmYxcWREN1UtaFplcmRUU3NLbTZJdTZtZTFzcmJtM3ItUk12VWRiQldpYWdkTmh6RFNXZzYtdEY2Ym5yNDQyZi1VYUJiLU1LU1UzRklObF83aXNNWGVEYlg3c2NYc1RQczJQZWpzZnJfZUNsaEE?oc=5",
+          "published": "24 Jul 2026",
           "negative": true,
-          "event": null
+          "event": "q1 results"
         }
       ],
       "signals": [
@@ -9392,6 +9529,11 @@
           "type": "earnings_soon",
           "level": "info",
           "text": "Results due 23 Oct 2026"
+        },
+        {
+          "type": "corp_event",
+          "level": "info",
+          "text": "Announcement: q1 results"
         },
         {
           "type": "below_200dma",
@@ -9661,7 +9803,7 @@
       9159814,
       9058081,
       9203422,
-      9214043,
+      9214044,
       9150127,
       9151405,
       9066903,
@@ -9677,7 +9819,7 @@
       9468406,
       9391076,
       9316275,
-      9300041,
+      9300040,
       9497970,
       9553444,
       9635978,
@@ -9702,7 +9844,7 @@
       9780802,
       9838515,
       9897539,
-      9918938,
+      9918937,
       9972305,
       9940135,
       10025859,
@@ -9718,9 +9860,9 @@
       10166495,
       10215577,
       10213780,
-      10261056,
+      10261057,
       10224785,
-      10224204,
+      10224205,
       10279637,
       10182503,
       10051863,
@@ -9778,7 +9920,7 @@
       10718208,
       10733559,
       10720532,
-      10735815,
+      10735814,
       10934458,
       11112157,
       11233252,
@@ -10419,463 +10561,463 @@
         36.0
       ],
       "p10": [
-        10922506,
-        10809038,
-        10734504,
-        10657304,
-        10651457,
+        10922505,
+        10809037,
+        10734503,
+        10657303,
+        10651456,
         10625509,
         10595827,
         10552112,
-        10538285,
-        10565787,
-        10497784,
-        10399981,
+        10538284,
+        10565785,
+        10497783,
+        10399983,
         10438569,
-        10435249,
-        10449284,
-        10444874,
-        10454391,
-        10465794,
-        10431351,
-        10424167,
+        10435247,
+        10449283,
+        10444877,
+        10454392,
+        10465792,
+        10431349,
+        10424165,
         10400593,
-        10442548,
+        10442547,
         10476203,
         10492493,
-        10442151,
-        10452120,
+        10442150,
+        10452118,
         10450603,
-        10429675,
-        10409484,
-        10428645,
-        10516702,
-        10384875,
+        10429671,
+        10409480,
+        10428641,
+        10516699,
+        10384876,
         10441715,
-        10426510,
-        10381266,
-        10385301,
-        10269797,
-        10391075,
+        10426511,
+        10381264,
+        10385299,
+        10269798,
+        10391077,
         10252625,
-        10355288,
-        10407675,
-        10465671,
-        10504407,
-        10536856,
-        10588369,
-        10533346,
-        10584781,
-        10589175,
-        10612781,
-        10650088,
-        10602697,
-        10542363,
-        10647228,
-        10562616,
-        10548684,
-        10575881,
-        10535880,
-        10501732,
-        10505623,
-        10574145,
-        10631819,
-        10668690,
-        10805040,
-        10731295,
-        10823563,
-        10938525,
-        10887824,
-        10884598,
-        10919296,
-        10951503,
-        11007798,
+        10355291,
+        10407678,
+        10465676,
+        10504411,
+        10536860,
+        10588371,
+        10533342,
+        10584782,
+        10589167,
+        10612777,
+        10650089,
+        10602692,
+        10542366,
+        10647227,
+        10562619,
+        10548689,
+        10575875,
+        10535878,
+        10501725,
+        10505621,
+        10574143,
+        10631815,
+        10668694,
+        10805041,
+        10731291,
+        10823568,
+        10938523,
+        10887820,
+        10884596,
+        10919300,
+        10951497,
+        11007797,
         11019512,
-        11092498,
-        11088169,
+        11092499,
+        11088172,
         11103554,
-        11046194,
-        11056374,
-        11007479,
-        11119997,
-        11167300,
-        11154493,
-        11215861,
-        11241298,
-        11317089,
-        11333615,
-        11386421,
-        11357106,
-        11389937,
+        11046189,
+        11056372,
+        11007481,
+        11119994,
+        11167306,
+        11154496,
+        11215868,
+        11241305,
+        11317083,
+        11333622,
+        11386422,
+        11357100,
+        11389926,
         11236664,
-        11296652,
-        11327691,
-        11312900,
-        11271120,
-        11386586,
-        11423603,
-        11446740,
-        11413518,
-        11473100,
-        11463169,
+        11296649,
+        11327685,
+        11312901,
+        11271124,
+        11386587,
+        11423591,
+        11446729,
+        11413507,
+        11473097,
+        11463179,
         11405650,
-        11568075,
-        11550567,
-        11666290,
-        11519324,
-        11663598,
-        11641252,
-        11712279,
-        11732927,
-        11897458,
-        11956543,
+        11568078,
+        11550559,
+        11666296,
+        11519327,
+        11663594,
+        11641248,
+        11712288,
+        11732921,
+        11897460,
+        11956546,
         12001582,
-        12037359,
-        12087125,
-        12144929,
-        12079633,
-        12124483,
-        12116603,
+        12037352,
+        12087136,
+        12144925,
+        12079632,
+        12124481,
+        12116602,
         12144453,
-        12132678,
-        12083244,
-        12127300,
-        12201495,
-        12235981,
+        12132676,
+        12083233,
+        12127284,
+        12201493,
+        12235985,
         12354191,
-        12512385,
-        12430432,
-        12486924,
+        12512399,
+        12430430,
+        12486926,
         12511098,
-        12544224,
-        12563105,
-        12710285,
-        12757486,
-        12769915,
-        12737439,
-        12652513,
-        12908813,
-        12833395,
+        12544221,
+        12563108,
+        12710287,
+        12757494,
+        12769906,
+        12737443,
+        12652521,
+        12908804,
+        12833389,
         12813332,
-        12814612,
-        12762520,
-        12804137,
-        12752205,
-        12720563,
-        12843175,
-        12955670,
-        12919660,
-        13076045,
-        13231139,
-        13078589,
-        13113316,
-        13223737
+        12814603,
+        12762507,
+        12804143,
+        12752209,
+        12720565,
+        12843169,
+        12955679,
+        12919657,
+        13076041,
+        13231146,
+        13078578,
+        13113317,
+        13223720
       ],
       "p50": [
         11302590,
         11340771,
         11396010,
         11462340,
-        11507974,
-        11551734,
-        11603819,
-        11656275,
+        11507972,
+        11551735,
+        11603817,
+        11656276,
         11692830,
-        11736167,
-        11791524,
-        11827541,
-        11865700,
-        11895730,
-        11944725,
-        11997251,
-        12022470,
-        12041892,
-        12093751,
-        12187897,
-        12205310,
-        12324240,
+        11736166,
+        11791519,
+        11827546,
+        11865696,
+        11895729,
+        11944729,
+        11997257,
+        12022469,
+        12041888,
+        12093752,
+        12187901,
+        12205304,
+        12324242,
         12374942,
-        12440934,
-        12493106,
-        12554982,
+        12440933,
+        12493105,
+        12554981,
         12560006,
-        12638480,
-        12716119,
-        12788113,
-        12845655,
-        12845365,
-        12934563,
-        13021114,
-        13044459,
-        13147353,
-        13143790,
-        13235979,
-        13267964,
-        13299516,
+        12638481,
+        12716115,
+        12788114,
+        12845654,
+        12845369,
+        12934567,
+        13021123,
+        13044456,
+        13147350,
+        13143785,
+        13235981,
+        13267963,
+        13299513,
         13359240,
-        13405115,
-        13575382,
-        13625828,
-        13665559,
-        13678872,
+        13405118,
+        13575384,
+        13625834,
+        13665560,
+        13678871,
         13680675,
-        13733421,
-        13770584,
-        13825376,
-        13914586,
-        13953134,
-        14095604,
-        14133133,
-        14255626,
-        14326957,
-        14331602,
-        14335105,
-        14344835,
-        14418340,
-        14450684,
+        13733422,
+        13770588,
+        13825377,
+        13914588,
+        13953129,
+        14095602,
+        14133132,
+        14255624,
+        14326961,
+        14331603,
+        14335108,
+        14344841,
+        14418341,
+        14450694,
         14617131,
-        14649580,
-        14697675,
-        14753154,
-        14784664,
-        14768211,
-        14880258,
-        14976882,
-        15017600,
-        15124638,
-        15128007,
-        15223736,
-        15217738,
-        15330825,
-        15389570,
-        15423475,
-        15509803,
+        14649583,
+        14697679,
+        14753134,
+        14784671,
+        14768194,
+        14880244,
+        14976889,
+        15017597,
+        15124636,
+        15128015,
+        15223723,
+        15217737,
+        15330831,
+        15389573,
+        15423467,
+        15509795,
         15633881,
-        15652453,
-        15730247,
-        15795868,
-        15873995,
+        15652444,
+        15730241,
+        15795870,
+        15873986,
         15992307,
-        16032048,
-        16092894,
-        16186550,
-        16264377,
+        16032051,
+        16092899,
+        16186555,
+        16264386,
         16348051,
-        16437025,
-        16618586,
-        16702669,
-        16754938,
-        16758303,
-        16893223,
-        16964290,
-        17058511,
-        17040468,
-        17102453,
-        17204180,
-        17270703,
-        17391627,
-        17426399,
-        17460582,
-        17579193,
-        17695143,
-        17827937,
-        17861729,
-        18026981,
+        16437015,
+        16618583,
+        16702649,
+        16754929,
+        16758291,
+        16893211,
+        16964293,
+        17058505,
+        17040470,
+        17102456,
+        17204175,
+        17270699,
+        17391619,
+        17426394,
+        17460581,
+        17579188,
+        17695142,
+        17827948,
+        17861739,
+        18026976,
         17961450,
-        18083620,
-        18148615,
-        18114967,
-        18279658,
-        18283499,
-        18403487,
-        18375130,
-        18423861,
-        18470422,
+        18083631,
+        18148584,
+        18114976,
+        18279662,
+        18283506,
+        18403461,
+        18375138,
+        18423858,
+        18470424,
         18604616,
-        18685428,
-        18782864,
-        18794606,
-        18886308,
-        18854728,
-        18932663,
-        19068940,
-        19082212,
+        18685419,
+        18782868,
+        18794595,
+        18886301,
+        18854736,
+        18932690,
+        19068938,
+        19082218,
         19256892,
-        19312159,
-        19293594,
-        19352440,
-        19481775,
-        19561385,
-        19607628,
-        19633596,
-        19743332,
-        19816792,
-        19883552,
-        19983530,
-        20047831,
-        20068691,
-        20118791,
-        20222169,
-        20368160,
-        20582951,
-        20449510,
-        20584907,
-        20595685,
-        20794283,
-        20960988
+        19312170,
+        19293600,
+        19352428,
+        19481780,
+        19561383,
+        19607610,
+        19633615,
+        19743348,
+        19816786,
+        19883543,
+        19983517,
+        20047827,
+        20068707,
+        20118785,
+        20222171,
+        20368158,
+        20582955,
+        20449497,
+        20584910,
+        20595684,
+        20794298,
+        20960979
       ],
       "p90": [
         11676478,
         11922340,
         12123616,
-        12311348,
-        12450345,
-        12548502,
+        12311347,
+        12450344,
+        12548500,
         12799601,
         12938509,
-        13089437,
-        13157246,
-        13294967,
-        13420206,
-        13457947,
-        13658401,
-        13712198,
-        13838526,
-        13989475,
-        14131924,
-        14272149,
-        14386969,
-        14548089,
-        14585866,
-        14739917,
+        13089433,
+        13157247,
+        13294969,
+        13420205,
+        13457946,
+        13658400,
+        13712205,
+        13838529,
+        13989473,
+        14131920,
+        14272155,
+        14386968,
+        14548090,
+        14585868,
+        14739913,
         14783474,
-        14984907,
+        14984901,
         15056025,
         15118783,
-        15197576,
-        15391809,
-        15554661,
-        15753813,
-        15799393,
-        15991582,
-        16098564,
+        15197581,
+        15391806,
+        15554659,
+        15753812,
+        15799395,
+        15991580,
+        16098569,
         16243950,
-        16397204,
-        16474604,
-        16621938,
+        16397201,
+        16474609,
+        16621925,
         16778389,
-        16673768,
-        16838860,
-        16947148,
-        16934761,
-        17035287,
-        17242630,
-        17337020,
-        17414633,
+        16673775,
+        16838857,
+        16947155,
+        16934768,
+        17035290,
+        17242625,
+        17337017,
+        17414634,
         17554863,
-        17671505,
-        17962814,
-        18027662,
-        18304317,
-        18523020,
-        18652762,
-        18679424,
-        18839953,
-        19017373,
-        19081969,
-        19062462,
-        19443207,
-        19734686,
-        19813561,
-        19847859,
-        20052715,
-        20105327,
+        17671516,
+        17962807,
+        18027666,
+        18304306,
+        18523025,
+        18652758,
+        18679436,
+        18839961,
+        19017361,
+        19081965,
+        19062456,
+        19443216,
+        19734681,
+        19813559,
+        19847853,
+        20052719,
+        20105326,
         20201025,
-        20235418,
-        20499271,
-        20660401,
-        20675802,
-        20710819,
-        20760194,
-        21103082,
-        21203140,
-        21329550,
-        21297640,
-        21636466,
-        21921109,
-        21922155,
-        21725161,
-        22216018,
+        20235420,
+        20499270,
+        20660383,
+        20675801,
+        20710811,
+        20760185,
+        21103078,
+        21203136,
+        21329542,
+        21297659,
+        21636471,
+        21921113,
+        21922160,
+        21725165,
+        22216024,
         22020736,
-        22372163,
-        22326396,
-        22599223,
-        22851824,
-        22825848,
-        23145848,
-        23468201,
-        23728588,
-        23610722,
-        23959459,
-        24180150,
-        24275748,
-        24592346,
-        24551287,
-        24670470,
-        24944053,
-        25091789,
-        24995487,
-        25213780,
-        25218370,
-        25286146,
-        25323825,
-        25849713,
-        26008174,
-        26230578,
-        26457216,
-        26445670,
-        26631901,
-        26628742,
-        26631361,
+        22372156,
+        22326406,
+        22599239,
+        22851830,
+        22825843,
+        23145861,
+        23468187,
+        23728586,
+        23610713,
+        23959461,
+        24180160,
+        24275731,
+        24592345,
+        24551292,
+        24670455,
+        24944068,
+        25091800,
+        24995502,
+        25213794,
+        25218355,
+        25286153,
+        25323824,
+        25849725,
+        26008162,
+        26230590,
+        26457224,
+        26445678,
+        26631898,
+        26628747,
+        26631342,
         26599275,
-        26787614,
-        26862468,
-        27263462,
-        27474361,
-        27412769,
-        27962441,
-        28090482,
-        28469992,
-        28490151,
-        28552211,
-        28710521,
-        28658427,
-        28900295,
-        29135423,
-        29202609,
-        29556078,
-        29798276,
-        29976220,
-        30050458,
-        30115921,
-        30354940,
-        30650896,
-        30751643,
-        31160169,
-        31142590,
-        31409798,
-        31443711,
-        31596164,
-        31687063,
-        31348377,
-        31574680,
-        31935721,
-        32221239,
-        32576778,
-        32667819,
-        32678659,
-        32636138,
-        32952511
+        26787625,
+        26862478,
+        27263473,
+        27474348,
+        27412781,
+        27962432,
+        28090453,
+        28469989,
+        28490170,
+        28552201,
+        28710522,
+        28658449,
+        28900291,
+        29135404,
+        29202620,
+        29556065,
+        29798291,
+        29976214,
+        30050450,
+        30115922,
+        30354923,
+        30650880,
+        30751623,
+        31160152,
+        31142621,
+        31409795,
+        31443708,
+        31596168,
+        31687064,
+        31348383,
+        31574687,
+        31935716,
+        32221245,
+        32576801,
+        32667815,
+        32678645,
+        32636149,
+        32952487
       ],
       "years": 3,
       "sims": 1000
@@ -11324,7 +11466,7 @@
     }
   },
   "meta": {
-    "generated": "28 Jul 2026, 03:33 PM IST",
+    "generated": "28 Jul 2026, 06:28 PM IST",
     "demo": false
   }
 }

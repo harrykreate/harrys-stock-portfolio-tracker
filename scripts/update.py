@@ -174,15 +174,16 @@ def _align(series, index):
     return out
 
 
-def fetch_long(holdings, start):
+def fetch_long(holdings, start, extra_syms=()):
     """
-    Weekly closes from `start` for every held symbol — lets a chart go back to
-    when the position was actually bought, not just one year. One batch call.
+    Weekly closes from `start` for every symbol we track — holdings, watchlist,
+    and (via extra_syms) tickers fully exited but still in sells.csv, which the
+    5-year portfolio reconstruction needs. One batch call.
     """
     import yfinance as yf
     syms = sorted({h["yahoo_symbol"] for h in holdings
-                   if h.get("qty") and h.get("yahoo_symbol")
-                   and h["yahoo_symbol"].upper() != "CASH"})
+                   if h.get("yahoo_symbol") and h["yahoo_symbol"].upper() != "CASH"}
+                  | set(extra_syms))
     if not syms:
         return {"dates": [], "series": {}}
     try:
@@ -196,6 +197,8 @@ def fetch_long(holdings, start):
     by_sym = {}
     for h in holdings:
         by_sym.setdefault(h.get("yahoo_symbol"), h["ticker"])
+    for s in extra_syms:
+        by_sym.setdefault(s, s.split(".")[0])
     for s in syms:
         try:
             col = data[s]["Close"].dropna()
@@ -211,19 +214,74 @@ def fetch_long(holdings, start):
     return out
 
 
-def long_start(holdings):
-    """Six months before the earliest buy date on the books, floored at 2008."""
+def long_start(holdings, sells=()):
+    """
+    Start of the long history: at least five years back, and further if a
+    position or a recorded sale is older than that. Floored at 2008.
+    """
+    five = dt.date.today().replace(year=dt.date.today().year - 5).strftime("%Y-%m-01")
     dates = [lot.get("buy_date") for h in holdings for lot in (h.get("lots") or [])
              if lot.get("buy_date")]
     dates += [h.get("buy_date") for h in holdings if h.get("buy_date")]
+    dates += [s.get("buy_date") for s in sells if s.get("buy_date")]
     dates = [d for d in dates if d and len(d) == 10]
-    if not dates:
-        return "2018-01-01"
-    earliest = min(dates)
+    earliest = min(dates) if dates else five
     y, m = int(earliest[:4]), int(earliest[5:7]) - 6
     if m <= 0:
         y, m = y - 1, m + 12
-    return max("2008-01-01", f"{y:04d}-{m:02d}-01")
+    return max("2008-01-01", min(five, f"{y:04d}-{m:02d}-01"))
+
+
+def reconstruct_history(weekly, holdings, sells):
+    """
+    Portfolio market value week by week, with the share count on each date
+    rebuilt from the lot ledger rather than assuming today's quantities held
+    all along: qty(t) = qty_now + everything sold after t - everything bought
+    after t. Prices are carried forward across gaps; tickers with no feed are
+    reported so the chart can say what it is missing.
+    """
+    dates = weekly.get("dates") or []
+    series = weekly.get("series") or {}
+    if not dates:
+        return {"dates": [], "values": [], "missing": []}
+
+    qty_now, buys, sold = {}, {}, {}
+    for h in holdings:
+        qty_now[h["ticker"]] = qty_now.get(h["ticker"], 0) + (h.get("qty") or 0)
+        for lot in (h.get("lots") or []):
+            if lot.get("buy_date"):
+                buys.setdefault(h["ticker"], []).append((lot["buy_date"], lot.get("qty") or 0))
+    for s in sells:
+        if s.get("sell_date"):
+            sold.setdefault(s["ticker"], []).append((s["sell_date"], s.get("qty") or 0))
+        if s.get("buy_date"):
+            buys.setdefault(s["ticker"], []).append((s["buy_date"], s.get("qty") or 0))
+
+    tickers = set(qty_now) | set(sold) | set(buys)
+    missing = sorted(t for t in tickers
+                     if not series.get(t) and (qty_now.get(t) or sold.get(t)))
+
+    values = []
+    for i, d in enumerate(dates):
+        total = 0.0
+        for t in tickers:
+            px = series.get(t)
+            if not px:
+                continue
+            q = qty_now.get(t, 0)
+            q += sum(n for sd, n in sold.get(t, []) if sd > d)
+            q -= sum(n for bd, n in buys.get(t, []) if bd > d)
+            if q <= 0:
+                continue
+            p = px[i]
+            if p is None:                      # carry the last known close forward
+                p = next((px[j] for j in range(i - 1, -1, -1) if px[j] is not None), None)
+            if p:
+                total += q * p
+        values.append(round(total))
+    # trim the leading stretch before any position existed
+    first = next((i for i, v in enumerate(values) if v > 0), 0)
+    return {"dates": dates[first:], "values": values[first:], "missing": missing}
 
 
 SNAPSHOTS = os.path.join(ROOT, "docs", "snapshots.json")
@@ -518,7 +576,10 @@ def build(demo=False):
         corp = corpmod.demo_corporate(all_syms)
     else:
         prices, history, px_daily = fetch_prices(all_syms)
-        px_weekly = fetch_long(holdings, long_start(holdings))
+        known = {h["ticker"] for h in all_syms}
+        exited = sorted({s["ticker"] + ".NS" for s in load_sells()
+                         if s["ticker"] not in known})
+        px_weekly = fetch_long(all_syms, long_start(holdings, load_sells()), exited)
         bench = fetch_benchmark(history["dates"])
         news = fetch_all_news(all_syms)
         corp = corpmod.fetch_all_corporate(all_syms)
@@ -624,8 +685,14 @@ def build(demo=False):
         friction_year=tax_model["realised_totals"].get("friction", 0),
         portfolio_value=summary["current"])
 
+    history5y = reconstruct_history(px_weekly, holdings, sells)
+    if history5y["missing"]:
+        print(f"  5y reconstruction: no price feed for {len(history5y['missing'])} "
+              f"exited/held ticker(s): {', '.join(history5y['missing'][:8])}")
+
     model = {"summary": summary, "rows": rows, "watch": watch_rows,
-             "history": history, "benchmark": indexed_series(history["values"], bench_aligned),
+             "history": history, "history5y": history5y,
+             "benchmark": indexed_series(history["values"], bench_aligned),
              "sectors": sectors, "div_months": dividend_months(rows),
              "tax": tax_model, "risk": risk_model,
              "discipline": {"floor": floor, "adherence": adherence,

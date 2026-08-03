@@ -370,18 +370,29 @@ let perfChart=null,perfDays=0,perfMode='value';
 function drawPerf(days,mode){
   if(days!==undefined)perfDays=days; if(mode)perfMode=mode;
   const box=document.getElementById('perfBox');
-  if(!window.Chart||!D.history||!D.history.dates.length){
-    box.innerHTML='<div class="nochart">Chart appears when data & internet are available.</div>';return;
+  const long5=perfDays===-1;
+  const SRC=long5?(D.history5y||{dates:[],values:[]}):D.history;
+  const note=document.getElementById('perfNote');
+  if(!window.Chart||!SRC||!SRC.dates||!SRC.dates.length){
+    box.innerHTML='<div class="nochart">'+(long5?'Five-year history is built on the next scrape.':'Chart appears when data & internet are available.')+'</div>';
+    if(note)note.textContent='';return;
   }
   if(!box.querySelector('canvas'))box.innerHTML='<canvas id="perfChart"></canvas>';
-  const n=D.history.dates.length,start=perfDays?Math.max(0,n-perfDays):0;
-  const labels=D.history.dates.slice(start);
+  const n=SRC.dates.length,start=(perfDays>0)?Math.max(0,n-perfDays):0;
+  const labels=SRC.dates.slice(start);
+  if(note){
+    note.textContent=long5
+      ? (function(){const m=D.history5y.missing||[];
+          const tail=m.length?' — except '+m.slice(0,5).join(', ')+(m.length>5?' and '+(m.length-5)+' more':'')+', which have no price feed.':'.';
+          return 'Weekly. Share counts are rebuilt from your buy and sell history, so exited positions count while you held them'+tail;})()
+      : '';
+  }
   const ctx=document.getElementById('perfChart').getContext('2d');
   const g=ctx.createLinearGradient(0,0,0,260);
   g.addColorStop(0,IS_DARK?'rgba(57,135,229,.3)':'rgba(42,120,214,.25)');g.addColorStop(1,'rgba(42,120,214,0)');
   if(perfChart)perfChart.destroy();
   let datasets,fmtY,showLegend=false;
-  if(perfMode==='nifty'&&D.benchmark){
+  if(perfMode==='nifty'&&D.benchmark&&!long5){
     // re-index both to 100 at the visible window start for a fair comparison
     const rebase=arr=>{const s=arr.slice(start),b=s[0]||1;return s.map(v=>+(v/b*100).toFixed(2));};
     datasets=[
@@ -389,7 +400,7 @@ function drawPerf(days,mode){
       {label:'Nifty 50',data:rebase(D.benchmark.nifty),borderColor:C_BENCH,borderWidth:2,borderDash:[5,4],pointRadius:0,pointHitRadius:12,tension:.25}];
     fmtY=v=>v.toFixed(0);showLegend=true;
   }else{
-    datasets=[{label:'Value',data:D.history.values.slice(start),borderColor:C_SERIES,
+    datasets=[{label:'Value',data:SRC.values.slice(start),borderColor:C_SERIES,
       backgroundColor:g,fill:true,borderWidth:2,pointRadius:0,pointHitRadius:12,tension:.25}];
     fmtY=v=>fmtINR(v);
   }
@@ -825,7 +836,12 @@ $('edSave').addEventListener('click',saveEditor);
   }
   function pick(tk){
     const d=(PX.daily||{}), w=(PX.weekly||{});
-    if(range==='max'&&w.series&&w.series[tk]) return {dates:w.dates,vals:w.series[tk],step:'weekly'};
+    if((range==='max'||range==='5y')&&w.series&&w.series[tk]){
+      const wv=w.series[tk];
+      const k=range==='5y'?261:wv.length;
+      const s0=Math.max(0,wv.length-k);
+      return {dates:w.dates.slice(s0),vals:wv.slice(s0),step:'weekly'};
+    }
     const vals=(d.series||{})[tk];
     if(!vals) return null;
     const n=range==='6m'?126:vals.length;
@@ -1267,6 +1283,7 @@ def render(model) -> str:
                  "lots": r.get("lots", [])}
                 for r in rows if r.get("has_price") and r["qty"] > 0]
     data_js = json.dumps({"history": history, "div": div_m,
+                          "history5y": model.get("history5y") or {},
                           "benchmark": model.get("benchmark"),
                           "sectors": model.get("sectors", []),
                           "mc": risk.get("montecarlo"),
@@ -1350,9 +1367,10 @@ def render(model) -> str:
             </span>
             <span class="rangebtns">
               <button data-days="63">3M</button><button data-days="126">6M</button>
-              <button data-days="0" class="on">1Y</button>
+              <button data-days="0" class="on">1Y</button><button data-days="-1">5Y</button>
             </span></h2>
           <div class="chartbox" id="perfBox"><canvas id="perfChart"></canvas></div>
+          <div class="muted" id="perfNote" style="font-size:11px;margin-top:8px;line-height:1.5"></div>
         </div>
         <div class="panel">
           <h2>My watchlist <span class="sp"></span><a data-sec="watchlist" class="muted" style="cursor:pointer;font-size:11px" onclick="show('watchlist')">view all →</a></h2>
@@ -1644,6 +1662,7 @@ def render(model) -> str:
     <div class="rangebtns2" id="pxRange">
       <button data-r="6m">6M</button>
       <button data-r="1y" class="on">1Y</button>
+      <button data-r="5y">5Y</button>
       <button data-r="max">Since you bought</button>
     </div>
     <div class="chartbox lg"><canvas id="pxChart"></canvas></div>

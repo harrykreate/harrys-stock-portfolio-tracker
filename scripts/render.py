@@ -131,6 +131,14 @@ section{display:none} section.show{display:block}
 .rangebtns button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 .chartbox{position:relative;height:260px}
 .chartbox.sm{height:220px}
+.chartbox.lg{height:340px}
+.chartb{border:none;background:none;cursor:pointer;font-size:13px;padding:0 4px;opacity:.45;line-height:1}
+.chartb:hover{opacity:1}
+.rangebtns2{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.rangebtns2 button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 14px;cursor:pointer;font-size:12.5px}
+.rangebtns2 button.on{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+.pxstats{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:10px 2px 0}
+.pxstats b{color:var(--ink)}
 .nochart{color:var(--muted);font-size:12.5px;padding:30px 0;text-align:center}
 /* watch list rows */
 .wrow{display:flex;align-items:center;gap:11px;padding:9px 2px;border-bottom:1px solid var(--line)}
@@ -799,6 +807,111 @@ $('edSave').addEventListener('click',saveEditor);
   from.style.display=to.style.display='none';
   draw();
 })();
+
+/* ---------- per-stock price history ---------- */
+(function(){
+  const modal=document.getElementById('pxModal');
+  if(!modal) return;
+  const META=window.__DATA.px||{}, REAL=(window.__DATA.realised||[]);
+  let PX=null, pending=null, cur=null, range='1y', chart=null;
+  const money=v=>'₹'+Number(v).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+  function load(){
+    if(PX) return Promise.resolve(PX);
+    if(!pending) pending=fetch('prices.json').then(r=>r.json())
+      .catch(()=>({daily:{dates:[],series:{}},weekly:{dates:[],series:{}}}))
+      .then(j=>{PX=j;return j;});
+    return pending;
+  }
+  function pick(tk){
+    const d=(PX.daily||{}), w=(PX.weekly||{});
+    if(range==='max'&&w.series&&w.series[tk]) return {dates:w.dates,vals:w.series[tk],step:'weekly'};
+    const vals=(d.series||{})[tk];
+    if(!vals) return null;
+    const n=range==='6m'?126:vals.length;
+    const s=Math.max(0,vals.length-n);
+    return {dates:d.dates.slice(s),vals:vals.slice(s),step:'daily'};
+  }
+  function markerRow(labels,events){
+    const arr=new Array(labels.length).fill(null);
+    let n=0;
+    for(const e of events){
+      if(!e.d||labels[0]>e.d) continue;        // no date, or predates the window
+      let i=labels.findIndex(x=>x>=e.d);
+      if(i<0) i=labels.length-1;
+      arr[i]=e.p; n++;
+    }
+    return {arr:arr,n:n};
+  }
+  function draw(){
+    const m=META[cur]||{}, s=pick(cur);
+    const box=document.getElementById('pxStats');
+    if(chart){chart.destroy();chart=null;}
+    if(!s||!s.vals.some(v=>v!==null)){
+      box.innerHTML='<span>No price history available for this symbol.</span>';
+      return;
+    }
+    const labels=s.dates, vals=s.vals;
+    const buys=(m.lots||[]).map(l=>({d:l.d,p:l.p}));
+    const sells=REAL.filter(x=>x.ticker===cur).map(x=>({d:x.sell_date,p:x.sell_price}));
+    const ds=[{label:cur,data:vals,borderColor:'#2563eb',borderWidth:1.8,pointRadius:0,
+               tension:.15,spanGaps:true,fill:false}];
+    if(m.avg) ds.push({label:'Your avg cost',data:labels.map(()=>m.avg),borderColor:'#94a3b8',
+               borderWidth:1.2,borderDash:[5,4],pointRadius:0,fill:false});
+    const mb=markerRow(labels,buys), ms=markerRow(labels,sells);
+    if(mb.n) ds.push({label:'You bought',data:mb.arr,showLine:false,
+               pointRadius:6,pointStyle:'triangle',backgroundColor:'#16a34a',borderColor:'#16a34a'});
+    if(ms.n) ds.push({label:'You sold',data:ms.arr,showLine:false,
+               pointRadius:6,pointStyle:'rectRot',backgroundColor:'#dc2626',borderColor:'#dc2626'});
+    chart=new Chart(document.getElementById('pxChart'),{type:'line',data:{labels,datasets:ds},
+      options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+        plugins:{legend:{display:true,labels:{boxWidth:10,font:{size:11}}},
+          tooltip:{callbacks:{label:c=>c.raw===null?null:c.dataset.label+': '+money(c.raw)}}},
+        scales:{x:{ticks:{maxTicksLimit:8,font:{size:10}}},
+                y:{ticks:{font:{size:10},callback:v=>'₹'+v.toLocaleString('en-IN')}}}}});
+    const clean=vals.filter(v=>v!==null);
+    const hi=Math.max(...clean), lo=Math.min(...clean), first=clean[0], last=clean[clean.length-1];
+    const chg=(last/first-1)*100;
+    let bits='<span>Period high <b>'+money(hi)+'</b></span><span>low <b>'+money(lo)+'</b></span>'
+      +'<span>Change over window <b class="'+(chg>=0?'up':'down')+'">'+(chg>=0?'+':'')+chg.toFixed(1)+'%</b></span>'
+      +'<span>From high <b class="down">'+((last/hi-1)*100).toFixed(1)+'%</b></span>';
+    if(m.avg) bits+='<span>vs your cost <b class="'+(last>=m.avg?'up':'down')+'">'
+      +((last/m.avg-1)*100>=0?'+':'')+((last/m.avg-1)*100).toFixed(1)+'%</b></span>';
+    box.innerHTML=bits;
+    const part=(n,tot,word)=>tot?(n===tot?tot+' '+word+(tot===1?'':'s'):n+' of '+tot+' '+word+'s in view'):'';
+    document.getElementById('pxNote').textContent=
+      [(s.step==='weekly'?'Weekly closes':'Daily closes'), labels.length+' points',
+       part(mb.n,buys.length,'buy')||'no buy dates on file',
+       part(ms.n,sells.length,'sale')].filter(Boolean).join(' · ')
+      +((buys.length&&!mb.n)||(sells.length&&!ms.n)?' — widen the range to see the rest':'');
+  }
+  function open(tk){
+    cur=tk; range='1y';
+    document.querySelectorAll('#pxRange button').forEach(b=>b.classList.toggle('on',b.dataset.r==='1y'));
+    const m=META[tk]||{};
+    document.getElementById('pxTitle').textContent='📈 '+tk+' — '+(m.name||'');
+    document.getElementById('pxSub').textContent=m.qty
+      ? Number(m.qty).toLocaleString('en-IN')+' shares at an average cost of '+money(m.avg||0)
+        +' · last traded '+money(m.price||0)
+      : 'On your watchlist · last traded '+money(m.price||0);
+    document.getElementById('pxStats').innerHTML='<span>Loading price history…</span>';
+    modal.classList.add('open');
+    load().then(draw);
+  }
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('[data-chart]');
+    if(b){e.preventDefault();open(b.dataset.chart);}
+  });
+  document.querySelectorAll('#pxRange button').forEach(b=>b.addEventListener('click',()=>{
+    range=b.dataset.r;
+    document.querySelectorAll('#pxRange button').forEach(x=>x.classList.toggle('on',x===b));
+    if(PX) draw();
+  }));
+  const close=()=>{modal.classList.remove('open');if(chart){chart.destroy();chart=null;}};
+  document.getElementById('pxClose').addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close();});
+})();
 """
 
 
@@ -882,6 +995,7 @@ def render(model) -> str:
         trend_txt = {"up": "▲ up", "down": "▼ down", None: "—"}.get(r["trend"], "—")
         return (f'<div class="newscard"><h3>{_avatar(r["ticker"])} {html.escape(r["ticker"])} '
                 f'<span class="muted" style="font-weight:400">{html.escape(r["name"])}</span>'
+                f'<button class="chartb" data-chart="{html.escape(r["ticker"])}" title="Price history">📈</button>'
                 f'<span class="sp" style="flex:1"></span><b>{_inr(r["price"],2)}</b> {pill(r["day_pct"])}</h3>'
                 f'<div class="muted" style="font-size:11.5px;margin-bottom:6px">Trend {trend_txt} · RSI {rsi_txt}</div>'
                 f'<div>{sig}</div>{news_html or "<span class=muted>No recent news.</span>"}</div>')
@@ -1127,7 +1241,7 @@ def render(model) -> str:
         health_badge = (f"<span class='hb {hcls}' title='Rule-based health score (formula in engine.py)'>{hv}</span>"
                         if hv is not None else "")
         trows.append(f"""<tr data-day="{r['day_pct'] or 0}" data-pnl="{r['pnl_pct'] or 0}" data-val="{r['current']}" data-price="{r['price'] or 0}" data-qty="{r['qty']}" data-date="{html.escape(r.get('buy_date') or '')}" data-tk="{html.escape(r['ticker'].lower())} {html.escape(r['name'].lower())}">
-          <td class="tk"><b>{html.escape(r['ticker'])}</b>{health_badge}{price_badge}<div class="nm">{html.escape(r['name'])}</div>{notes_html}</td>
+          <td class="tk"><b>{html.escape(r['ticker'])}</b>{health_badge}{price_badge}<button class="chartb" data-chart="{html.escape(r['ticker'])}" title="Price history">📈</button><div class="nm">{html.escape(r['name'])}</div>{notes_html}</td>
           <td class="num">{_inr(r['price'],2)}</td>
           <td class="num {_cls(r['day_pct'])}">{_pct(r['day_pct'])}</td>
           <td class="num">{r['qty']:,.0f}</td>
@@ -1159,6 +1273,14 @@ def render(model) -> str:
                           "booked": booked.get("series", []),
                           "total": s.get("current"),
                           "realised": tax.get("realised", []),
+                          "px": {r["ticker"]: {"name": r["name"], "qty": r["qty"],
+                                               "avg": r.get("avg_cost"), "price": r["price"],
+                                               "lots": [{"d": l.get("buy_date"), "p": l.get("buy_price"),
+                                                         "q": l.get("qty")} for l in (r.get("lots") or [])]}
+                                 for r in rows}
+                                | {w["ticker"]: {"name": w["name"], "qty": 0, "avg": None,
+                                                 "price": w.get("price"), "lots": []}
+                                   for w in watch},
                           "rows": sim_rows}, separators=(",", ":"))
     n_watch = len(watch)
     day_cls = "up" if s.get("day_pnl", 0) >= 0 else "down"
@@ -1511,6 +1633,24 @@ def render(model) -> str:
       <span id="edStatus" class="muted"></span>
       <button id="edCancel">Cancel</button>
       <button id="edSave" class="primary">Save to GitHub</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="pxModal">
+  <div class="mbox" style="max-width:900px">
+    <h3 id="pxTitle">Price history</h3>
+    <div class="hint" id="pxSub"></div>
+    <div class="rangebtns2" id="pxRange">
+      <button data-r="6m">6M</button>
+      <button data-r="1y" class="on">1Y</button>
+      <button data-r="max">Since you bought</button>
+    </div>
+    <div class="chartbox lg"><canvas id="pxChart"></canvas></div>
+    <div class="pxstats" id="pxStats"></div>
+    <div class="mrow" style="margin-top:14px">
+      <span id="pxNote" class="muted" style="font-size:11.5px;flex:1"></span>
+      <button id="pxClose">Close</button>
     </div>
   </div>
 </div>

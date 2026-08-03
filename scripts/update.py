@@ -109,15 +109,19 @@ def load_holdings():
 # ---------------------------------------------------------------- live fetch
 def fetch_prices(holdings):
     """
-    Return ({ticker: {'price','prev_close','closes','has_price'}}, history)
+    Return ({ticker: {'price','prev_close','closes','has_price'}}, history, px)
     where history = {'dates': [...], 'values': [...]} is the total portfolio
-    value over the past year (holdings only; no-feed symbols counted flat).
+    value over the past year (holdings only; no-feed symbols counted flat), and
+    px = {'dates': [...], 'series': {ticker: [close|None, ...]}} is every
+    symbol's daily close on one shared date axis — raw material for the
+    per-stock charts. We already download this; keeping it costs one dict.
     """
     import yfinance as yf
     import pandas as pd
     syms = [h["yahoo_symbol"] for h in holdings]
     data = yf.download(syms, period="1y", interval="1d",
                        group_by="ticker", threads=True, progress=False, auto_adjust=True)
+    px = {"dates": [d.strftime("%Y-%m-%d") for d in data.index], "series": {}}
     result = {}
     series_parts, flat_value = [], 0.0
     for h in holdings:
@@ -140,6 +144,7 @@ def fetch_prices(holdings):
                 "closes": closes,
                 "has_price": True,
             }
+            px["series"][h["ticker"]] = _align(close_s, data.index)
             if h.get("qty"):
                 series_parts.append(close_s * h["qty"])
         else:
@@ -157,7 +162,63 @@ def fetch_prices(holdings):
             "dates": [d.strftime("%Y-%m-%d") for d in total.index],
             "values": [round(float(v)) for v in total.tolist()],
         }
-    return result, history
+    return result, history, px
+
+
+def _align(series, index):
+    """A price series reindexed onto a shared date axis, rounded, None for gaps."""
+    import math
+    out = []
+    for v in series.reindex(index).tolist():
+        out.append(None if (v is None or (isinstance(v, float) and math.isnan(v))) else round(float(v), 2))
+    return out
+
+
+def fetch_long(holdings, start):
+    """
+    Weekly closes from `start` for every held symbol — lets a chart go back to
+    when the position was actually bought, not just one year. One batch call.
+    """
+    import yfinance as yf
+    syms = sorted({h["yahoo_symbol"] for h in holdings
+                   if h.get("qty") and h.get("yahoo_symbol")
+                   and h["yahoo_symbol"].upper() != "CASH"})
+    if not syms:
+        return {"dates": [], "series": {}}
+    try:
+        data = yf.download(syms, start=start, interval="1wk", group_by="ticker",
+                           threads=True, progress=False, auto_adjust=True)
+    except Exception:
+        return {"dates": [], "series": {}}
+    if data is None or len(data) == 0:
+        return {"dates": [], "series": {}}
+    out = {"dates": [d.strftime("%Y-%m-%d") for d in data.index], "series": {}}
+    by_sym = {}
+    for h in holdings:
+        by_sym.setdefault(h.get("yahoo_symbol"), h["ticker"])
+    for s in syms:
+        try:
+            col = data[s]["Close"].dropna()
+        except Exception:
+            continue
+        if len(col):
+            out["series"][by_sym[s]] = _align(col, data.index)
+    return out
+
+
+def long_start(holdings):
+    """Six months before the earliest buy date on the books, floored at 2008."""
+    dates = [lot.get("buy_date") for h in holdings for lot in (h.get("lots") or [])
+             if lot.get("buy_date")]
+    dates += [h.get("buy_date") for h in holdings if h.get("buy_date")]
+    dates = [d for d in dates if d and len(d) == 10]
+    if not dates:
+        return "2018-01-01"
+    earliest = min(dates)
+    y, m = int(earliest[:4]), int(earliest[5:7]) - 6
+    if m <= 0:
+        y, m = y - 1, m + 12
+    return max("2008-01-01", f"{y:04d}-{m:02d}-01")
 
 
 SNAPSHOTS = os.path.join(ROOT, "docs", "snapshots.json")
@@ -324,6 +385,17 @@ def synth_history(prices, holdings):
     return {"dates": dates, "values": values}
 
 
+def synth_px(prices, dates):
+    """Offline stand-in for the daily/weekly price panels."""
+    daily = {"dates": dates, "series": {}}
+    for t, p in prices.items():
+        c = p.get("closes") or []
+        if c:
+            daily["series"][t] = [round(float(x), 2) for x in c[-len(dates):]]
+    weekly = {"dates": dates[::5], "series": {t: v[::5] for t, v in daily["series"].items()}}
+    return daily, weekly
+
+
 def synth_benchmark(history):
     """Synthetic Nifty series: gentler climb than the portfolio, for offline test."""
     n = len(history.get("values", []))
@@ -435,11 +507,13 @@ def build(demo=False):
                 srec["seed_price"] = demo_watch_seed[srec["ticker"]]
         prices = synth_prices(all_syms)
         history = synth_history(prices, holdings)
+        px_daily, px_weekly = synth_px(prices, history["dates"])
         bench = synth_benchmark(history)
         news = demo_news(all_syms)
         corp = corpmod.demo_corporate(all_syms)
     else:
-        prices, history = fetch_prices(all_syms)
+        prices, history, px_daily = fetch_prices(all_syms)
+        px_weekly = fetch_long(holdings, long_start(holdings))
         bench = fetch_benchmark(history["dates"])
         news = fetch_all_news(all_syms)
         corp = corpmod.fetch_all_corporate(all_syms)
@@ -556,6 +630,11 @@ def build(demo=False):
              "meta": {"generated": generated, "demo": demo}}
 
     os.makedirs(DOCS, exist_ok=True)
+    # Price panels live in their own file: the dashboard lazy-loads it the first
+    # time a chart is opened, so the main page stays small.
+    with open(os.path.join(DOCS, "prices.json"), "w") as f:
+        json.dump({"daily": px_daily, "weekly": px_weekly,
+                   "generated": generated}, f, separators=(",", ":"), default=str)
     with open(os.path.join(DOCS, "data.json"), "w") as f:
         json.dump(model, f, indent=2, default=str)
     with open(os.path.join(DOCS, "index.html"), "w") as f:

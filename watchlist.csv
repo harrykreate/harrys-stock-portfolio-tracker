@@ -2,3 +2,41 @@ ticker,name,yahoo_symbol,target_price,notes
 RELIANCE,Reliance Industries,RELIANCE.NS,,
 HDFCBANK,HDFC Bank,HDFCBANK.NS,,
 INFY,Infosys,INFY.NS,,
+ICICIBANK,ICICI Bank,ICICIBANK.NS,,Bank - won on it before
+NTPC,NTPC,NTPC.NS,,PSU power - PowerGrid twin; dividends
+COALINDIA,Coal India,COALINDIA.NS,,PSU mining - big dividends
+ONGC,ONGC,ONGC.NS,,PSU energy - hard assets
+IOC,Indian Oil,IOC.NS,,PSU energy - BPCL analog
+GAIL,GAIL India,GAIL.NS,,PSU gas infra
+HAL,Hindustan Aeronautics,HAL.NS,,Defence PSU - BEL analog
+MAZDOCK,Mazagon Dock,MAZDOCK.NS,,Defence PSU shipbuilder
+SOLARINDS,Solar Industries,SOLARINDS.NS,,Defence-adjacent manufacturer
+ULTRACEMCO,UltraTech Cement,ULTRACEMCO.NS,,Cement - Ramco win analog; Birla
+AMBUJACEM,Ambuja Cements,AMBUJACEM.NS,,Cement alternative
+GRASIM,Grasim,GRASIM.NS,,Birla conglomerate capex
+CUMMINSIND,Cummins India,CUMMINSIND.NS,,Capital goods - L&T analog
+ABB,ABB India,ABB.NS,,Capital goods - premium multiple caveat
+SIEMENS,Siemens,SIEMENS.NS,,Capital goods - premium multiple caveat
+CGPOWER,CG Power,CGPOWER.NS,,Capital goods turnaround
+POWERINDIA,Hitachi Energy India,POWERINDIA.NS,,Grid capex - verify symbol
+TATAPOWER,Tata Power,TATAPOWER.NS,,Tata + power
+PFC,Power Finance Corp,PFC.NS,,PSU lender - IREDA analog; dividends
+RECLTD,REC,RECLTD.NS,,PSU lender - PFC twin
+IRFC,IRFC,IRFC.NS,,PSU lender - traded before
+BANKBARODA,Bank of Baroda,BANKBARODA.NS,,Cheap PSU bank
+CANBK,Canara Bank,CANBK.NS,,Cheap PSU bank
+UNIONBANK,Union Bank,UNIONBANK.NS,,Cheap PSU bank
+PNB,Punjab National Bank,PNB.NS,,Cheap PSU bank
+INDIANB,Indian Bank,INDIANB.NS,,Cheap PSU bank - AMFI upgraded
+CHOLAFIN,Cholamandalam Finance,CHOLAFIN.NS,,NBFC - LTF analog; Murugappa
+TATACAPITAL,Tata Capital,TATACAPITAL.NS,,Tata NBFC - verify symbol
+MUTHOOTFIN,Muthoot Finance,MUTHOOTFIN.NS,,Gold + lending - two of your themes
+INDIGO,InterGlobe Aviation,INDIGO.NS,,Asset-heavy cyclical - hotel analog
+ADANIPORTS,Adani Ports,ADANIPORTS.NS,,Infra - booked win before
+JSWSTEEL,JSW Steel,JSWSTEEL.NS,,Metals - CONCENTRATION: Metals already 19%
+HINDZINC,Hindustan Zinc,HINDZINC.NS,,Mining dividends - CONCENTRATION metals
+JINDALSTEL,Jindal Steel,JINDALSTEL.NS,,Metals - 2009 lot won - CONCENTRATION
+MARUTI,Maruti Suzuki,MARUTI.NS,,Auto - CONCENTRATION: Auto already 28%
+TVSMOTOR,TVS Motor,TVSMOTOR.NS,,Auto - CONCENTRATION
+TATAMOTORS,Tata Motors PV,TATAMOTORS.NS,,Tata auto - CONCENTRATION
+MOTHERSON,Samvardhana Motherson,MOTHERSON.NS,,Auto ancillary - CONCENTRATION

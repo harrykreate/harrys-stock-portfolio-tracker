@@ -600,8 +600,8 @@ const FILES={
   violations:{path:'violations.csv',head:['date','type','ticker','justification'],
     cols:[['date','Date'],['type','Type'],['ticker','Ticker'],['justification','Justification']],
     sha:null,orig:null,rows:[]},
-  sells:{path:'sells.csv',head:['ticker','name','qty','buy_price','buy_date','sell_price','sell_date'],
-    cols:[['ticker','Ticker'],['name','Name'],['qty','Qty'],['buy_price','Buy price'],['buy_date','Buy date'],['sell_price','Sell price'],['sell_date','Sell date']],
+  sells:{path:'sells.csv',head:['ticker','name','qty','buy_price','buy_date','sell_price','sell_date','reason','benefit'],
+    cols:[['ticker','Ticker'],['name','Name'],['qty','Qty'],['buy_price','Buy price'],['buy_date','Buy date'],['sell_price','Sell price'],['sell_date','Sell date'],['reason','Why (tax/risk/rebalance/cash or blank)'],['benefit','₹ benefit']],
     sha:null,orig:null,rows:[]},
   floor:{path:'floor.csv',head:['key','value'],
     cols:[['key','Setting'],['value','Value']],
@@ -730,7 +730,7 @@ async function saveEditor(){
   }catch(e){edStatus.textContent='⚠ '+e.message;}
   $('edSave').disabled=false;
 }
-document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+document.querySelectorAll('#edModal .tabs button').forEach(b=>b.addEventListener('click',()=>{
   captureTab();curTab=b.dataset.tab;renderTab();
 }));
 $('editBtn').addEventListener('click',openEditor);
@@ -746,6 +746,127 @@ $('edBody').addEventListener('click',e=>{
   if(e.target.classList.contains('delbtn')){e.target.closest('tr').remove();captureTab();}
 });
 $('edSave').addEventListener('click',saveEditor);
+
+/* ---------- record a trade ---------- */
+(function(){
+  const tm=$('trModal'); if(!tm) return;
+  const PXM=window.__DATA.px||{};
+  let mode='buy', plan=null;
+  const money=v=>(v<0?'-₹':'₹')+Math.abs(Math.round(v)).toLocaleString('en-IN');
+  function setMode(x){
+    mode=x; plan=null; $('trPrev').innerHTML=''; $('trSave').style.display='none';
+    document.querySelectorAll('#trTabs button').forEach(b=>b.classList.toggle('on',b.dataset.m===x));
+    $('trBuyF').style.display=x==='buy'?'':'none';
+    $('trSellF').style.display=x==='sell'?'':'none';
+    $('trFixF').style.display=x==='fix'?'':'none';
+    $('trGo').style.display=x==='fix'?'none':'';
+    $('trStatus').textContent='';
+  }
+  function fillLists(){
+    const held={};
+    FILES.holdings.rows.forEach(r=>{ if(+r.qty>0){const h=held[r.ticker]=held[r.ticker]||{q:0,n:r.name};h.q+=(+r.qty);} });
+    $('tsTicker').innerHTML=Object.keys(held).sort().map(t=>
+      `<option value="${t}">${t} — ${held[t].q.toLocaleString('en-IN')} sh held</option>`).join('');
+    const all=new Set(Object.keys(PXM)); FILES.holdings.rows.forEach(r=>all.add(r.ticker));
+    $('trTickers').innerHTML=[...all].sort().map(t=>`<option value="${t}">`).join('');
+    const secs=new Set(); FILES.holdings.rows.forEach(r=>{if(r.sector)secs.add(r.sector);});
+    $('trSectors').innerHTML=[...secs].sort().map(x=>`<option value="${x}">`).join('');
+  }
+  async function openTrade(){
+    if(!$('cfgRepo').value)$('cfgRepo').value=localStorage.getItem('st_repo')||guessRepo();
+    if(!$('cfgTok').value)$('cfgTok').value=localStorage.getItem('st_tok')||'';
+    tm.classList.add('open'); setMode(mode);
+    const{repo,tok}=cfg();
+    if(!repo||!tok){$('trStatus').textContent='⚠ One-time setup: open ✎ Edit data files and enter your repo + GitHub token first.';return;}
+    $('trStatus').textContent='Loading your ledger…';
+    try{ await loadFile('holdings'); await loadFile('sells'); fillLists();
+         $('trStatus').textContent=''; }
+    catch(e){ $('trStatus').textContent='⚠ '+e.message; }
+  }
+  function today(){return new Date().toISOString().slice(0,10);}
+  function planBuy(){
+    const t=($('tbTicker').value||'').trim().toUpperCase();
+    const q=+$('tbQty').value, pr=+$('tbPrice').value, d=$('tbDate').value||today();
+    if(!t||!(q>0)||!(pr>0)) throw new Error('Ticker, quantity and price are all needed.');
+    const known=FILES.holdings.rows.find(r=>r.ticker===t);
+    const meta=PXM[t]||{};
+    const row={ticker:t,name:$('tbName').value||((known&&known.name)||meta.name||t),
+      yahoo_symbol:$('tbSym').value||((known&&known.yahoo_symbol)||t+'.NS'),
+      qty:String(q),buy_price:pr.toFixed(2),buy_date:d,seed_price:known?known.seed_price:pr.toFixed(2),
+      sector:$('tbSector').value||((known&&known.sector)||'Others'),
+      target_price:'',stop_loss:'',notes:''};
+    return {kind:'buy',row,
+      html:`<table class="data" style="min-width:0"><thead><tr><th>Action</th><th class="num">Qty</th><th class="num">Price</th><th>Date</th><th>Goes to</th></tr></thead>
+      <tbody><tr><td class="tk"><b>BUY ${t}</b><div class="nm">${row.name}${known?'':' · new position'}</div></td>
+      <td class="num">${q.toLocaleString('en-IN')}</td><td class="num">₹${pr.toFixed(2)}</td><td>${d}</td>
+      <td class="muted">new lot in holdings.csv</td></tr></tbody></table>`};
+  }
+  function planSell(){
+    const t=$('tsTicker').value, q=+$('tsQty').value, pr=+$('tsPrice').value, d=$('tsDate').value||today();
+    const why=$('tsWhy').value, ben=$('tsBen').value;
+    if(!t||!(q>0)||!(pr>0)) throw new Error('Pick the stock, quantity and price.');
+    const lots=FILES.holdings.rows.map((r,i)=>({r,i})).filter(x=>x.r.ticker===t&&+x.r.qty>0)
+      .sort((a,b)=>(a.r.buy_date||'0000')<(b.r.buy_date||'0000')?-1:1);
+    const heldQ=lots.reduce((s,x)=>s+(+x.r.qty),0);
+    if(q>heldQ) throw new Error(`You hold ${heldQ.toLocaleString('en-IN')} of ${t} — cannot sell ${q.toLocaleString('en-IN')}.`);
+    let need=q; const newSells=[], edits=[];
+    for(const x of lots){
+      if(need<=0)break;
+      const lq=+x.r.qty, take=Math.min(need,lq);
+      newSells.push({ticker:t,name:x.r.name,qty:String(take),
+        buy_price:x.r.buy_price,buy_date:x.r.buy_date||'',
+        sell_price:pr.toFixed(2),sell_date:d,
+        reason:why,benefit:(newSells.length===0&&ben)?String(+ben):''});
+      edits.push({i:x.i,newQty:lq-take});
+      need-=take;
+    }
+    const body=newSells.map(sr=>{
+      const g=(pr-(+sr.buy_price))*(+sr.qty);
+      return `<tr><td class="tk"><b>SELL ${t}</b><div class="nm">lot of ${(+sr.qty).toLocaleString('en-IN')} bought ${sr.buy_date||'?'} @ ₹${(+sr.buy_price).toFixed(2)}</div></td>
+        <td class="num">${(+sr.qty).toLocaleString('en-IN')}</td><td class="num">₹${pr.toFixed(2)}</td>
+        <td class="num ${g>=0?'up':'down'}"><b>${money(g)}</b></td>
+        <td>${sr.reason||'call'}</td></tr>`;}).join('');
+    const total=newSells.reduce((s2,sr)=>s2+(pr-(+sr.buy_price))*(+sr.qty),0);
+    const left=heldQ-q;
+    return {kind:'sell',newSells,edits,
+      html:`<table class="data" style="min-width:0"><thead><tr><th>Booking (oldest lots first)</th><th class="num">Qty</th><th class="num">Price</th><th class="num">P/L</th><th>Why</th></tr></thead>
+      <tbody>${body}</tbody></table>
+      <div class="muted" style="font-size:12px;margin-top:8px">Net ${money(total)} booked · ${t} becomes ${left.toLocaleString('en-IN')} sh${left===0?' — position closed, rows removed from holdings':''}. Saving writes sells.csv and holdings.csv together.</div>`};
+  }
+  function preview(){
+    try{
+      if(!FILES.holdings.rows.length) throw new Error('Ledger not loaded yet — set up repo + token via ✎ Edit data files.');
+      plan=mode==='buy'?planBuy():planSell();
+      $('trPrev').innerHTML=plan.html;
+      $('trSave').style.display=''; $('trStatus').textContent='Check the preview, then save.';
+    }catch(e){ plan=null; $('trSave').style.display='none'; $('trPrev').innerHTML=''; $('trStatus').textContent='⚠ '+e.message; }
+  }
+  async function save(){
+    if(!plan)return;
+    $('trSave').disabled=true; $('trStatus').textContent='Committing…';
+    try{
+      if(plan.kind==='buy'){ FILES.holdings.rows.push(plan.row); await putFile('holdings'); }
+      else{
+        plan.edits.forEach(e2=>{ FILES.holdings.rows[e2.i].qty=String(e2.newQty); });
+        FILES.holdings.rows=FILES.holdings.rows.filter(r=>+r.qty>0);
+        plan.newSells.forEach(sr=>FILES.sells.rows.push(sr));
+        await putFile('sells'); await putFile('holdings');
+      }
+      $('trStatus').textContent='✅ Saved. The tracker rebuilds itself in ~2 minutes.';
+      $('trSave').style.display='none'; $('trPrev').innerHTML=''; plan=null; fillLists();
+    }catch(e){ $('trStatus').textContent='⚠ '+e.message; }
+    $('trSave').disabled=false;
+  }
+  document.querySelectorAll('#trTabs button').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.m)));
+  $('tradeBtn').addEventListener('click',openTrade);
+  $('trGo').addEventListener('click',preview);
+  $('trSave').addEventListener('click',save);
+  $('trCancel').addEventListener('click',()=>tm.classList.remove('open'));
+  tm.addEventListener('click',e=>{if(e.target===tm)tm.classList.remove('open');});
+  $('trFixH').addEventListener('click',()=>{tm.classList.remove('open');curTab='holdings';openEditor();});
+  $('trFixS').addEventListener('click',()=>{tm.classList.remove('open');curTab='sells';openEditor();});
+  window.__trade={planSellTest:(t,q,p,d)=>{$('tsTicker').innerHTML=`<option value="${t}">${t}</option>`;$('tsTicker').value=t;$('tsQty').value=q;$('tsPrice').value=p;$('tsDate').value=d;mode='sell';return planSell();}};
+})();
 
 /* ---------- profit & loss banks ---------- */
 (function(){
@@ -770,7 +891,7 @@ $('edSave').addEventListener('click',saveEditor);
   function rowHtml(x){
     const held=(x.months===null||x.months===undefined)?'—':x.months+' mo';
     const pct=(x.pct===null||x.pct===undefined)?'<span class="muted">bonus</span>':(x.pct>=0?'+':'')+x.pct.toFixed(1)+'%';
-    return '<tr><td class="tk"><b>'+x.ticker+'</b><div class="nm">'+(x.name||'')+'</div></td>'
+    return '<tr><td class="tk"><b>'+x.ticker+'</b><button class="chartb" data-chart="'+x.ticker+'" title="Price history">📈</button><div class="nm">'+(x.name||'')+'</div></td>'
       +'<td class="num">'+Number(x.qty).toLocaleString('en-IN')+'</td>'
       +'<td class="num">₹'+Number(x.buy_price).toFixed(2)+' → ₹'+Number(x.sell_price).toFixed(2)+'</td>'
       +'<td class="num">'+held+'</td>'
@@ -868,7 +989,7 @@ $('edSave').addEventListener('click',saveEditor);
       const cls=x.im>0?'down':'up';
       const verdict=x.im>0?'<b class="down">cost you '+money(x.im)+'</b>'
         :(x.im<0?'<b class="up">saved you '+money(-x.im)+'</b>':'<span class="muted">flat</span>');
-      return '<tr><td class="tk"><b>'+x.t+'</b><div class="nm">'+x.n+'</div></td>'
+      return '<tr><td class="tk"><b>'+x.t+'</b><button class="chartb" data-chart="'+x.t+'" title="Price history">📈</button><div class="nm">'+x.n+'</div></td>'
         +'<td class="num">'+Number(x.q).toLocaleString('en-IN')+'</td>'
         +'<td class="num">₹'+Number(x.sp).toFixed(2)+'<div class="sub muted">'+x.sd+'</div></td>'
         +'<td><span class="badge">'+x.rl+'</span></td>'
@@ -968,7 +1089,13 @@ $('edSave').addEventListener('click',saveEditor);
     return {arr:arr,n:n};
   }
   function draw(){
-    const m=META[cur]||{}, s=pick(cur);
+    const m=META[cur]||{};
+    let s=pick(cur);
+    if((!s||!s.vals.some(v=>v!==null))&&range!=='max'){
+      range='max';
+      document.querySelectorAll('#pxRange button').forEach(b=>b.classList.toggle('on',b.dataset.r==='max'));
+      s=pick(cur);
+    }
     const box=document.getElementById('pxStats');
     if(chart){chart.destroy();chart=null;}
     if(!s||!s.vals.some(v=>v!==null)){
@@ -1011,14 +1138,29 @@ $('edSave').addEventListener('click',saveEditor);
   }
   function open(tk){
     cur=tk; range='1y';
+    if(!META[tk]){
+      const r0=REAL.find(x=>x.ticker===tk);
+      META[tk]={name:(r0&&r0.name)||tk,qty:0,avg:null,price:null,lots:[],exited:true};
+    }
     document.querySelectorAll('#pxRange button').forEach(b=>b.classList.toggle('on',b.dataset.r==='1y'));
     const m=META[tk]||{};
     document.getElementById('pxTitle').textContent='📈 '+tk+' — '+(m.name||'');
     document.getElementById('pxSub').textContent=m.qty
       ? Number(m.qty).toLocaleString('en-IN')+' shares at an average cost of '+money(m.avg||0)
         +' · last traded '+money(m.price||0)
-      : 'On your watchlist · last traded '+money(m.price||0);
+      : (m.exited?'No longer held — fully exited':'On your watchlist · last traded '+money(m.price||0));
     document.getElementById('pxStats').innerHTML='<span>Loading price history…</span>';
+    (function(){
+      const rec=REAL.filter(x=>x.ticker===tk);
+      const g=rec.reduce((s2,x)=>s2+(x.gain||0),0);
+      const wins=rec.filter(x=>x.gain>0).length;
+      let bits='';
+      if(rec.length) bits+='<span>Your record here: <b class="'+(g>=0?'up':'down')+'">'+ (g<0?'-₹':'₹')+Math.abs(Math.round(g)).toLocaleString('en-IN')+'</b> booked over '+rec.length+' sale'+(rec.length===1?'':'s')+' ('+wins+' wins)</span>';
+      else bits+='<span>No sales booked in this stock yet</span>';
+      if(m.alpha!==null&&m.alpha!==undefined) bits+='<span>vs Nifty since you bought: <b class="'+(m.alpha>=0?'up':'down')+'">'+(m.apx?'~':'')+(m.alpha>=0?'+':'')+m.alpha.toFixed(1)+' pp</b></span>';
+      if(m.score!==null&&m.score!==undefined) bits+='<span>Value screen: <b>'+m.score+'/5</b></span>';
+      document.getElementById('pxRec').innerHTML=bits;
+    })();
     modal.classList.add('open');
     load().then(draw);
   }
@@ -1300,7 +1442,7 @@ def render(model) -> str:
         held_txt = f"{x['months']} mo" if x.get("months") is not None else "—"
         pct_txt = f"{x['pct']:+.1f}%" if x.get("pct") is not None else "—"
         b_rows.append(
-            f"<tr><td class='tk'><b>{html.escape(x['ticker'])}</b><div class='nm'>{html.escape(x.get('name',''))}</div></td>"
+            f"<tr><td class='tk'><b>{html.escape(x['ticker'])}</b><button class='chartb' data-chart='{html.escape(x['ticker'])}' title='Price history'>📈</button><div class='nm'>{html.escape(x.get('name',''))}</div></td>"
             f"<td class='num'>{x['qty']:,.0f}</td>"
             f"<td class='num'>{_inr(x.get('buy_price'),2)} → {_inr(x.get('sell_price'),2)}</td>"
             f"<td class='num'>{held_txt}</td>"
@@ -1309,8 +1451,8 @@ def render(model) -> str:
             f"<td class='num'>{_inr(x.get('tax'))}<div class='sub muted'>+{_inr(x.get('friction'))} chg</div></td>"
             f"<td>{html.escape(x.get('sell_date',''))}</td></tr>")
     booked_table = "".join(b_rows) or ("<tr><td colspan='8' class='muted' style='padding:18px'>"
-        "No sales recorded yet. When you book a profit or loss, add it via ✎ Edit portfolio → Sells "
-        "(and reduce the quantity in Holdings) — it appears here with your running total.</td></tr>")
+        "No sales recorded yet. Book one with ➕ Record a trade in the sidebar "
+        "— it appears here with your running total.</td></tr>")
     b_total = booked.get("total", 0)
 
     # ---- P/L ledger: financial-year presets built from the data we actually have
@@ -1487,6 +1629,7 @@ def render(model) -> str:
                  "qty": r["qty"], "sector": r.get("sector", "Others"),
                  "lots": r.get("lots", [])}
                 for r in rows if r.get("has_price") and r["qty"] > 0]
+    _score = {v["ticker"]: v["score"] for v in (model.get("screen") or [])}
     data_js = json.dumps({"history": history, "div": div_m,
                           "history5y": model.get("history5y") or {},
                           "nosell": model.get("nosell") or {},
@@ -1509,11 +1652,15 @@ def render(model) -> str:
                                          for k in ("fresh", "idle", "unpriced")},
                           "px": {r["ticker"]: {"name": r["name"], "qty": r["qty"],
                                                "avg": r.get("avg_cost"), "price": r["price"],
+                                               "alpha": (r.get("alpha") or {}).get("alpha"),
+                                               "apx": (r.get("alpha") or {}).get("approx"),
+                                               "score": _score.get(r["ticker"]),
                                                "lots": [{"d": l.get("buy_date"), "p": l.get("buy_price"),
                                                          "q": l.get("qty")} for l in (r.get("lots") or [])]}
                                  for r in rows}
                                 | {w["ticker"]: {"name": w["name"], "qty": 0, "avg": None,
-                                                 "price": w.get("price"), "lots": []}
+                                                 "price": w.get("price"), "lots": [],
+                                                 "score": _score.get(w["ticker"])}
                                    for w in watch},
                           "rows": sim_rows}, separators=(",", ":"))
     n_watch = len(watch)
@@ -1534,24 +1681,28 @@ def render(model) -> str:
 <div class="layout">
   <aside class="sidebar">
     <div class="brand">📈 Sensex Tracker</div>
-    <div class="navlbl">Menu</div>
+    <div class="navlbl">My money</div>
     <nav class="nav">
       <a data-sec="overview" class="active">🏠 Overview</a>
       <a data-sec="holdings">💼 Holdings <span class="cnt">{s['n_holdings']}</span></a>
-      <a data-sec="corporate">🏛️ Corporate actions</a>
+      <a data-sec="watchlist">⭐ Watchlist <span class="cnt">{n_watch}</span></a>
+      <div class="navlbl">Decide — before you trade</div>
+      <a data-sec="screen">🔎 Value screen</a>
       <a data-sec="news">📰 News</a>
+      <a data-sec="corporate">🏛️ Corporate actions</a>
       <a data-sec="insights">🔬 Insights</a>
-      <a data-sec="discipline">🧭 Discipline</a>
+      <div class="navlbl">Review — after you trade</div>
       <a data-sec="booked">💰 Booked P/L</a>
       <a data-sec="ledger">📒 Profit &amp; loss banks</a>
       <a data-sec="exits">🎯 Exit report card</a>
-      <a data-sec="screen">🔎 Value screen</a>
       <a data-sec="tax">🧾 Tax &amp; returns</a>
-      <a data-sec="watchlist">⭐ Watchlist <span class="cnt">{n_watch}</span></a>
+      <div class="navlbl">Improve</div>
+      <a data-sec="discipline">🧭 Discipline</a>
     </nav>
     <div class="sidefoot">
+      <button class="editbtn" id="tradeBtn" style="background:var(--accent);color:#fff;font-weight:600">➕ Record a trade</button>
+      <button class="editbtn" id="editBtn">✎ Edit data files</button>
       <button class="editbtn" id="themeBtn">🌙 Dark mode</button>
-      <button class="editbtn" id="editBtn">✎ Edit portfolio</button>
       <div class="stamp">Updated {html.escape(meta['generated'])}<br>{s['n_priced']}/{s['n_holdings']} priced live · rule-based, no AI</div>
     </div>
   </aside>
@@ -1768,7 +1919,7 @@ def render(model) -> str:
       </div>
       <div class="tablecard">
         <div class="controls"><b style="font-size:13px;padding:4px">💰 Every booking</b>
-          <span class="muted" style="font-size:11.5px;align-self:center">Record a sale via ✎ Edit portfolio → Sells (ticker, qty, buy price/date, sell price/date) — and reduce the sold quantity in the Holdings tab.</span></div>
+          <span class="muted" style="font-size:11.5px;align-self:center">Book a sale with ➕ Record a trade (left sidebar) — it matches your oldest lots, writes this table and reduces the holding in one save.</span></div>
         <table class="data" style="min-width:820px"><thead><tr>
           <th>Stock</th><th class="num">Qty</th><th class="num">Buy → Sell</th><th class="num">Held</th>
           <th class="num">Booked P/L</th><th>Type</th><th class="num">Tax + charges</th><th>Sold on</th>
@@ -1964,6 +2115,65 @@ def render(model) -> str:
   </div>
 </div>
 
+<div class="modal" id="trModal">
+  <div class="mbox" style="max-width:760px">
+    <h3>➕ Record a trade</h3>
+    <div class="hint">One flow for the whole ledger: a <b>buy</b> adds a lot to your holdings; a <b>sell</b> matches your oldest lots first, writes the booking with its reason, and reduces the holding — both files in one save. To fix or delete a past trade, use the third tab.</div>
+    <div class="tabs" id="trTabs">
+      <button data-m="buy" class="on">I bought</button>
+      <button data-m="sell">I sold</button>
+      <button data-m="fix">Fix / delete a trade</button>
+    </div>
+    <div id="trBuyF">
+      <div class="simrow">
+        <input id="tbTicker" list="trTickers" placeholder="Ticker e.g. TATASTEEL" style="text-transform:uppercase">
+        <datalist id="trTickers"></datalist>
+        <input id="tbQty" type="number" min="1" placeholder="Qty">
+        <input id="tbPrice" type="number" step="0.01" placeholder="Price ₹">
+        <input id="tbDate" type="date">
+      </div>
+      <div class="simrow" style="margin-top:8px">
+        <input id="tbName" placeholder="Company name (auto if known)">
+        <input id="tbSym" placeholder="Yahoo symbol (auto: TICKER.NS)">
+        <input id="tbSector" list="trSectors" placeholder="Sector">
+        <datalist id="trSectors"></datalist>
+      </div>
+    </div>
+    <div id="trSellF" style="display:none">
+      <div class="simrow">
+        <select id="tsTicker"></select>
+        <input id="tsQty" type="number" min="1" placeholder="Qty">
+        <input id="tsPrice" type="number" step="0.01" placeholder="Price ₹">
+        <input id="tsDate" type="date">
+      </div>
+      <div class="simrow" style="margin-top:8px">
+        <select id="tsWhy">
+          <option value="">Why: investment call</option>
+          <option value="tax">Why: tax harvest</option>
+          <option value="risk">Why: risk mitigation</option>
+          <option value="rebalance">Why: rebalance</option>
+          <option value="cash">Why: raising cash</option>
+        </select>
+        <input id="tsBen" type="number" step="1" placeholder="₹ benefit (optional, e.g. tax saved)">
+      </div>
+    </div>
+    <div id="trFixF" style="display:none">
+      <div class="hint" style="margin:4px 0 10px">Every trade is a row in a file. Open the file, fix the numbers or hit ✕ to delete the row, then Save — the site rebuilds itself.</div>
+      <div class="simrow">
+        <button class="simbtn" id="trFixH">Open holdings (buys)</button>
+        <button class="simbtn" id="trFixS">Open sells (bookings)</button>
+      </div>
+    </div>
+    <div id="trPrev" style="margin-top:12px"></div>
+    <div class="mrow" style="margin-top:14px">
+      <span id="trStatus" class="muted" style="flex:1;font-size:12.5px"></span>
+      <button id="trCancel">Cancel</button>
+      <button id="trGo" class="primary">Preview</button>
+      <button id="trSave" class="primary" style="display:none">Save to GitHub</button>
+    </div>
+  </div>
+</div>
+
 <div class="modal" id="pxModal">
   <div class="mbox" style="max-width:900px">
     <h3 id="pxTitle">Price history</h3>
@@ -1976,6 +2186,7 @@ def render(model) -> str:
     </div>
     <div class="chartbox lg"><canvas id="pxChart"></canvas></div>
     <div class="pxstats" id="pxStats"></div>
+    <div class="pxstats" id="pxRec" style="border-top:1px solid var(--line);padding-top:9px;margin-top:12px"></div>
     <div class="mrow" style="margin-top:14px">
       <span id="pxNote" class="muted" style="font-size:11.5px;flex:1"></span>
       <button id="pxClose">Close</button>

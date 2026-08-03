@@ -29,7 +29,7 @@ UNIONBANK,Union Bank,UNIONBANK.NS,,Cheap PSU bank
 PNB,Punjab National Bank,PNB.NS,,Cheap PSU bank
 INDIANB,Indian Bank,INDIANB.NS,,Cheap PSU bank - AMFI upgraded
 CHOLAFIN,Cholamandalam Finance,CHOLAFIN.NS,,NBFC - LTF analog; Murugappa
-TATACAPITAL,Tata Capital,TATACAPITAL.NS,,Tata NBFC - verify symbol
+TATACAP,Tata Capital,TATACAP.NS,,Tata NBFC - listed Nov 2025
 MUTHOOTFIN,Muthoot Finance,MUTHOOTFIN.NS,,Gold + lending - two of your themes
 INDIGO,InterGlobe Aviation,INDIGO.NS,,Asset-heavy cyclical - hotel analog
 ADANIPORTS,Adani Ports,ADANIPORTS.NS,,Infra - booked win before
@@ -38,5 +38,5 @@ HINDZINC,Hindustan Zinc,HINDZINC.NS,,Mining dividends - CONCENTRATION metals
 JINDALSTEL,Jindal Steel,JINDALSTEL.NS,,Metals - 2009 lot won - CONCENTRATION
 MARUTI,Maruti Suzuki,MARUTI.NS,,Auto - CONCENTRATION: Auto already 28%
 TVSMOTOR,TVS Motor,TVSMOTOR.NS,,Auto - CONCENTRATION
-TATAMOTORS,Tata Motors PV,TATAMOTORS.NS,,Tata auto - CONCENTRATION
+TMPV,Tata Motors PV,TMPV.NS,,Tata Motors PV (post-demerger) - CONCENTRATION
 MOTHERSON,Samvardhana Motherson,MOTHERSON.NS,,Auto ancillary - CONCENTRATION

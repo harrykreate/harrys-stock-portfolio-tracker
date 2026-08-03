@@ -382,9 +382,10 @@ function drawPerf(days,mode){
   const labels=SRC.dates.slice(start);
   if(note){
     note.textContent=long5
-      ? (function(){const m=D.history5y.missing||[];
+      ? (function(){const m=D.history5y.missing||[];const f=D.history5y.from||'';
           const tail=m.length?' — except '+m.slice(0,5).join(', ')+(m.length>5?' and '+(m.length-5)+' more':'')+', which have no price feed.':'.';
-          return 'Weekly. Share counts are rebuilt from your buy and sell history, so exited positions count while you held them'+tail;})()
+          return 'Weekly, from '+f+' — the oldest buy date on your books, where the lot ledger becomes complete. '
+            +'Share counts are rebuilt from your buy and sell history, so positions you have since exited count for the period you held them'+tail;})()
       : '';
   }
   const ctx=document.getElementById('perfChart').getContext('2d');

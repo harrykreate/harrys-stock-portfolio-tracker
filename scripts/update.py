@@ -214,18 +214,25 @@ def fetch_long(holdings, start, extra_syms=()):
     return out
 
 
-def long_start(holdings, sells=()):
-    """
-    Start of the long history: at least five years back, and further if a
-    position or a recorded sale is older than that. Floored at 2008.
-    """
-    five = dt.date.today().replace(year=dt.date.today().year - 5).strftime("%Y-%m-01")
+def holdings_start(holdings):
+    """Earliest buy date across current holdings — where the lot ledger becomes
+    complete. Before this, only sold positions are traceable."""
     dates = [lot.get("buy_date") for h in holdings for lot in (h.get("lots") or [])
              if lot.get("buy_date")]
     dates += [h.get("buy_date") for h in holdings if h.get("buy_date")]
-    dates += [s.get("buy_date") for s in sells if s.get("buy_date")]
     dates = [d for d in dates if d and len(d) == 10]
-    earliest = min(dates) if dates else five
+    return min(dates) if dates else ""
+
+
+def long_start(holdings):
+    """
+    Start of the long price history: five years back, or six months before the
+    oldest position if that is older. Floored at 2008. As real buy dates
+    replace the vintage placeholders this reaches back further on its own.
+    """
+    t = dt.date.today()
+    five = f"{t.year - 5:04d}-{t.month:02d}-01"
+    earliest = holdings_start(holdings) or five
     y, m = int(earliest[:4]), int(earliest[5:7]) - 6
     if m <= 0:
         y, m = y - 1, m + 12
@@ -261,6 +268,7 @@ def reconstruct_history(weekly, holdings, sells):
     missing = sorted(t for t in tickers
                      if not series.get(t) and (qty_now.get(t) or sold.get(t)))
 
+    floor_date = holdings_start(holdings)
     values = []
     for i, d in enumerate(dates):
         total = 0.0
@@ -279,9 +287,13 @@ def reconstruct_history(weekly, holdings, sells):
             if p:
                 total += q * p
         values.append(round(total))
-    # trim the leading stretch before any position existed
+    # only publish from the point the lot ledger is complete: before the oldest
+    # recorded buy date we would be showing sold positions alone, not a portfolio
     first = next((i for i, v in enumerate(values) if v > 0), 0)
-    return {"dates": dates[first:], "values": values[first:], "missing": missing}
+    if floor_date:
+        first = max(first, next((i for i, d in enumerate(dates) if d >= floor_date), first))
+    return {"dates": dates[first:], "values": values[first:],
+            "missing": missing, "from": dates[first] if dates[first:] else ""}
 
 
 SNAPSHOTS = os.path.join(ROOT, "docs", "snapshots.json")
@@ -579,7 +591,7 @@ def build(demo=False):
         known = {h["ticker"] for h in all_syms}
         exited = sorted({s["ticker"] + ".NS" for s in load_sells()
                          if s["ticker"] not in known})
-        px_weekly = fetch_long(all_syms, long_start(holdings, load_sells()), exited)
+        px_weekly = fetch_long(all_syms, long_start(holdings), exited)
         bench = fetch_benchmark(history["dates"])
         news = fetch_all_news(all_syms)
         corp = corpmod.fetch_all_corporate(all_syms)

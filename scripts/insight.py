@@ -192,6 +192,7 @@ def switch_report(sells, holdings, weekly, latest, today=None):
     idle = sum(p[2] for p in pool)
 
     rows, held_val, switch_val, unpriced = {}, 0.0, 0.0, 0.0
+    priced = []
     for m in matches:
         gh, gs = growth(m["from"], m["from_date"]), growth(m["to"], m["to_date"])
         if gh is None or gs is None:
@@ -200,6 +201,9 @@ def switch_report(sells, holdings, weekly, latest, today=None):
         stayed, moved = m["amount"] * gh, m["amount"] * gs
         held_val += stayed
         switch_val += moved
+        priced.append({"from": m["from"], "to": m["to"], "fd": m["from_date"],
+                       "td": m["to_date"], "amt": round(m["amount"]),
+                       "stayed": round(stayed), "moved": round(moved)})
         key = (m["from"], m["to"])
         r = rows.setdefault(key, {"from": m["from"], "to": m["to"], "amount": 0.0,
                                   "stayed": 0.0, "moved": 0.0,
@@ -218,7 +222,7 @@ def switch_report(sells, holdings, weekly, latest, today=None):
     out.sort(key=lambda r: r["gain"])
     recycled = sum(r["amount"] for r in out)
     return {
-        "rows": out, "n": len(out),
+        "rows": out, "n": len(out), "matches": priced,
         "recycled": round(recycled),
         "stayed": round(held_val), "moved": round(switch_val),
         "net": round(switch_val - held_val),

@@ -828,6 +828,75 @@ $('edSave').addEventListener('click',saveEditor);
   draw();
 })();
 
+/* ---------- exit report card: period filter ---------- */
+(function(){
+  const bar=document.getElementById('exRange');
+  if(!bar) return;
+  const EX=window.__DATA.exitrows||[], SW=window.__DATA.switchrows||[];
+  const money=v=>(v<0?'-₹':'₹')+Math.abs(Math.round(v)).toLocaleString('en-IN');
+  const setTx=(id,t)=>{const e=document.getElementById(id);if(e)e.textContent=t;};
+  const setCls=(id,v)=>{const e=document.getElementById(id);if(e)e.className='v '+(v>=0?'up':'down');};
+  function cutoff(months){
+    if(!months) return '0000-01-01';
+    const d=new Date(); d.setMonth(d.getMonth()-months);
+    return d.toISOString().slice(0,10);
+  }
+  function draw(months){
+    const from=cutoff(months);
+    const ex=EX.filter(x=>x.sd>=from);
+    const sw=SW.filter(x=>x.fd>=from);
+    // 1 · exits
+    let left=0,saved=0;
+    ex.forEach(x=>{ if(x.im>0) left+=x.im; else saved+=-x.im; });
+    const good=ex.filter(x=>x.im<=0).length;
+    setTx('exLeft',money(left)); setTx('exSaved',money(saved));
+    setTx('exNet',money(saved-left)); setCls('exNet',saved-left);
+    setTx('exRate',ex.length?Math.round(good/ex.length*100)+'%':'—');
+    setTx('exRateSub',good+' of '+ex.length+' priced sales');
+    document.getElementById('exBody').innerHTML=ex.slice().sort((a,b)=>b.im-a.im).map(x=>{
+      const cls=x.im>0?'down':'up';
+      const verdict=x.im>0?'<b class="down">cost you '+money(x.im)+'</b>'
+        :(x.im<0?'<b class="up">saved you '+money(-x.im)+'</b>':'<span class="muted">flat</span>');
+      return '<tr><td class="tk"><b>'+x.t+'</b><div class="nm">'+x.n+'</div></td>'
+        +'<td class="num">'+Number(x.q).toLocaleString('en-IN')+'</td>'
+        +'<td class="num">₹'+Number(x.sp).toFixed(2)+'<div class="sub muted">'+x.sd+'</div></td>'
+        +'<td class="num">'+money(x.pr)+'<div class="sub muted">you received</div></td>'
+        +'<td class="num">'+money(x.wn)+'<div class="sub muted">had you held</div></td>'
+        +'<td class="num '+cls+'">'+(x.sc>=0?'+':'')+x.sc.toFixed(1)+'%</td>'
+        +'<td class="num">'+verdict+'</td></tr>';
+    }).join('')||'<tr><td colspan="7" class="muted" style="padding:18px">No sales in this window.</td></tr>';
+    // 2 · switches
+    const agg={};
+    let cap=0,stayed=0,moved=0;
+    sw.forEach(m=>{
+      cap+=m.amt; stayed+=m.stayed; moved+=m.moved;
+      const k=m.from+'>'+m.to;
+      const r=agg[k]||(agg[k]={from:m.from,to:m.to,amt:0,stayed:0,moved:0,first:m.fd,last:m.td});
+      r.amt+=m.amt; r.stayed+=m.stayed; r.moved+=m.moved;
+      if(m.fd<r.first)r.first=m.fd; if(m.td>r.last)r.last=m.td;
+    });
+    const pairs=Object.values(agg).map(r=>(r.gain=r.moved-r.stayed,r)).sort((a,b)=>a.gain-b.gain);
+    setTx('swCap',money(cap)); setTx('swMoved',money(moved)); setTx('swStayed',money(stayed));
+    setTx('swNet',money(moved-stayed)); setCls('swNet',moved-stayed);
+    setTx('swNetSub',pairs.filter(r=>r.gain>0).length+' of '+pairs.length+' switch pairs came out ahead');
+    document.getElementById('swBody').innerHTML=pairs.map(r=>
+      '<tr><td class="tk"><b>'+r.from+'</b> <span class="muted">→</span> <b>'+r.to+'</b>'
+      +'<div class="nm">'+r.first+' → '+r.last+'</div></td>'
+      +'<td class="num">'+money(r.amt)+'</td>'
+      +'<td class="num">'+money(r.moved)+'<div class="sub muted">where it went</div></td>'
+      +'<td class="num">'+money(r.stayed)+'<div class="sub muted">if left alone</div></td>'
+      +'<td class="num '+(r.gain>0?'up':'down')+'"><b>'+money(r.gain)+'</b></td></tr>'
+    ).join('')||'<tr><td colspan="5" class="muted" style="padding:18px">No switches in this window.</td></tr>';
+    setTx('exWin', months? ('sales since '+from+' · '+ex.length+' sales, '+pairs.length+' switch pairs')
+                         : ('everything on record · '+ex.length+' sales, '+pairs.length+' switch pairs'));
+  }
+  bar.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    bar.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    draw(parseInt(b.dataset.m)||0);
+  }));
+  draw(0);
+})();
+
 /* ---------- value screen filter ---------- */
 (function(){
   const body=document.getElementById('scBody');
@@ -1403,6 +1472,14 @@ def render(model) -> str:
                           "booked": booked.get("series", []),
                           "total": s.get("current"),
                           "realised": tax.get("realised", []),
+                          "exitrows": [{"t": x["ticker"], "n": x["name"], "q": x["qty"],
+                                        "sp": x["sell_price"], "sd": x["sell_date"],
+                                        "pr": x["proceeds"], "wn": x["worth_now"],
+                                        "sc": x["since"], "im": x["impact"]}
+                                       for x in ((model.get("exits") or {}).get("rows") or [])],
+                          "switchrows": (model.get("switches") or {}).get("matches") or [],
+                          "switchmeta": {k: (model.get("switches") or {}).get(k)
+                                         for k in ("fresh", "idle", "unpriced")},
                           "px": {r["ticker"]: {"name": r["name"], "qty": r["qty"],
                                                "avg": r.get("avg_cost"), "price": r["price"],
                                                "lots": [{"d": l.get("buy_date"), "p": l.get("buy_price"),
@@ -1711,30 +1788,39 @@ def render(model) -> str:
 
     <!-- ================ EXIT REPORT CARD ================ -->
     <section data-sec="exits">
+      <div class="panel" style="margin-bottom:16px">
+        <h2>🗓️ Period <span class="sp"></span><span class="muted" id="exWin" style="font-size:11.5px;font-weight:400"></span></h2>
+        <div class="rangebtns2" id="exRange" style="margin-bottom:0">
+          <button data-m="6">6 months</button><button data-m="12">1 year</button>
+          <button data-m="24">2 years</button><button data-m="36">3 years</button>
+          <button data-m="60">5 years</button><button data-m="0" class="on">All time</button>
+        </div>
+        <div class="muted" style="font-size:12px;margin-top:9px">Filters every number on this page by <b>the date you sold</b>. Returns are always measured to today, so a shorter window means less time for the verdict to develop.</div>
+      </div>
       <h2 style="font-size:15px;margin:0 2px 12px">1 · Did holding beat selling?</h2>
       <div class="cards">
-        <div class="card"><div class="k">Left on the table</div><div class="v down">{_inr(ex.get('left_on_table'))}</div><span class="muted" style="font-size:11px">shares you sold that are worth more today</span></div>
-        <div class="card"><div class="k">Saved by selling</div><div class="v up">{_inr(ex.get('saved'))}</div><span class="muted" style="font-size:11px">shares that fell after you got out</span></div>
-        <div class="card"><div class="k">Net verdict on exits</div><div class="v {_cls(ex.get('net'))}">{_inr(ex.get('net'))}</div><span class="muted" style="font-size:11px">positive means selling was, on balance, right</span></div>
-        <div class="card"><div class="k">Exits that still look right</div><div class="v">{('—' if ex.get('good_rate') is None else str(ex['good_rate']) + '%')}</div><span class="muted" style="font-size:11px">{ex.get('good',0)} of {ex.get('n',0)} priced sales</span></div>
+        <div class="card"><div class="k">Left on the table</div><div class="v down" id="exLeft">{_inr(ex.get('left_on_table'))}</div><span class="muted" style="font-size:11px">shares you sold that are worth more today</span></div>
+        <div class="card"><div class="k">Saved by selling</div><div class="v up" id="exSaved">{_inr(ex.get('saved'))}</div><span class="muted" style="font-size:11px">shares that fell after you got out</span></div>
+        <div class="card"><div class="k">Net verdict on exits</div><div class="v {_cls(ex.get('net'))}" id="exNet">{_inr(ex.get('net'))}</div><span class="muted" style="font-size:11px">positive means selling was, on balance, right</span></div>
+        <div class="card"><div class="k">Exits that still look right</div><div class="v" id="exRate">{('—' if ex.get('good_rate') is None else str(ex['good_rate']) + '%')}</div><span class="muted" style="font-size:11px" id="exRateSub">{ex.get('good',0)} of {ex.get('n',0)} priced sales</span></div>
       </div>
       <div class="warnbar">🎯 Booked P/L tells you a trade was green. This tells you whether <b>selling</b> was the right call — every closed lot measured against what those same shares fetch today.
       Measured as the stock's own return since your sale applied to what you received, so splits, bonuses and demergers between then and now do not distort it. {('' if not ex.get('unpriced') else f"{ex['unpriced']} sale(s) have no current price feed and are left out.")} <b>On its own this number is unfair</b> — it assumes the proceeds sat in cash. Section 2 fixes that.</div>
       <h2 style="font-size:15px;margin:22px 2px 12px">2 · Where the money went</h2>
       <div class="cards">
-        <div class="card"><div class="k">Capital recycled</div><div class="v" style="font-size:20px">{_inr(sw.get('recycled'))}</div><span class="muted" style="font-size:11px">sale proceeds matched to later purchases, oldest cash first</span></div>
-        <div class="card"><div class="k">What it is worth now</div><div class="v" style="font-size:20px">{_inr(sw.get('moved'))}</div><span class="muted" style="font-size:11px">value today of where you moved it</span></div>
-        <div class="card"><div class="k">Had you left it alone</div><div class="v" style="font-size:20px">{_inr(sw.get('stayed'))}</div><span class="muted" style="font-size:11px">same rupees, still in the stock you sold</span></div>
-        <div class="card"><div class="k">Verdict on switching</div><div class="v {_cls(sw.get('net'))}">{_inr(sw.get('net'))}</div><span class="muted" style="font-size:11px">{sw.get('wins',0)} of {sw.get('n',0)} switch pairs came out ahead</span></div>
+        <div class="card"><div class="k">Capital recycled</div><div class="v" style="font-size:20px" id="swCap">{_inr(sw.get('recycled'))}</div><span class="muted" style="font-size:11px">sale proceeds matched to later purchases, oldest cash first</span></div>
+        <div class="card"><div class="k">What it is worth now</div><div class="v" style="font-size:20px" id="swMoved">{_inr(sw.get('moved'))}</div><span class="muted" style="font-size:11px">value today of where you moved it</span></div>
+        <div class="card"><div class="k">Had you left it alone</div><div class="v" style="font-size:20px" id="swStayed">{_inr(sw.get('stayed'))}</div><span class="muted" style="font-size:11px">same rupees, still in the stock you sold</span></div>
+        <div class="card"><div class="k">Verdict on switching</div><div class="v {_cls(sw.get('net'))}" id="swNet">{_inr(sw.get('net'))}</div><span class="muted" style="font-size:11px" id="swNetSub">{sw.get('wins',0)} of {sw.get('n',0)} switch pairs came out ahead</span></div>
       </div>
-      <div class="warnbar">🔁 This is the answer to “but the money went into other shares”. Every sale fills a cash pool and every purchase draws from it, oldest rupees first; each matched pair is then scored on the two stocks' own returns from their own dates. Buying back the same stock is not counted as a switch. {_inr(sw.get('fresh'))} of purchases came from fresh capital, not sale proceeds, and is excluded. {_inr(sw.get('idle'))} of proceeds was never redeployed.</div>
+      <div class="warnbar">🔁 This is the answer to “but the money went into other shares”. Every sale fills a cash pool and every purchase draws from it, oldest rupees first; each matched pair is then scored on the two stocks' own returns from their own dates. Buying back the same stock is not counted as a switch. Across the whole record, {_inr(sw.get('fresh'))} of purchases came from fresh capital rather than sale proceeds and is excluded, and {_inr(sw.get('idle'))} of proceeds was never redeployed — those two figures are all-time and do not follow the period filter.</div>
       <div class="tablecard" style="margin-bottom:22px">
         <div class="controls"><b style="font-size:13px;padding:4px">Every switch, worst first</b>
           <span class="muted" style="font-size:11.5px;align-self:center">out of → into · what the move was worth</span></div>
         <table class="data" style="min-width:720px"><thead><tr>
           <th>Switch</th><th class="num">Capital</th><th class="num">Worth now</th>
           <th class="num">If unmoved</th><th class="num">Verdict</th>
-        </tr></thead><tbody>{sw_table}</tbody></table>
+        </tr></thead><tbody id="swBody">{sw_table}</tbody></table>
       </div>
       <h2 style="font-size:15px;margin:22px 2px 12px">3 · Every sale on its own</h2>
       <div class="tablecard">
@@ -1742,7 +1828,7 @@ def render(model) -> str:
         <table class="data" style="min-width:760px"><thead><tr>
           <th>Stock</th><th class="num">Qty</th><th class="num">You sold at</th><th class="num">Proceeds</th>
           <th class="num">Worth today</th><th class="num">Stock since</th><th class="num">Verdict</th>
-        </tr></thead><tbody>{ex_table}</tbody></table>
+        </tr></thead><tbody id="exBody">{ex_table}</tbody></table>
       </div>
     </section>
 

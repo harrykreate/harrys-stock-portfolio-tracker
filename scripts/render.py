@@ -1611,6 +1611,14 @@ def render(model) -> str:
           {viol_html}
         </div>
       </div>
+      <div class="tablecard" style="margin-bottom:14px">
+        <div class="controls"><b style="font-size:13px;padding:4px">📉 Averaging down — every time you added below your own average</b>
+          <span class="muted" style="font-size:11.5px;align-self:center">{ad.get('n',0)} instances · of the {ad.get('closed',0)} since closed, {ad.get('worked',0)} worked out, net {_inr(ad.get('net'))}</span></div>
+        <table class="data" style="min-width:780px"><thead><tr>
+          <th>Stock</th><th>Added on</th><th class="num">Qty</th><th class="num">At</th>
+          <th class="num">Average was</th><th class="num">Below</th><th class="num">How it ended</th>
+        </tr></thead><tbody>{ad_table}</tbody></table>
+      </div>
       <div class="panel" style="margin-bottom:14px">
         <h2>📖 Journal <span class="sp"></span><span class="muted" style="font-size:11px">{js_stats.get('weeks_covered','—')}/{js_stats.get('window','12')} recent weeks covered · {js_stats.get('entries_total',0)} entries</span></h2>
         <div class="muted" style="font-size:12.5px;margin-bottom:10px">Weekly, thesis-focused notes — price commentary alone doesn't count. Say what changed structurally, or say "no structural change."</div>

@@ -203,6 +203,11 @@ def fetch_long(holdings, start):
             continue
         if len(col):
             out["series"][by_sym[s]] = _align(col, data.index)
+    # the in-progress week has no close yet — drop trailing all-empty bars
+    while out["dates"] and all(v[-1] is None for v in out["series"].values()):
+        out["dates"].pop()
+        for v in out["series"].values():
+            v.pop()
     return out
 
 

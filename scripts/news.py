@@ -14,7 +14,7 @@ try:
 except Exception:  # pragma: no cover
     feedparser = None
 
-from engine import NEGATIVE_NEWS_KEYWORDS, POSITIVE_NEWS_KEYWORDS
+from engine import NEGATIVE_NEWS_KEYWORDS, POSITIVE_NEWS_KEYWORDS, _kw_hit
 from corporate import classify_event
 
 GOOGLE_NEWS = "https://news.google.com/rss/search?q={q}&hl=en-IN&gl=IN&ceid=IN:en"
@@ -22,13 +22,11 @@ MAX_ITEMS = 4
 
 
 def _is_negative(title: str) -> bool:
-    t = title.lower()
-    return any(k in t for k in NEGATIVE_NEWS_KEYWORDS)
+    return _kw_hit(title, NEGATIVE_NEWS_KEYWORDS)
 
 
 def _is_positive(title: str) -> bool:
-    t = title.lower()
-    return any(k in t for k in POSITIVE_NEWS_KEYWORDS)
+    return _kw_hit(title, POSITIVE_NEWS_KEYWORDS)
 
 
 def fetch_news(name: str, ticker: str, max_items: int = MAX_ITEMS):

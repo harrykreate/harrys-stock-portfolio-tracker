@@ -43,6 +43,29 @@ POSITIVE_NEWS_KEYWORDS = [
     "upside", "turnaround", "highest ever", "doubles",
 ]
 
+# Headline matching is word-boundary aware. Plain substring search flagged
+# every headline containing "Bank" as negative, because "ban" sits inside it —
+# 39 of 60 negative flags in one live run, concentrated on exactly the banks
+# and NBFCs this portfolio is built around. "sue" inside "issue"/"pursue" and
+# "loss" inside "stop loss" did the same.
+NEWS_EXCLUDE = [
+    "stop loss", "stop-loss", "profit and loss", "profit & loss",
+    "no loss", "cut to buy", "cut to add",
+]
+
+
+def _kw_hit(title, keywords):
+    """True if any keyword appears as a whole word (or whole phrase)."""
+    import re
+    t = " " + re.sub(r"[^a-z0-9%&₹.\- ]+", " ", (title or "").lower()) + " "
+    for bad in NEWS_EXCLUDE:
+        t = t.replace(bad, " ")
+    for k in keywords:
+        if re.search(r"(?<![a-z])" + re.escape(k) + r"(?:s|es|d|ed|ned)?(?![a-z])", t):
+            return True
+    return False
+
+
 NEGATIVE_NEWS_KEYWORDS = [
     "fraud", "probe", "raid", "scam", "default", "downgrade", "cut to",
     "resign", "resigns", "resignation", "penalty", "fine", "lawsuit", "sue",

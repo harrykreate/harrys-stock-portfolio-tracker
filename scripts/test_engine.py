@@ -75,3 +75,29 @@ out9 = engine.analyse_holding(h6, [], [{"title": "Board to consider bonus issue"
 assert any(s["type"] == "corp_event" for s in out9["signals"])
 
 print("All engine tests passed.")
+
+
+def test_news_keyword_boundaries():
+    """Substring matching flagged every 'Bank' headline negative via 'ban'."""
+    from engine import NEGATIVE_NEWS_KEYWORDS as NEG, _kw_hit
+    should_not = [
+        "Technical Call: ICICI Bank - BUY - BusinessLine",
+        "Federal Bank Q1 results: Net profit jumps 37% to Rs 1,177 crore",
+        "Apollo Hospitals: Stocks to trade - Targets, stop loss & more",
+        "Bajaj Finserv board approves plan to pursue re-insurance",
+        "Power Finance Corp to raise Rs 5,000 crore via public issue of bonds",
+    ]
+    should = [
+        "India's FSSAI bans select United Spirits whisky and rum",
+        "BPCL posts Rs 3,962 crore Q1 loss as crude squeezes margins",
+        "CG Power Q1 profit surges 27%; auditor resigns",
+        "Muthoot Finance crashes 11%; Jefferies downgrades stock",
+    ]
+    for t in should_not:
+        assert not _kw_hit(t, NEG), f"false negative flag: {t}"
+    for t in should:
+        assert _kw_hit(t, NEG), f"missed real negative: {t}"
+
+
+test_news_keyword_boundaries()
+print("News keyword boundary tests passed.")

@@ -126,7 +126,8 @@
         "alpha": {
           "mine": -24.6,
           "index": 12.3,
-          "alpha": -36.9
+          "alpha": -36.9,
+          "approx": true
         }
       },
       {
@@ -208,7 +209,8 @@
         "alpha": {
           "mine": -6.0,
           "index": 64.4,
-          "alpha": -70.4
+          "alpha": -70.4,
+          "approx": true
         }
       },
       {
@@ -292,6 +294,14 @@
         "cross": null,
         "news": [
           {
+            "title": "Weekly Recap: NSE:TCS Q1 FY27 profit & revenue gain and 2026 dividend plan - TradingView",
+            "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNNEttcGFteUlwSnFwazFid1ZrNVQ2cnE4WHVtUE9ZWFBSWXNqRV9kQllUeVFpc0dVcjJ2MEQyNzFrVUpjLTdnVzEwQ0c2eWNOLTd3dHJHdkxlMjM2M0VRNzZjYjM1WGJ5amZEQmFlUlVsZ2VLdWdrWEFxMGdkc1FLcGZxT2xRNW5FRXloOXhZa3RlUXhINXV6XzlTaW5FYkpjSGZReXRsNE1FMVpBZDlrc2NwczlFcnJwREhUaHVNRDFBX2duajFqQ25FUVdRZw?oc=5",
+            "published": "03 Aug 2026",
+            "negative": false,
+            "positive": false,
+            "event": "dividend"
+          },
+          {
             "title": "Tata Consultancy Services shares rise 2.09% to Rs 2,415 - Moneycontrol.com",
             "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSU4yRjVKMzZfcTRVVVVMRDJUUENhM09Rc0tmRnhCZHZTWjd1ZUYwMUc4aEpCczJiQTM1M2IxLTNzaUd0VTFYOTN0UXZnUlktMGlZbzZja1M3OXhSMnZRYlhoWUllVUsxcTFXdHp6M1B6S2dTeVBfQTFRYU0xVmg5RVBqa0xqdEd5Q1Iya3BnMkQ2MG5yUVkyOWlBMkhxNC1ZU003WDJDeEE3TTZLeU9KcTIwZFhZcHVvTEp3a2NrVjBsaFo0SnlKeDFKWHZhWjk0ZXfSAdIBQVVfeXFMUElOMkY1SjM2X3E0VVVVTEQyVFBDYTNPUXNLZkZ4QmR2U1o3dWVGMDFHOGhKQnMyYkEzNTNiMS0zc2lHdFUxWDkzdFF2Z1JZLTBpWW82Y2tTNzl4UjJ2UWJYaFlJZVVLMXExV3R6ejNQektnU3lQX0ExUWFNMVZoOUVQamtManRHeUNSMmtwZzJENjBuclFZMjlpQTJIcTQtWVNNN1gyQ3hBN002S3lPSnEyMGRYWXB1b0xKd2tja1YwbGhaNEp5SngxSlh2YVo5NGV3?oc=5",
             "published": "03 Aug 2026",
@@ -314,14 +324,6 @@
             "negative": false,
             "positive": false,
             "event": null
-          },
-          {
-            "title": "Tata Consultancy Services Shares Climb 4% As Q1 Earnings Exceed Estimates - HDFC Sky",
-            "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONU9yWlo5RUlIZ3JOR0VZUmdaN2J5RHVGalMwX1BuUUhHUTMxM2ptT2doeWtyNWtydktZVEhvVWxfRWdkTDl0OW5RV21pWDlUUloyRTRlRVBHdFMwZXBHY3ZzTmJndm9SM2tSd1NtX3JsSlVPVjQ3WVo1cjUtcEp2NUtWSU5jQQ?oc=5",
-            "published": "10 Jul 2026",
-            "negative": false,
-            "positive": false,
-            "event": "earnings"
           }
         ],
         "signals": [
@@ -333,7 +335,7 @@
           {
             "type": "corp_event",
             "level": "info",
-            "text": "Announcement: dividend, earnings"
+            "text": "Announcement: dividend"
           },
           {
             "type": "no_thesis",
@@ -350,7 +352,8 @@
         "alpha": {
           "mine": 8.0,
           "index": 0.5,
-          "alpha": 7.5
+          "alpha": 7.5,
+          "approx": false
         }
       },
       {
@@ -494,7 +497,8 @@
         "alpha": {
           "mine": 18.0,
           "index": 3.5,
-          "alpha": 14.4
+          "alpha": 14.4,
+          "approx": false
         }
       },
       {
@@ -634,7 +638,8 @@
         "alpha": {
           "mine": 1229.4,
           "index": 64.4,
-          "alpha": 1165.0
+          "alpha": 1165.0,
+          "approx": true
         }
       }
     ],
@@ -720,7 +725,7 @@
             "event": null
           },
           {
-            "title": "Apollo Hospitals Shares hit fresh 52-week high of \u20b98,330.00 After Strong Q4 Growth and Strategic Expansion - indiainfoline.com",
+            "title": "Apollo Hospitals Shares hit fresh 52-week high of \u20b98,330.00 After Strong Q4 Growth and Strategic Expansion - India Infoline",
             "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQOWNBWVllUnNYN3Zza1g1OTlJUGFuVGdWLTFqc19Tem9MOF9OT1htdlZnOVRNc3g1MEhzdXJKRUxfZW5EMEZ3RkFyZWNFUkh0QVIxODZZZURwMG93MTRSNDdlWnUxUEhiSDBkMXI5V0FraHNKNUF6VTdzMUZENmItUjZob2JlRGt3ZDlOS3puS1M0ZnRGYTVsWTQ3eF9XRDBxSUNpTW5QSV93MS1MLXRzWlpNWXFkM3dvQndKaDRGeU9TRl9vd0FweV9ldHR4SnVITjhuMzBGcUhhY3kxYU9oMm1rcw?oc=5",
             "published": "21 May 2026",
             "negative": false,
@@ -765,7 +770,8 @@
         "alpha": {
           "mine": 2.0,
           "index": 3.5,
-          "alpha": -1.5
+          "alpha": -1.5,
+          "approx": false
         }
       },
       {
@@ -889,7 +895,8 @@
         "alpha": {
           "mine": -8.2,
           "index": 3.5,
-          "alpha": -11.8
+          "alpha": -11.8,
+          "approx": false
         }
       },
       {
@@ -971,7 +978,8 @@
         "alpha": {
           "mine": -69.1,
           "index": 64.4,
-          "alpha": -133.5
+          "alpha": -133.5,
+          "approx": true
         }
       },
       {
@@ -1043,7 +1051,7 @@
         "cross": null,
         "news": [
           {
-            "title": "Kalyan Jewellers Shines at 52-Week High Amid Strong Demand and Expansion Momentum - indiainfoline.com",
+            "title": "Kalyan Jewellers Shines at 52-Week High Amid Strong Demand and Expansion Momentum - India Infoline",
             "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNMXZjeFJfRXA3ZjB2N3JMM2c2dDNOZEhMSFd4Y05aRk1zSDQ5VHhpWG5OUWVlc0hWUk8yMzZyeXNJS0ZmTGdWajdEY2k3eVhSZWpJSUJrcnJ3V2VkX2ZaZTk4YVdHZU5RWERFQ1RBdjk5Q3NQTFotbnBVc014U0lUeVNJQVV1UkQzMEVlbGJsWHBZMjdtQlhnaFUybnZ6S2h1Q2cyVVk4dVdoMDNMRkJsUS1GbmhPTW9lNlozVHZoOF9ORWpk?oc=5",
             "published": "29 Jul 2026",
             "negative": false,
@@ -1101,7 +1109,8 @@
         "alpha": {
           "mine": 52.8,
           "index": 5.3,
-          "alpha": 47.5
+          "alpha": 47.5,
+          "approx": false
         }
       },
       {
@@ -1185,7 +1194,7 @@
             "event": null
           },
           {
-            "title": "Tech Mahindra\u2019s Strategic Partnerships Signal a Shift in AI Workforce Dynamics - The Futurum Group",
+            "title": "Tech Mahindra\u2019s Strategic Partnerships Signal a Shift in AI Workforce Dynamics - futurumgroup.com",
             "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPOEkwRHpiUDI2ZGtlVGNham5zRHl3bURwVUgzSXhLdGYyZTU2Zmx1eVRXQV94RmVpNmRWZkhGOWpuTWhDYXFzR19tRXZKeWlnQThnSEt4bzZfbDJITDZyQ3pBVV9lM3JTWVJnX0hFaFpXV01ZM1JVZDByNklYXzU2TDV6aHhub1BybzE0Rlhwbnk5YVluS1JDMVlZeHFrVnFDZkJVTzZNYUtERFdxeVFSNEdn?oc=5",
             "published": "02 Aug 2026",
             "negative": false,
@@ -1235,7 +1244,8 @@
         "alpha": {
           "mine": 10.6,
           "index": 12.3,
-          "alpha": -1.7
+          "alpha": -1.7,
+          "approx": true
         }
       }
     ],
@@ -1377,7 +1387,8 @@
         "alpha": {
           "mine": 18.5,
           "index": 3.5,
-          "alpha": 14.9
+          "alpha": 14.9,
+          "approx": false
         }
       },
       {
@@ -1521,7 +1532,8 @@
         "alpha": {
           "mine": 18.0,
           "index": 3.5,
-          "alpha": 14.4
+          "alpha": 14.4,
+          "approx": false
         }
       },
       {
@@ -1593,7 +1605,7 @@
         "cross": null,
         "news": [
           {
-            "title": "Kalyan Jewellers Shines at 52-Week High Amid Strong Demand and Expansion Momentum - indiainfoline.com",
+            "title": "Kalyan Jewellers Shines at 52-Week High Amid Strong Demand and Expansion Momentum - India Infoline",
             "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNMXZjeFJfRXA3ZjB2N3JMM2c2dDNOZEhMSFd4Y05aRk1zSDQ5VHhpWG5OUWVlc0hWUk8yMzZyeXNJS0ZmTGdWajdEY2k3eVhSZWpJSUJrcnJ3V2VkX2ZaZTk4YVdHZU5RWERFQ1RBdjk5Q3NQTFotbnBVc014U0lUeVNJQVV1UkQzMEVlbGJsWHBZMjdtQlhnaFUybnZ6S2h1Q2cyVVk4dVdoMDNMRkJsUS1GbmhPTW9lNlozVHZoOF9ORWpk?oc=5",
             "published": "29 Jul 2026",
             "negative": false,
@@ -1651,7 +1663,8 @@
         "alpha": {
           "mine": 52.8,
           "index": 5.3,
-          "alpha": 47.5
+          "alpha": 47.5,
+          "approx": false
         }
       }
     ],
@@ -1793,7 +1806,134 @@
         "alpha": {
           "mine": 1229.4,
           "index": 64.4,
-          "alpha": 1165.0
+          "alpha": 1165.0,
+          "approx": true
+        }
+      },
+      {
+        "ticker": "VAML",
+        "name": "Vedanta Aluminium (demerger)",
+        "yahoo_symbol": "VAML.NS",
+        "qty": 1220.0,
+        "buy_date": "2021-03-31",
+        "seed_price": 435.6,
+        "sector": "Metals",
+        "target_price": null,
+        "stop_loss": null,
+        "notes": "from 17-Apr-26 VEDL purchase (demerger-inherited)",
+        "lots": [
+          {
+            "qty": 720.0,
+            "buy_price": 37.96,
+            "buy_date": "2021-03-31"
+          },
+          {
+            "qty": 500.0,
+            "buy_price": 37.96,
+            "buy_date": "2026-04-17"
+          }
+        ],
+        "avg_cost": 37.96,
+        "price": 459.95001220703125,
+        "prev_close": 454.20001220703125,
+        "has_price": true,
+        "discipline": {
+          "stage": "",
+          "thesis": "",
+          "proof_metric": "",
+          "kill_condition": "",
+          "review_date": "",
+          "horizon_quarters": ""
+        },
+        "months_held": 64,
+        "tax_status": "LTCG",
+        "health": 40,
+        "corp": {
+          "dividends": [],
+          "splits": [],
+          "next_earnings": null,
+          "q_revenue": 211050000000.0,
+          "q_profit": 56290000000.0,
+          "rev_yoy": null,
+          "profit_yoy": null,
+          "q_label": "Jun 2026",
+          "pe": 46.648075,
+          "pb": null,
+          "roe": null,
+          "de": null,
+          "mcap": 1795716415488.0,
+          "wk_high": 537.0,
+          "wk_low": 423.15,
+          "div_yield": 3.52
+        },
+        "invested": 46311.2,
+        "current": 561139.01,
+        "pnl": 514827.81,
+        "pnl_pct": 1111.67,
+        "day_pct": 1.27,
+        "sma_fast": null,
+        "sma_slow": null,
+        "rsi": 52.2,
+        "ret_6m": null,
+        "trend": null,
+        "cross": null,
+        "news": [
+          {
+            "title": "Vedanta Aluminium Demerger Creates Five Independent Entities in 2026 - discoveryalert.com.au",
+            "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSDBsanRZOE9hNFRNMV9kRTJrUDhhSkZkMVNVUW5qV2oxRGZJdUlGQmJxTkUxbkpQblRITUxSbUdURkczdTB0Z2Y0al8zZ3lBUE8xVmRVVUpOc1M2V3BPRDlHcUdxbXdibFFvV29KNzFwQXJlbVdWeDdKYzB1Ym5wYmVUVWs4SVhS?oc=5",
+            "published": "23 Apr 2026",
+            "negative": false,
+            "positive": false,
+            "event": "demerger"
+          },
+          {
+            "title": "Vedanta Aluminium Business Poised to Shine in Four-Way Demerger Listing - Segment Revenue Breakdown - dars.gov.et",
+            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcXVwOGI1LVdETm82RXltelFmR0ZSMDZNQzQ1QnFpQWJRcVBJS2Zud01uZXJieDZVWlNGS3BVT01DVDZXT1pFdnZMMmRVYmNLOTFrd0V1em1Gdml1b2NLd2ZGMTlZRnRIR3hGRk52YWNrNGtJeDBuQnVTVEVYSnFoVkV3Ny1lWnZReWpKbl94RmJ0Vjh5MXlzdWxKVWV0RDZ6NjNsanNrOUItaVpBeHdjbHYzc24?oc=5",
+            "published": "14 Jun 2026",
+            "negative": false,
+            "positive": false,
+            "event": "demerger"
+          },
+          {
+            "title": "The Vedanta Playbook: Which newly listed stock offers the purest long-term value play? - financialexpress.com",
+            "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQZWZ5OHBCcEFKUEd0STUzU0w3b3J4TWJXWThLM2FCY21sM1dPencxQXhwX2t6MTlhNFh5a0l3M0hwdTdrd2pIaWlURXc2aW5ZUldLbk84WllGOXhBQ3pKeW5ac3pMYWlyak8xbzMxaXI2SV9UVUdDM0FxNUVsbk5kLUl6RmhKU0ZLVmNBYktpNEliai1PNmQxMTVPWVpzYUhUV2Etc0FNdV9MUUVad3dLZy1BRC1TVGdKSnp5VXYwLTNvYnRtNEpsV1lRN3Fjd9IB1AFBVV95cUxNTzZ2YVI1djdQV0xZOXdScHo2NFdTMldIUU5PVUVCN1psVnJSVXh1MHlRZWdLZ1VJaFlwdXhWeHpfN0M2QXB2Y0d4cFBxRkdWMUNKbE5CWm1ydkdubzg3WWZ3U3c2RlpabzJiTnA4eHJvZGwxU1dqSXV6SXpHdUpwRUVmVDN4M1dqTzVjNUctbjBQZ1BKclhEcEd3ZnhlRzA1c3NYR2N1UVotamlrTHNGanc2TURlUEx1a1hNbHBobWw4OFhyMTAtbnhidmpNcURHQ0NIcA?oc=5",
+            "published": "18 Jun 2026",
+            "negative": false,
+            "positive": false,
+            "event": null
+          },
+          {
+            "title": "HDFC Bank: Why Nomura and Motilal Oswal see 23% to 38% upside after slew of RBI measures - financialexpress.com",
+            "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNSnhjcDB2YXJEQlFkaFktTEtiTy1mRFgxb19USGdGRFR1bUlqY2gzRE4zcWVJRUdlM0lPLTZkcUlxdDhRQ1dDN3hqanBvS3FEYVkyWTBWZENpVHVUMUROVlhTblJGa1g0SFVTMm1mVS1mNmVDN3hDdmxtVzNnVEVCMWRSSllEUHlMTE9iNTF2aElueDFsTkZmRFVFc0c3bzhaMzROZ1Y4Q2t1VzhzcUo5TGFRYkotcTdselpjWDNHcW1LRDVkQUtlQkF1MGJHOGctNU9FbNIB2wFBVV95cUxPdkplYTlhNEZVLUYxdE1tZy1WVHJjOC1LZUltTXJNWmQydU9LVWFGTmxXT2VJZmZGUzh5MHFOMFVsLVVRTkQwSVJvN3ROWmVqQlRJcUowLVdGYVhNVV9GUjZ6X3JEdVhlRURDaGlLejZtaG1WcGJaN2lUOHNfTGVlR256SGY0Wm8wb0o5XzBvaXZsbTZtUjNtdlRpaWRvUkdjSXdrdGtvaFdLQU9HVzQ1bUNuendpc2E5NnY5eDQ4QTVURjI0dm9xZ1RjOTFOY0I4X2tmYUE3R3ktVDQ?oc=5",
+            "published": "15 Jun 2026",
+            "negative": true,
+            "positive": false,
+            "event": null
+          }
+        ],
+        "signals": [
+          {
+            "type": "issue_watch",
+            "level": "warn",
+            "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+          },
+          {
+            "type": "corp_event",
+            "level": "info",
+            "text": "Announcement: demerger"
+          },
+          {
+            "type": "no_thesis",
+            "level": "info",
+            "text": "No written thesis \u2014 add one in \u270e Discipline"
+          }
+        ],
+        "pct_of_portfolio": 5.2,
+        "alpha": {
+          "mine": 1111.7,
+          "index": 64.4,
+          "alpha": 1047.3,
+          "approx": true
         }
       },
       {
@@ -1918,7 +2058,8 @@
         "alpha": {
           "mine": 0.3,
           "index": 6.5,
-          "alpha": -6.1
+          "alpha": -6.1,
+          "approx": false
         }
       },
       {
@@ -2002,7 +2143,7 @@
             "event": null
           },
           {
-            "title": "Apollo Hospitals Shares hit fresh 52-week high of \u20b98,330.00 After Strong Q4 Growth and Strategic Expansion - indiainfoline.com",
+            "title": "Apollo Hospitals Shares hit fresh 52-week high of \u20b98,330.00 After Strong Q4 Growth and Strategic Expansion - India Infoline",
             "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQOWNBWVllUnNYN3Zza1g1OTlJUGFuVGdWLTFqc19Tem9MOF9OT1htdlZnOVRNc3g1MEhzdXJKRUxfZW5EMEZ3RkFyZWNFUkh0QVIxODZZZURwMG93MTRSNDdlWnUxUEhiSDBkMXI5V0FraHNKNUF6VTdzMUZENmItUjZob2JlRGt3ZDlOS3puS1M0ZnRGYTVsWTQ3eF9XRDBxSUNpTW5QSV93MS1MLXRzWlpNWXFkM3dvQndKaDRGeU9TRl9vd0FweV9ldHR4SnVITjhuMzBGcUhhY3kxYU9oMm1rcw?oc=5",
             "published": "21 May 2026",
             "negative": false,
@@ -2047,7 +2188,8 @@
         "alpha": {
           "mine": 2.0,
           "index": 3.5,
-          "alpha": -1.5
+          "alpha": -1.5,
+          "approx": false
         }
       },
       {
@@ -2181,7 +2323,8 @@
         "alpha": {
           "mine": -2.0,
           "index": -0.3,
-          "alpha": -1.7
+          "alpha": -1.7,
+          "approx": false
         }
       },
       {
@@ -2330,7 +2473,8 @@
         "alpha": {
           "mine": 13.1,
           "index": -4.6,
-          "alpha": 17.7
+          "alpha": 17.7,
+          "approx": false
         }
       },
       {
@@ -2405,7 +2549,7 @@
             "event": null
           },
           {
-            "title": "Nippon India Gold BeES logs $1.08 bn inflows, 6.6 tonnes gold demand; ranks 6th globally - fortuneindia.com",
+            "title": "Nippon India Gold BeES logs $1.08 bn inflows, 6.6 tonnes gold demand; ranks 6th globally - Fortune India",
             "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUmNyeURJRWctUTRja1pXYnA5MDY1VzZINk5rLVNUVERYTlBQUzhJVTBoRE01d3c1YVFTVV9oVWx6QVlhaXBwSEVTS2o0OE0xcTVlTHExT1M0ZDRiMGVHZ0VmY3ZYaGN2eE12bG8tYUVvOTRVMG1NdGo0NC11Q1hWSkhkT1lsX2xkODRTWkdZRnFJQ1U2RDVNRnB0Y1VabHVyOVBGNGx0aS10Q2ZvVkhNNnJqcU11LXFVU0RIZWd0X2ZTYnJuTDR2WUJIRmVoVWpuU2fSAd8BQVVfeXFMTjQ2MnNJYUI4UVc2VG1RYTg5b2VSX2dXY09NOHc3bGF3Tm43YkVtMUtoOTBfanpOUE1wSzg1aWRWVThMcG5KR0k2ZVJmSGVSZEdNajFkRG9JVFNrek5WSUJJMy1fQmFLN1ZUVnN4cjd4MDQtZUZvaFR0bVBTX2RUSW15LUZjblR0bW8xRUxVSEQ0UlZmZkUtYjBCekFxOGtaaWxYNURBQ3BYY2Q0UmI3N00wWFVSU2NWVlltWjhvWnl5T1lfVGJOUzdDMmNfa1BWNGwtV3BweWtnR0VVbFdfYw?oc=5",
             "published": "24 Mar 2026",
             "negative": false,
@@ -2450,7 +2594,8 @@
         "alpha": {
           "mine": -15.3,
           "index": -5.1,
-          "alpha": -10.2
+          "alpha": -10.2,
+          "approx": false
         }
       },
       {
@@ -2590,7 +2735,8 @@
         "alpha": {
           "mine": 18.5,
           "index": 3.5,
-          "alpha": 14.9
+          "alpha": 14.9,
+          "approx": false
         }
       },
       {
@@ -2710,7 +2856,8 @@
         "alpha": {
           "mine": 13.8,
           "index": -6.1,
-          "alpha": 19.8
+          "alpha": 19.8,
+          "approx": false
         }
       },
       {
@@ -2801,7 +2948,7 @@
             "event": "q1 results"
           },
           {
-            "title": "Why Suzlon Energy shares plunged more than 9% after Q1 results - fortuneindia.com",
+            "title": "Why Suzlon Energy shares plunged more than 9% after Q1 results - Fortune India",
             "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxORUZuNmN2VG5mbFpJT2tJZms2VzF3TmZkNElrajlKNWtjX2xweGYxUzg2c1Z3SGJXMk5wbDRzTjA5UHpseDVISkgyUDlILUlobVZLalByTVJ0X2xQa0Y4cURnS3o4OG94YlhiX1VmdktwMDBZaHp0NnBEZHdaaWp5RUk2S3Y4QzdoQklUN0U2MjRuUTRDVzdwd1I0OGV0a1o2aV9Vb0ZR0gGzAUFVX3lxTE5wMmY1WDhwOFhQZW51RGJNNUFtd2ptNWxVa2gwTERXelJUT1lISU5YMDhlYWRKQVpMVnlZWDQtNmtWTTEtaDh0ZWdDeWFSdk04U0Y1aU9meFM4UldZOUdYeTA5ZEJEZngxR1h0SzZ4dG1Bcm94dHlTbFUwVWRDYjdxMm9GM0YwX1hpNzc5d0l6eVdmZkktVkpRcGhlcGpNT1FoenlhNGxvb3AzNEtiVkx3X2xz?oc=5",
             "published": "28 Jul 2026",
             "negative": true,
@@ -2840,7 +2987,8 @@
         "alpha": {
           "mine": -8.8,
           "index": 3.5,
-          "alpha": -12.3
+          "alpha": -12.3,
+          "approx": false
         }
       },
       {
@@ -2970,7 +3118,8 @@
         "alpha": {
           "mine": -3.8,
           "index": 2.0,
-          "alpha": -5.9
+          "alpha": -5.9,
+          "approx": false
         }
       },
       {
@@ -3042,7 +3191,7 @@
         "cross": null,
         "news": [
           {
-            "title": "Kalyan Jewellers Shines at 52-Week High Amid Strong Demand and Expansion Momentum - indiainfoline.com",
+            "title": "Kalyan Jewellers Shines at 52-Week High Amid Strong Demand and Expansion Momentum - India Infoline",
             "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNMXZjeFJfRXA3ZjB2N3JMM2c2dDNOZEhMSFd4Y05aRk1zSDQ5VHhpWG5OUWVlc0hWUk8yMzZyeXNJS0ZmTGdWajdEY2k3eVhSZWpJSUJrcnJ3V2VkX2ZaZTk4YVdHZU5RWERFQ1RBdjk5Q3NQTFotbnBVc014U0lUeVNJQVV1UkQzMEVlbGJsWHBZMjdtQlhnaFUybnZ6S2h1Q2cyVVk4dVdoMDNMRkJsUS1GbmhPTW9lNlozVHZoOF9ORWpk?oc=5",
             "published": "29 Jul 2026",
             "negative": false,
@@ -3100,7 +3249,8 @@
         "alpha": {
           "mine": 52.8,
           "index": 5.3,
-          "alpha": 47.5
+          "alpha": 47.5,
+          "approx": false
         }
       }
     ],
@@ -3242,7 +3392,8 @@
       "alpha": {
         "mine": 11.5,
         "index": -0.3,
-        "alpha": 11.8
+        "alpha": 11.8,
+        "approx": false
       }
     },
     {
@@ -3377,7 +3528,8 @@
       "alpha": {
         "mine": 18.3,
         "index": -5.2,
-        "alpha": 23.5
+        "alpha": 23.5,
+        "approx": false
       }
     },
     {
@@ -3497,7 +3649,8 @@
       "alpha": {
         "mine": 141.7,
         "index": 64.4,
-        "alpha": 77.3
+        "alpha": 77.3,
+        "approx": true
       }
     },
     {
@@ -3626,7 +3779,8 @@
       "alpha": {
         "mine": 7.5,
         "index": -6.1,
-        "alpha": 13.6
+        "alpha": 13.6,
+        "approx": false
       }
     },
     {
@@ -3756,7 +3910,8 @@
       "alpha": {
         "mine": 51.7,
         "index": 64.4,
-        "alpha": -12.7
+        "alpha": -12.7,
+        "approx": true
       }
     },
     {
@@ -3896,7 +4051,8 @@
       "alpha": {
         "mine": 1229.4,
         "index": 64.4,
-        "alpha": 1165.0
+        "alpha": 1165.0,
+        "approx": true
       }
     },
     {
@@ -3936,7 +4092,7 @@
       },
       "months_held": 64,
       "tax_status": "LTCG",
-      "health": 55,
+      "health": 40,
       "corp": {
         "dividends": [],
         "splits": [],
@@ -3992,15 +4148,20 @@
           "event": null
         },
         {
-          "title": "Motilal Oswal initiates coverage on Tata Capital \u2013 Here\u2019s what makes this Tata Group NBFC different - financialexpress.com",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQNHU3SDRBRGE3RklNdVhQYzN1M3NnRVd5VUhiRVBhQnhWTlFIaTZyMm5PU3dxSDgxWTIwYURNLXZRajNoc3o1bXBzaEtwSUtKT2xTNFZzU2JnYmNnWldNcXlkX084SjQ5RkMtSDhUQlN2SmV2dnNHazJvV2JKWk9iVXBBTmxrZWQxMWZfLURoTFg5bFRZWGl6MmlvbFVNODUycDhILXAzWndkS2tGVjI0TDMwa1M2T3h0R3VpZEVldVN2VDlOaV9HS1JTNGtUa1hJam0tNzBnOEZDaHhiMFHSAeQBQVVfeXFMTVd3NEtiU3BEM3kzS1JONXpXcDA2RVhMaUZoSXo4aVlIZzlvQTFESzNLbG5nZlJBaDYyTG8tNy15ZTFtejF2TDRFREM2bUc5ZlZXRndHSXp3NktOR3hPZU9DclNwWU9BcENuR19tSTdPVWJZSjdhRHcydzlkN0VVWHVnaDBCZE1Ya3NaU3hod0FmVnNVUE1pVkl2VUp1N0ZYOERwUnNNLTNKR1Y2a3N3NDlScGJtWV9kamVOcEZzSVVUYmxZU1ZfaHMxM1UzdHI0Tml6MDlJUTQtMFVyLWdXOVN0Z09t?oc=5",
-          "published": "30 Jun 2026",
-          "negative": false,
+          "title": "HDFC Bank: Why Nomura and Motilal Oswal see 23% to 38% upside after slew of RBI measures - financialexpress.com",
+          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNSnhjcDB2YXJEQlFkaFktTEtiTy1mRFgxb19USGdGRFR1bUlqY2gzRE4zcWVJRUdlM0lPLTZkcUlxdDhRQ1dDN3hqanBvS3FEYVkyWTBWZENpVHVUMUROVlhTblJGa1g0SFVTMm1mVS1mNmVDN3hDdmxtVzNnVEVCMWRSSllEUHlMTE9iNTF2aElueDFsTkZmRFVFc0c3bzhaMzROZ1Y4Q2t1VzhzcUo5TGFRYkotcTdselpjWDNHcW1LRDVkQUtlQkF1MGJHOGctNU9FbNIB2wFBVV95cUxPdkplYTlhNEZVLUYxdE1tZy1WVHJjOC1LZUltTXJNWmQydU9LVWFGTmxXT2VJZmZGUzh5MHFOMFVsLVVRTkQwSVJvN3ROWmVqQlRJcUowLVdGYVhNVV9GUjZ6X3JEdVhlRURDaGlLejZtaG1WcGJaN2lUOHNfTGVlR256SGY0Wm8wb0o5XzBvaXZsbTZtUjNtdlRpaWRvUkdjSXdrdGtvaFdLQU9HVzQ1bUNuendpc2E5NnY5eDQ4QTVURjI0dm9xZ1RjOTFOY0I4X2tmYUE3R3ktVDQ?oc=5",
+          "published": "15 Jun 2026",
+          "negative": true,
           "positive": false,
           "event": null
         }
       ],
       "signals": [
+        {
+          "type": "issue_watch",
+          "level": "warn",
+          "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+        },
         {
           "type": "corp_event",
           "level": "info",
@@ -4016,7 +4177,8 @@
       "alpha": {
         "mine": 1111.7,
         "index": 64.4,
-        "alpha": 1047.3
+        "alpha": 1047.3,
+        "approx": true
       }
     },
     {
@@ -4117,12 +4279,12 @@
           "event": "financial results"
         },
         {
-          "title": "Price to book forward of Indian Hotels Co. Ltd. \u2013 NSE:INDHOTEL - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPNjFVRHpuWEJCMG1RWFRjYUV3RTJnNjZqWHZpYUR1N1BUdGF1QWoyTHVfNXdpcVpPTUxmY0xZaUtKVGo4dGNvdlFyNjd0ZjdVX0ZtT2NaQmU3V0JnSlVBMWhJMmg2Z2hDQUctU1MySm5WQ1hxa29vOXlOZnAycUwxV0plX3lKM1ZtblVsRUhGeGhCRkM2ZlViLXlSOXJUZw?oc=5",
-          "published": "28 Jul 2026",
+          "title": "Indian Hotels Q1 Results: Profit Jumps 27% As Margins Improve; Revenue Crosses Rs 2,300 Crore - NDTV Profit",
+          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPWHFTdWEyajVsakd2bHpFaTEyWFQyTVNfVUNWdVBJZHp4WVdwd2IxdlEwUzFlQkVyZEtGNlhLR1BGdmdpRlM4cFU3NjMxMWFEN056X2tZNWtRZDdxa2ZzZzV5djVTWWxObjhlNVMxY0txRUlteGYyMzgwT3ZMYTROdk03THRTamN3ZDV5dWpzUG1xajdFa25mVGx5a2ZzR0xFcGRicElIWXA5S3ItenVzQjg5Z2VaTTBmTnIzUkVaM3pNd29JdXB6aEMxMDZqakXSAdcBQVVfeXFMTkVGTkIyT2ltT1BfSFpsUGF6cU1pQmd0bWVRS1doRUdIXzNUN3BuOW1iaHl5d2cxVVhteEhaOUtHRUtHZmlmMGM2dF9KVnBHNlJ0NjVLSl82ek1QNloyRmFjcUJJVi1wcFFsUFhZems3SlFGUnRKWGFLN0xHMmR3b0JlX0pFTkdiZDRRVUpSVzdYZ2l5UjVhREtUcEtsT0tDNVgwTzZGbVVpQUlMTzQxWEdxWFQ3dEdkTDlxYS1kTUhkRkRkeUtRRXk5XzRndmpOa0xWWXRKcjA?oc=5",
+          "published": "21 Jul 2026",
           "negative": false,
-          "positive": false,
-          "event": null
+          "positive": true,
+          "event": "q1 results"
         }
       ],
       "signals": [
@@ -4141,7 +4303,8 @@
       "alpha": {
         "mine": 146.1,
         "index": 64.4,
-        "alpha": 81.7
+        "alpha": 81.7,
+        "approx": false
       }
     },
     {
@@ -4232,7 +4395,7 @@
           "event": null
         },
         {
-          "title": "Nippon India MF commands \u20b91,118 crore Akshaya Tritiya ETF trades, grabs 63% share as gold, silver volumes surge - fortuneindia.com",
+          "title": "Nippon India MF commands \u20b91,118 crore Akshaya Tritiya ETF trades, grabs 63% share as gold, silver volumes surge - Fortune India",
           "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxOcXQ0Qk5KWlJNZzQ2Q0ZTN0ZzaEE1MlMzWFhoRWZtbmFqN24wTnRQMHFRODllT3JoT1MyQ0JmTFBSWEhabnZaUDVPVjZobVE1b0NUNTM3NXg1OG51c0JGalF4X014a2pKblJwNTh6QUJUNkVYTHRLY3NsT0FTRkpocnpqTVJKRUtjU09rdmRkZnE0SXdPc2FuNTBrc3lmQUFDMm9aSXpoUzZzRTlYbFh5TzlDVTZLVUZGbGowWXNEdDRLWW9SR3QxeDZtSU1SZmUyTXlrT2FHOXpTN3RHYklkVXhfWUlXWVc2NnhXTWo0bWFyTml1MUdpRDliQdIBiAJBVV95cUxPbEFHOG5ZVUcxQmpoRndVNXVFZlVET2VzdUJ1N3FmcHJubEM5WnBmaXNnQU9FaHVfTTFmTWZ2VHpSc0xiTnBYQzh2RUJoWnN5OUJXaU5OUU9RWDY4elhEZmUtTks2ejZuSGhITDJsWWlXVzFFQXhqMFlXRGpmT1JkT1E3M2hCZjhNVVJZTUktcGxMS1ROSDBGdVlTY0Vob0hFNlR5c29LV2JzamVtT0dNZWlNY05wN3ItQllxWWp4RVRVbmN6bmNtd2xtSEtyMk9MSmlZYl9XQnVmc3A2aWNlZjUzdjhiT3M0Z010WlBDMTU5QzdnRDhwSDJlbUNNOUJSR2lPU293TWw?oc=5",
           "published": "19 Apr 2026",
           "negative": false,
@@ -4256,7 +4419,8 @@
       "alpha": {
         "mine": -23.0,
         "index": -2.7,
-        "alpha": -20.3
+        "alpha": -20.3,
+        "approx": false
       }
     },
     {
@@ -4390,7 +4554,8 @@
       "alpha": {
         "mine": 9.3,
         "index": 3.5,
-        "alpha": 5.7
+        "alpha": 5.7,
+        "approx": false
       }
     },
     {
@@ -4515,7 +4680,8 @@
       "alpha": {
         "mine": 0.3,
         "index": 6.5,
-        "alpha": -6.1
+        "alpha": -6.1,
+        "approx": false
       }
     },
     {
@@ -4603,7 +4769,7 @@
           "event": null
         },
         {
-          "title": "Maharashtra Seamless Q3 net profit up 31% y-o-y - indiainfoline.com",
+          "title": "Maharashtra Seamless Q3 net profit up 31% y-o-y - India Infoline",
           "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZzl1dXpISXFaMEVFUDI2RHNGZ1VBeDM4U0N5cEhqVjFtcFpjdnJwYURGWldqdE12QkpsRUt5a2JkVDFTd25aVTl1RkdfdUE1YTFuZDM0S2hBUXF0Nll0UzFXZGVFS2E0eVJERVYxcHJlazhtVldiQm9yOVJJalp2NWMzYnE5T0tqaHFhYXdyMF9ydUJsR0E?oc=5",
           "published": "29 Jan 2026",
           "negative": false,
@@ -4635,7 +4801,8 @@
       "alpha": {
         "mine": 267.3,
         "index": 64.4,
-        "alpha": 202.9
+        "alpha": 202.9,
+        "approx": true
       }
     },
     {
@@ -4719,7 +4886,7 @@
           "event": null
         },
         {
-          "title": "Apollo Hospitals Shares hit fresh 52-week high of \u20b98,330.00 After Strong Q4 Growth and Strategic Expansion - indiainfoline.com",
+          "title": "Apollo Hospitals Shares hit fresh 52-week high of \u20b98,330.00 After Strong Q4 Growth and Strategic Expansion - India Infoline",
           "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQOWNBWVllUnNYN3Zza1g1OTlJUGFuVGdWLTFqc19Tem9MOF9OT1htdlZnOVRNc3g1MEhzdXJKRUxfZW5EMEZ3RkFyZWNFUkh0QVIxODZZZURwMG93MTRSNDdlWnUxUEhiSDBkMXI5V0FraHNKNUF6VTdzMUZENmItUjZob2JlRGt3ZDlOS3puS1M0ZnRGYTVsWTQ3eF9XRDBxSUNpTW5QSV93MS1MLXRzWlpNWXFkM3dvQndKaDRGeU9TRl9vd0FweV9ldHR4SnVITjhuMzBGcUhhY3kxYU9oMm1rcw?oc=5",
           "published": "21 May 2026",
           "negative": false,
@@ -4764,7 +4931,8 @@
       "alpha": {
         "mine": 2.0,
         "index": 3.5,
-        "alpha": -1.5
+        "alpha": -1.5,
+        "approx": false
       }
     },
     {
@@ -4903,7 +5071,8 @@
       "alpha": {
         "mine": -3.8,
         "index": 64.4,
-        "alpha": -68.2
+        "alpha": -68.2,
+        "approx": true
       }
     },
     {
@@ -5158,7 +5327,8 @@
       "alpha": {
         "mine": -2.0,
         "index": -0.3,
-        "alpha": -1.7
+        "alpha": -1.7,
+        "approx": false
       }
     },
     {
@@ -5292,7 +5462,8 @@
       "alpha": {
         "mine": -11.0,
         "index": -4.6,
-        "alpha": -6.3
+        "alpha": -6.3,
+        "approx": false
       }
     },
     {
@@ -5357,9 +5528,9 @@
       "cross": null,
       "news": [
         {
-          "title": "Titan Company Ltd Valuation Shifts Amid Strong Market Performance - MarketsMojo",
-          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOMWUzWjFNT3p4NVNEM2ZEYW55X0hfRVp6bVAzSFhId2dPODBPbDd4Tm93NUw5YVh6SXd2RXFoMk1pTXFoWEZGTXJ3emgyR3BLLXZFYkVsa0xrQkVQRWppMHBXYVQ0bzBmU25SVmRzNGpVVVd0WDVtUW1ZLUVrS0o1VnFnRXVKaVNUbHNtTXlldU9zZ2hDdjNzRm4zWkhpbVNfNndKRDl1OVQzSlBFclF0THVLbjNsZWVjTkFCb1o5M1M?oc=5",
-          "published": "03 Aug 2026",
+          "title": "Titan stock rises over 3.5%, top Nifty gainer after strong Q1 update; brokerages bullish, check target... - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQRklYYk5NUkUyTk5OWlFiUTVlcDJISnhYdnR4X1plSU01TXJlUXg3VFJmYzR2eGRaMjVsdmVDeGNTUzNkNnpPREtYNTU4LXRXNDZweXpsbEZYNFBwWmQtRFhZS1hNTGF3eG9hT0J3ZXZMTmdtNDJOQ2pOTkRVeVhKQ0RIMVJiRXIyMklVWWxwOWl6a2RWZXVVTXZhNVdBSXhLemk3V0NuamQ2V0xGMlA3a1owTVY1clk1WVd2SWk3TGczWnlhTFRacGxZQzlkRGR6UVZHaFRWWU45NkpKS2E5TG91N1hEa0FnSEt2ZdIB8gFBVV95cUxNYUtJUGJ3U3dHODIyNnBOUG9HejEtdnlmYW9qVjhhblNWbXRlbjR3WXoyQ0RnNWkzV1ZHTkUwWHVzWTZqc0tIcVFMTzk1dlZBR0tuSmFpU1ZHU25FdGJoQUdYb0xaNnFvcm5WTjJ3QU90YjhUY2l6cDhTN2dLTkI5UnYtWHZIQ3Jxd3BYT2d1S2UzUzQ2d2tkZDRLMzNOeXJqT01HNTkxTEh3TTdDb0lhVVhYbHlKdjUyZ3l3NzVmRWpuMmRETDMxcUNXcmh4ZzVDUHpScVNVVWlEcUhVQWpTa0lUR2Z2VTZsNDhad09YOGRsQQ?oc=5",
+          "published": "07 Jul 2026",
           "negative": false,
           "positive": false,
           "event": null
@@ -5373,9 +5544,9 @@
           "event": "q1 results"
         },
         {
-          "title": "Titan stock rises over 3.5%, top Nifty gainer after strong Q1 update; brokerages bullish, check target... - Moneycontrol.com",
-          "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQRklYYk5NUkUyTk5OWlFiUTVlcDJISnhYdnR4X1plSU01TXJlUXg3VFJmYzR2eGRaMjVsdmVDeGNTUzNkNnpPREtYNTU4LXRXNDZweXpsbEZYNFBwWmQtRFhZS1hNTGF3eG9hT0J3ZXZMTmdtNDJOQ2pOTkRVeVhKQ0RIMVJiRXIyMklVWWxwOWl6a2RWZXVVTXZhNVdBSXhLemk3V0NuamQ2V0xGMlA3a1owTVY1clk1WVd2SWk3TGczWnlhTFRacGxZQzlkRGR6UVZHaFRWWU45NkpKS2E5TG91N1hEa0FnSEt2ZdIB8gFBVV95cUxNYUtJUGJ3U3dHODIyNnBOUG9HejEtdnlmYW9qVjhhblNWbXRlbjR3WXoyQ0RnNWkzV1ZHTkUwWHVzWTZqc0tIcVFMTzk1dlZBR0tuSmFpU1ZHU25FdGJoQUdYb0xaNnFvcm5WTjJ3QU90YjhUY2l6cDhTN2dLTkI5UnYtWHZIQ3Jxd3BYT2d1S2UzUzQ2d2tkZDRLMzNOeXJqT01HNTkxTEh3TTdDb0lhVVhYbHlKdjUyZ3l3NzVmRWpuMmRETDMxcUNXcmh4ZzVDUHpScVNVVWlEcUhVQWpTa0lUR2Z2VTZsNDhad09YOGRsQQ?oc=5",
-          "published": "07 Jul 2026",
+          "title": "Titan Company Limited Just Beat Revenue Estimates By 11% - simplywall.st",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQV3dmb3NOeEN0OWxRV3FnU1ZjeHlxMjFsSjl2WjJCLXd3cDFMSkJ1UTRsczIySW9TSTVBMFhsUENRakdjLU1xZ1hYRmVHVW1MMEdXdWFhc21FM1UtVXliOVpUYml6VlRSZDJTX01za3R1aEJqYzlyOS0yQnJiYU11Y1VaLVZidUZkb1NmckRzcERSaFVCVFduM21DOEpRU0NtTVlSRnU3c3B5ZS02OWw3Vjk5N3hIZm0wUDdwYjE2bFVqQ2lqM0VGTGVRSmRkUdIB0wFBVV95cUxQUzBQNl9HeUZyVmJ2TlE0MTZ1ajdxM3FhNEV5djFDYi1aaTBFNlFoa2tLY1Q3ay1KUlVsR1R5djBEUzJxVGRsRG0wcGlHc0NBNUNtOUtvSVlpdDRmanluUjBtYlVfbnJ5MkVZbmJfTVNRMXNwblFkcGg2QUJwanYwUDJLTW9YVUt4aFR4Q1lhdjBWNmNLWDNDR1g2OEFMbVlhQkpTbFZCNUYwZUI4cVV5N2tVcUprUTBuRExGbVVmYUFnUF8zU3loTHBRLUhud1QtZzBr?oc=5",
+          "published": "08 Jul 2026",
           "negative": false,
           "positive": false,
           "event": null
@@ -5570,7 +5741,8 @@
       "alpha": {
         "mine": 13.1,
         "index": -4.6,
-        "alpha": 17.7
+        "alpha": 17.7,
+        "approx": false
       }
     },
     {
@@ -5645,7 +5817,7 @@
           "event": null
         },
         {
-          "title": "Nippon India Gold BeES logs $1.08 bn inflows, 6.6 tonnes gold demand; ranks 6th globally - fortuneindia.com",
+          "title": "Nippon India Gold BeES logs $1.08 bn inflows, 6.6 tonnes gold demand; ranks 6th globally - Fortune India",
           "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUmNyeURJRWctUTRja1pXYnA5MDY1VzZINk5rLVNUVERYTlBQUzhJVTBoRE01d3c1YVFTVV9oVWx6QVlhaXBwSEVTS2o0OE0xcTVlTHExT1M0ZDRiMGVHZ0VmY3ZYaGN2eE12bG8tYUVvOTRVMG1NdGo0NC11Q1hWSkhkT1lsX2xkODRTWkdZRnFJQ1U2RDVNRnB0Y1VabHVyOVBGNGx0aS10Q2ZvVkhNNnJqcU11LXFVU0RIZWd0X2ZTYnJuTDR2WUJIRmVoVWpuU2fSAd8BQVVfeXFMTjQ2MnNJYUI4UVc2VG1RYTg5b2VSX2dXY09NOHc3bGF3Tm43YkVtMUtoOTBfanpOUE1wSzg1aWRWVThMcG5KR0k2ZVJmSGVSZEdNajFkRG9JVFNrek5WSUJJMy1fQmFLN1ZUVnN4cjd4MDQtZUZvaFR0bVBTX2RUSW15LUZjblR0bW8xRUxVSEQ0UlZmZkUtYjBCekFxOGtaaWxYNURBQ3BYY2Q0UmI3N00wWFVSU2NWVlltWjhvWnl5T1lfVGJOUzdDMmNfa1BWNGwtV3BweWtnR0VVbFdfYw?oc=5",
           "published": "24 Mar 2026",
           "negative": false,
@@ -5690,7 +5862,8 @@
       "alpha": {
         "mine": -15.3,
         "index": -5.1,
-        "alpha": -10.2
+        "alpha": -10.2,
+        "approx": false
       }
     },
     {
@@ -5810,7 +5983,8 @@
       "alpha": {
         "mine": -7.0,
         "index": -4.6,
-        "alpha": -2.4
+        "alpha": -2.4,
+        "approx": false
       }
     },
     {
@@ -5950,7 +6124,8 @@
       "alpha": {
         "mine": 18.5,
         "index": 3.5,
-        "alpha": 14.9
+        "alpha": 14.9,
+        "approx": false
       }
     },
     {
@@ -6015,8 +6190,8 @@
       "cross": "golden",
       "news": [
         {
-          "title": "Why Tata Motors Passenger Vehicles Share Price Is Rising - Equitymaster",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1KYkZ3Q2hNSXhmdW9xcDdPWHI1NkpXck5Kd193dnhhME8wZWRSUlFoVnNsbXNLRDJLTVR6SUJULWFrbkctX19nUkdyY2xuTm9GT3E0em5hRzY2VEUyNUhMS25tOHE3QmxTczBaRGd3?oc=5",
+          "title": "Why Tata Motors Passenger Vehicles Share Price Is Rising - equitymaster.com",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOOEFQQWRYRXJtV2RISmM0MDR5MVJaTjRUYjlENkxDYnNLZUlfTmFQa1BjX3NNSTQyRl8xRWRYNjV1RjRJTUtiWkhSeWdTVEFBd0ZUYnU2Y05KWmlEMGlWeXJCSExicWc1YUYxeElaWDByYVNPeEtXT3VPeGQ4azByV1FFa0VDM3Y3Q3kySjZ4TGJhY29rMlFrV0dzeFhEQ3F1WUxtSFZISUE4d3RNWFp4N0tuVmJDM0RnZmtkSmNZRjd5MGxM?oc=5",
           "published": "03 Aug 2026",
           "negative": false,
           "positive": false,
@@ -6166,17 +6341,17 @@
           "event": "q1 results"
         },
         {
-          "title": "Hindalco Q1 FY27 Results on August 7: Can Strong Aluminium Prices Offset 5% Cost Inflation? - NiftyTrader",
-          "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9rZWl5eFRFak9wd3d5X0c1djZTeVdYbHNGcml5UGF4Z1NGMExOVTE0OWg1SGkydHJIem01d2c2a010T19jTFlPamtoQ3pfbEtfUGpRbWlTUkVVSUtXeV9pYV9jUVRfbmI2X0VUS2ZHQ05VZGVQUkZVbGJpSHc?oc=5",
-          "published": "01 Aug 2026",
+          "title": "Why Hindalco wants to build a nuclear reactor - livemint.com",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNYTFydGJFb1VXcXlCOE5OSC0zdkN4LTFJYjdlVDJ3b29Cbm53eXdXTkc2b2RodGlWcFY4VldmcTBlODhPeWVYdXNkNmxWSnlNcnprWHpqZ3ItRjRKQ2RnLTcwUEtNM09Hd2MxYUFRckRyam03TlRadVpKMnZKZkxBMG5HWm1OSXRma0tpQVlOLWZTdkIzMmloeTh0a01TMXg2Y0hJRXZyWUhXa3FRWGJ0Q2NUejRJd9IBuwFBVV95cUxPMnRIOXRiUzNCTVBtT084UlZneGxqMENiNkN1cG5qSm55bGxkdXB1aW9Ec0NycGVsTEdhWXJHQXFUbF9FaXZnZ0t0OFE3bjhDMXY0NGc2TGFNVUVmQ2gtYlJ3QWF4Mm1rWWRRN2I4bVpiV3dOZzRhdFRXWVZweFlVM01fTUdKX01sNzU3VnVtdGVIcTVfVWI4ZEluaGF4ek9ZM1l3bmh5MmJSSnZqNHczd2w2eFduV21tS25F?oc=5",
+          "published": "31 Jul 2026",
           "negative": false,
           "positive": false,
           "event": null
         },
         {
-          "title": "Why Hindalco wants to build a nuclear reactor - livemint.com",
-          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNYTFydGJFb1VXcXlCOE5OSC0zdkN4LTFJYjdlVDJ3b29Cbm53eXdXTkc2b2RodGlWcFY4VldmcTBlODhPeWVYdXNkNmxWSnlNcnprWHpqZ3ItRjRKQ2RnLTcwUEtNM09Hd2MxYUFRckRyam03TlRadVpKMnZKZkxBMG5HWm1OSXRma0tpQVlOLWZTdkIzMmloeTh0a01TMXg2Y0hJRXZyWUhXa3FRWGJ0Q2NUejRJd9IBuwFBVV95cUxPMnRIOXRiUzNCTVBtT084UlZneGxqMENiNkN1cG5qSm55bGxkdXB1aW9Ec0NycGVsTEdhWXJHQXFUbF9FaXZnZ0t0OFE3bjhDMXY0NGc2TGFNVUVmQ2gtYlJ3QWF4Mm1rWWRRN2I4bVpiV3dOZzRhdFRXWVZweFlVM01fTUdKX01sNzU3VnVtdGVIcTVfVWI4ZEluaGF4ek9ZM1l3bmh5MmJSSnZqNHczd2w2eFduV21tS25F?oc=5",
-          "published": "31 Jul 2026",
+          "title": "This Just In: Analysts Are Boosting Their Hindalco Industries Limited (NSE:HINDALCO) Outlook for This Year - simplywall.st",
+          "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQWU8tNDlCRUZMOEZpR25NakMwOVFVQWFSZVJ6bWxLOEpvbE94YnYxYldSZmxBNjZicWhwMVExck5iQldqWFlheUlHUTU5SUZqX2ZvaVkwR2d1akVISEdlNGJ0dndtSEp3T0ZlWVVwVEVINW9fWE12VEt5Y3gwTVlDZUxiRXp6Ql80TE9VTXYzT2xZOWEtSmFza3B4YTFaQllPclhlX1pXaDduVjhncHJoLVBGdUlQMDltTHFPOGtXTWhad3JFMDI5R3lPY0VtY0ZSRVp0MDBzUDF2by1yRW9SMNIB5gFBVV95cUxNeVpuM0tmVkFDa29lcXhaVU9NZFVmSlJrZ3ZHdk5vWE96Zk43bjdsY01OdGhOMFhZTjFpWGJfVE9oUTBrRjdxUnVxRXJRSE9jMjZmeVA5ZFFNMVEzSF9mRmNRdzFqV1RvZnZBdFEwTTRiU19fTm43cVF0UzdBMHZ3WFVZblRfZUlxeEtMcmh4MnZZbUI4cWFtbkNCZjJ6Tlkta0RDWkF2d1JmU2NTSExJS2dUb2ZiSzNCQXF6YXo5TlB6emxCWm44ZHVNeFl0WThscXZraVdpSFRhd3JrZDBJSFFvWXVDQQ?oc=5",
+          "published": "27 May 2026",
           "negative": false,
           "positive": false,
           "event": null
@@ -6203,7 +6378,8 @@
       "alpha": {
         "mine": -8.1,
         "index": 3.5,
-        "alpha": -11.6
+        "alpha": -11.6,
+        "approx": false
       }
     },
     {
@@ -6279,17 +6455,17 @@
       "cross": null,
       "news": [
         {
-          "title": "Hindustan Copper Stock And 2 Export Plays In Focus After US Tariffs - simplywall.st",
-          "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxObjhvRGFTNV96c0tIZDRoZjJZUzV3b2s2MjFiRThQdnFZa05rbjI0RExkQjFsYnpVcW12X3pOSXBLNjJTNjYxeE1UaXFDeEYwdENXY2tISHE3Nnc5T20tWWloRmJMTlVUamlEN0JycnJfY01DLWt5aXpmR1hUMm1idTg1T0p0QWZvb3dXZXl3a3RpOXNDRG53cTh1Um0tcDJLV2NqTGdCU0pYOHZaQkltUTFVTjZwZGItRUZpdjZBbmJFd1pZVDhyRUFRbGxCZTFkYkZoeG91NTnSAd4BQVVfeXFMUDhFdUF2OFB6azVSV2FQQjJpbExxN2lJblk4a0JzMmRMYU1aTThxbTIxbmNaRkhFakE5MTlxd2hmZmp0cW05b2V4T3VRMHJ3dWp5emsycUdfNnJHdlRRaG9udFJ3Z0Y2Zm9BcHdiakZMa2pLRlJoSlVyVDVLbFgwdHhjcTdaRHNjY2Q4ZFV0Zk5oWkQtMFh2V1hwaTdEcUhmemlIQXd3WnkwOGJIaS00LXEyS2hyR01qTnlhUmx2ZEktWnZVeGZCdFF6V2RFV2htam5veEFCalcyUG9VUjBB?oc=5",
-          "published": "20 Jul 2026",
+          "title": "Vedanta, Tata Steel, Hindustan Zinc, Nalco, Hindustan Copper: Why Are Metal Stocks Falling Today? - Goodreturns",
+          "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxONC1EdmV1VDF5bjlKWExUQzNJNFZIaVdwVDRUY1gxUC1IZ19hcy0tU3hlc0daRXhXWk5KcnRvVVh2al9neW1jMkM2bGNLN2p2SWoyRjliNWIzSjhKbmxaNzBWTVhPQTlaZUZqNnRSLWY0SHpISTVZNWRnWURoeklXUmxjdm10bjlqbWRiQ1lmZ1N3RUJXX25yZEFGb0FGc3JHLW1aYzZXVVZXX0EyV1VrN0dRWV9ONTVxNWI2T0laV2JYOW1Qay1jUV9XOTFfWDAtcGc?oc=5",
+          "published": "01 Aug 2026",
           "negative": false,
           "positive": false,
           "event": null
         },
         {
-          "title": "Vedanta, Tata Steel, Hindustan Zinc, Nalco, Hindustan Copper: Why Are Metal Stocks Falling Today? - Goodreturns",
-          "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxONC1EdmV1VDF5bjlKWExUQzNJNFZIaVdwVDRUY1gxUC1IZ19hcy0tU3hlc0daRXhXWk5KcnRvVVh2al9neW1jMkM2bGNLN2p2SWoyRjliNWIzSjhKbmxaNzBWTVhPQTlaZUZqNnRSLWY0SHpISTVZNWRnWURoeklXUmxjdm10bjlqbWRiQ1lmZ1N3RUJXX25yZEFGb0FGc3JHLW1aYzZXVVZXX0EyV1VrN0dRWV9ONTVxNWI2T0laV2JYOW1Qay1jUV9XOTFfWDAtcGc?oc=5",
-          "published": "01 Aug 2026",
+          "title": "Hindustan Copper Stock And 2 Export Plays In Focus After US Tariffs - simplywall.st",
+          "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxObjhvRGFTNV96c0tIZDRoZjJZUzV3b2s2MjFiRThQdnFZa05rbjI0RExkQjFsYnpVcW12X3pOSXBLNjJTNjYxeE1UaXFDeEYwdENXY2tISHE3Nnc5T20tWWloRmJMTlVUamlEN0JycnJfY01DLWt5aXpmR1hUMm1idTg1T0p0QWZvb3dXZXl3a3RpOXNDRG53cTh1Um0tcDJLV2NqTGdCU0pYOHZaQkltUTFVTjZwZGItRUZpdjZBbmJFd1pZVDhyRUFRbGxCZTFkYkZoeG91NTnSAd4BQVVfeXFMUDhFdUF2OFB6azVSV2FQQjJpbExxN2lJblk4a0JzMmRMYU1aTThxbTIxbmNaRkhFakE5MTlxd2hmZmp0cW05b2V4T3VRMHJ3dWp5emsycUdfNnJHdlRRaG9udFJ3Z0Y2Zm9BcHdiakZMa2pLRlJoSlVyVDVLbFgwdHhjcTdaRHNjY2Q4ZFV0Zk5oWkQtMFh2V1hwaTdEcUhmemlIQXd3WnkwOGJIaS00LXEyS2hyR01qTnlhUmx2ZEktWnZVeGZCdFF6V2RFV2htam5veEFCalcyUG9VUjBB?oc=5",
+          "published": "20 Jul 2026",
           "negative": false,
           "positive": false,
           "event": null
@@ -6322,7 +6498,8 @@
       "alpha": {
         "mine": -14.3,
         "index": -0.3,
-        "alpha": -14.0
+        "alpha": -14.0,
+        "approx": false
       }
     },
     {
@@ -6404,7 +6581,8 @@
       "alpha": {
         "mine": -69.1,
         "index": 64.4,
-        "alpha": -133.5
+        "alpha": -133.5,
+        "approx": true
       }
     },
     {
@@ -6492,7 +6670,7 @@
           "event": "demerger"
         },
         {
-          "title": "NCLAT stays order against Vedanta's power business demerger - cfo.economictimes.indiatimes.com",
+          "title": "NCLAT stays order against Vedanta's power business demerger - ET CFO",
           "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQNmhDS0VQOGZKSTlXdjl3bDdNTV9CbF90eVQ2VF9JVGhqOUZJaHk4bWx2WjhkR2tMVjM3ZEkxbUVMOHMyWnZ0elVUV3Jlc0ZNbkxzeDdoRDlPSERiaUpBWlRhUjduLVNOTHZiRjQ2VWZhbGpCeVp0Y2JXaEpuRTY4aFVkLTFpVk11T0FPeEw1NU1GMnVPQ3VqRUlsRkJaODNJNjM3YlVMTDV5TWRNb2R1eFNKc0sxSkdON1F5R1FWQWJwZm1TSFVBQWhmTGpPdlIyUHpmZ0pEMlfSAd4BQVVfeXFMTVR5Qi1tZS0zaUJTaUZCbmxueVcyam1yN3VtWE1TZ2VFd29qWTg0QnQ1dTJnakZYb3NnTVlESWd1TFppRVZ1UnNxRlp2ZnA3TDBMdXVrd2s3eDlrXzh4V2RTVzBRMVhjOTJiYTFZdXp4WUN6TGRQQVZFOTlvaENydnVScVpsSjVqVzNrLXVacXo0V0htUms1bnVHdEYzbFBPMUNXLTJTS3lrNExnOWFWTGVESzhmci1vUXgySF81QTBUMVRWbFptQ3JJNVUzdkpmR3FSbjk1LVA2QlIzanBR?oc=5",
           "published": "31 May 2025",
           "negative": false,
@@ -6524,7 +6702,8 @@
       "alpha": {
         "mine": -45.8,
         "index": 64.4,
-        "alpha": -110.2
+        "alpha": -110.2,
+        "approx": true
       }
     },
     {
@@ -6606,7 +6785,8 @@
       "alpha": {
         "mine": -6.0,
         "index": 64.4,
-        "alpha": -70.4
+        "alpha": -70.4,
+        "approx": true
       }
     },
     {
@@ -6686,20 +6866,20 @@
           "event": null
         },
         {
-          "title": "Jio Financial Services declares record date to finalise eligible shareholders for FY26 final dividend - livemint.com",
-          "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNbWJCVTEzNHBIdzdyUEFHVVo0MHQ1blg2YnYtRi1zck55VXhSeUNoRms3MlNrUE5Mam9MbFB0Xy1hR2JCelBrRjJ4Smd6X3QzVUZoSjlMSUdnMm9zd1ppWWhib2I1RGs0NEtVSGoxai1MVDhHUEo4bHdZWk9KYkp2TWtSMGk5b0ZIcndOWVdMQm9FcW82OURLenpEYXpkZjRjQ1ViNEFuVkhuajR3M0dvOTZVUThrMklDa2lScV9VelJnMG5IUHduTXUyVk5xVDMxcXM3bW9TbVBBbzR4RHBGQmdxS0RaRmJLejhDVjI3UEJLSUtGVl9BRkE5ZW0zVC1D0gGGAkFVX3lxTE5tSXBxbzFOLUhZNy1PX3NJeFhtUGhmeWZLcnl5bzNPWlRNdXFTWThwamo1VC1XYTdqUmJWN3dHcW1vcVlLMzNrUUFnVXk3c3pQX2VCMmN2bTVmZTdLMVg0MnNsaDhreWJxUlc5dFdYLWlGR0VSN1BOZU9xVDZDaFpEWEkzZ3VyZHFFSDRwQzdDdzNqendnT0dmRzVWVHY1Uk83d3hkVlltREY2OFdOa0NrM252S1A1SzJWZFdjUThJZVlvcFU5Y1Btb3djQ0lUa2lzbmpmbnVud1dfZTZaV1JuMTBCNXpISVE4Yzhjd3UtdjVfOEVUQ2l2dFhFTUdOTHhZelp3QlE?oc=5",
-          "published": "31 Jul 2026",
-          "negative": false,
-          "positive": false,
-          "event": "record date"
-        },
-        {
           "title": "India's Jio Financial shines on upbeat growth outlook - Reuters",
           "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNalIwNElFakpqU01LMFl4MHVEWU5rYzFHWGk2cTBfRDV1eTl2czVKWXZMWHowRFZnRFp0cVkxTC1wZjRaUjNwVjczWHMxNUp2ZVp2aER5dGZ0ZnhlTkJYSGNzcDFpQ3BIUERvQjl3clduamdLY2JOUDJ6ZUlqLXBiVm1NMTFrb0VYNXZ4NmJBdUV1WjJyTXQ4akhfSjE5dFNqaXVPaGpXMTBvVVN4NXZpa0NqQQ?oc=5",
           "published": "17 Jul 2026",
           "negative": false,
           "positive": false,
           "event": null
+        },
+        {
+          "title": "Jio Financial Services declares record date to finalise eligible shareholders for FY26 final dividend - livemint.com",
+          "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNbWJCVTEzNHBIdzdyUEFHVVo0MHQ1blg2YnYtRi1zck55VXhSeUNoRms3MlNrUE5Mam9MbFB0Xy1hR2JCelBrRjJ4Smd6X3QzVUZoSjlMSUdnMm9zd1ppWWhib2I1RGs0NEtVSGoxai1MVDhHUEo4bHdZWk9KYkp2TWtSMGk5b0ZIcndOWVdMQm9FcW82OURLenpEYXpkZjRjQ1ViNEFuVkhuajR3M0dvOTZVUThrMklDa2lScV9VelJnMG5IUHduTXUyVk5xVDMxcXM3bW9TbVBBbzR4RHBGQmdxS0RaRmJLejhDVjI3UEJLSUtGVl9BRkE5ZW0zVC1D0gGGAkFVX3lxTE5tSXBxbzFOLUhZNy1PX3NJeFhtUGhmeWZLcnl5bzNPWlRNdXFTWThwamo1VC1XYTdqUmJWN3dHcW1vcVlLMzNrUUFnVXk3c3pQX2VCMmN2bTVmZTdLMVg0MnNsaDhreWJxUlc5dFdYLWlGR0VSN1BOZU9xVDZDaFpEWEkzZ3VyZHFFSDRwQzdDdzNqendnT0dmRzVWVHY1Uk83d3hkVlltREY2OFdOa0NrM252S1A1SzJWZFdjUThJZVlvcFU5Y1Btb3djQ0lUa2lzbmpmbnVud1dfZTZaV1JuMTBCNXpISVE4Yzhjd3UtdjVfOEVUQ2l2dFhFTUdOTHhZelp3QlE?oc=5",
+          "published": "31 Jul 2026",
+          "negative": false,
+          "positive": false,
+          "event": "record date"
         },
         {
           "title": "Jio Financial Standalone June 2026 Net Sales at Rs 219.04 crore, up 63.12% Y-o-Y - Moneycontrol.com",
@@ -6726,7 +6906,8 @@
       "alpha": {
         "mine": 1171.8,
         "index": 12.3,
-        "alpha": 1159.4
+        "alpha": 1159.4,
+        "approx": true
       }
     },
     {
@@ -6851,7 +7032,8 @@
       "alpha": {
         "mine": -11.7,
         "index": 3.5,
-        "alpha": -15.2
+        "alpha": -15.2,
+        "approx": false
       }
     },
     {
@@ -6971,7 +7153,8 @@
       "alpha": {
         "mine": 13.8,
         "index": -6.1,
-        "alpha": 19.8
+        "alpha": 19.8,
+        "approx": false
       }
     },
     {
@@ -7051,6 +7234,14 @@
       "cross": null,
       "news": [
         {
+          "title": "Power Grid Corporation of India Ltd - Google",
+          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ubkk2YzNaMXhmWUxKenpYeGdDNU4tM0s1Sm5iQl92cEdMZVI5OExmR19HcThhdnBaQU1Rc3dBcWVfMVJrY3pYdEdCMkh4WVQ1cmtCaFBQbHFfSWcxVk4w?oc=5",
+          "published": "31 Jul 2026",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "Power Grid Corporation ED Rajesh Gupta retires on July 31, 2026 - scanx.trade",
           "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNaG1GUFgwNUF4ZjF6R1dpLXhqR0hJN3luaXE5cHVoZXdZQXNYd2JCNVpvbTZFWF83NngtYzU4RHlURkkxck5Jd2xQT3dIeXRtY3hvM2VOcVZ3bzJmVy1KemxOV1lzNW1HSHJlcFRFVjlQZ0w1UmtNT3k2RWhQR1pyTFY3cy1GSTYyYXdjYmpMNFNMT1ZFcE16dGpmU1FtQ2ZNTENZMnpiRG54Z1g4dTdPdjEtWXhtZEhBZ0Rv?oc=5",
           "published": "31 Jul 2026",
@@ -7073,14 +7264,6 @@
           "negative": false,
           "positive": false,
           "event": null
-        },
-        {
-          "title": "Power Grid Corporation of India's (NSE:POWERGRID) Earnings Offer More Than Meets The Eye - simplywall.st",
-          "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNcXdyU2VmZXBiM0xEYk85dFdYRDhwRmJfcXdIbFNwZnRHS0VLWU9vUW55MG1oZW9jc3hDa2xkSmdNODdnU2VIYURzeURZWTJxRlZlMmd0LXdYN3kzYnl0a25vTXNuY1JkeUlfMVpZR2VsRUpfRXkwWXQ5cjNhT3NLb3gtS0NhdlZ3cTkyMHF5OEhBMm1SWjVfWFdHODRvdlloZWtIWEdxSzlub2k2U1hTc3FzbUhGRWpwcmRnZ2JTTndMNUtuX21CSUdrVUtnY3V4eF9tdGZ6ejdaeFQzV0M3MERUZnhqQTJiV3lkcTdpSHc1d9IB9wFBVV95cUxPbkJwX2VTeTlQSXNGYlgwZUVzUTJEdl9RZmxVUXpBMmhGcklCTWloVmZxcXRvNVpwcVgxbzZINXFfem1JUHFVSnBKcW1kcWd5Qm9CNjloMVY2V2RIUDFWaTVqMjhxM1g5MF90TUp5LVQ3NFpRTkk4b3hnd1dPc1lianNrU25NdHFGWmREWDJkNkRSMUxLalNjekZubEhvX0pGVTZZNEN0WmE0c1lyR2hrcHV2OS1nbXAtdmYtNHAwZVl4djFHbkFqMVRKdHF5cTJmSjBOQWVxNHUzaVNyLS11SmZxZnlZMDhoSTNCdm1ybEhUb2E3OFFF?oc=5",
-          "published": "23 May 2026",
-          "negative": false,
-          "positive": false,
-          "event": "earnings"
         }
       ],
       "signals": [
@@ -7088,11 +7271,6 @@
           "type": "earnings_soon",
           "level": "info",
           "text": "Results due 05 Aug 2026"
-        },
-        {
-          "type": "corp_event",
-          "level": "info",
-          "text": "Announcement: earnings"
         },
         {
           "type": "no_thesis",
@@ -7109,7 +7287,8 @@
       "alpha": {
         "mine": -4.0,
         "index": 3.5,
-        "alpha": -7.6
+        "alpha": -7.6,
+        "approx": false
       }
     },
     {
@@ -7200,7 +7379,7 @@
           "event": "q1 results"
         },
         {
-          "title": "Why Suzlon Energy shares plunged more than 9% after Q1 results - fortuneindia.com",
+          "title": "Why Suzlon Energy shares plunged more than 9% after Q1 results - Fortune India",
           "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxORUZuNmN2VG5mbFpJT2tJZms2VzF3TmZkNElrajlKNWtjX2xweGYxUzg2c1Z3SGJXMk5wbDRzTjA5UHpseDVISkgyUDlILUlobVZLalByTVJ0X2xQa0Y4cURnS3o4OG94YlhiX1VmdktwMDBZaHp0NnBEZHdaaWp5RUk2S3Y4QzdoQklUN0U2MjRuUTRDVzdwd1I0OGV0a1o2aV9Vb0ZR0gGzAUFVX3lxTE5wMmY1WDhwOFhQZW51RGJNNUFtd2ptNWxVa2gwTERXelJUT1lISU5YMDhlYWRKQVpMVnlZWDQtNmtWTTEtaDh0ZWdDeWFSdk04U0Y1aU9meFM4UldZOUdYeTA5ZEJEZngxR1h0SzZ4dG1Bcm94dHlTbFUwVWRDYjdxMm9GM0YwX1hpNzc5d0l6eVdmZkktVkpRcGhlcGpNT1FoenlhNGxvb3AzNEtiVkx3X2xz?oc=5",
           "published": "28 Jul 2026",
           "negative": true,
@@ -7239,7 +7418,8 @@
       "alpha": {
         "mine": -8.8,
         "index": 3.5,
-        "alpha": -12.3
+        "alpha": -12.3,
+        "approx": false
       }
     },
     {
@@ -7364,7 +7544,8 @@
       "alpha": {
         "mine": 1.2,
         "index": 64.4,
-        "alpha": -63.2
+        "alpha": -63.2,
+        "approx": true
       }
     },
     {
@@ -7448,6 +7629,14 @@
       "cross": null,
       "news": [
         {
+          "title": "Weekly Recap: NSE:TCS Q1 FY27 profit & revenue gain and 2026 dividend plan - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNNEttcGFteUlwSnFwazFid1ZrNVQ2cnE4WHVtUE9ZWFBSWXNqRV9kQllUeVFpc0dVcjJ2MEQyNzFrVUpjLTdnVzEwQ0c2eWNOLTd3dHJHdkxlMjM2M0VRNzZjYjM1WGJ5amZEQmFlUlVsZ2VLdWdrWEFxMGdkc1FLcGZxT2xRNW5FRXloOXhZa3RlUXhINXV6XzlTaW5FYkpjSGZReXRsNE1FMVpBZDlrc2NwczlFcnJwREhUaHVNRDFBX2duajFqQ25FUVdRZw?oc=5",
+          "published": "03 Aug 2026",
+          "negative": false,
+          "positive": false,
+          "event": "dividend"
+        },
+        {
           "title": "Tata Consultancy Services shares rise 2.09% to Rs 2,415 - Moneycontrol.com",
           "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSU4yRjVKMzZfcTRVVVVMRDJUUENhM09Rc0tmRnhCZHZTWjd1ZUYwMUc4aEpCczJiQTM1M2IxLTNzaUd0VTFYOTN0UXZnUlktMGlZbzZja1M3OXhSMnZRYlhoWUllVUsxcTFXdHp6M1B6S2dTeVBfQTFRYU0xVmg5RVBqa0xqdEd5Q1Iya3BnMkQ2MG5yUVkyOWlBMkhxNC1ZU003WDJDeEE3TTZLeU9KcTIwZFhZcHVvTEp3a2NrVjBsaFo0SnlKeDFKWHZhWjk0ZXfSAdIBQVVfeXFMUElOMkY1SjM2X3E0VVVVTEQyVFBDYTNPUXNLZkZ4QmR2U1o3dWVGMDFHOGhKQnMyYkEzNTNiMS0zc2lHdFUxWDkzdFF2Z1JZLTBpWW82Y2tTNzl4UjJ2UWJYaFlJZVVLMXExV3R6ejNQektnU3lQX0ExUWFNMVZoOUVQamtManRHeUNSMmtwZzJENjBuclFZMjlpQTJIcTQtWVNNN1gyQ3hBN002S3lPSnEyMGRYWXB1b0xKd2tja1YwbGhaNEp5SngxSlh2YVo5NGV3?oc=5",
           "published": "03 Aug 2026",
@@ -7470,14 +7659,6 @@
           "negative": false,
           "positive": false,
           "event": null
-        },
-        {
-          "title": "Tata Consultancy Services Shares Climb 4% As Q1 Earnings Exceed Estimates - HDFC Sky",
-          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONU9yWlo5RUlIZ3JOR0VZUmdaN2J5RHVGalMwX1BuUUhHUTMxM2ptT2doeWtyNWtydktZVEhvVWxfRWdkTDl0OW5RV21pWDlUUloyRTRlRVBHdFMwZXBHY3ZzTmJndm9SM2tSd1NtX3JsSlVPVjQ3WVo1cjUtcEp2NUtWSU5jQQ?oc=5",
-          "published": "10 Jul 2026",
-          "negative": false,
-          "positive": false,
-          "event": "earnings"
         }
       ],
       "signals": [
@@ -7489,7 +7670,7 @@
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: dividend, earnings"
+          "text": "Announcement: dividend"
         },
         {
           "type": "no_thesis",
@@ -7506,7 +7687,8 @@
       "alpha": {
         "mine": 8.0,
         "index": 0.5,
-        "alpha": 7.5
+        "alpha": 7.5,
+        "approx": false
       }
     },
     {
@@ -7586,7 +7768,7 @@
           "event": null
         },
         {
-          "title": "Tax reform drives SBI Life protection surge, reshaping India's life insurance mix - Insurance Business",
+          "title": "Tax reform drives SBI Life protection surge, reshaping India's life insurance mix - insurancebusinessmag.com",
           "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNcXVPWGlNMG9yek9BaXBablU2MGdRaURXNXowZTJPSVM2bmJFTTNZQ0lUQ0RoQW9aZGJNYjg5aFRGR0k1NFljaVlZRGNrRl9SUGx1NS0ta01Od0p4ajZ1aF93emtHUkVleU9saTFZcGVxOXFBYl95djZ6RzNUSjA2bndmVjV5SFhxMnBhdVlkRnZlbENILUFmVFRvUExHZXlwZTFGWjBqRThOVVlIaXlQUjFSdFJ2U3pkcTFCNzl6OWRtRER6cEQxZFBkQmFCdXlCbnVZQVEzSkFpYjkyYnJQQjN0dmV6dGRP?oc=5",
           "published": "31 Jul 2026",
           "negative": false,
@@ -7631,7 +7813,8 @@
       "alpha": {
         "mine": 1.6,
         "index": 3.5,
-        "alpha": -1.9
+        "alpha": -1.9,
+        "approx": false
       }
     },
     {
@@ -7715,7 +7898,7 @@
           "event": null
         },
         {
-          "title": "Tech Mahindra\u2019s Strategic Partnerships Signal a Shift in AI Workforce Dynamics - The Futurum Group",
+          "title": "Tech Mahindra\u2019s Strategic Partnerships Signal a Shift in AI Workforce Dynamics - futurumgroup.com",
           "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPOEkwRHpiUDI2ZGtlVGNham5zRHl3bURwVUgzSXhLdGYyZTU2Zmx1eVRXQV94RmVpNmRWZkhGOWpuTWhDYXFzR19tRXZKeWlnQThnSEt4bzZfbDJITDZyQ3pBVV9lM3JTWVJnX0hFaFpXV01ZM1JVZDByNklYXzU2TDV6aHhub1BybzE0Rlhwbnk5YVluS1JDMVlZeHFrVnFDZkJVTzZNYUtERFdxeVFSNEdn?oc=5",
           "published": "02 Aug 2026",
           "negative": false,
@@ -7765,7 +7948,8 @@
       "alpha": {
         "mine": 10.6,
         "index": 12.3,
-        "alpha": -1.7
+        "alpha": -1.7,
+        "approx": true
       }
     },
     {
@@ -7889,7 +8073,8 @@
       "alpha": {
         "mine": -8.2,
         "index": 3.5,
-        "alpha": -11.8
+        "alpha": -11.8,
+        "approx": false
       }
     },
     {
@@ -8009,7 +8194,8 @@
       "alpha": {
         "mine": -24.6,
         "index": 12.3,
-        "alpha": -36.9
+        "alpha": -36.9,
+        "approx": true
       }
     },
     {
@@ -8153,7 +8339,8 @@
       "alpha": {
         "mine": 18.0,
         "index": 3.5,
-        "alpha": 14.4
+        "alpha": 14.4,
+        "approx": false
       }
     },
     {
@@ -8283,7 +8470,8 @@
       "alpha": {
         "mine": -3.8,
         "index": 2.0,
-        "alpha": -5.9
+        "alpha": -5.9,
+        "approx": false
       }
     },
     {
@@ -8355,7 +8543,7 @@
       "cross": null,
       "news": [
         {
-          "title": "Kalyan Jewellers Shines at 52-Week High Amid Strong Demand and Expansion Momentum - indiainfoline.com",
+          "title": "Kalyan Jewellers Shines at 52-Week High Amid Strong Demand and Expansion Momentum - India Infoline",
           "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNMXZjeFJfRXA3ZjB2N3JMM2c2dDNOZEhMSFd4Y05aRk1zSDQ5VHhpWG5OUWVlc0hWUk8yMzZyeXNJS0ZmTGdWajdEY2k3eVhSZWpJSUJrcnJ3V2VkX2ZaZTk4YVdHZU5RWERFQ1RBdjk5Q3NQTFotbnBVc014U0lUeVNJQVV1UkQzMEVlbGJsWHBZMjdtQlhnaFUybnZ6S2h1Q2cyVVk4dVdoMDNMRkJsUS1GbmhPTW9lNlozVHZoOF9ORWpk?oc=5",
           "published": "29 Jul 2026",
           "negative": false,
@@ -8413,7 +8601,8 @@
       "alpha": {
         "mine": 52.8,
         "index": 5.3,
-        "alpha": 47.5
+        "alpha": 47.5,
+        "approx": false
       }
     },
     {
@@ -8538,7 +8727,8 @@
       "alpha": {
         "mine": 1.6,
         "index": 3.5,
-        "alpha": -2.0
+        "alpha": -2.0,
+        "approx": false
       }
     },
     {
@@ -8638,7 +8828,7 @@
           "event": null
         },
         {
-          "title": "Why Wipro Share Price is Rising - Equitymaster",
+          "title": "Why Wipro Share Price is Rising - equitymaster.com",
           "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPNG1ySjBfc0VqUUpqT3FpdHNHNXd6aDlsZ1ZjaHhibXl6ZkxiTjNodVJZSy1HLWF3d3V3cG9jWUN0V2R5ZGRrdFVobnhqSFAzTjFQRkloYUtNX1ZKM1M3Q2JLVmQyN0dub0dyMkZLMVJwNEk3cS12azZEdm9PUFRTb2hucjFpMUF3cDA2RTRxQTVPa1lRQ25QZ3A3M193ODdYX0lR?oc=5",
           "published": "30 Jul 2026",
           "negative": false,
@@ -8667,7 +8857,8 @@
       "alpha": {
         "mine": 7.8,
         "index": 0.7,
-        "alpha": 7.1
+        "alpha": 7.1,
+        "approx": false
       }
     },
     {
@@ -9052,7 +9243,7 @@
         },
         {
           "title": "Investec Selects Infosys Finacle SaaS Platform on Microsoft Azure for Digital Banking Transformation - PR Newswire",
-          "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNa0xXMzFEQk1hOU9GcVN2NER4NGdhOU1HZTNSaEJBRHBqZlZMcWJPd0kwX2hlbEx1dS1zNUtYX1JORTFOUTU1MTNhR3VCb2NieGtWOFJYczRYeFFaY3YyV2pkcUZDek12N25nTlJTbkNrUVo0NVI2U3BDaWZ0SWRBNDRlMWV3MUNXakowd0s5OUhoaTV2M0xGTWlMNlYwZU1nMUs2cU1OS2xrdVFVQnZsal9TZ0gySmdEdVkzckFQVnhvNG50Zm9QOTM1V0VkbVM0Q1M3ZE1RdDFnZDFiZFBZTkstaUFFVFA2ajZTVGZ1alE?oc=5",
+          "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOdVZsTXh4MU4zZzBtUjdFWTl6SFFXenJVMFBLMlBla1pUZG9rejY2dmh1dGg5VWhvckV5eWFqZm5iVjhCei1WT21vLUhPWk1FdThGSEozR0xrNVpfd0k1Si1hNW9Zb3d6SE9oS0t2eUMzbHE4djBhLVBGTDRfRzhZZzJaUUduOGsydHduUUI5dUhuRGVTNHBIZGt1WU9YTG9wbEhiWGJ4RnFnempvQzJ2b2JQdERYd1B5UXAzY2lmUHlQXzFjQ2R6MmExLTY0U09XX280Um0yUDdFU1d4RUUzU0ZfdU5yUGtwejlLT05wTEY?oc=5",
           "published": "30 Jul 2026",
           "negative": true,
           "positive": false,
@@ -9493,14 +9684,6 @@
       "cross": "death",
       "news": [
         {
-          "title": "ONGC Q1 FY27 Earnings Preview: Key Numbers Investors Must Watch on 4 August - psuconnect.in",
-          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOUmpIdnR6LUNJMUdlY3JnWW9FQ3AyZlhVa040eUV4UHV2X1FBMktMSGlJREhaYkNfS3hObjZlTmdpb3ZiYUx6VkcwaW01NWRVbVk5ZGdrTy14cUVyRlAxcTFJLXVNLWxFcTlqOUUteVZGMVk1QlJKOTdXbC0tOE1tOGxsRzE5NmE4RXNGOWtCRllkSko0NG9rUG9UZDZhMXJDNDdRTUZkenU?oc=5",
-          "published": "03 Aug 2026",
-          "negative": false,
-          "positive": false,
-          "event": "earnings"
-        },
-        {
           "title": "ONGC, Oil India, RIL among stocks in focus as Cabinet clears \u20b984,084 crore Samudra Manthan scheme: What it means - Upstox",
           "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxPYno3eU1COEJ1eUFEU2FKZVdsaktwVlRMNVhEVlpOZnZ3dlhteUkteEVrckl6ZnJVQVFLM3pkRHctc3VaZ0ZkQmdReW5EWnNLX3NGSXlWUGlZRUtBYm96ai1aQjZaODlKcENEZHkxblVDVnZkVE1FWHBxYklzVmNaWjFLYUlUVUM0ZEIxWXpsQUZrOTlid0M5bTZ0ekN0Z1hfRmNRc0JUZG1ZVmdETVpWQjlBVFRiaFRoQlpDLS1vUTB4M1hlYXdFWE5ZMVFVRGRiTktHVE55N2UtVUVKQno1MEpuVmZoTXREVjFMOVJfQklmb3loQTc3NEp6SQ?oc=5",
           "published": "03 Aug 2026",
@@ -9517,12 +9700,20 @@
           "event": "q1 results"
         },
         {
-          "title": "Stock Market This Week: SBI, Bharti Airtel, ONGC earnings, RBI MPC and crude oil to drive Dalal Street - Zee Business",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNVmNlTk9WZ3d1eUF5S2NYWUNKNlJIMFpzajdSTmplWmJ0Zm04X1BLVGJVajR2Q3h0Ti1POEgwM2NwbXJpS1BESE9WWUdkN0FHV2FWU0F6eW1zNS1tVjNnWm1NSS1oZ1NUX1FQam8yLXlkY1V5MVBMNVRmc2FQUWxVM0xWUUdtdjJUakpnSjFpcjZqQmhzSk92blFfVTV0Si1FOWd2SlZnVGtrcGU5UDlWeHM4N0p1OW44eHhtZDZ6T1hiUTE3bWZGeHZ1b25sU2pyS2g5aFNzM21VeHJ6SVE?oc=5",
-          "published": "02 Aug 2026",
+          "title": "ONGC, Tech Mahindra: Top stock picks by Kotak Securities; here's why - Business Standard",
+          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxObmNDbzFRZTVucTlCck5lQWFCNlc0VlNVQklCS0wzS1ZSWHFOdGFrMG5XYTJ0WmZSeUxGc0dxN3ZBZGNjNVdYTlNUcUxfTmdjVGMtN2xHdTdZSm1uX1UyVWxMMnFLMFR6b3hKNUJHVW1rbE9OUi1KbjZIN1VTVk9XcklwUzFJaHZIN2dzZ2piWEFBZkNTaW5ael9FRHA0RkZQOWNSNHctekFfVjJibXFtcU1OT3dDQmI4aW54ZmpjT2ZIQ1REUXlCQ2ZFdnbSAdIBQVVfeXFMT0VJcTkwLUgyUHNtdFVycF9mWjFpWXE2R0k5dXkxOEM1RTJMTFJDcGNyVnRLSFJ0ZjdUNk5Idno1bUc5N0ctMEh3R2F6MTJVVy1sajJkNk9nTko4ejFqTFplY3ZtYzlhNEpISHdNVTREOUIybjdHYzc5TjhYWE1Mc1NPSHVFRldNTG1SVFZHbmhMbWl2TEM2bzJQaGVGWlNKSlNGWVZzUi1rTzJTazBKOVFxam5GZ3ZGNFExSWhpVUV4dGpEZ1BXTE9NQjF0RnkxZWpR?oc=5",
+          "published": "21 Jul 2026",
           "negative": false,
           "positive": false,
-          "event": "earnings"
+          "event": null
+        },
+        {
+          "title": "GRSE wins Rs 1,032-crore order from ONGC, stock in focus - Business Today",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPWVdaQnNUWjhmZ1M4ODRrcHFMbGRaUVJSWVJrd2xjUEl5TjlVSmZDREpvTzh1NS1YNWpldFBCR1lXRFlqSmhnbFJiS3c3RlFDUmNDV1hubGkzVmVnaXZlMTBESE9Ndm5vUDA5bEJOcFNxVWRnRUNTTGhackp5NEpsN0xncnJ4OXhkcTFRcUxkSF93SXRBZjJaeGwxb3BZd21DT3lQWllWckpEUlhaUnZ4YnJDYTNvVW9xWjZPWWpJY9IBxAFBVV95cUxQWE5OZGV1aDFEeUZIalJxMFNZSFdnanB5dTBhWDNQeU1KNExJa3dhY1N1cUNOOHFxeExFNVFHcXZvblZ3ZDlfT3FqaVNpaGRxcjgtZm5wT3BaclNvQ1Y0dTM4Z1hBSEhfeE1Yd1BwdUZqR21WOWhKTE96Q0JzN0tzY21GMldlZW1sUGl6MmNlM2pORW9ReTktOUwzSFdIbW9LV1FPUXVFUlBwalpUYWdGLXR3R3lCbWFyZ1U3aUFSUVFfaXhX?oc=5",
+          "published": "31 Jul 2026",
+          "negative": false,
+          "positive": false,
+          "event": null
         }
       ],
       "signals": [
@@ -9534,7 +9725,7 @@
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: earnings, q1 results"
+          "text": "Announcement: q1 results"
         },
         {
           "type": "death_cross",
@@ -10217,7 +10408,7 @@
           "event": null
         },
         {
-          "title": "Ambuja Delivers Sustainable Q1 FY'27 Performance Driven by Value-Led Growth and Operational Excellence - Adani",
+          "title": "Ambuja Delivers Sustainable Q1 FY'27 Performance Driven by Value-Led Growth and Operational Excellence - adani.com",
           "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNenRBWDA2elU4MDdpNHlGTnh6XzZBNjhJem5tcG0zbXQ1bTVONGRSOGVZdVBfd2dadllpLTZiWmRtVC1fbnlhaS1vajh1VVRwSXZnSkwxaVdEWk9FNU5tbEZfMVFYX1JpcFEtZUtneWxxamZyWjRRNUdOajVQNW4weVpvV3N1TzVtdUdXQ1dtYmd2d0Zqd3NwUg?oc=5",
           "published": "28 Jul 2026",
           "negative": false,
@@ -10434,7 +10625,7 @@
           "event": null
         },
         {
-          "title": "Cummins India Share Price Hits Record High After Strongest-Ever FY26 Performance; Q4 Earnings Beat Street Estimates - indiainfoline.com",
+          "title": "Cummins India Share Price Hits Record High After Strongest-Ever FY26 Performance; Q4 Earnings Beat Street Estimates - India Infoline",
           "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPbkhjWEJXZ3p1dU1UNmxZQXRRVFJ3d2h5LVQtcnI3b0w2d09UVHJLUVVjLTdaQVlVY2V4VmM1TVZMbERaU1VQVkZEZG9tcGRLNmFwWnRBYkdsX3I5WWtNaHY1M09SSHVYY1FKanFTTXQ1dVd5MmQyUVo3RUh5cE41c3JIUWpnTV9Kb0xjdmEtLV84WlJjZnNWdnpRdWdHMXpka1h5aUF1X3RGNFA3bHdrMXp3ZVltd2djeG8yVXdSdlVUblczSy1lOVdrWko5S195azlOMEdaYmQzSFJQVFphSFF5eV9Fa1ItYlU4UjBrQQ?oc=5",
           "published": "27 May 2026",
           "negative": false,
@@ -10808,7 +10999,7 @@
       "cross": null,
       "news": [
         {
-          "title": "Hitachi Energy India Limited announces Q4 FY26 results: The Company closes the quarter on a high note with a focused strategic approach and robust execution - Hitachi Energy",
+          "title": "Hitachi Energy India Limited announces Q4 FY26 results: The Company closes the quarter on a high note with a focused strategic approach and robust execution - hitachienergy.com",
           "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQci1RWmFLUVhaWTV5WDdrLV92aTQ4Sk8tVjBFUjFTc3lVSzdXb3lfd3pBdmlGYmVpS1lZTTJMWUxadEtsTkdRc19XMXVydEVOUE9CaWFRMGZwQ3VCZXc2NDk2UzRfckNpTXhyZ0xSSE5RaDBfU1VhWkFOSzhhOHdmQUtDbmdVT21wVlg0TlNKZFhGa2N0MjNtOGVLc2hOWE0wNENpbnFVMmdLaWkwM203SHNXaC04R0UyWjNCbkJNUUo?oc=5",
           "published": "25 May 2026",
           "negative": false,
@@ -11595,9 +11786,9 @@
           "event": null
         },
         {
-          "title": "ETFs Investing in Union Bank of Taiwan Stocks - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5KeDRVTUpESll3R1BBbks0LVlNdTloN0d3NWpMclQ1elJ6eV80ZlJ4SGI0bGNYT1N0UHp4bVc1MlJEd2VKelpLakFaVl83WHE3NHUtUWVrOWpEalZJbk9xbw?oc=5",
-          "published": "02 Aug 2026",
+          "title": "Stock to buy today: City Union Bank (\u20b9230) \u2013 BUY - BusinessLine",
+          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNRnR5Vkl0WmhOOXNfVEJySkxxajBpUUpKTnFTbVRvdXcxb1VobXB3VU9CV3F5TVZUbFYzMEJKLUVWeW40QktsUGNTUDVHdzJaMTlDNjJzamhyV1AxY0lGRnl1NTFkMlpvSXY3aU50Nk1pbHNkWkJMOUdWRWpqenNwR3h5SU1QeF9jMkM0T0swN01ONmdGUXoyUm1SNlBWUGFManVfcHhleGl6eTdFVXVNWE94WlYzU2h4WVlwOVlNVjE3UldFaHE00gHOAUFVX3lxTE1KcnFJVFlQYTlYaVpsOWh1Nzg2ZUNpYUVjSDN4Ny1yYVFmVE55Uk1sR0N0M3ItNzRoMGtxWFd2NC1VdzRieUFrTzVLZ05GRFVEbEMxMXRncS1OQlNIOERkTjdvR21GdGRtTEFmNzYxcm9DYkJ5QW5keXZPcWpENkxZSzFWcFRSTkh1eU1ERVB4dUVzSnI0UDZ0ekt0LUQzRmpkVGRZNXU2ZHNvYnJjNGxCbHdSLWhJUGhjYjRJM3FITWRNZFFiV2tCemZCRllB?oc=5",
+          "published": "10 Jul 2026",
           "negative": true,
           "positive": false,
           "event": null
@@ -11683,7 +11874,7 @@
           "event": "dividend"
         },
         {
-          "title": "TV Vision enters insolvency as NCLT admits Punjab National Bank\u2019s CIRP plea - indiantelevision.com",
+          "title": "TV Vision enters insolvency as NCLT admits Punjab National Bank\u2019s CIRP plea - Indian Television Dot Com",
           "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQckFBTEdiTXo5MlZiVU5xNVFMQWJmU1NoNlJLMlF5cFhPZ0ExSVBSdVBKR3JuUDBBZUdxTzNoMDdWM1hUcXpBNy1lY2pfalZoRzJQeFdCRzNjNjNpX3Y4amR6Vk43YVE1OVRxcUdEdjZEN2gtZXlCcnlOOFJab2RDSy1Rc0hQVzFwQVpKWUQ0U3pOWEhZSVZHQ1ZMdTdreXJPNkVVdFU4SENEelNROGw1XzdOclJWUQ?oc=5",
           "published": "03 Aug 2026",
           "negative": true,
@@ -11691,9 +11882,9 @@
           "event": null
         },
         {
-          "title": "Punjab National Bank gets nod to raise $1.5 billion through foreign currency bond programme - CNBC TV18",
-          "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNc001anZheUVTSVFobUFkbFJRSVpnYnNEU0hhMjM1ZXhVWmlCb0Vfa0N0bm9kLTUxcWNDbzBCTTFBaDRHdWptQ3FoZmJSVkxMdEc5OHF2XzFhUDlDX1JGbk83Z3FZWThPakpjZUNwQkxJZkZVM19aZXBxU1AwWkNPNzdQd19HNU83eF9FQk5kV3JVM3lwNUh0VTFhUzJxcFo0YTgtUXh0bk9TZEtyODFJM0s3YmlNVTZPdXRIN1QwSTJJUF9UdW12aTUtNmhDdU16aERjSzNrMjhLU0owdFNpbFJ3aVVHV1FHUmfSAe8BQVVfeXFMTVZOYXhYZTNlR1JNSEd4dDlmeGVXckdqcUhQQndlMjZGQVFoWUFJT1FDc1RhbFpVN2hPakZTeGhUZXZfRzBIY25DZ3hiRVlGWTBHUVd2YTkwRVNmT0RJTHN1Zk1VRzFid1BTMGEtR0llcHpDNEgtQk5Ec3JyVUw4blM2V3N5UlRBYXE5cmE4bW9sdWVUUEdMTzhzUjhvYU5KYlpZbXVzY0p5UUxIVDdkVGQwZXUxVXRCQ2hTWlNLMTUxYXRoOXNfam0tUGJPTm95VE1NS2xKM1huYU1ITm1FcnNXa1JRVHZLTnlyQVlGTDg?oc=5",
-          "published": "29 Jul 2026",
+          "title": "Punjab National Bank Shares Jump 5% After Q1 Profit Triples - HDFC Sky",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOczVmMG1SbE5td19OcE1mbVZhZVZ4R2JJT1FxbVV3ZllZUDhLcHdtWk5zaG9MUzlweUVtRDdHMU9pdDZCeHRydm9EWlg5Ukx2QnU2M0JCRTZEcjZRMmRBc1ZLRmxfVlFSTWJBS2hXWG1fUDF2ZFEzOFE4T2l3Nm9LWThYT2hUY01veEIxNmtNV2l4bS1h?oc=5",
+          "published": "20 Jul 2026",
           "negative": true,
           "positive": false,
           "event": null
@@ -11768,7 +11959,7 @@
       "cross": null,
       "news": [
         {
-          "title": "India\u2019s Private Lenders Bet on Corporate Loan Revival for Growth - Bloomberg.com",
+          "title": "India\u2019s Private Lenders Bet on Corporate Loan Revival for Growth - bloomberg.com",
           "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxONTRZTVBuTUNqTW9VMWVLYzZLeGVJdWYyZDk0Z2czUWNYSTN2ZTJnYkxQdGphMmxJUm1VdUQ1ZjIzV0pTbVlCUk1yTU5Xck1DWkZqUlNONV92Uy1Fc3oxTDRCb2ZkMXpYRmQ3ckZtMVd1MEc3d05PMlpfd1l0TnlRa21RbG5WNFJuZzVnOGhURy12X2RHZVhKNTlQZTlndEJ0dHd2cDhqcWhqSnNZZVh3bVpkV2FZUQ?oc=5",
           "published": "20 Jul 2026",
           "negative": false,
@@ -12290,8 +12481,8 @@
           "event": "q1 results"
         },
         {
-          "title": "Adani Ports, Radico, KFin among 6 top stock ideas for Aug by Motilal Oswal - Business Standard",
-          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxON1U5Rlo0dTJJSmFsNW9tdGNQU3F0clZkdjlfeVViMFFSMjZ5UUdVUFR3MzkxLTRXY3JmNmlIYng0T1gwZ1pqemlwT0x2VHZOZThNMy1YeE51RlEtY0FBcGdrVXRSYVhfSllYczBlcE5mRjlhNE05UVFpNVVEM3BZSlp4Mmt1Y19wUldIMnhDSFVha2x3ZDBQbFZRN25lanpqdXFhOGZMZUhqdlR2UWdxb3FBVk5QSjhGamxyNjVLQWxBU0ZBREJXRHBQX3ZIQzZHeXVXd2930gHbAUFVX3lxTFAwczlITXI3M3RjdDBTb1lhbTEyOWlHMWJXeVVFMHdLeGxTeHBrTU44Y01JSDdOV1ZiVjBCdjlNY1dNaXZzYnhpcUJqeExCZXZpeV94UGdpYlJxS1I4SXZZdTBYaHNzQjNJekdKUjZGT29PNW9HT2dZT2ZhX09WQ2dqR2U5SjFkNVF4SmI5VVU3UzMxR2o5R1pudlkycmpubkRLV2Q1aWJpMGt1MDZ4czcySnNQdmlIbFRFTWtNWlVoMnBOTWJwc0dPaGZwcFQ0NVZ4WGI3cnVUWE9Taw?oc=5",
+          "title": "Adani Ports Reports 46.3 MMT Cargo Volume in July'26, Up 15% Year-on-Year - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZjZxa1NmaDBmM3dnVlQyT2VualJjbGNJU2hfR1ZaM21kQ2xRakJtUzFHZko2eXpmZTE4eG5uSDFmSXY2a0QtODdfT2R3S1F3bzNOQzNIM1RlYzJEbGRhX2JwMVFpQm0xUHRrQ0t0c1NtRFY5S2kwZ2RqWDltMHY3c0NvV2hVMjBpRGFFYlFiT0s2SG1HRm5hTGhxTFh5RURnM0hMZ1N5ZXhBZm51Z0stcg?oc=5",
           "published": "03 Aug 2026",
           "negative": false,
           "positive": false,
@@ -12306,12 +12497,12 @@
           "event": null
         },
         {
-          "title": "Adani Ports share price tanks 3% after Q1 results 2026. Should you buy, sell or hold? - livemint.com",
-          "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNbUFkTW0tX1B3SVVLQ3UzQXp3OGFxMlIxUDZyYm5yZC1PY0NZYlZJaFBvUnlGZ3kyLXZ6RFd4Y0dmWGpUeHRHYTExaFNnLWpWNF9JdDZCdG9OSmNlWDBHaWpZSERpWGMzc3FmNkhnMmZCU1FDdzBhTjQtY2d1UXNuT280MTA2SmJDVlZ4NVhIbVRfN1lxU3VRTEZMUGZZa0htOEZJandvQlpXTHAtNE9hclMxSTBNRHgxNE1IVnpxX3pqaFhDZlpPdXVkZ1JQUlRUeDVBV1hTaHpLalpDTGljOG1HWHRMd9IB6wFBVV95cUxNWkFiLXcwZlBKMkR2c0lCeVRhMW5aaXRScGpUa0ZCM2c0TVZZRkRlQzQ3SUxjcDZhUEx1Ni01NlpvRGlFYnlMMHBUR0RZQXBmWXRQMFNCSDVzUVM3N2tfYm15aDBRblY2QS0yVkh5bHFjcVpENHVmbjBPUXdPTHBtWFYwQ3JaR2dqQXBhNkRrYnlmd2xpem1KeGVaaW02NVExMEx5a1E2Wk1XdXhwYm00QzhFMEV3VG5lVEFka0hkM1lOaXlXNFM0VXBnNlhmejFGaGg0amtDZThvWXJESFlFMElWa3FQbWc0NHZj?oc=5",
-          "published": "30 Jul 2026",
+          "title": "Adani Ports, Radico, KFin among 6 top stock ideas for Aug by Motilal Oswal - Business Standard",
+          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxON1U5Rlo0dTJJSmFsNW9tdGNQU3F0clZkdjlfeVViMFFSMjZ5UUdVUFR3MzkxLTRXY3JmNmlIYng0T1gwZ1pqemlwT0x2VHZOZThNMy1YeE51RlEtY0FBcGdrVXRSYVhfSllYczBlcE5mRjlhNE05UVFpNVVEM3BZSlp4Mmt1Y19wUldIMnhDSFVha2x3ZDBQbFZRN25lanpqdXFhOGZMZUhqdlR2UWdxb3FBVk5QSjhGamxyNjVLQWxBU0ZBREJXRHBQX3ZIQzZHeXVXd2930gHbAUFVX3lxTFAwczlITXI3M3RjdDBTb1lhbTEyOWlHMWJXeVVFMHdLeGxTeHBrTU44Y01JSDdOV1ZiVjBCdjlNY1dNaXZzYnhpcUJqeExCZXZpeV94UGdpYlJxS1I4SXZZdTBYaHNzQjNJekdKUjZGT29PNW9HT2dZT2ZhX09WQ2dqR2U5SjFkNVF4SmI5VVU3UzMxR2o5R1pudlkycmpubkRLV2Q1aWJpMGt1MDZ4czcySnNQdmlIbFRFTWtNWlVoMnBOTWJwc0dPaGZwcFQ0NVZ4WGI3cnVUWE9Taw?oc=5",
+          "published": "03 Aug 2026",
           "negative": false,
           "positive": false,
-          "event": "q1 results"
+          "event": null
         }
       ],
       "signals": [
@@ -12581,7 +12772,7 @@
       "news": [
         {
           "title": "Jindal Steel Standalone June 2026 Net Sales at Rs 15,275.48 crore, up 22.99% Y-o-Y - Moneycontrol.com",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOTVZFZVBRd19heElxa0xqWHRWb0doZmp1SEtJSWtvVHFYMTJfMVAyYUVNbjU5VUtmTkw0MF9KcVZBTkJLVV9XeXEtYlRra05lYjRLeVFHYk1ydjBCNGFzNkVfcVF3ZU85MXVQQkc4LXNrQUJpOEh4RmpBcTlIS2JZd0xpdm5uZW40MnNuY1NlUEtPLVBOakNJMWw5Yk55YldpWDNwTC1fU1BDQVJwUXFpdDA2NzhWTjBPSzQ5LUIwb0xmcnNrcV9MQWFMU2JybkEtOVZpUEMyNGNoVENBbkHSAeMBQVVfeXFMTmZrOEZlakRsbjBrc045b3JfWVhmcmRNSXhjaWs5MXJOMG4xSXRLV1drWHA2UU1uMHdlOU1meFYyUFUySnlUM0V1SEhvcGxvdEJoYVJiZ0Y0WTA5ZDQ3STJkdmdkOHdaSDMzQjhvWGNrN1g1RWN5RFFHdjlUOFhTN3ZxVE1WNDZxT0hocE05ZU5jVW1OaHBpcy1wUk5EV3VOZW5QYldRdkFvaEllZ1lsdTJqNXM0VjRtTG9weFdZdklrZkpuYmJ6SC1Jak50Y1gyT3FMTkV3ZldQWWpNYWxPTGlha1U?oc=5",
+          "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOZms4RmVqRGxuMGtzTjlvcl9ZWGZyZE1JeGNpazkxck4wbjFJdEtXV2tYcDZRTW4wd2U5TWZ4VjJQVTJKeVQzRXVISG9wbG90QmhhUmJnRjRZMDlkNDdJMmR2Z2Q4d1pIMzNCOG9YY2s3WDVFY3lEUUd2OVQ4WFM3dnFUTVY0NnFPSGhwTTllTmNVbU5ocGlzLXBSTkRXdU5lblBiV1F2QW9oSWVnWWx1Mmo1czRWNG1Mb3B4V1l2SWtmSm5iYnpILUlqTnRjWDJPcUxORXdmV1BZak1hbE9MaWFrVdIB4wFBVV95cUxOZms4RmVqRGxuMGtzTjlvcl9ZWGZyZE1JeGNpazkxck4wbjFJdEtXV2tYcDZRTW4wd2U5TWZ4VjJQVTJKeVQzRXVISG9wbG90QmhhUmJnRjRZMDlkNDdJMmR2Z2Q4d1pIMzNCOG9YY2s3WDVFY3lEUUd2OVQ4WFM3dnFUTVY0NnFPSGhwTTllTmNVbU5ocGlzLXBSTkRXdU5lblBiV1F2QW9oSWVnWWx1Mmo1czRWNG1Mb3B4V1l2SWtmSm5iYnpILUlqTnRjWDJPcUxORXdmV1BZak1hbE9MaWFrVQ?oc=5",
           "published": "03 Aug 2026",
           "negative": false,
           "positive": false,
@@ -12736,7 +12927,7 @@
       "avg_cost": 0.0,
       "buy_date": "",
       "price": 4389.0,
-      "prev_close": 4208.39990234375,
+      "prev_close": 4313.10009765625,
       "has_price": true,
       "months_held": null,
       "tax_status": null,
@@ -12768,11 +12959,11 @@
       "current": 0.0,
       "pnl": 0.0,
       "pnl_pct": null,
-      "day_pct": 4.29,
-      "sma_fast": 3577.56,
-      "sma_slow": 3601.09,
-      "rsi": 82.3,
-      "ret_6m": 20.5,
+      "day_pct": 1.76,
+      "sma_fast": 3594.43,
+      "sma_slow": 3605.19,
+      "rsi": 82.4,
+      "ret_6m": 19.8,
       "trend": "up",
       "cross": null,
       "news": [
@@ -12888,8 +13079,8 @@
       "cross": "golden",
       "news": [
         {
-          "title": "Why Tata Motors Passenger Vehicles Share Price Is Rising - Equitymaster",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1KYkZ3Q2hNSXhmdW9xcDdPWHI1NkpXck5Kd193dnhhME8wZWRSUlFoVnNsbXNLRDJLTVR6SUJULWFrbkctX19nUkdyY2xuTm9GT3E0em5hRzY2VEUyNUhMS25tOHE3QmxTczBaRGd3?oc=5",
+          "title": "Why Tata Motors Passenger Vehicles Share Price Is Rising - equitymaster.com",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOOEFQQWRYRXJtV2RISmM0MDR5MVJaTjRUYjlENkxDYnNLZUlfTmFQa1BjX3NNSTQyRl8xRWRYNjV1RjRJTUtiWkhSeWdTVEFBd0ZUYnU2Y05KWmlEMGlWeXJCSExicWc1YUYxeElaWDByYVNPeEtXT3VPeGQ4azByV1FFa0VDM3Y3Q3kySjZ4TGJhY29rMlFrV0dzeFhEQ3F1WUxtSFZISUE4d3RNWFp4N0tuVmJDM0RnZmtkSmNZRjd5MGxM?oc=5",
           "published": "03 Aug 2026",
           "negative": false,
           "positive": false,
@@ -12998,16 +13189,16 @@
       "cross": null,
       "news": [
         {
-          "title": "Samvardhana Motherson International Ltd spurts 1.9%, up for third straight session - Business Standard",
-          "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQWE9XaEt0dnlwV0JuUVQyUG4yMU14aHlHOWl5cmJuMk5zUDhhYVR6R1l5VjNFRXpldUdVb05mczBIUVFaSUlDblFNUkxIM24ySFhlZG0yNUhWWTVtZkZaZENnSDRIV3NITFJPSm5nSGsyVzBDODJ4M3ZocWVLby1adXU1aHNoZ1lRc05Ga2huZnlKNDVLX1lnNXdMYmlhTVJmeHRaVzc5U3pjZ1VwZ01wQlJuNVp6NmlRakpFN1hOUkZEczAzQnoxQUs3endDSjNMamhFSkI5Y1phaHRkb0RQZjNJd2dSYzRJd3V1UDNvNFBEbl9K0gH6AUFVX3lxTE5XNlpSb29xcW4zb0RIVVJXVkRzaWo3TzgxT3VxTTA4LUltb1JTWlZNY1doMFV5WWljeHY1Q1pEWHVaTmlSZGxxSjJWX2ZXYXc5d29CM1NEUGdhMHE4YmZEODlYMzV5Nl8xVkgxc2FmWWN1X054THc2WGc5OU5TM3FIRXNWUl9VSU9WY1ZYbUJ1N1JyVjNPa3RlV2pOOUFuNktDTTlhZFBDS1R1MmV1a0ZNbkJWTGZSeFRqTjUzOWFUaVplR2NoQ3JMSHUySGljN3d1TnUwNGhuTUZJTVdidDJxSjhjZzl2elhNX1lCV1dvWXNqZHpldzY2b1E?oc=5",
+          "title": "Samvardhana Motherson International Shares Gain 2% to Rs 153.77 Amid Bullish Sentiment - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQekdTek5xNTlWTUltU2hkZnQ3OTM1bEFfdTdFZWFyX1pseTN2eDNjNno5YWVYb1g5TnphZzBIZm9PYnp0dl9NSUJrMmd4ZXF6empidlIweTZIbTJXWW9TSV9xWEZ5THJERHYyZXhJeUVocW5FaHRqWTNkenBOZHZmYWhxQzN4LUJpWW9SQ1Bybl9paXUzc3ZpLVFuUmIyVW1XYlBHemF0M1FuaU95anNDLUFMLTVoV3A3VkE1VHo5d0VJSHAyRnNWa2lZVGpuejJ2dzh0cTFGaGFFczNicVladWdqQmJ4QTJJb3dvdmJXM2dNU1QwWlFneURHUdIB-wFBVV95cUxQekdTek5xNTlWTUltU2hkZnQ3OTM1bEFfdTdFZWFyX1pseTN2eDNjNno5YWVYb1g5TnphZzBIZm9PYnp0dl9NSUJrMmd4ZXF6empidlIweTZIbTJXWW9TSV9xWEZ5THJERHYyZXhJeUVocW5FaHRqWTNkenBOZHZmYWhxQzN4LUJpWW9SQ1Bybl9paXUzc3ZpLVFuUmIyVW1XYlBHemF0M1FuaU95anNDLUFMLTVoV3A3VkE1VHo5d0VJSHAyRnNWa2lZVGpuejJ2dzh0cTFGaGFFczNicVladWdqQmJ4QTJJb3dvdmJXM2dNU1QwWlFneURHUQ?oc=5",
           "published": "03 Aug 2026",
           "negative": false,
           "positive": false,
           "event": null
         },
         {
-          "title": "Samvardhana Motherson International Shares Gain 2% to Rs 153.77 Amid Bullish Sentiment - Moneycontrol.com",
-          "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQekdTek5xNTlWTUltU2hkZnQ3OTM1bEFfdTdFZWFyX1pseTN2eDNjNno5YWVYb1g5TnphZzBIZm9PYnp0dl9NSUJrMmd4ZXF6empidlIweTZIbTJXWW9TSV9xWEZ5THJERHYyZXhJeUVocW5FaHRqWTNkenBOZHZmYWhxQzN4LUJpWW9SQ1Bybl9paXUzc3ZpLVFuUmIyVW1XYlBHemF0M1FuaU95anNDLUFMLTVoV3A3VkE1VHo5d0VJSHAyRnNWa2lZVGpuejJ2dzh0cTFGaGFFczNicVladWdqQmJ4QTJJb3dvdmJXM2dNU1QwWlFneURHUdIB-wFBVV95cUxQekdTek5xNTlWTUltU2hkZnQ3OTM1bEFfdTdFZWFyX1pseTN2eDNjNno5YWVYb1g5TnphZzBIZm9PYnp0dl9NSUJrMmd4ZXF6empidlIweTZIbTJXWW9TSV9xWEZ5THJERHYyZXhJeUVocW5FaHRqWTNkenBOZHZmYWhxQzN4LUJpWW9SQ1Bybl9paXUzc3ZpLVFuUmIyVW1XYlBHemF0M1FuaU95anNDLUFMLTVoV3A3VkE1VHo5d0VJSHAyRnNWa2lZVGpuejJ2dzh0cTFGaGFFczNicVladWdqQmJ4QTJJb3dvdmJXM2dNU1QwWlFneURHUQ?oc=5",
+          "title": "Samvardhana Motherson International Ltd spurts 1.9%, up for third straight session - Business Standard",
+          "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOVzZaUm9vcXFuM29ESFVSV1ZEc2lqN084MU91cU0wOC1JbW9SU1pWTWNXaDBVeVlpY3h2NUNaRFh1Wk5pUmRscUoyVl9mV2F3OXdvQjNTRFBnYTBxOGJmRDg5WDM1eTZfMVZIMXNhZlljdV9OeEx3NlhnOTlOUzNxSEVzVlJfVUlPVmNWWG1CdTdSclYzT2t0ZVdqTjlBbjZLQ005YWRQQ0tUdTJldWtGTW5CVkxmUnhUak41MzlhVGlaZUdjaENyTEh1MkhpYzd3dU51MDRobk1GSU1XYnQycUo4Y2c5dnpYTV9ZQldXb1lzamR6ZXc2Nm9R0gH6AUFVX3lxTE5XNlpSb29xcW4zb0RIVVJXVkRzaWo3TzgxT3VxTTA4LUltb1JTWlZNY1doMFV5WWljeHY1Q1pEWHVaTmlSZGxxSjJWX2ZXYXc5d29CM1NEUGdhMHE4YmZEODlYMzV5Nl8xVkgxc2FmWWN1X054THc2WGc5OU5TM3FIRXNWUl9VSU9WY1ZYbUJ1N1JyVjNPa3RlV2pOOUFuNktDTTlhZFBDS1R1MmV1a0ZNbkJWTGZSeFRqTjUzOWFUaVplR2NoQ3JMSHUySGljN3d1TnUwNGhuTUZJTVdidDJxSjhjZzl2elhNX1lCV1dvWXNqZHpldzY2b1E?oc=5",
           "published": "03 Aug 2026",
           "negative": false,
           "positive": false,
@@ -13319,7 +13510,7 @@
       8675138,
       8598244,
       8535740,
-      8518697,
+      8518698,
       8713270,
       8769865,
       8858701,
@@ -13335,17 +13526,17 @@
       9195869,
       9226550,
       9209136,
-      9186323,
+      9186324,
       9175967,
       9115271,
       9088484,
       8929659,
       8981223,
       9020513,
-      9081369,
+      9081370,
       9139520,
       9139891,
-      9192168,
+      9192169,
       9153052,
       9225560,
       9243601,
@@ -13357,7 +13548,7 @@
       9250896,
       9274466,
       9264125,
-      9283742,
+      9283741,
       9325495,
       9323839,
       9373896,
@@ -13403,7 +13594,7 @@
       9697002,
       9662169,
       9707857,
-      9821857,
+      9821856,
       9847849,
       9927211,
       9958925,
@@ -13840,7 +14031,7 @@
       1760459,
       1837573,
       1960388,
-      1954163,
+      1954162,
       1988398,
       1985470,
       2017753,
@@ -13900,7 +14091,7 @@
       1955934,
       1927252,
       1961091,
-      2026806,
+      2026840,
       2035684,
       2159865,
       2247600,
@@ -13973,7 +14164,7 @@
       3770293,
       3873199,
       3875255,
-      4028913,
+      4028917,
       4094548,
       4227428,
       4161251,
@@ -14012,7 +14203,7 @@
       5872066,
       6033812,
       6274209,
-      6340261,
+      6340260,
       6487628,
       6741018,
       6702376,
@@ -14022,7 +14213,7 @@
       7763251,
       7413179,
       8098868,
-      8032931,
+      8032932,
       7786189,
       7995136,
       8226089,
@@ -14031,9 +14222,9 @@
       8616209,
       8524343,
       8609434,
-      8247680,
+      8247679,
       8275582,
-      9422348,
+      9422347,
       9211790,
       9502872,
       9145150,
@@ -14050,12 +14241,12 @@
       9925151,
       9929816,
       10640023,
-      10780070,
+      10780069,
       10781398,
       10761187,
       10583866,
       10737172,
-      11238575,
+      11238576,
       11293325,
       11196740,
       11249581,
@@ -14076,7 +14267,7 @@
       11948667,
       12160189,
       12255165,
-      12306062,
+      12306060,
       12474211,
       12358594,
       12344724,
@@ -14406,7 +14597,7 @@
       1791687,
       1885544,
       2015239,
-      2011457,
+      2011456,
       2044732,
       2041318,
       2074471,
@@ -14466,7 +14657,7 @@
       2038344,
       2004762,
       2040421,
-      2107326,
+      2107360,
       2116014,
       2244945,
       2345400,
@@ -14539,7 +14730,7 @@
       3882963,
       3990709,
       3993465,
-      4150923,
+      4150927,
       4215808,
       4355498,
       4286591,
@@ -14578,7 +14769,7 @@
       6988934,
       7152167,
       7446274,
-      7483364,
+      7483363,
       7599380,
       7867196,
       7806278,
@@ -14588,16 +14779,16 @@
       8889476,
       8445972,
       9225515,
-      9135053,
+      9135054,
       8822108,
       9048063,
       9338925,
       9682288,
       10318875,
-      9729042,
+      9729041,
       9637257,
       9791308,
-      9352710,
+      9352709,
       9420897,
       10539138,
       10322211,
@@ -14607,7 +14798,7 @@
       9542054,
       10029871,
       9730073,
-      10266841,
+      10266840,
       10279981,
       11754723,
       11792558,
@@ -14616,12 +14807,12 @@
       12471250,
       12403960,
       13345167,
-      13528647,
+      13528646,
       13531131,
       13528809,
       13351886,
       13483775,
-      14069325,
+      14069326,
       14143744,
       13992228,
       14072443,
@@ -14642,7 +14833,7 @@
       15386356,
       15898749,
       15986709,
-      16082096,
+      16082095,
       16300586,
       16129725,
       16106730,
@@ -14661,7 +14852,7 @@
       20525134,
       20464787,
       20110595,
-      20193707,
+      20193706,
       21653303,
       22077737,
       22102776,
@@ -14697,8 +14888,10 @@
         "sell_price": 186.5322,
         "sell_date": "2024-07-10",
         "now": 371.7,
-        "since": 99.3,
-        "impact": 185168,
+        "since": 96.5,
+        "proceeds": 186532,
+        "worth_now": 366478,
+        "impact": 179946,
         "days": 754,
         "gain": 28898,
         "verdict": "cost you"
@@ -14710,8 +14903,10 @@
         "sell_price": 26.2404,
         "sell_date": "2024-07-10",
         "now": 47.07,
-        "since": 79.4,
-        "impact": 176218,
+        "since": 77.4,
+        "proceeds": 221994,
+        "worth_now": 393865,
+        "impact": 171872,
         "days": 754,
         "gain": -3465,
         "verdict": "cost you"
@@ -14723,10 +14918,87 @@
         "sell_price": 7682.51,
         "sell_date": "2025-03-19",
         "now": 11856.0,
-        "since": 54.3,
-        "impact": 150246,
+        "since": 56.5,
+        "proceeds": 276570,
+        "worth_now": 432733,
+        "impact": 156163,
         "days": 502,
         "gain": -149650,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 125.0,
+        "sell_price": 1115.06,
+        "sell_date": "2021-12-21",
+        "now": 191.0,
+        "since": 99.3,
+        "proceeds": 139382,
+        "worth_now": 277747,
+        "impact": 138365,
+        "days": 1686,
+        "gain": 98939,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 150.0,
+        "sell_price": 1523.35,
+        "sell_date": "2021-08-17",
+        "now": 191.0,
+        "since": 60.0,
+        "proceeds": 228502,
+        "worth_now": 365650,
+        "impact": 137147,
+        "days": 1812,
+        "gain": 179970,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 100.0,
+        "sell_price": 868.02,
+        "sell_date": "2021-04-12",
+        "now": 191.0,
+        "since": 154.4,
+        "proceeds": 86802,
+        "worth_now": 220791,
+        "impact": 133989,
+        "days": 1939,
+        "gain": 28902,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 100.0,
+        "sell_price": 868.0,
+        "sell_date": "2021-04-12",
+        "now": 191.0,
+        "since": 154.4,
+        "proceeds": 86800,
+        "worth_now": 220786,
+        "impact": 133986,
+        "days": 1939,
+        "gain": 37075,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 100.0,
+        "sell_price": 892.0,
+        "sell_date": "2021-04-15",
+        "now": 191.0,
+        "since": 144.7,
+        "proceeds": 89200,
+        "worth_now": 218230,
+        "impact": 129030,
+        "days": 1936,
+        "gain": 31300,
         "verdict": "cost you"
       },
       {
@@ -14736,8 +15008,10 @@
         "sell_price": 26.2352,
         "sell_date": "2024-07-10",
         "now": 47.07,
-        "since": 79.4,
-        "impact": 126363,
+        "since": 77.4,
+        "proceeds": 159116,
+        "worth_now": 282307,
+        "impact": 123191,
         "days": 754,
         "gain": 1730,
         "verdict": "cost you"
@@ -14749,8 +15023,10 @@
         "sell_price": 26.2402,
         "sell_date": "2024-07-10",
         "now": 47.07,
-        "since": 79.4,
-        "impact": 125458,
+        "since": 77.4,
+        "proceeds": 158045,
+        "worth_now": 280406,
+        "impact": 122361,
         "days": 754,
         "gain": 1397,
         "verdict": "cost you"
@@ -14762,8 +15038,10 @@
         "sell_price": 26.2449,
         "sell_date": "2024-07-10",
         "now": 47.07,
-        "since": 79.3,
-        "impact": 107458,
+        "since": 77.4,
+        "proceeds": 135424,
+        "worth_now": 240271,
+        "impact": 104847,
         "days": 754,
         "gain": 11842,
         "verdict": "cost you"
@@ -14775,36 +15053,42 @@
         "sell_price": 9672.01,
         "sell_date": "2026-03-02",
         "now": 11856.0,
-        "since": 22.6,
-        "impact": 78624,
+        "since": 22.5,
+        "proceeds": 348192,
+        "worth_now": 426474,
+        "impact": 78281,
         "days": 154,
         "gain": 55477,
         "verdict": "cost you"
       },
       {
-        "ticker": "KALYANKJIL",
-        "name": "Kalyan Jewellers",
-        "qty": 1029.0,
-        "sell_price": 541.85,
-        "sell_date": "2026-07-15",
-        "now": 608.0,
-        "since": 12.2,
-        "impact": 68068,
-        "days": 19,
-        "gain": 126732,
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 100.0,
+        "sell_price": 1305.0,
+        "sell_date": "2021-07-26",
+        "now": 191.0,
+        "since": 54.4,
+        "proceeds": 130500,
+        "worth_now": 201516,
+        "impact": 71016,
+        "days": 1834,
+        "gain": 98145,
         "verdict": "cost you"
       },
       {
-        "ticker": "SOUTHBANK",
-        "name": "South Indian Bank",
-        "qty": 3090.0,
-        "sell_price": 26.2354,
-        "sell_date": "2024-07-10",
-        "now": 47.07,
-        "since": 79.4,
-        "impact": 64379,
-        "days": 754,
-        "gain": 6289,
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 50.0,
+        "sell_price": 868.0,
+        "sell_date": "2021-04-12",
+        "now": 191.0,
+        "since": 154.4,
+        "proceeds": 43400,
+        "worth_now": 110393,
+        "impact": 66993,
+        "days": 1939,
+        "gain": 17708,
         "verdict": "cost you"
       },
       {
@@ -14814,10 +15098,102 @@
         "sell_price": 862.18,
         "sell_date": "2026-03-13",
         "now": 1141.2,
-        "since": 32.4,
-        "impact": 55804,
+        "since": 38.2,
+        "proceeds": 172436,
+        "worth_now": 238387,
+        "impact": 65951,
         "days": 143,
         "gain": 172436,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 50.0,
+        "sell_price": 907.75,
+        "sell_date": "2021-04-16",
+        "now": 191.0,
+        "since": 144.7,
+        "proceeds": 45388,
+        "worth_now": 111042,
+        "impact": 65654,
+        "days": 1935,
+        "gain": 16438,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "SOUTHBANK",
+        "name": "South Indian Bank",
+        "qty": 3090.0,
+        "sell_price": 26.2354,
+        "sell_date": "2024-07-10",
+        "now": 47.07,
+        "since": 77.4,
+        "proceeds": 81067,
+        "worth_now": 143831,
+        "impact": 62764,
+        "days": 754,
+        "gain": 6289,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 50.0,
+        "sell_price": 1215.4,
+        "sell_date": "2021-05-10",
+        "now": 191.0,
+        "since": 100.0,
+        "proceeds": 60770,
+        "worth_now": 121553,
+        "impact": 60783,
+        "days": 1911,
+        "gain": 44593,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 50.0,
+        "sell_price": 938.0,
+        "sell_date": "2021-04-23",
+        "now": 191.0,
+        "since": 119.0,
+        "proceeds": 46900,
+        "worth_now": 102705,
+        "impact": 55805,
+        "days": 1928,
+        "gain": 30723,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 50.0,
+        "sell_price": 928.25,
+        "sell_date": "2021-04-22",
+        "now": 191.0,
+        "since": 119.0,
+        "proceeds": 46412,
+        "worth_now": 101637,
+        "impact": 55225,
+        "days": 1929,
+        "gain": 17462,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 50.0,
+        "sell_price": 928.2,
+        "sell_date": "2021-04-22",
+        "now": 191.0,
+        "since": 119.0,
+        "proceeds": 46410,
+        "worth_now": 101632,
+        "impact": 55222,
+        "days": 1929,
+        "gain": 30233,
         "verdict": "cost you"
       },
       {
@@ -14827,23 +15203,12 @@
         "sell_price": 1331.98,
         "sell_date": "2026-03-02",
         "now": 1649.0,
-        "since": 23.8,
-        "impact": 47553,
+        "since": 27.0,
+        "proceeds": 199797,
+        "worth_now": 253831,
+        "impact": 54034,
         "days": 154,
         "gain": -59252,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "JINDALSTEL",
-        "name": "Jindal Steel & Power",
-        "qty": 500.0,
-        "sell_price": 1010.81,
-        "sell_date": "2026-01-09",
-        "now": 1105.1,
-        "since": 9.3,
-        "impact": 47145,
-        "days": 206,
-        "gain": 202565,
         "verdict": "cost you"
       },
       {
@@ -14853,23 +15218,12 @@
         "sell_price": 278.7087,
         "sell_date": "2026-03-02",
         "now": 318.0,
-        "since": 14.1,
-        "impact": 39291,
+        "since": 18.2,
+        "proceeds": 278709,
+        "worth_now": 329318,
+        "impact": 50609,
         "days": 154,
         "gain": 203709,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "SBIN",
-        "name": "State Bank of India",
-        "qty": 100.0,
-        "sell_price": 741.93,
-        "sell_date": "2025-03-19",
-        "now": 1045.0,
-        "since": 40.8,
-        "impact": 30307,
-        "days": 502,
-        "gain": -13904,
         "verdict": "cost you"
       },
       {
@@ -14879,36 +15233,42 @@
         "sell_price": 3553.65,
         "sell_date": "2026-03-13",
         "now": 4025.0,
-        "since": 13.3,
-        "impact": 29695,
+        "since": 18.3,
+        "proceeds": 223880,
+        "worth_now": 264911,
+        "impact": 41031,
         "days": 143,
         "gain": 147707,
         "verdict": "cost you"
       },
       {
-        "ticker": "TECHM",
-        "name": "Tech Mahindra",
-        "qty": 90.0,
-        "sell_price": 1331.69,
-        "sell_date": "2026-03-02",
-        "now": 1649.0,
-        "since": 23.8,
-        "impact": 28558,
-        "days": 154,
-        "gain": -32179,
+        "ticker": "NESTLEIND",
+        "name": "Nestle India",
+        "qty": 44.0,
+        "sell_price": 2173.66,
+        "sell_date": "2025-03-19",
+        "now": 1509.6,
+        "since": 36.1,
+        "proceeds": 95641,
+        "worth_now": 130153,
+        "impact": 34512,
+        "days": 502,
+        "gain": -24664,
         "verdict": "cost you"
       },
       {
-        "ticker": "BAJAJ-AUTO",
-        "name": "Bajaj Auto",
-        "qty": 13.0,
-        "sell_price": 9672.01,
-        "sell_date": "2026-03-02",
-        "now": 11856.0,
-        "since": 22.6,
-        "impact": 28392,
-        "days": 154,
-        "gain": 9702,
+        "ticker": "KALYANKJIL",
+        "name": "Kalyan Jewellers",
+        "qty": 1029.0,
+        "sell_price": 541.85,
+        "sell_date": "2026-07-15",
+        "now": 608.0,
+        "since": 6.0,
+        "proceeds": 557564,
+        "worth_now": 591053,
+        "impact": 33490,
+        "days": 19,
+        "gain": 126732,
         "verdict": "cost you"
       },
       {
@@ -14918,49 +15278,102 @@
         "sell_price": 862.18,
         "sell_date": "2026-03-13",
         "now": 1141.2,
-        "since": 32.4,
-        "impact": 27902,
+        "since": 38.2,
+        "proceeds": 86218,
+        "worth_now": 119194,
+        "impact": 32976,
         "days": 143,
         "gain": -10194,
         "verdict": "cost you"
       },
       {
-        "ticker": "SOUTHBANK",
-        "name": "South Indian Bank",
-        "qty": 1160.0,
-        "sell_price": 26.2449,
-        "sell_date": "2024-07-10",
-        "now": 47.07,
-        "since": 79.3,
-        "impact": 24157,
-        "days": 754,
-        "gain": 226,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "CCL",
-        "name": "CCL Products",
-        "qty": 100.0,
-        "sell_price": 923.89,
-        "sell_date": "2026-01-08",
-        "now": 1155.3,
-        "since": 25.0,
-        "impact": 23141,
-        "days": 207,
-        "gain": -5356,
-        "verdict": "cost you"
-      },
-      {
         "ticker": "TECHM",
         "name": "Tech Mahindra",
-        "qty": 60.0,
-        "sell_price": 1332.16,
+        "qty": 90.0,
+        "sell_price": 1331.69,
         "sell_date": "2026-03-02",
         "now": 1649.0,
-        "since": 23.8,
-        "impact": 19010,
+        "since": 27.0,
+        "proceeds": 119852,
+        "worth_now": 152266,
+        "impact": 32413,
         "days": 154,
-        "gain": -15380,
+        "gain": -32179,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "SBIN",
+        "name": "State Bank of India",
+        "qty": 100.0,
+        "sell_price": 741.93,
+        "sell_date": "2025-03-19",
+        "now": 1045.0,
+        "since": 40.7,
+        "proceeds": 74193,
+        "worth_now": 104361,
+        "impact": 30168,
+        "days": 502,
+        "gain": -13904,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "JINDALSTEL",
+        "name": "Jindal Steel & Power",
+        "qty": 500.0,
+        "sell_price": 1010.81,
+        "sell_date": "2026-01-09",
+        "now": 1105.1,
+        "since": 6.0,
+        "proceeds": 505405,
+        "worth_now": 535548,
+        "impact": 30143,
+        "days": 206,
+        "gain": 202565,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "BHARTIARTL",
+        "name": "Bharti Airtel",
+        "qty": 170.0,
+        "sell_price": 1921.9,
+        "sell_date": "2026-05-19",
+        "now": 1972.0,
+        "since": 9.2,
+        "proceeds": 326723,
+        "worth_now": 356701,
+        "impact": 29978,
+        "days": 76,
+        "gain": 14258,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 25.0,
+        "sell_price": 1201.05,
+        "sell_date": "2021-11-18",
+        "now": 191.0,
+        "since": 99.1,
+        "proceeds": 30026,
+        "worth_now": 59790,
+        "impact": 29763,
+        "days": 1719,
+        "gain": 21938,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "BAJAJ-AUTO",
+        "name": "Bajaj Auto",
+        "qty": 13.0,
+        "sell_price": 9672.01,
+        "sell_date": "2026-03-02",
+        "now": 11856.0,
+        "since": 22.5,
+        "proceeds": 125736,
+        "worth_now": 154004,
+        "impact": 28268,
+        "days": 154,
+        "gain": 9702,
         "verdict": "cost you"
       },
       {
@@ -14970,10 +15383,57 @@
         "sell_price": 3553.65,
         "sell_date": "2026-03-13",
         "now": 4025.0,
-        "since": 13.3,
-        "impact": 17440,
+        "since": 18.3,
+        "proceeds": 131485,
+        "worth_now": 155583,
+        "impact": 24098,
         "days": 143,
         "gain": 78242,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "SOUTHBANK",
+        "name": "South Indian Bank",
+        "qty": 1160.0,
+        "sell_price": 26.2449,
+        "sell_date": "2024-07-10",
+        "now": 47.07,
+        "since": 77.4,
+        "proceeds": 30444,
+        "worth_now": 54014,
+        "impact": 23570,
+        "days": 754,
+        "gain": 226,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TECHM",
+        "name": "Tech Mahindra",
+        "qty": 60.0,
+        "sell_price": 1332.16,
+        "sell_date": "2026-03-02",
+        "now": 1649.0,
+        "since": 27.0,
+        "proceeds": 79930,
+        "worth_now": 101546,
+        "impact": 21617,
+        "days": 154,
+        "gain": -15380,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "UNIONBANK",
+        "name": "Union Bank of India",
+        "qty": 400.0,
+        "sell_price": 137.5,
+        "sell_date": "2024-07-10",
+        "now": 174.0,
+        "since": 36.5,
+        "proceeds": 55000,
+        "worth_now": 75094,
+        "impact": 20094,
+        "days": 754,
+        "gain": -65340,
         "verdict": "cost you"
       },
       {
@@ -14983,10 +15443,27 @@
         "sell_price": 2287.35,
         "sell_date": "2026-03-02",
         "now": 2747.3,
-        "since": 20.1,
-        "impact": 17018,
+        "since": 21.6,
+        "proceeds": 84632,
+        "worth_now": 102885,
+        "impact": 18253,
         "days": 154,
         "gain": -36112,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TECHM",
+        "name": "Tech Mahindra",
+        "qty": 50.0,
+        "sell_price": 1331.97,
+        "sell_date": "2026-03-02",
+        "now": 1649.0,
+        "since": 27.0,
+        "proceeds": 66598,
+        "worth_now": 84610,
+        "impact": 18011,
+        "days": 154,
+        "gain": -14138,
         "verdict": "cost you"
       },
       {
@@ -14996,8 +15473,10 @@
         "sell_price": 1331.54,
         "sell_date": "2026-03-02",
         "now": 1649.0,
-        "since": 23.8,
-        "impact": 15873,
+        "since": 27.0,
+        "proceeds": 66577,
+        "worth_now": 84582,
+        "impact": 18005,
         "days": 154,
         "gain": -5508,
         "verdict": "cost you"
@@ -15009,179 +15488,27 @@
         "sell_price": 1331.54,
         "sell_date": "2026-03-02",
         "now": 1649.0,
-        "since": 23.8,
-        "impact": 15873,
+        "since": 27.0,
+        "proceeds": 66577,
+        "worth_now": 84582,
+        "impact": 18005,
         "days": 154,
         "gain": -21044,
         "verdict": "cost you"
       },
       {
-        "ticker": "TECHM",
-        "name": "Tech Mahindra",
-        "qty": 50.0,
-        "sell_price": 1331.97,
-        "sell_date": "2026-03-02",
-        "now": 1649.0,
-        "since": 23.8,
-        "impact": 15851,
-        "days": 154,
-        "gain": -14138,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "TCS",
-        "name": "Tata Consultancy Services",
-        "qty": 221.0,
-        "sell_price": 2407.26,
-        "sell_date": "2026-07-28",
-        "now": 2473.7,
-        "since": 2.8,
-        "impact": 14683,
-        "days": 6,
-        "gain": 28323,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "UNIONBANK",
-        "name": "Union Bank of India",
-        "qty": 400.0,
-        "sell_price": 137.5,
-        "sell_date": "2024-07-10",
-        "now": 174.0,
-        "since": 26.5,
-        "impact": 14600,
-        "days": 754,
-        "gain": -65340,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "COFORGE",
-        "name": "Coforge",
-        "qty": 25.0,
-        "sell_price": 1149.54,
-        "sell_date": "2026-03-02",
-        "now": 1717.0,
-        "since": 49.4,
-        "impact": 14186,
-        "days": 154,
-        "gain": -17646,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "TATAPOWER",
-        "name": "Tata Power",
-        "qty": 1000.0,
-        "sell_price": 368.7748,
-        "sell_date": "2025-03-19",
-        "now": 382.0,
-        "since": 3.6,
-        "impact": 13225,
-        "days": 502,
-        "gain": -77165,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "ADANIENT",
-        "name": "Adani Enterprises",
-        "qty": 50.0,
-        "sell_price": 2752.75,
-        "sell_date": "2026-05-19",
-        "now": 3009.5,
-        "since": 9.3,
-        "impact": 12838,
-        "days": 76,
-        "gain": 20942,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "HAL",
-        "name": "Hindustan Aeronautics",
-        "qty": 30.0,
-        "sell_price": 4312.05,
-        "sell_date": "2026-05-19",
-        "now": 4690.0,
-        "since": 8.8,
-        "impact": 11338,
-        "days": 76,
-        "gain": 10773,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "OFSS",
-        "name": "Oracle Financial Services",
-        "qty": 7.0,
-        "sell_price": 9741.5,
-        "sell_date": "2026-05-19",
-        "now": 11332.0,
-        "since": 16.3,
-        "impact": 11134,
-        "days": 76,
-        "gain": 12870,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "NESTLEIND",
-        "name": "Nestle India",
-        "qty": 44.0,
-        "sell_price": 1275.45,
-        "sell_date": "2026-02-17",
-        "now": 1509.6,
-        "since": 18.4,
-        "impact": 10303,
-        "days": 167,
-        "gain": 56120,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "NESTLEIND",
-        "name": "Nestle India",
-        "qty": 44.0,
-        "sell_price": 1275.49,
-        "sell_date": "2026-02-17",
-        "now": 1509.6,
-        "since": 18.4,
-        "impact": 10301,
-        "days": 167,
-        "gain": -44443,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "LTF",
-        "name": "L&T Finance",
-        "qty": 255.0,
-        "sell_price": 278.71,
-        "sell_date": "2026-03-02",
-        "now": 318.0,
-        "since": 14.1,
-        "impact": 10019,
-        "days": 154,
-        "gain": 22073,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "SHRIRAMFIN",
-        "name": "Shriram Finance",
-        "qty": 200.0,
-        "sell_price": 1041.0,
-        "sell_date": "2026-06-25",
-        "now": 1090.2,
-        "since": 4.7,
-        "impact": 9840,
-        "days": 39,
-        "gain": 24420,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "LTF",
-        "name": "L&T Finance",
-        "qty": 245.0,
-        "sell_price": 278.71,
-        "sell_date": "2026-03-02",
-        "now": 318.0,
-        "since": 14.1,
-        "impact": 9626,
-        "days": 154,
-        "gain": 51109,
+        "ticker": "CCL",
+        "name": "CCL Products",
+        "qty": 100.0,
+        "sell_price": 923.89,
+        "sell_date": "2026-01-08",
+        "now": 1155.3,
+        "since": 19.3,
+        "proceeds": 92389,
+        "worth_now": 110217,
+        "impact": 17828,
+        "days": 207,
+        "gain": -5356,
         "verdict": "cost you"
       },
       {
@@ -15191,127 +15518,12 @@
         "sell_price": 1420.1,
         "sell_date": "2026-05-19",
         "now": 1473.2,
-        "since": 3.7,
-        "impact": 9293,
+        "since": 6.1,
+        "proceeds": 248517,
+        "worth_now": 263776,
+        "impact": 15259,
         "days": 76,
         "gain": 23098,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "SUNPHARMA",
-        "name": "Sun Pharmaceutical Inds",
-        "qty": 50.0,
-        "sell_price": 1810.09,
-        "sell_date": "2026-03-13",
-        "now": 1990.5,
-        "since": 10.0,
-        "impact": 9021,
-        "days": 143,
-        "gain": 4866,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "BHARTIARTL",
-        "name": "Bharti Airtel",
-        "qty": 170.0,
-        "sell_price": 1921.9,
-        "sell_date": "2026-05-19",
-        "now": 1972.0,
-        "since": 2.6,
-        "impact": 8517,
-        "days": 76,
-        "gain": 14258,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "BAJFINANCE",
-        "name": "Bajaj Finance",
-        "qty": 30.0,
-        "sell_price": 862.18,
-        "sell_date": "2026-03-13",
-        "now": 1141.2,
-        "since": 32.4,
-        "impact": 8371,
-        "days": 143,
-        "gain": -85667,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "RELIANCE",
-        "name": "Reliance Industries",
-        "qty": 105.0,
-        "sell_price": 1243.37,
-        "sell_date": "2025-03-19",
-        "now": 1319.0,
-        "since": 6.1,
-        "impact": 7941,
-        "days": 502,
-        "gain": -189013,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "TECHM",
-        "name": "Tech Mahindra",
-        "qty": 49.0,
-        "sell_price": 1487.0,
-        "sell_date": "2026-07-15",
-        "now": 1649.0,
-        "since": 10.9,
-        "impact": 7938,
-        "days": 19,
-        "gain": 196,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "JSWSTEEL",
-        "name": "JSW Steel",
-        "qty": 190.0,
-        "sell_price": 1256.3,
-        "sell_date": "2026-04-24",
-        "now": 1292.3,
-        "since": 2.9,
-        "impact": 6840,
-        "days": 101,
-        "gain": 21996,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "TATAPOWER",
-        "name": "Tata Power",
-        "qty": 500.0,
-        "sell_price": 368.71,
-        "sell_date": "2025-03-19",
-        "now": 382.0,
-        "since": 3.6,
-        "impact": 6645,
-        "days": 502,
-        "gain": -33335,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "SBIN",
-        "name": "State Bank of India",
-        "qty": 444.0,
-        "sell_price": 1030.5,
-        "sell_date": "2026-07-15",
-        "now": 1045.0,
-        "since": 1.4,
-        "impact": 6438,
-        "days": 19,
-        "gain": 12206,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "WIPRO",
-        "name": "Wipro",
-        "qty": 490.0,
-        "sell_price": 175.53,
-        "sell_date": "2026-07-15",
-        "now": 188.66,
-        "since": 7.5,
-        "impact": 6434,
-        "days": 19,
-        "gain": 299,
         "verdict": "cost you"
       },
       {
@@ -15321,10 +15533,177 @@
         "sell_price": 1393.29,
         "sell_date": "2026-02-26",
         "now": 1460.0,
-        "since": 4.8,
-        "impact": 6004,
+        "since": 12.1,
+        "proceeds": 125396,
+        "worth_now": 140568,
+        "impact": 15172,
         "days": 158,
         "gain": 4905,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "COFORGE",
+        "name": "Coforge",
+        "qty": 25.0,
+        "sell_price": 1149.54,
+        "sell_date": "2026-03-02",
+        "now": 1717.0,
+        "since": 48.3,
+        "proceeds": 28738,
+        "worth_now": 42628,
+        "impact": 13890,
+        "days": 154,
+        "gain": -17646,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "SBIN",
+        "name": "State Bank of India",
+        "qty": 444.0,
+        "sell_price": 1030.5,
+        "sell_date": "2026-07-15",
+        "now": 1045.0,
+        "since": 3.0,
+        "proceeds": 457542,
+        "worth_now": 471065,
+        "impact": 13523,
+        "days": 19,
+        "gain": 12206,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "LTF",
+        "name": "L&T Finance",
+        "qty": 255.0,
+        "sell_price": 278.71,
+        "sell_date": "2026-03-02",
+        "now": 318.0,
+        "since": 18.2,
+        "proceeds": 71071,
+        "worth_now": 83976,
+        "impact": 12905,
+        "days": 154,
+        "gain": 22073,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "LTF",
+        "name": "L&T Finance",
+        "qty": 245.0,
+        "sell_price": 278.71,
+        "sell_date": "2026-03-02",
+        "now": 318.0,
+        "since": 18.2,
+        "proceeds": 68284,
+        "worth_now": 80683,
+        "impact": 12399,
+        "days": 154,
+        "gain": 51109,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "HAL",
+        "name": "Hindustan Aeronautics",
+        "qty": 30.0,
+        "sell_price": 4312.05,
+        "sell_date": "2026-05-19",
+        "now": 4690.0,
+        "since": 9.0,
+        "proceeds": 129362,
+        "worth_now": 140970,
+        "impact": 11608,
+        "days": 76,
+        "gain": 10773,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "SUNPHARMA",
+        "name": "Sun Pharmaceutical Inds",
+        "qty": 50.0,
+        "sell_price": 1810.09,
+        "sell_date": "2026-03-13",
+        "now": 1990.5,
+        "since": 12.3,
+        "proceeds": 90504,
+        "worth_now": 101639,
+        "impact": 11134,
+        "days": 143,
+        "gain": 4866,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TATAPOWER",
+        "name": "Tata Power",
+        "qty": 1000.0,
+        "sell_price": 368.7748,
+        "sell_date": "2025-03-19",
+        "now": 382.0,
+        "since": 3.0,
+        "proceeds": 368775,
+        "worth_now": 379801,
+        "impact": 11026,
+        "days": 502,
+        "gain": -77165,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "BAJFINANCE",
+        "name": "Bajaj Finance",
+        "qty": 30.0,
+        "sell_price": 862.18,
+        "sell_date": "2026-03-13",
+        "now": 1141.2,
+        "since": 38.2,
+        "proceeds": 25865,
+        "worth_now": 35758,
+        "impact": 9893,
+        "days": 143,
+        "gain": -85667,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "NESTLEIND",
+        "name": "Nestle India",
+        "qty": 44.0,
+        "sell_price": 1275.49,
+        "sell_date": "2026-02-17",
+        "now": 1509.6,
+        "since": 17.4,
+        "proceeds": 56122,
+        "worth_now": 65904,
+        "impact": 9783,
+        "days": 167,
+        "gain": -44443,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "NESTLEIND",
+        "name": "Nestle India",
+        "qty": 44.0,
+        "sell_price": 1275.45,
+        "sell_date": "2026-02-17",
+        "now": 1509.6,
+        "since": 17.4,
+        "proceeds": 56120,
+        "worth_now": 65902,
+        "impact": 9782,
+        "days": 167,
+        "gain": 56120,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "OFSS",
+        "name": "Oracle Financial Services",
+        "qty": 7.0,
+        "sell_price": 9741.5,
+        "sell_date": "2026-05-19",
+        "now": 11332.0,
+        "since": 13.7,
+        "proceeds": 68190,
+        "worth_now": 77553,
+        "impact": 9362,
+        "days": 76,
+        "gain": 12870,
         "verdict": "cost you"
       },
       {
@@ -15334,10 +15713,42 @@
         "sell_price": 1551.02,
         "sell_date": "2026-02-05",
         "now": 1701.0,
-        "since": 9.7,
-        "impact": 5999,
+        "since": 12.5,
+        "proceeds": 62041,
+        "worth_now": 69767,
+        "impact": 7726,
         "days": 179,
         "gain": 4064,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "WIPRO",
+        "name": "Wipro",
+        "qty": 490.0,
+        "sell_price": 175.53,
+        "sell_date": "2026-07-15",
+        "now": 188.66,
+        "since": 7.7,
+        "proceeds": 86010,
+        "worth_now": 92660,
+        "impact": 6650,
+        "days": 19,
+        "gain": 299,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "JSWSTEEL",
+        "name": "JSW Steel",
+        "qty": 190.0,
+        "sell_price": 1256.3,
+        "sell_date": "2026-04-24",
+        "now": 1292.3,
+        "since": 2.8,
+        "proceeds": 238697,
+        "worth_now": 245346,
+        "impact": 6649,
+        "days": 101,
+        "gain": 21996,
         "verdict": "cost you"
       },
       {
@@ -15347,88 +15758,12 @@
         "sell_price": 862.18,
         "sell_date": "2026-03-13",
         "now": 1141.2,
-        "since": 32.4,
-        "impact": 5580,
+        "since": 38.2,
+        "proceeds": 17244,
+        "worth_now": 23839,
+        "impact": 6595,
         "days": 143,
         "gain": -52021,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "RELIANCE",
-        "name": "Reliance Industries",
-        "qty": 62.0,
-        "sell_price": 1243.37,
-        "sell_date": "2025-03-19",
-        "now": 1319.0,
-        "since": 6.1,
-        "impact": 4689,
-        "days": 502,
-        "gain": 77089,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "RELIANCE",
-        "name": "Reliance Industries",
-        "qty": 62.0,
-        "sell_price": 1243.49,
-        "sell_date": "2025-03-19",
-        "now": 1319.0,
-        "since": 6.1,
-        "impact": 4682,
-        "days": 502,
-        "gain": 24871,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "GOLDBEES",
-        "name": "Nippon India Gold ETF",
-        "qty": 500.0,
-        "sell_price": 107.9829,
-        "sell_date": "2025-12-12",
-        "now": 117.26,
-        "since": 8.6,
-        "impact": 4639,
-        "days": 234,
-        "gain": 4229,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "TORNTPOWER",
-        "name": "Torrent Power",
-        "qty": 80.0,
-        "sell_price": 1357.79,
-        "sell_date": "2026-01-30",
-        "now": 1413.3,
-        "since": 4.1,
-        "impact": 4441,
-        "days": 185,
-        "gain": 3126,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "HINDALCO",
-        "name": "Hindalco Industries",
-        "qty": 80.0,
-        "sell_price": 963.02,
-        "sell_date": "2026-01-30",
-        "now": 994.9,
-        "since": 3.3,
-        "impact": 2550,
-        "days": 185,
-        "gain": 7754,
-        "verdict": "cost you"
-      },
-      {
-        "ticker": "RELIANCE",
-        "name": "Reliance Industries",
-        "qty": 20.0,
-        "sell_price": 1243.37,
-        "sell_date": "2025-03-19",
-        "now": 1319.0,
-        "since": 6.1,
-        "impact": 1513,
-        "days": 502,
-        "gain": -35481,
         "verdict": "cost you"
       },
       {
@@ -15438,36 +15773,147 @@
         "sell_price": 404.45,
         "sell_date": "2026-06-25",
         "now": 411.15,
-        "since": 1.7,
-        "impact": 1333,
+        "since": 7.5,
+        "proceeds": 80486,
+        "worth_now": 86543,
+        "impact": 6058,
         "days": 39,
         "gain": 388,
         "verdict": "cost you"
       },
       {
-        "ticker": "SBILIFE",
-        "name": "SBI Life Insurance",
-        "qty": 49.0,
-        "sell_price": 1891.6,
-        "sell_date": "2026-07-31",
-        "now": 1915.0,
-        "since": 1.2,
-        "impact": 1147,
-        "days": 3,
-        "gain": 862,
+        "ticker": "RELIANCE",
+        "name": "Reliance Industries",
+        "qty": 105.0,
+        "sell_price": 1243.37,
+        "sell_date": "2025-03-19",
+        "now": 1319.0,
+        "since": 4.3,
+        "proceeds": 130554,
+        "worth_now": 136215,
+        "impact": 5661,
+        "days": 502,
+        "gain": -189013,
         "verdict": "cost you"
       },
       {
-        "ticker": "DRREDDY",
-        "name": "Dr Reddys Laboratories",
-        "qty": 25.0,
-        "sell_price": 1146.5,
-        "sell_date": "2026-07-31",
-        "now": 1180.0,
-        "since": 2.9,
-        "impact": 838,
-        "days": 3,
-        "gain": -4548,
+        "ticker": "TATAPOWER",
+        "name": "Tata Power",
+        "qty": 500.0,
+        "sell_price": 368.71,
+        "sell_date": "2025-03-19",
+        "now": 382.0,
+        "since": 3.0,
+        "proceeds": 184355,
+        "worth_now": 189867,
+        "impact": 5512,
+        "days": 502,
+        "gain": -33335,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "SHRIRAMFIN",
+        "name": "Shriram Finance",
+        "qty": 200.0,
+        "sell_price": 1041.0,
+        "sell_date": "2026-06-25",
+        "now": 1090.2,
+        "since": 2.5,
+        "proceeds": 208200,
+        "worth_now": 213407,
+        "impact": 5207,
+        "days": 39,
+        "gain": 24420,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "HINDALCO",
+        "name": "Hindalco Industries",
+        "qty": 80.0,
+        "sell_price": 963.02,
+        "sell_date": "2026-01-30",
+        "now": 994.9,
+        "since": 6.1,
+        "proceeds": 77042,
+        "worth_now": 81745,
+        "impact": 4703,
+        "days": 185,
+        "gain": 7754,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TECHM",
+        "name": "Tech Mahindra",
+        "qty": 49.0,
+        "sell_price": 1487.0,
+        "sell_date": "2026-07-15",
+        "now": 1649.0,
+        "since": 5.7,
+        "proceeds": 72863,
+        "worth_now": 77045,
+        "impact": 4182,
+        "days": 19,
+        "gain": 196,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "GOLDBEES",
+        "name": "Nippon India Gold ETF",
+        "qty": 500.0,
+        "sell_price": 107.9829,
+        "sell_date": "2025-12-12",
+        "now": 117.26,
+        "since": 6.8,
+        "proceeds": 53991,
+        "worth_now": 57649,
+        "impact": 3658,
+        "days": 234,
+        "gain": 4229,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "ADANIENT",
+        "name": "Adani Enterprises",
+        "qty": 50.0,
+        "sell_price": 2752.75,
+        "sell_date": "2026-05-19",
+        "now": 3009.5,
+        "since": 2.5,
+        "proceeds": 137638,
+        "worth_now": 141079,
+        "impact": 3441,
+        "days": 76,
+        "gain": 20942,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "RELIANCE",
+        "name": "Reliance Industries",
+        "qty": 62.0,
+        "sell_price": 1243.49,
+        "sell_date": "2025-03-19",
+        "now": 1319.0,
+        "since": 4.3,
+        "proceeds": 77096,
+        "worth_now": 80440,
+        "impact": 3343,
+        "days": 502,
+        "gain": 24871,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "RELIANCE",
+        "name": "Reliance Industries",
+        "qty": 62.0,
+        "sell_price": 1243.37,
+        "sell_date": "2025-03-19",
+        "now": 1319.0,
+        "since": 4.3,
+        "proceeds": 77089,
+        "worth_now": 80432,
+        "impact": 3343,
+        "days": 502,
+        "gain": 77089,
         "verdict": "cost you"
       },
       {
@@ -15477,23 +15923,42 @@
         "sell_price": 1393.3,
         "sell_date": "2026-02-26",
         "now": 1460.0,
-        "since": 4.8,
-        "impact": 667,
+        "since": 12.1,
+        "proceeds": 13933,
+        "worth_now": 15619,
+        "impact": 1686,
         "days": 158,
         "gain": 52,
         "verdict": "cost you"
       },
       {
-        "ticker": "AXISBANK",
-        "name": "Axis Bank",
-        "qty": 30.0,
-        "sell_price": 1223.93,
-        "sell_date": "2025-12-24",
-        "now": 1229.5,
-        "since": 0.5,
-        "impact": 167,
-        "days": 222,
-        "gain": -1930,
+        "ticker": "RELIANCE",
+        "name": "Reliance Industries",
+        "qty": 20.0,
+        "sell_price": 1243.37,
+        "sell_date": "2025-03-19",
+        "now": 1319.0,
+        "since": 4.3,
+        "proceeds": 24867,
+        "worth_now": 25946,
+        "impact": 1078,
+        "days": 502,
+        "gain": -35481,
+        "verdict": "cost you"
+      },
+      {
+        "ticker": "TORNTPOWER",
+        "name": "Torrent Power",
+        "qty": 80.0,
+        "sell_price": 1357.79,
+        "sell_date": "2026-01-30",
+        "now": 1413.3,
+        "since": 0.3,
+        "proceeds": 108623,
+        "worth_now": 108919,
+        "impact": 296,
+        "days": 185,
+        "gain": 3126,
         "verdict": "cost you"
       },
       {
@@ -15503,37 +15968,13 @@
         "sell_price": 1243.37,
         "sell_date": "2025-03-19",
         "now": 1319.0,
-        "since": 6.1,
-        "impact": 76,
+        "since": 4.3,
+        "proceeds": 1243,
+        "worth_now": 1297,
+        "impact": 54,
         "days": 502,
         "gain": 1243,
         "verdict": "cost you"
-      },
-      {
-        "ticker": "AXISBANK",
-        "name": "Axis Bank",
-        "qty": 50.0,
-        "sell_price": 1229.5,
-        "sell_date": "2026-07-31",
-        "now": 1229.5,
-        "since": 0.0,
-        "impact": 0,
-        "days": 3,
-        "gain": -625,
-        "verdict": "neutral"
-      },
-      {
-        "ticker": "IREDA",
-        "name": "IREDA",
-        "qty": 100.0,
-        "sell_price": 120.45,
-        "sell_date": "2026-07-31",
-        "now": 119.59,
-        "since": -0.7,
-        "impact": -86,
-        "days": 3,
-        "gain": -1435,
-        "verdict": "saved you"
       },
       {
         "ticker": "RELIANCE",
@@ -15542,49 +15983,12 @@
         "sell_price": 1380.57,
         "sell_date": "2026-01-30",
         "now": 1319.0,
-        "since": -4.5,
-        "impact": -123,
+        "since": -8.7,
+        "proceeds": 2761,
+        "worth_now": 2522,
+        "impact": -239,
         "days": 185,
         "gain": 144,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TORNTPOWER",
-        "name": "Torrent Power",
-        "qty": 20.0,
-        "sell_price": 1424.95,
-        "sell_date": "2026-07-31",
-        "now": 1413.3,
-        "since": -0.8,
-        "impact": -233,
-        "days": 3,
-        "gain": 2269,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "BAJAJHFL",
-        "name": "Bajaj Housing Finance",
-        "qty": 15.0,
-        "sell_price": 157.87,
-        "sell_date": "2024-09-16",
-        "now": 86.02,
-        "since": -45.5,
-        "impact": -1078,
-        "days": 686,
-        "gain": -2,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "PATELENG",
-        "name": "Patel Engineering",
-        "qty": 230.0,
-        "sell_price": 37.79,
-        "sell_date": "2025-09-26",
-        "now": 27.33,
-        "since": -27.7,
-        "impact": -2406,
-        "days": 311,
-        "gain": -74108,
         "verdict": "saved you"
       },
       {
@@ -15594,36 +15998,72 @@
         "sell_price": 2582.51,
         "sell_date": "2026-03-02",
         "now": 2473.7,
-        "since": -4.2,
-        "impact": -3047,
+        "since": -1.4,
+        "proceeds": 72310,
+        "worth_now": 71275,
+        "impact": -1035,
         "days": 154,
         "gain": -48627,
         "verdict": "saved you"
       },
       {
-        "ticker": "HINDUNILVR",
-        "name": "Hindustan Unilever",
-        "qty": 40.0,
-        "sell_price": 2184.55,
-        "sell_date": "2025-03-19",
-        "now": 2101.3,
-        "since": -3.8,
-        "impact": -3330,
-        "days": 502,
-        "gain": -31340,
+        "ticker": "AXISBANK",
+        "name": "Axis Bank",
+        "qty": 30.0,
+        "sell_price": 1223.93,
+        "sell_date": "2025-12-24",
+        "now": 1229.5,
+        "since": -2.9,
+        "proceeds": 36718,
+        "worth_now": 35662,
+        "impact": -1056,
+        "days": 222,
+        "gain": -1930,
         "verdict": "saved you"
       },
       {
-        "ticker": "KIRLPNU",
-        "name": "Kirloskar Pneumatic",
-        "qty": 50.0,
-        "sell_price": 1530.0,
-        "sell_date": "2026-05-19",
-        "now": 1463.3,
-        "since": -4.4,
-        "impact": -3335,
-        "days": 76,
-        "gain": 19315,
+        "ticker": "BAJAJHFL",
+        "name": "Bajaj Housing Finance",
+        "qty": 15.0,
+        "sell_price": 157.87,
+        "sell_date": "2024-09-16",
+        "now": 86.02,
+        "since": -47.5,
+        "proceeds": 2368,
+        "worth_now": 1244,
+        "impact": -1124,
+        "days": 686,
+        "gain": -2,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "TATASTEEL",
+        "name": "Tata Steel",
+        "qty": 500.0,
+        "sell_price": 208.5865,
+        "sell_date": "2026-03-02",
+        "now": 191.0,
+        "since": -1.8,
+        "proceeds": 104293,
+        "worth_now": 102443,
+        "impact": -1850,
+        "days": 154,
+        "gain": 88116,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "PATELENG",
+        "name": "Patel Engineering",
+        "qty": 230.0,
+        "sell_price": 37.79,
+        "sell_date": "2025-09-26",
+        "now": 27.33,
+        "since": -28.0,
+        "proceeds": 8692,
+        "worth_now": 6261,
+        "impact": -2431,
+        "days": 311,
+        "gain": -74108,
         "verdict": "saved you"
       },
       {
@@ -15633,8 +16073,10 @@
         "sell_price": 40.26,
         "sell_date": "2025-03-26",
         "now": 27.33,
-        "since": -32.1,
-        "impact": -3491,
+        "since": -31.7,
+        "proceeds": 10870,
+        "worth_now": 7421,
+        "impact": -3449,
         "days": 495,
         "gain": -86330,
         "verdict": "saved you"
@@ -15646,192 +16088,27 @@
         "sell_price": 119.5,
         "sell_date": "2026-01-30",
         "now": 90.25,
-        "since": -24.5,
-        "impact": -4388,
+        "since": -20.4,
+        "proceeds": 17925,
+        "worth_now": 14275,
+        "impact": -3650,
         "days": 185,
         "gain": 916,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "MON100",
-        "name": "Motilal Nasdaq 100 ETF",
-        "qty": 200.0,
-        "sell_price": 327.27,
-        "sell_date": "2026-05-19",
-        "now": 305.18,
-        "since": -6.7,
-        "impact": -4418,
-        "days": 76,
-        "gain": 16500,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "ADANIPOWER",
-        "name": "Adani Power",
-        "qty": 502.0,
-        "sell_price": 221.2,
-        "sell_date": "2026-05-19",
-        "now": 211.31,
-        "since": -4.5,
-        "impact": -4965,
-        "days": 76,
-        "gain": 34974,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "KITEX",
-        "name": "Kitex Garments",
-        "qty": 170.0,
-        "sell_price": 195.4,
-        "sell_date": "2026-02-03",
-        "now": 146.34,
-        "since": -25.1,
-        "impact": -8340,
-        "days": 181,
-        "gain": -3140,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 500.0,
-        "sell_price": 208.5865,
-        "sell_date": "2026-03-02",
-        "now": 191.0,
-        "since": -8.4,
-        "impact": -8793,
-        "days": 154,
-        "gain": 88116,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "HCLTECH",
-        "name": "HCL Technologies",
-        "qty": 30.0,
-        "sell_price": 1666.28,
-        "sell_date": "2025-12-24",
-        "now": 1346.9,
-        "since": -19.2,
-        "impact": -9581,
-        "days": 222,
-        "gain": 2426,
         "verdict": "saved you"
       },
       {
         "ticker": "HINDUNILVR",
         "name": "Hindustan Unilever",
         "qty": 40.0,
-        "sell_price": 2352.5,
-        "sell_date": "2026-01-09",
+        "sell_price": 2184.55,
+        "sell_date": "2025-03-19",
         "now": 2101.3,
-        "since": -10.7,
-        "impact": -10048,
-        "days": 206,
-        "gain": 3755,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "UBL",
-        "name": "United Breweries",
-        "qty": 50.0,
-        "sell_price": 1620.14,
-        "sell_date": "2026-03-13",
-        "now": 1418.8,
-        "since": -12.4,
-        "impact": -10067,
-        "days": 143,
-        "gain": 2855,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TCS",
-        "name": "Tata Consultancy Services",
-        "qty": 114.0,
-        "sell_price": 2581.95,
-        "sell_date": "2026-03-02",
-        "now": 2473.7,
-        "since": -4.2,
-        "impact": -12341,
-        "days": 154,
-        "gain": -53860,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "ITC",
-        "name": "ITC",
-        "qty": 100.0,
-        "sell_price": 405.06,
-        "sell_date": "2025-12-24",
-        "now": 281.0,
-        "since": -30.6,
-        "impact": -12406,
-        "days": 222,
-        "gain": -819,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "RELIANCE",
-        "name": "Reliance Industries",
-        "qty": 248.0,
-        "sell_price": 1380.5649,
-        "sell_date": "2026-01-30",
-        "now": 1319.0,
-        "since": -4.5,
-        "impact": -15268,
-        "days": 185,
-        "gain": 342380,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "RAMCOCEM",
-        "name": "The Ramco Cement",
-        "qty": 530.0,
-        "sell_price": 961.55,
-        "sell_date": "2026-04-24",
-        "now": 918.25,
-        "since": -4.5,
-        "impact": -22949,
-        "days": 101,
-        "gain": 41080,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "VGUARD",
-        "name": "V-Guard Industries",
-        "qty": 1000.0,
-        "sell_price": 337.5087,
-        "sell_date": "2025-12-10",
-        "now": 314.5,
-        "since": -6.8,
-        "impact": -23009,
-        "days": 236,
-        "gain": -64311,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 25.0,
-        "sell_price": 1201.05,
-        "sell_date": "2021-11-18",
-        "now": 191.0,
-        "since": -84.1,
-        "impact": -25251,
-        "days": 1719,
-        "gain": 21938,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "WIPRO",
-        "name": "Wipro",
-        "qty": 500.0,
-        "sell_price": 243.5034,
-        "sell_date": "2026-01-19",
-        "now": 188.66,
-        "since": -22.5,
-        "impact": -27422,
-        "days": 196,
-        "gain": -125300,
+        "since": -4.3,
+        "proceeds": 87382,
+        "worth_now": 83630,
+        "impact": -3752,
+        "days": 502,
+        "gain": -31340,
         "verdict": "saved you"
       },
       {
@@ -15841,36 +16118,207 @@
         "sell_price": 1757.6,
         "sell_date": "2026-07-15",
         "now": 1463.3,
-        "since": -16.7,
-        "impact": -29136,
+        "since": -2.3,
+        "proceeds": 174002,
+        "worth_now": 170074,
+        "impact": -3928,
         "days": 19,
         "gain": 39118,
         "verdict": "saved you"
       },
       {
-        "ticker": "NESTLEIND",
-        "name": "Nestle India",
-        "qty": 44.0,
-        "sell_price": 2173.66,
-        "sell_date": "2025-03-19",
-        "now": 1509.6,
-        "since": -30.6,
-        "impact": -29219,
-        "days": 502,
-        "gain": -24664,
+        "ticker": "TCS",
+        "name": "Tata Consultancy Services",
+        "qty": 114.0,
+        "sell_price": 2581.95,
+        "sell_date": "2026-03-02",
+        "now": 2473.7,
+        "since": -1.4,
+        "proceeds": 294342,
+        "worth_now": 290128,
+        "impact": -4214,
+        "days": 154,
+        "gain": -53860,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "KIRLPNU",
+        "name": "Kirloskar Pneumatic",
+        "qty": 50.0,
+        "sell_price": 1530.0,
+        "sell_date": "2026-05-19",
+        "now": 1463.3,
+        "since": -6.6,
+        "proceeds": 76500,
+        "worth_now": 71432,
+        "impact": -5068,
+        "days": 76,
+        "gain": 19315,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "MON100",
+        "name": "Motilal Nasdaq 100 ETF",
+        "qty": 200.0,
+        "sell_price": 327.27,
+        "sell_date": "2026-05-19",
+        "now": 305.18,
+        "since": -9.2,
+        "proceeds": 65454,
+        "worth_now": 59432,
+        "impact": -6022,
+        "days": 76,
+        "gain": 16500,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "ITC",
+        "name": "ITC",
+        "qty": 100.0,
+        "sell_price": 405.06,
+        "sell_date": "2025-12-24",
+        "now": 281.0,
+        "since": -15.8,
+        "proceeds": 40506,
+        "worth_now": 34102,
+        "impact": -6404,
+        "days": 222,
+        "gain": -819,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "HCLTECH",
+        "name": "HCL Technologies",
+        "qty": 30.0,
+        "sell_price": 1666.28,
+        "sell_date": "2025-12-24",
+        "now": 1346.9,
+        "since": -14.8,
+        "proceeds": 49988,
+        "worth_now": 42569,
+        "impact": -7420,
+        "days": 222,
+        "gain": 2426,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "UBL",
+        "name": "United Breweries",
+        "qty": 50.0,
+        "sell_price": 1620.14,
+        "sell_date": "2026-03-13",
+        "now": 1418.8,
+        "since": -9.6,
+        "proceeds": 81007,
+        "worth_now": 73257,
+        "impact": -7750,
+        "days": 143,
+        "gain": 2855,
         "verdict": "saved you"
       },
       {
         "ticker": "KITEX",
         "name": "Kitex Garments",
-        "qty": 495.0,
-        "sell_price": 208.8948,
-        "sell_date": "2025-10-23",
+        "qty": 170.0,
+        "sell_price": 195.4,
+        "sell_date": "2026-02-03",
         "now": 146.34,
-        "since": -29.9,
-        "impact": -30965,
-        "days": 284,
-        "gain": 3124,
+        "since": -25.4,
+        "proceeds": 33218,
+        "worth_now": 24780,
+        "impact": -8438,
+        "days": 181,
+        "gain": -3140,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "RAMCOCEM",
+        "name": "The Ramco Cement",
+        "qty": 530.0,
+        "sell_price": 961.55,
+        "sell_date": "2026-04-24",
+        "now": 918.25,
+        "since": -1.8,
+        "proceeds": 509622,
+        "worth_now": 500438,
+        "impact": -9183,
+        "days": 101,
+        "gain": 41080,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "HINDUNILVR",
+        "name": "Hindustan Unilever",
+        "qty": 40.0,
+        "sell_price": 2352.5,
+        "sell_date": "2026-01-09",
+        "now": 2101.3,
+        "since": -10.1,
+        "proceeds": 94100,
+        "worth_now": 84623,
+        "impact": -9477,
+        "days": 206,
+        "gain": 3755,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "ADANIPOWER",
+        "name": "Adani Power",
+        "qty": 502.0,
+        "sell_price": 221.2,
+        "sell_date": "2026-05-19",
+        "now": 211.31,
+        "since": -13.2,
+        "proceeds": 111042,
+        "worth_now": 96414,
+        "impact": -14628,
+        "days": 76,
+        "gain": 34974,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "VGUARD",
+        "name": "V-Guard Industries",
+        "qty": 1000.0,
+        "sell_price": 337.5087,
+        "sell_date": "2025-12-10",
+        "now": 314.5,
+        "since": -4.5,
+        "proceeds": 337509,
+        "worth_now": 322261,
+        "impact": -15247,
+        "days": 236,
+        "gain": -64311,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "WIPRO",
+        "name": "Wipro",
+        "qty": 500.0,
+        "sell_price": 243.5034,
+        "sell_date": "2026-01-19",
+        "now": 188.66,
+        "since": -17.9,
+        "proceeds": 121752,
+        "worth_now": 99964,
+        "impact": -21788,
+        "days": 196,
+        "gain": -125300,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "RELIANCE",
+        "name": "Reliance Industries",
+        "qty": 248.0,
+        "sell_price": 1380.5649,
+        "sell_date": "2026-01-30",
+        "now": 1319.0,
+        "since": -8.7,
+        "proceeds": 342380,
+        "worth_now": 312716,
+        "impact": -29664,
+        "days": 185,
+        "gain": 342380,
         "verdict": "saved you"
       },
       {
@@ -15880,88 +16328,27 @@
         "sell_price": 212.9523,
         "sell_date": "2025-10-30",
         "now": 146.34,
-        "since": -31.3,
-        "impact": -33639,
+        "since": -27.8,
+        "proceeds": 107541,
+        "worth_now": 77655,
+        "impact": -29886,
         "days": 277,
         "gain": 5225,
         "verdict": "saved you"
       },
       {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 50.0,
-        "sell_price": 868.0,
-        "sell_date": "2021-04-12",
-        "now": 191.0,
-        "since": -78.0,
-        "impact": -33850,
-        "days": 1939,
-        "gain": 17708,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 50.0,
-        "sell_price": 907.75,
-        "sell_date": "2021-04-16",
-        "now": 191.0,
-        "since": -79.0,
-        "impact": -35838,
-        "days": 1935,
-        "gain": 16438,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 50.0,
-        "sell_price": 928.2,
-        "sell_date": "2021-04-22",
-        "now": 191.0,
-        "since": -79.4,
-        "impact": -36860,
-        "days": 1929,
-        "gain": 30233,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 50.0,
-        "sell_price": 928.25,
-        "sell_date": "2021-04-22",
-        "now": 191.0,
-        "since": -79.4,
-        "impact": -36862,
-        "days": 1929,
-        "gain": 17462,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 50.0,
-        "sell_price": 938.0,
-        "sell_date": "2021-04-23",
-        "now": 191.0,
-        "since": -79.6,
-        "impact": -37350,
-        "days": 1928,
-        "gain": 30723,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "INFY",
-        "name": "Infosys",
-        "qty": 100.0,
-        "sell_price": 1586.82,
-        "sell_date": "2026-01-12",
-        "now": 1180.0,
-        "since": -25.6,
-        "impact": -40682,
-        "days": 203,
-        "gain": -4335,
+        "ticker": "KITEX",
+        "name": "Kitex Garments",
+        "qty": 495.0,
+        "sell_price": 208.8948,
+        "sell_date": "2025-10-23",
+        "now": 146.34,
+        "since": -30.2,
+        "proceeds": 103403,
+        "worth_now": 72205,
+        "impact": -31198,
+        "days": 284,
+        "gain": 3124,
         "verdict": "saved you"
       },
       {
@@ -15971,8 +16358,10 @@
         "sell_price": 195.4,
         "sell_date": "2026-02-03",
         "now": 146.34,
-        "since": -25.1,
-        "impact": -40720,
+        "since": -25.4,
+        "proceeds": 162182,
+        "worth_now": 120985,
+        "impact": -41197,
         "days": 181,
         "gain": 162182,
         "verdict": "saved you"
@@ -15984,49 +16373,12 @@
         "sell_price": 1081.83,
         "sell_date": "2026-03-02",
         "now": 918.25,
-        "since": -15.1,
-        "impact": -40895,
+        "since": -15.8,
+        "proceeds": 270458,
+        "worth_now": 227800,
+        "impact": -42657,
         "days": 154,
         "gain": 70840,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "KITEX",
-        "name": "Kitex Garments",
-        "qty": 2000.0,
-        "sell_price": 170.3317,
-        "sell_date": "2026-03-02",
-        "now": 146.34,
-        "since": -14.1,
-        "impact": -47983,
-        "days": 154,
-        "gain": 340663,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 50.0,
-        "sell_price": 1215.4,
-        "sell_date": "2021-05-10",
-        "now": 191.0,
-        "since": -84.3,
-        "impact": -51220,
-        "days": 1911,
-        "gain": 44593,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "KITEX",
-        "name": "Kitex Garments",
-        "qty": 795.0,
-        "sell_price": 212.9523,
-        "sell_date": "2025-10-30",
-        "now": 146.34,
-        "since": -31.3,
-        "impact": -52957,
-        "days": 277,
-        "gain": -613,
         "verdict": "saved you"
       },
       {
@@ -16036,10 +16388,57 @@
         "sell_price": 243.5034,
         "sell_date": "2026-01-19",
         "now": 188.66,
-        "since": -22.5,
-        "impact": -54843,
+        "since": -17.9,
+        "proceeds": 243503,
+        "worth_now": 199928,
+        "impact": -43576,
         "days": 196,
         "gain": -236972,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "INFY",
+        "name": "Infosys",
+        "qty": 100.0,
+        "sell_price": 1586.82,
+        "sell_date": "2026-01-12",
+        "now": 1180.0,
+        "since": -28.7,
+        "proceeds": 158682,
+        "worth_now": 113207,
+        "impact": -45475,
+        "days": 203,
+        "gain": -4335,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "KITEX",
+        "name": "Kitex Garments",
+        "qty": 2000.0,
+        "sell_price": 170.3317,
+        "sell_date": "2026-03-02",
+        "now": 146.34,
+        "since": -13.6,
+        "proceeds": 340663,
+        "worth_now": 294359,
+        "impact": -46304,
+        "days": 154,
+        "gain": 340663,
+        "verdict": "saved you"
+      },
+      {
+        "ticker": "KITEX",
+        "name": "Kitex Garments",
+        "qty": 795.0,
+        "sell_price": 212.9523,
+        "sell_date": "2025-10-30",
+        "now": 146.34,
+        "since": -27.8,
+        "proceeds": 169297,
+        "worth_now": 122249,
+        "impact": -47048,
+        "days": 277,
+        "gain": -613,
         "verdict": "saved you"
       },
       {
@@ -16049,8 +16448,10 @@
         "sell_price": 208.6461,
         "sell_date": "2026-02-05",
         "now": 146.34,
-        "since": -29.9,
-        "impact": -62306,
+        "since": -25.4,
+        "proceeds": 208646,
+        "worth_now": 155647,
+        "impact": -52999,
         "days": 179,
         "gain": 208646,
         "verdict": "saved you"
@@ -16062,49 +16463,12 @@
         "sell_price": 208.9349,
         "sell_date": "2025-10-23",
         "now": 146.34,
-        "since": -30.0,
-        "impact": -62595,
+        "since": -30.2,
+        "proceeds": 208935,
+        "worth_now": 145897,
+        "impact": -63038,
         "days": 284,
         "gain": 48335,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 100.0,
-        "sell_price": 868.0,
-        "sell_date": "2021-04-12",
-        "now": 191.0,
-        "since": -78.0,
-        "impact": -67700,
-        "days": 1939,
-        "gain": 37075,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 100.0,
-        "sell_price": 868.02,
-        "sell_date": "2021-04-12",
-        "now": 191.0,
-        "since": -78.0,
-        "impact": -67702,
-        "days": 1939,
-        "gain": 28902,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 100.0,
-        "sell_price": 892.0,
-        "sell_date": "2021-04-15",
-        "now": 191.0,
-        "since": -78.6,
-        "impact": -70100,
-        "days": 1936,
-        "gain": 31300,
         "verdict": "saved you"
       },
       {
@@ -16114,59 +16478,22 @@
         "sell_price": 243.5034,
         "sell_date": "2026-01-19",
         "now": 188.66,
-        "since": -22.5,
-        "impact": -82265,
+        "since": -17.9,
+        "proceeds": 365255,
+        "worth_now": 299891,
+        "impact": -65364,
         "days": 196,
         "gain": 365255,
         "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 100.0,
-        "sell_price": 1305.0,
-        "sell_date": "2021-07-26",
-        "now": 191.0,
-        "since": -85.4,
-        "impact": -111400,
-        "days": 1834,
-        "gain": 98145,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 125.0,
-        "sell_price": 1115.06,
-        "sell_date": "2021-12-21",
-        "now": 191.0,
-        "since": -82.9,
-        "impact": -115508,
-        "days": 1686,
-        "gain": 98939,
-        "verdict": "saved you"
-      },
-      {
-        "ticker": "TATASTEEL",
-        "name": "Tata Steel",
-        "qty": 150.0,
-        "sell_price": 1523.35,
-        "sell_date": "2021-08-17",
-        "now": 191.0,
-        "since": -87.5,
-        "impact": -199852,
-        "days": 1812,
-        "gain": 179970,
-        "verdict": "saved you"
       }
     ],
-    "left_on_table": 1828845,
-    "saved": 1688821,
-    "net": -140025,
-    "n": 113,
-    "good": 50,
-    "unpriced": 6,
-    "good_rate": 44,
+    "left_on_table": 3007035,
+    "saved": 676562,
+    "net": -2330473,
+    "n": 107,
+    "good": 34,
+    "unpriced": 12,
+    "good_rate": 32,
     "worst": {
       "ticker": "FEDERALBNK",
       "name": "Federal Bank",
@@ -16174,23 +16501,27 @@
       "sell_price": 186.5322,
       "sell_date": "2024-07-10",
       "now": 371.7,
-      "since": 99.3,
-      "impact": 185168,
+      "since": 96.5,
+      "proceeds": 186532,
+      "worth_now": 366478,
+      "impact": 179946,
       "days": 754,
       "gain": 28898,
       "verdict": "cost you"
     },
     "best": {
-      "ticker": "TATASTEEL",
-      "name": "Tata Steel",
-      "qty": 150.0,
-      "sell_price": 1523.35,
-      "sell_date": "2021-08-17",
-      "now": 191.0,
-      "since": -87.5,
-      "impact": -199852,
-      "days": 1812,
-      "gain": 179970,
+      "ticker": "WIPRO",
+      "name": "Wipro",
+      "qty": 1500.0,
+      "sell_price": 243.5034,
+      "sell_date": "2026-01-19",
+      "now": 188.66,
+      "since": -17.9,
+      "proceeds": 365255,
+      "worth_now": 299891,
+      "impact": -65364,
+      "days": 196,
+      "gain": 365255,
       "verdict": "saved you"
     }
   },
@@ -22915,459 +23246,459 @@
         10422467,
         10311294,
         10308373,
-        10228312,
-        10233217,
+        10228311,
+        10233216,
         10178552,
         10134603,
-        10182178,
-        10146389,
-        10116124,
-        10172636,
-        10175481,
-        10146823,
-        10145754,
+        10182180,
+        10146388,
+        10116125,
+        10172637,
+        10175479,
+        10146822,
+        10145753,
         10163732,
-        10226882,
-        10232675,
-        10193013,
-        10172007,
-        10162126,
-        10158389,
-        10162531,
+        10226878,
+        10232677,
+        10193016,
+        10172008,
+        10162124,
+        10158392,
+        10162532,
         10110266,
-        10230343,
-        10115551,
+        10230341,
+        10115547,
         10162801,
-        10160810,
-        10177410,
-        10183199,
-        10209671,
-        10155996,
-        10236832,
-        10201079,
-        10294306,
-        10252300,
-        10286943,
-        10232909,
+        10160813,
+        10177413,
+        10183201,
+        10209669,
+        10155994,
+        10236830,
+        10201074,
+        10294301,
+        10252293,
+        10286942,
+        10232905,
         10286581,
-        10262257,
-        10244132,
-        10306289,
-        10372927,
-        10316830,
-        10440603,
-        10486652,
-        10581983,
-        10565274,
-        10683592,
-        10732686,
-        10750262,
+        10262263,
+        10244129,
+        10306288,
+        10372926,
+        10316835,
+        10440601,
+        10486658,
+        10581984,
+        10565275,
+        10683597,
+        10732693,
+        10750261,
         10743879,
-        10839171,
-        10906585,
-        10952879,
-        11015801,
-        11041138,
+        10839170,
+        10906579,
+        10952882,
+        11015797,
+        11041136,
         11046867,
-        11051789,
-        11109054,
-        11050939,
-        11078558,
-        11065360,
+        11051784,
+        11109049,
+        11050937,
+        11078557,
+        11065364,
         11147082,
-        11139751,
-        11222162,
-        11218028,
-        11210305,
-        11319362,
-        11272605,
+        11139752,
+        11222158,
+        11218030,
+        11210307,
+        11319363,
+        11272604,
         11279082,
-        11308936,
-        11423396,
-        11422611,
-        11494636,
-        11478679,
-        11541690,
-        11518903,
-        11458557,
-        11498714,
-        11488378,
-        11602518,
-        11491805,
-        11603982,
-        11537621,
+        11308933,
+        11423398,
+        11422613,
+        11494635,
+        11478683,
+        11541685,
+        11518890,
+        11458552,
+        11498713,
+        11488372,
+        11602512,
+        11491799,
+        11603987,
+        11537614,
         11669727,
-        11709618,
-        11804971,
-        11778727,
-        11813571,
-        11877498,
-        11818727,
-        11759834,
-        11881214,
-        12063428,
-        12014136,
-        12055125,
-        12192544,
-        12223253,
-        12308918,
-        12272595,
-        12355825,
-        12388400,
-        12427224,
-        12462126,
-        12473411,
-        12605417,
-        12635429,
-        12546378,
-        12625579,
-        12787922,
-        12727217,
-        12841371,
-        12737884,
-        12802268,
-        12940978,
-        12901135,
-        12999613,
-        12979790,
-        13052703,
-        13067638,
-        13198561,
-        13047688,
-        13167163,
-        13143582,
-        13162105,
-        13213379,
-        13282153,
-        13406149,
-        13462052,
-        13615881,
-        13673162,
-        13828324,
-        13960871,
-        13945550,
-        14182647,
+        11709624,
+        11804962,
+        11778722,
+        11813569,
+        11877489,
+        11818731,
+        11759835,
+        11881227,
+        12063427,
+        12014137,
+        12055124,
+        12192558,
+        12223256,
+        12308922,
+        12272593,
+        12355835,
+        12388392,
+        12427216,
+        12462127,
+        12473416,
+        12605418,
+        12635432,
+        12546380,
+        12625583,
+        12787925,
+        12727218,
+        12841378,
+        12737889,
+        12802282,
+        12940965,
+        12901137,
+        12999620,
+        12979795,
+        13052692,
+        13067643,
+        13198570,
+        13047683,
+        13167168,
+        13143571,
+        13162097,
+        13213375,
+        13282152,
+        13406137,
+        13462051,
+        13615886,
+        13673171,
+        13828329,
+        13960868,
+        13945552,
+        14182653,
         14281506,
-        14332080,
-        14411537,
+        14332086,
+        14411540,
         14440603,
-        14394018,
-        14409209,
-        14478094,
-        14598439,
-        14555756,
-        14704895,
-        14768905,
-        14616991,
-        14729112,
-        14735072,
-        15058770
+        14394015,
+        14409222,
+        14478087,
+        14598436,
+        14555770,
+        14704878,
+        14768909,
+        14617014,
+        14729102,
+        14735065,
+        15058764
       ],
       "p50": [
-        10924428,
+        10924427,
         10983656,
         11033383,
         11099217,
-        11135263,
+        11135262,
         11183019,
         11281137,
-        11311431,
-        11392980,
-        11432858,
+        11311430,
+        11392978,
+        11432857,
         11534070,
-        11565424,
-        11646415,
-        11690054,
-        11747750,
+        11565420,
+        11646413,
+        11690055,
+        11747753,
         11823693,
         11890787,
-        11933353,
-        11932456,
-        12012644,
-        12057061,
-        12129677,
-        12215514,
+        11933354,
+        11932458,
+        12012640,
+        12057064,
+        12129673,
+        12215517,
         12320429,
         12378355,
-        12390900,
-        12477393,
-        12542184,
-        12631486,
+        12390894,
+        12477392,
+        12542177,
+        12631488,
         12678463,
-        12782731,
-        12895832,
-        12943680,
-        13040410,
-        13110782,
-        13182733,
+        12782739,
+        12895831,
+        12943679,
+        13040414,
+        13110778,
+        13182724,
         13296614,
-        13341026,
+        13341029,
         13462463,
-        13477158,
-        13545984,
-        13672306,
-        13693049,
-        13678803,
-        13804116,
-        13788115,
-        13906569,
-        13997704,
-        14109351,
+        13477155,
+        13545983,
+        13672299,
+        13693052,
+        13678806,
+        13804114,
+        13788117,
+        13906564,
+        13997706,
+        14109349,
         14185879,
-        14255442,
-        14344150,
-        14373290,
-        14543126,
-        14470211,
-        14572794,
-        14643807,
-        14655795,
-        14647370,
-        14716631,
-        14910866,
-        15026846,
-        15041420,
-        15049871,
-        15266048,
-        15450474,
-        15547603,
-        15679054,
-        15686373,
-        15736999,
-        15773600,
-        15921827,
-        16019937,
-        16030143,
+        14255449,
+        14344151,
+        14373296,
+        14543129,
+        14470209,
+        14572780,
+        14643805,
+        14655803,
+        14647372,
+        14716632,
+        14910874,
+        15026844,
+        15041423,
+        15049868,
+        15266055,
+        15450469,
+        15547609,
+        15679040,
+        15686368,
+        15737001,
+        15773597,
+        15921818,
+        16019930,
+        16030141,
         16072548,
-        16189146,
-        16251960,
-        16365301,
-        16467902,
-        16518890,
-        16696097,
-        16733160,
-        16776455,
-        16857857,
-        17039725,
+        16189145,
+        16251964,
+        16365310,
+        16467897,
+        16518898,
+        16696104,
+        16733158,
+        16776459,
+        16857863,
+        17039722,
         17096838,
-        17097429,
-        17257224,
-        17431269,
-        17460884,
-        17605381,
-        17614066,
-        17698978,
-        17807884,
-        17905268,
-        18057982,
-        18115158,
-        18278121,
-        18323441,
-        18362303,
-        18416962,
-        18534307,
-        18582425,
-        18681757,
-        18783712,
-        18917102,
-        19087609,
-        19292561,
-        19544461,
-        19610657,
-        19733336,
-        19674677,
-        19727465,
-        19877823,
-        19903474,
-        20104723,
-        20230498,
-        20200773,
-        20336624,
-        20597937,
-        20751325,
-        20860627,
-        20983402,
-        21154628,
-        21164821,
-        21443689,
-        21353337,
-        21616260,
-        21622056,
-        21825315,
-        21827709,
-        21898143,
-        21944735,
-        21906930,
-        22196443,
-        22270310,
-        22347696,
-        22465730,
-        22587299,
+        17097415,
+        17257226,
+        17431279,
+        17460899,
+        17605372,
+        17614064,
+        17698976,
+        17807888,
+        17905279,
+        18057992,
+        18115164,
+        18278131,
+        18323431,
+        18362299,
+        18416971,
+        18534318,
+        18582431,
+        18681753,
+        18783685,
+        18917100,
+        19087598,
+        19292559,
+        19544472,
+        19610663,
+        19733334,
+        19674668,
+        19727472,
+        19877800,
+        19903487,
+        20104740,
+        20230507,
+        20200783,
+        20336637,
+        20597935,
+        20751329,
+        20860615,
+        20983400,
+        21154617,
+        21164835,
+        21443680,
+        21353346,
+        21616291,
+        21622051,
+        21825300,
+        21827714,
+        21898147,
+        21944744,
+        21906935,
+        22196425,
+        22270309,
+        22347689,
+        22465705,
+        22587287,
         22853273,
-        22867480,
-        23085435,
-        23228395,
+        22867469,
+        23085440,
+        23228394,
         23427189,
-        23662233,
-        23623029,
-        23954114,
-        23988173,
-        24195457,
-        24369158,
+        23662259,
+        23623010,
+        23954109,
+        23988192,
+        24195480,
+        24369153,
         24473590
       ],
       "p90": [
         11287559,
-        11577260,
-        11801378,
+        11577257,
+        11801377,
         12050078,
-        12215305,
+        12215307,
         12365159,
-        12540483,
+        12540482,
         12756000,
-        12876305,
-        13051276,
+        12876303,
+        13051277,
         13249457,
-        13446777,
-        13486387,
-        13763871,
+        13446776,
+        13486393,
+        13763873,
         13844193,
-        13931307,
+        13931309,
         13941365,
-        14104038,
-        14190050,
-        14399937,
-        14588094,
-        14722602,
-        14873698,
-        14953548,
-        15089804,
-        15200793,
-        15291817,
+        14104040,
+        14190051,
+        14399933,
+        14588096,
+        14722608,
+        14873690,
+        14953547,
+        15089796,
+        15200790,
+        15291821,
         15445145,
-        15556929,
-        15717148,
-        15986450,
-        16124042,
-        16401700,
-        16455193,
-        16587350,
-        16618758,
-        16899074,
-        17073319,
-        17011737,
-        17166855,
-        17406076,
-        17664583,
-        17809844,
-        17968361,
-        17898731,
-        18079272,
-        18283104,
-        18491208,
-        18556554,
-        18657195,
-        18960224,
-        19043125,
-        19117143,
-        19407253,
-        19537380,
-        19810749,
-        19847647,
-        20010071,
-        20223895,
-        20311393,
-        20640737,
-        20746193,
-        20939874,
-        21033293,
-        21186074,
-        21315030,
-        21401650,
-        21604133,
-        22027368,
-        22375624,
-        22535999,
-        22660229,
-        22670889,
-        22788298,
-        22911920,
+        15556932,
+        15717144,
+        15986448,
+        16124043,
+        16401702,
+        16455195,
+        16587343,
+        16618765,
+        16899086,
+        17073309,
+        17011726,
+        17166847,
+        17406074,
+        17664584,
+        17809846,
+        17968353,
+        17898733,
+        18079269,
+        18283092,
+        18491202,
+        18556550,
+        18657197,
+        18960228,
+        19043116,
+        19117130,
+        19407266,
+        19537385,
+        19810756,
+        19847640,
+        20010065,
+        20223901,
+        20311397,
+        20640746,
+        20746197,
+        20939885,
+        21033284,
+        21186076,
+        21315041,
+        21401652,
+        21604128,
+        22027365,
+        22375636,
+        22536006,
+        22660242,
+        22670906,
+        22788296,
+        22911926,
         23312638,
-        23490377,
-        23808987,
-        23807617,
-        24126011,
-        24293305,
-        24733725,
-        24869507,
-        25047705,
-        24924232,
-        25068383,
-        25260369,
-        25538607,
-        25584660,
-        25791095,
-        26060426,
-        25873495,
-        26213077,
-        26110323,
-        26496429,
-        26705250,
-        26946468,
-        26902630,
-        27383196,
-        27626060,
-        27576507,
-        27826443,
-        27989389,
-        28268949,
-        28282863,
-        28413924,
-        29208757,
-        29296736,
-        29457451,
-        29579203,
-        30063115,
+        23490390,
+        23808998,
+        23807624,
+        24126003,
+        24293293,
+        24733711,
+        24869508,
+        25047689,
+        24924219,
+        25068400,
+        25260353,
+        25538635,
+        25584648,
+        25791084,
+        26060420,
+        25873489,
+        26213054,
+        26110309,
+        26496440,
+        26705231,
+        26946443,
+        26902645,
+        27383208,
+        27626052,
+        27576502,
+        27826441,
+        27989386,
+        28268983,
+        28282842,
+        28413917,
+        29208723,
+        29296726,
+        29457438,
+        29579223,
+        30063090,
         30391882,
-        30242860,
-        30260131,
-        30390616,
-        30623551,
-        30694336,
-        31150396,
-        31209485,
-        31658381,
-        31662507,
-        31580178,
-        32060734,
-        32208531,
-        32201441,
-        32530424,
-        32833273,
-        33151224,
-        33316457,
-        33487809,
-        34343112,
-        34435494,
-        34061712,
-        34647267,
-        34860925,
-        35402713,
-        35513186,
-        36157327,
-        36208313,
-        36028006,
-        36931234,
-        37034979,
-        37396123,
+        30242850,
+        30260134,
+        30390603,
+        30623567,
+        30694313,
+        31150404,
+        31209501,
+        31658427,
+        31662554,
+        31580205,
+        32060728,
+        32208510,
+        32201420,
+        32530431,
+        32833269,
+        33151206,
+        33316424,
+        33487808,
+        34343123,
+        34435505,
+        34061733,
+        34647271,
+        34860944,
+        35402728,
+        35513167,
+        36157332,
+        36208270,
+        36028010,
+        36931247,
+        37034980,
+        37396105,
         37522462,
-        37708312,
-        38222294,
-        38495664,
-        38398746,
-        39033246,
-        39620825,
-        39812913
+        37708320,
+        38222277,
+        38495647,
+        38398725,
+        39033232,
+        39620838,
+        39812926
       ],
       "years": 3,
       "sims": 1000
@@ -23816,7 +24147,7 @@
     }
   },
   "meta": {
-    "generated": "03 Aug 2026, 04:38 PM IST",
+    "generated": "03 Aug 2026, 04:45 PM IST",
     "demo": false
   }
 }

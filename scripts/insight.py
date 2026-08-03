@@ -65,7 +65,66 @@ def latest_prices(prices, weekly):
     return out
 
 
-def exit_report(sells, latest, weekly=None, today=None):
+ROUNDTRIP_DAYS = 45
+
+REASONS = {
+    "tax": "Tax harvest",
+    "risk": "Risk mitigation",
+    "rebalance": "Rebalance",
+    "cash": "Raised cash",
+    "": "Investment call",
+}
+
+
+def _buy_events(holdings, sells):
+    out = []
+    for h in holdings or []:
+        for lot in (h.get("lots") or []):
+            if lot.get("buy_date") and lot.get("qty"):
+                out.append({"t": h["ticker"], "d": lot["buy_date"],
+                            "q": lot["qty"], "p": lot.get("buy_price") or 0})
+    for s in sells or []:
+        if s.get("buy_date") and s.get("qty"):
+            out.append({"t": s["ticker"], "d": s["buy_date"],
+                        "q": s["qty"], "p": s.get("buy_price") or 0})
+    out.sort(key=lambda b: b["d"])
+    return out
+
+
+def round_trips(sells, buys, days=ROUNDTRIP_DAYS):
+    """
+    A sale followed by buying the same stock back within `days` is not an exit
+    — the position was kept. That is what tax-loss harvesting looks like in the
+    ledger, and judging it as a failed exit is simply wrong. Returns, per sale
+    index, the quantity bought back and what re-entry cost.
+    """
+    pool = [dict(b, left=b["q"]) for b in buys]
+    out = {}
+    for i, s in enumerate(sells or []):
+        sd = s.get("sell_date")
+        if not sd or not s.get("qty"):
+            continue
+        try:
+            limit = (dt.date.fromisoformat(sd) + dt.timedelta(days=days)).isoformat()
+        except Exception:
+            continue
+        need, cost = s["qty"], 0.0
+        for b in pool:
+            if need <= 0:
+                break
+            if b["t"] != s["ticker"] or not (sd < b["d"] <= limit) or b["left"] <= 0:
+                continue
+            take = min(need, b["left"])
+            cost += take * (b["p"] - s["sell_price"])
+            b["left"] -= take
+            need -= take
+        got = s["qty"] - need
+        if got > 0:
+            out[i] = {"qty": got, "cost": round(cost)}
+    return out
+
+
+def exit_report(sells, latest, weekly=None, buys=None, today=None):
     """
     For every closed lot: was selling the right call?
 
@@ -79,8 +138,9 @@ def exit_report(sells, latest, weekly=None, today=None):
     today = today or dt.date.today()
     dates = (weekly or {}).get("dates") or []
     series = (weekly or {}).get("series") or {}
+    rt = round_trips(sells, buys or [])
     rows, left, saved, unknown = [], 0.0, 0.0, 0
-    for s in sells or []:
+    for i, s in enumerate(sells or []):
         now = latest.get(s["ticker"])
         qty, sp = s.get("qty") or 0, s.get("sell_price")
         if not now or not sp or not qty:
@@ -98,6 +158,9 @@ def exit_report(sells, latest, weekly=None, today=None):
             days = (today - dt.date.fromisoformat(s["sell_date"])).days
         except Exception:
             pass
+        back = rt.get(i)
+        reason = (s.get("reason") or "").strip().lower()
+        kept = bool(back and back["qty"] >= qty * 0.9)   # essentially the whole lot bought back
         rows.append({
             "ticker": s["ticker"], "name": s.get("name", s["ticker"]), "qty": qty,
             "sell_price": sp, "sell_date": s.get("sell_date", ""),
@@ -105,6 +168,11 @@ def exit_report(sells, latest, weekly=None, today=None):
             "proceeds": round(proceeds), "worth_now": round(proceeds * growth),
             "impact": round(impact), "days": days,
             "gain": round((sp - s.get("buy_price", 0)) * qty),
+            "reason": reason, "reason_label": REASONS.get(reason, reason.title() or "Investment call"),
+            "benefit": float(s.get("benefit") or 0),
+            "back_qty": (back or {}).get("qty", 0), "back_cost": (back or {}).get("cost", 0),
+            "kept": kept,
+            "discretionary": not kept and reason not in ("tax", "risk"),
             "verdict": "cost you" if impact > 0 else ("saved you" if impact < 0 else "neutral"),
         })
         if impact > 0:
@@ -113,8 +181,36 @@ def exit_report(sells, latest, weekly=None, today=None):
             saved += -impact
     rows.sort(key=lambda r: -r["impact"])
     good = sum(1 for r in rows if r["impact"] <= 0)
+    # the honest scorecard: only sales that were a free choice to exit
+    disc = [r for r in rows if r["discretionary"]]
+    d_left = sum(r["impact"] for r in disc if r["impact"] > 0)
+    d_saved = -sum(r["impact"] for r in disc if r["impact"] < 0)
+    groups = {}
+    for r in rows:
+        key = "kept" if r["kept"] else (r["reason"] or "")
+        gp = groups.setdefault(key, {"key": key, "n": 0, "impact": 0.0, "benefit": 0.0,
+                                     "back_cost": 0.0, "proceeds": 0.0,
+                                     "label": "Bought straight back" if key == "kept"
+                                              else REASONS.get(key, key.title())})
+        gp["n"] += 1
+        gp["impact"] += r["impact"]
+        gp["benefit"] += r["benefit"]
+        gp["back_cost"] += r["back_cost"]
+        gp["proceeds"] += r["proceeds"]
+    for gp in groups.values():
+        for k in ("impact", "benefit", "back_cost", "proceeds"):
+            gp[k] = round(gp[k])
     return {
         "rows": rows,
+        "groups": sorted(groups.values(), key=lambda g: g["impact"]),
+        "disc_n": len(disc),
+        "disc_good": sum(1 for r in disc if r["impact"] <= 0),
+        "disc_left": round(d_left), "disc_saved": round(d_saved),
+        "disc_net": round(d_saved - d_left),
+        "disc_rate": round(sum(1 for r in disc if r["impact"] <= 0) / len(disc) * 100) if disc else None,
+        "benefit_total": round(sum(r["benefit"] for r in rows)),
+        "kept_n": sum(1 for r in rows if r["kept"]),
+        "kept_cost": round(sum(r["back_cost"] for r in rows if r["kept"])),
         "left_on_table": round(left),
         "saved": round(saved),
         "net": round(saved - left),

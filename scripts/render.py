@@ -846,13 +846,24 @@ $('edSave').addEventListener('click',saveEditor);
     const ex=EX.filter(x=>x.sd>=from);
     const sw=SW.filter(x=>x.fd>=from);
     // 1 · exits
+    const disc=ex.filter(x=>x.dc);
     let left=0,saved=0;
-    ex.forEach(x=>{ if(x.im>0) left+=x.im; else saved+=-x.im; });
-    const good=ex.filter(x=>x.im<=0).length;
+    disc.forEach(x=>{ if(x.im>0) left+=x.im; else saved+=-x.im; });
+    const good=disc.filter(x=>x.im<=0).length;
     setTx('exLeft',money(left)); setTx('exSaved',money(saved));
     setTx('exNet',money(saved-left)); setCls('exNet',saved-left);
-    setTx('exRate',ex.length?Math.round(good/ex.length*100)+'%':'—');
-    setTx('exRateSub',good+' of '+ex.length+' priced sales');
+    setTx('exRate',disc.length?Math.round(good/disc.length*100)+'%':'—');
+    setTx('exRateSub',good+' of '+disc.length+' discretionary sales');
+    const gm={};
+    ex.forEach(x=>{const k=x.rl;const g=gm[k]||(gm[k]={l:k,n:0,pr:0,im:0,bc:0,bn:0});
+      g.n++; g.pr+=x.pr; g.im+=x.im; g.bc+=x.bc; g.bn+=x.bn;});
+    const gb=document.getElementById('exGroups');
+    if(gb) gb.innerHTML=Object.values(gm).sort((a,b)=>a.im-b.im).map(g=>
+      '<tr><td><b>'+g.l+'</b></td><td class="num">'+g.n+'</td><td class="num">'+money(g.pr)+'</td>'
+      +'<td class="num '+(g.im>0?'down':'up')+'">'+money(-g.im)+'</td>'
+      +'<td class="num">'+(g.bc?money(-g.bc):'—')+'</td>'
+      +'<td class="num up">'+(g.bn?money(g.bn):'—')+'</td></tr>').join('')
+      ||'<tr><td colspan="6" class="muted" style="padding:16px">No sales in this window.</td></tr>';
     document.getElementById('exBody').innerHTML=ex.slice().sort((a,b)=>b.im-a.im).map(x=>{
       const cls=x.im>0?'down':'up';
       const verdict=x.im>0?'<b class="down">cost you '+money(x.im)+'</b>'
@@ -860,11 +871,12 @@ $('edSave').addEventListener('click',saveEditor);
       return '<tr><td class="tk"><b>'+x.t+'</b><div class="nm">'+x.n+'</div></td>'
         +'<td class="num">'+Number(x.q).toLocaleString('en-IN')+'</td>'
         +'<td class="num">₹'+Number(x.sp).toFixed(2)+'<div class="sub muted">'+x.sd+'</div></td>'
+        +'<td><span class="badge">'+x.rl+'</span></td>'
         +'<td class="num">'+money(x.pr)+'<div class="sub muted">you received</div></td>'
         +'<td class="num">'+money(x.wn)+'<div class="sub muted">had you held</div></td>'
         +'<td class="num '+cls+'">'+(x.sc>=0?'+':'')+x.sc.toFixed(1)+'%</td>'
         +'<td class="num">'+verdict+'</td></tr>';
-    }).join('')||'<tr><td colspan="7" class="muted" style="padding:18px">No sales in this window.</td></tr>';
+    }).join('')||'<tr><td colspan="8" class="muted" style="padding:18px">No sales in this window.</td></tr>';
     // 2 · switches
     const agg={};
     let cap=0,stayed=0,moved=0;
@@ -1323,11 +1335,23 @@ def render(model) -> str:
             f"<tr><td class='tk'><b>{html.escape(x['ticker'])}</b><div class='nm'>{html.escape(x['name'])}</div></td>"
             f"<td class='num'>{x['qty']:,.0f}</td>"
             f"<td class='num'>{_inr(x['sell_price'],2)}<div class='sub muted'>{html.escape(x['sell_date'])}</div></td>"
+            f"<td><span class='badge'>{html.escape('Bought back' if x['kept'] else x['reason_label'])}</span></td>"
             f"<td class='num'>{_inr(x['proceeds'])}<div class='sub muted'>you received</div></td>"
             f"<td class='num'>{_inr(x['worth_now'])}<div class='sub muted'>had you held</div></td>"
             f"<td class='num {cls}'>{x['since']:+.1f}%</td>"
             f"<td class='num'>{verdict}</td></tr>")
-    ex_table = "".join(ex_rows) or ("<tr><td colspan='7' class='muted' style='padding:18px'>"
+    g_rows = []
+    for gp in (ex.get("groups") or []):
+        g_rows.append(
+            f"<tr><td><b>{html.escape(gp['label'])}</b></td>"
+            f"<td class='num'>{gp['n']}</td>"
+            f"<td class='num'>{_inr(gp['proceeds'])}</td>"
+            f"<td class='num {'down' if gp['impact'] > 0 else 'up'}'>{_inr(-gp['impact'])}</td>"
+            f"<td class='num'>{_inr(-gp['back_cost']) if gp['back_cost'] else '—'}</td>"
+            f"<td class='num up'>{_inr(gp['benefit']) if gp['benefit'] else '—'}</td></tr>")
+    ex_groups = "".join(g_rows) or "<tr><td colspan='6' class='muted' style='padding:16px'>No sales yet.</td></tr>"
+
+    ex_table = "".join(ex_rows) or ("<tr><td colspan='8' class='muted' style='padding:18px'>"
         "No priced sales yet.</td></tr>")
 
     # ---- switch report: where the sale proceeds actually went
@@ -1361,7 +1385,7 @@ def render(model) -> str:
             f"<td class='num'>{_inr(e['prev_avg'],2)}</td>"
             f"<td class='num down'>{e['below']:+.1f}%</td>"
             f"<td class='num'>{out}</td></tr>")
-    ad_table = "".join(ad_rows) or ("<tr><td colspan='7' class='muted' style='padding:18px'>"
+    ad_table = "".join(ad_rows) or ("<tr><td colspan='8' class='muted' style='padding:18px'>"
         "You have never added to a position below its own average. That is discipline.</td></tr>")
 
     # ---- value screen
@@ -1475,7 +1499,10 @@ def render(model) -> str:
                           "exitrows": [{"t": x["ticker"], "n": x["name"], "q": x["qty"],
                                         "sp": x["sell_price"], "sd": x["sell_date"],
                                         "pr": x["proceeds"], "wn": x["worth_now"],
-                                        "sc": x["since"], "im": x["impact"]}
+                                        "sc": x["since"], "im": x["impact"],
+                                        "rl": ("Bought back" if x["kept"] else x["reason_label"]),
+                                        "dc": 1 if x["discretionary"] else 0,
+                                        "bc": x["back_cost"], "bn": x["benefit"]}
                                        for x in ((model.get("exits") or {}).get("rows") or [])],
                           "switchrows": (model.get("switches") or {}).get("matches") or [],
                           "switchmeta": {k: (model.get("switches") or {}).get(k)
@@ -1799,10 +1826,18 @@ def render(model) -> str:
       </div>
       <h2 style="font-size:15px;margin:0 2px 12px">1 · Did holding beat selling?</h2>
       <div class="cards">
-        <div class="card"><div class="k">Left on the table</div><div class="v down" id="exLeft">{_inr(ex.get('left_on_table'))}</div><span class="muted" style="font-size:11px">shares you sold that are worth more today</span></div>
-        <div class="card"><div class="k">Saved by selling</div><div class="v up" id="exSaved">{_inr(ex.get('saved'))}</div><span class="muted" style="font-size:11px">shares that fell after you got out</span></div>
-        <div class="card"><div class="k">Net verdict on exits</div><div class="v {_cls(ex.get('net'))}" id="exNet">{_inr(ex.get('net'))}</div><span class="muted" style="font-size:11px">positive means selling was, on balance, right</span></div>
-        <div class="card"><div class="k">Exits that still look right</div><div class="v" id="exRate">{('—' if ex.get('good_rate') is None else str(ex['good_rate']) + '%')}</div><span class="muted" style="font-size:11px" id="exRateSub">{ex.get('good',0)} of {ex.get('n',0)} priced sales</span></div>
+        <div class="card"><div class="k">Left on the table</div><div class="v down" id="exLeft">{_inr(ex.get('disc_left'))}</div><span class="muted" style="font-size:11px">shares you chose to exit that are worth more today</span></div>
+        <div class="card"><div class="k">Saved by selling</div><div class="v up" id="exSaved">{_inr(ex.get('disc_saved'))}</div><span class="muted" style="font-size:11px">shares that fell after you got out</span></div>
+        <div class="card"><div class="k">Net verdict on exits</div><div class="v {_cls(ex.get('disc_net'))}" id="exNet">{_inr(ex.get('disc_net'))}</div><span class="muted" style="font-size:11px">investment calls only — tax, risk and buy-backs excluded</span></div>
+        <div class="card"><div class="k">Exits that still look right</div><div class="v" id="exRate">{('—' if ex.get('disc_rate') is None else str(ex['disc_rate']) + '%')}</div><span class="muted" style="font-size:11px" id="exRateSub">{ex.get('disc_good',0)} of {ex.get('disc_n',0)} discretionary sales</span></div>
+      </div>
+      <div class="tablecard" style="margin:14px 0 0">
+        <div class="controls"><b style="font-size:13px;padding:4px">Not every sale was a call on the stock</b>
+          <span class="muted" style="font-size:11.5px;align-self:center">tag a sale in ✎ Edit portfolio → Sells: blank, tax, risk, rebalance or cash, plus any rupee benefit</span></div>
+        <table class="data" style="min-width:640px"><thead><tr>
+          <th>Why you sold</th><th class="num">Sales</th><th class="num">Proceeds</th>
+          <th class="num">Opportunity cost</th><th class="num">Cost to re-enter</th><th class="num">Benefit banked</th>
+        </tr></thead><tbody id="exGroups">{ex_groups}</tbody></table>
       </div>
       <div class="warnbar">🎯 Booked P/L tells you a trade was green. This tells you whether <b>selling</b> was the right call — every closed lot measured against what those same shares fetch today.
       Measured as the stock's own return since your sale applied to what you received, so splits, bonuses and demergers between then and now do not distort it. {('' if not ex.get('unpriced') else f"{ex['unpriced']} sale(s) have no current price feed and are left out.")} <b>On its own this number is unfair</b> — it assumes the proceeds sat in cash. Section 2 fixes that.</div>
@@ -1826,7 +1861,7 @@ def render(model) -> str:
       <div class="tablecard">
         <div class="controls"><b style="font-size:13px;padding:4px">Worst decision first</b></div>
         <table class="data" style="min-width:760px"><thead><tr>
-          <th>Stock</th><th class="num">Qty</th><th class="num">You sold at</th><th class="num">Proceeds</th>
+          <th>Stock</th><th class="num">Qty</th><th class="num">You sold at</th><th>Why</th><th class="num">Proceeds</th>
           <th class="num">Worth today</th><th class="num">Stock since</th><th class="num">Verdict</th>
         </tr></thead><tbody id="exBody">{ex_table}</tbody></table>
       </div>

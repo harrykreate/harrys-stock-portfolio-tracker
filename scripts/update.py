@@ -444,6 +444,8 @@ def load_sells():
                     "buy_date": (row.get("buy_date") or "").strip(),
                     "sell_price": float(row["sell_price"]),
                     "sell_date": (row.get("sell_date") or "").strip(),
+                    "reason": (row.get("reason") or "").strip(),
+                    "benefit": float(row.get("benefit") or 0),
                 })
             except (TypeError, ValueError, KeyError):
                 continue
@@ -645,7 +647,8 @@ def build(demo=False):
     history5y = insight.actual_history(px_weekly, holdings, sells, floor_date)
     nosell = insight.never_sold(px_weekly, holdings, sells, floor_date)
     latest = insight.latest_prices(prices, px_weekly)
-    exits = insight.exit_report(sells, latest, px_weekly)
+    exits = insight.exit_report(sells, latest, px_weekly,
+                                insight._buy_events(holdings, sells))
     switches = insight.switch_report(sells, holdings, px_weekly, latest)
     alpha = insight.alpha_vs_index(rows, px_weekly)
     screen = insight.value_screen(rows, watch_rows)
@@ -659,6 +662,9 @@ def build(demo=False):
     print(f"  exits: {exits['good']}/{exits['n']} sales still look right "
           f"(₹{exits['left_on_table']:,.0f} left on the table, ₹{exits['saved']:,.0f} saved); "
           f"averaging-down events: {avgdown['n']}")
+    print(f"  discretionary exits only: {exits['disc_good']}/{exits['disc_n']} right, "
+          f"net ₹{exits['disc_net']:,.0f}; {exits['kept_n']} sales were bought straight back "
+          f"(re-entry cost ₹{exits['kept_cost']:,.0f}); recorded benefit ₹{exits['benefit_total']:,.0f}")
     print(f"  switches: ₹{switches['recycled']:,.0f} recycled into {switches['n']} pairs — "
           f"worth ₹{switches['moved']:,.0f} now vs ₹{switches['stayed']:,.0f} if left alone "
           f"(net ₹{switches['net']:,.0f}); fresh capital ₹{switches['fresh']:,.0f}, idle ₹{switches['idle']:,.0f}")

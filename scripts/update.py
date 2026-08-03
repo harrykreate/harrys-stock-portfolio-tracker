@@ -583,7 +583,7 @@ def build(demo=False):
         rec = {**h, "price": p["price"], "prev_close": p["prev_close"], "has_price": p["has_price"],
                "discipline": disc_map.get(h["ticker"], {})}
         rows.append(engine.analyse_holding(rec, p["closes"], news.get(h["ticker"], []),
-                                           corp=corp.get(h["ticker"])))
+                                           corp=corp.get(h["ticker"]), cfg=floor_cfg))
 
     watch_rows = []
     for w in watch:
@@ -591,7 +591,7 @@ def build(demo=False):
         rec = {**w, "qty": 0, "avg_cost": 0.0, "buy_date": "",
                "price": p["price"], "prev_close": p["prev_close"], "has_price": p["has_price"]}
         watch_rows.append(engine.analyse_holding(rec, p["closes"], news.get(w["ticker"], []),
-                                                 corp=corp.get(w["ticker"])))
+                                                 corp=corp.get(w["ticker"]), cfg=floor_cfg))
 
     # order table by current value desc
     rows.sort(key=lambda r: r["current"], reverse=True)
@@ -680,6 +680,7 @@ def build(demo=False):
                             "journal": journal[:30], "violations": violations[:30],
                             "journal_stats": discmod.journal_stats(journal),
                             "map": disc_map},
+             "floor_cfg": floor_cfg,
              "meta": {"generated": generated, "demo": demo}}
 
     os.makedirs(DOCS, exist_ok=True)

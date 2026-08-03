@@ -1221,7 +1221,7 @@ def render(model) -> str:
     sell_list = "".join(
         action_row(r, next((sg["text"] for sg in r["signals"] if sg["type"] == "sell_review"), ""))
         for r in s["sell_review"]
-    ) or "<li class='muted'>Nothing meets the ≥15%-in-6-months rule right now.</li>"
+    ) or "<li class='muted'>Nothing is up sharply inside the window right now.</li>"
 
     issue_list = "".join(
         action_row(r, "Recent headline flagged — see the News tab.")
@@ -1663,6 +1663,16 @@ def render(model) -> str:
                                                  "score": _score.get(w["ticker"])}
                                    for w in watch},
                           "rows": sim_rows}, separators=(",", ":"))
+    _fl = (model.get("discipline") or {}).get("floor") or {}
+    _fcfg = model.get("floor_cfg") or {}
+    def _fnum(k, d):
+        try:
+            v = _fcfg.get(k)
+            return d if v in (None, "") else float(v)
+        except (TypeError, ValueError):
+            return d
+    gain_marker_pct = _fnum("gain_marker_pct", 15.0)
+    gain_marker_mo = _fnum("gain_marker_months", 6.0)
     n_watch = len(watch)
     day_cls = "up" if s.get("day_pnl", 0) >= 0 else "down"
 
@@ -1710,7 +1720,7 @@ def render(model) -> str:
   <main class="main">
     <div class="topbar">
       <h1 id="secTitle">Overview</h1>
-      <span class="sub">Signals follow your rule: book only on ≥15% gain within 6 months, or a company issue.</span>
+      <span class="sub">Rule-based signals. Nothing here is an instruction — your record decides.</span>
     </div>
 
     <!-- ================ OVERVIEW ================ -->
@@ -1726,7 +1736,7 @@ def render(model) -> str:
         <div class="card"><div class="k">Current value</div><div class="v">{_inr(s['current'])}</div>{pill(s.get('day_pct'))}</div>
         <div class="card"><div class="k">Total P/L</div><div class="v {_cls(s['pnl'])}">{_inr(s['pnl'])}</div>{pill(s['pnl_pct'])}</div>
         <div class="card"><div class="k">Today</div><div class="v {day_cls}">{_inr(s.get('day_pnl'))}</div>
-          <span class="muted" style="font-size:11.5px">{len(s['sell_review'])} to review · {len(s['issues'])} flagged</span></div>
+          <span class="muted" style="font-size:11.5px">{len(s['sell_review'])} early gain(s) · {len(s['issues'])} news flag(s)</span></div>
       </div>
       <div class="cards">
         <div class="card"><div class="k">If you had never sold</div><div class="v" style="font-size:20px">{_inr(ns_now)}</div>
@@ -1788,7 +1798,9 @@ def render(model) -> str:
         </div>
       </div>
       <div class="grid-main">
-        <div class="panel"><h2>⭐ Booking review — ≥15% in 6 months</h2><ul class="act">{sell_list}</ul></div>
+        <div class="panel"><h2>⭐ Early gains <span class="sp"></span><span class="muted" style="font-size:11px">observation only</span></h2>
+          <div class="muted" style="font-size:12px;margin-bottom:10px">Up {gain_marker_pct:.0f}%+ inside {gain_marker_mo:.0f} months. Not a sell list — your booked record says trades held under 6 months net <b class="down">−₹1.79L</b> (avg win ₹9,316 against avg loss ₹26,220), while 6-24 months made <b class="up">+₹9.74L</b> and 24 months+ <b class="up">+₹14.31L</b> at an 86% win rate. Change the thresholds, or set <code>gain_marker_pct</code> to 0 to switch this off, in ✎ Edit data files → Floor.</div>
+          <ul class="act">{sell_list}</ul></div>
         <div class="panel"><h2>⚠️ Possible company issues</h2><ul class="act">{issue_list}</ul></div>
       </div>
       <div class="panel"><h2>⚖️ Concentration &amp; rebalancing</h2><ul class="act">{conc_html}</ul></div>

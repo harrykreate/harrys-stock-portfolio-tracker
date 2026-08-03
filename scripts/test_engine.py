@@ -21,7 +21,8 @@ assert approx(engine.pct_return_over([100, 110], 1), 10.0)
 # Sell-review rule fires at >=15% gain
 h = {"ticker":"X","name":"X","qty":10,"avg_cost":100.0,"price":120.0,"prev_close":118.0,"has_price":True}
 out = engine.analyse_holding(h, [], [])
-assert any(s["type"] == "sell_review" for s in out["signals"]), "15% rule should fire at +20%"
+assert any(s["type"] == "sell_review" for s in out["signals"]), "gain marker should fire at +20%"
+assert all(s["level"] != "act" for s in out["signals"] if s["type"] == "sell_review"), "gain marker must be informational, never an instruction"
 assert approx(out["pnl_pct"], 20.0)
 
 # Below 15% gain does NOT fire sell-review
@@ -38,7 +39,7 @@ h4 = {**h, "avg_cost": 0.0, "price": 147.0}
 out4 = engine.analyse_holding(h4, [], [])
 assert out4["pnl_pct"] is None
 
-# ---- Date-aware 15%-in-6-months rule ----
+# ---- Date-aware early-gain marker ----
 import datetime as dt
 today = dt.date(2026, 7, 24)
 
@@ -46,7 +47,8 @@ today = dt.date(2026, 7, 24)
 h5 = {**h, "buy_date": "2026-04-20"}
 out5 = engine.analyse_holding(h5, [], [], today=today)
 sigs5 = [s for s in out5["signals"] if s["type"] == "sell_review"]
-assert sigs5 and "6-months rule" in sigs5[0]["text"], sigs5
+assert sigs5 and "in 3 mo" in sigs5[0]["text"], sigs5
+assert sigs5[0]["level"] == "info", "marker must not be an instruction"
 
 # +20% bought 2 years ago -> long-term holding, rule must NOT fire
 h6 = {**h, "buy_date": "2024-05-01"}
@@ -101,3 +103,22 @@ def test_news_keyword_boundaries():
 
 test_news_keyword_boundaries()
 print("News keyword boundary tests passed.")
+
+
+def test_gain_marker_configurable():
+    """gain_marker_pct=0 switches the early-gain marker off entirely."""
+    import engine
+    h = {"ticker": "T", "name": "T", "qty": 10, "avg_cost": 100.0, "price": 200.0,
+         "prev_close": 199.0, "buy_date": "2026-06-01"}
+    on = engine.analyse_holding(h, [100.0] * 60, [], today=__import__("datetime").date(2026, 8, 3))
+    assert any(s["type"] == "sell_review" for s in on["signals"])
+    off = engine.analyse_holding(h, [100.0] * 60, [], today=__import__("datetime").date(2026, 8, 3),
+                                 cfg={"gain_marker_pct": "0"})
+    assert not any(s["type"] == "sell_review" for s in off["signals"]), "should be off when pct=0"
+    hi = engine.analyse_holding(h, [100.0] * 60, [], today=__import__("datetime").date(2026, 8, 3),
+                                cfg={"gain_marker_pct": "200"})
+    assert not any(s["type"] == "sell_review" for s in hi["signals"]), "threshold should be honoured"
+
+
+test_gain_marker_configurable()
+print("Gain-marker configurability tests passed.")

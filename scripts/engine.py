@@ -24,9 +24,13 @@ RSI_OVERSOLD = 30
 MAX_STOCK_PCT = 10.0     # one stock above this % of portfolio -> flag
 MAX_SECTOR_PCT = 30.0    # one sector above this % of portfolio -> flag
 
-# The user's medium-term sell rule: book only if a holding has returned
-# more than this % within this many months (they said ">15% in 6 months"),
-# or if the company/sector has an issue (surfaced via the news keyword scan).
+# A gain marker, NOT a rule. Harry: "forget the 15% rule, that is just an
+# option." His own booked record argues against acting on it: trades held
+# under 6 months net -1.79L with a 0.36 payoff, while 6-24mo (+9.74L) and
+# 24mo+ (+14.31L, 86% win) carry the portfolio. So this is surfaced as an
+# observation with that evidence attached, never as an instruction to exit.
+# Both numbers are overridable from floor.csv (gain_marker_pct,
+# gain_marker_months); set gain_marker_pct to 0 to switch it off entirely.
 SELL_REVIEW_GAIN_PCT = 15.0
 SELL_REVIEW_WINDOW_MONTHS = 6
 
@@ -155,7 +159,15 @@ def months_held(buy_date, today=None):
     return (today.year - d.year) * 12 + (today.month - d.month) - (1 if today.day < d.day else 0)
 
 
-def analyse_holding(h, closes, news_items, corp=None, today=None):
+def _cfg_num(cfg, key, default):
+    try:
+        v = (cfg or {}).get(key)
+        return default if v in (None, "") else float(v)
+    except (TypeError, ValueError):
+        return default
+
+
+def analyse_holding(h, closes, news_items, corp=None, today=None, cfg=None):
     """
     h: dict with ticker, name, qty, avg_cost, price (last), prev_close,
        and optionally buy_date / lots.
@@ -196,24 +208,22 @@ def analyse_holding(h, closes, news_items, corp=None, today=None):
     # ---- Rule-based signals -------------------------------------------------
     signals = []
 
-    # 1. Medium-term booking review (user's ">15% within 6 months" rule).
-    #    With a buy_date we enforce the window; without one we flag the gain
-    #    and ask for the date so the window can be checked.
-    if pnl_pct is not None and pnl_pct >= SELL_REVIEW_GAIN_PCT:
-        if held is not None and held <= SELL_REVIEW_WINDOW_MONTHS:
+    # 1. Early-gain marker — an observation, not a call to act. Off when
+    #    gain_marker_pct is 0 in floor.csv.
+    gain_pct = _cfg_num(cfg, "gain_marker_pct", SELL_REVIEW_GAIN_PCT)
+    gain_mo = _cfg_num(cfg, "gain_marker_months", SELL_REVIEW_WINDOW_MONTHS)
+    if gain_pct and pnl_pct is not None and pnl_pct >= gain_pct:
+        if held is not None and held <= gain_mo:
             signals.append({
-                "type": "sell_review", "level": "act",
-                "text": (f"+{pnl_pct:.0f}% in {held} mo — meets your ≥15%-in-6-months rule; "
-                         f"review for medium-term exit"),
+                "type": "sell_review", "level": "info",
+                "text": (f"+{pnl_pct:.0f}% in {held} mo — an early gain, nothing more. "
+                         f"Your sub-6-month trades have netted −₹1.79L; 24mo+ have made ₹14.31L"),
             })
         elif held is None:
             signals.append({
-                "type": "sell_review", "level": "act",
-                "text": (f"+{pnl_pct:.0f}% vs cost — hits your 15% threshold; add a buy date "
-                         f"to check the 6-month window"),
+                "type": "sell_review", "level": "info",
+                "text": (f"+{pnl_pct:.0f}% vs cost — add a buy date to see how long you have held it"),
             })
-        # held > window: long-term compounder, no exit flag — matches the
-        # user's "long term" default. Still visible via P/L column.
 
     # 2. Company / sector issue (user's "company has issues" rule)
     if has_negative_news:

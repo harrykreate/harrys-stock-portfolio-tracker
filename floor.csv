@@ -4,3 +4,5 @@ emergency_fund_current,
 term_insurance_renewal,
 health_insurance_renewal,
 investable_ceiling,12000000
+gain_marker_pct,15
+gain_marker_months,6

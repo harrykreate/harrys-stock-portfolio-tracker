@@ -397,7 +397,7 @@ def demo_news(holdings):
                       "negative": False, "event": None}],
         "TATASTEEL": [{"title": "Tata Steel Q1 results: profit beats estimates on higher volumes",
                        "link": "https://news.google.com/", "published": "24 Jul 2026",
-                       "negative": False, "event": "q1 results"}],
+                       "negative": False, "positive": True, "event": "q1 results"}],
         "BEL": [{"title": "Bharat Electronics board to consider bonus issue on Aug 4",
                  "link": "https://news.google.com/", "published": "23 Jul 2026",
                  "negative": False, "event": "bonus issue"}],
@@ -568,5 +568,3 @@ def build(demo=False):
 
 if __name__ == "__main__":
     build(demo="--demo" in sys.argv)
-
-# build: v7-cf1

@@ -31,6 +31,18 @@ SELL_REVIEW_GAIN_PCT = 15.0
 SELL_REVIEW_WINDOW_MONTHS = 6
 
 # Words in a headline that suggest a company / sector problem worth reading.
+# Words in a headline that suggest good news (checked only if not negative).
+POSITIVE_NEWS_KEYWORDS = [
+    "beats", "beat estimates", "exceeds estimates", "profit rises", "profit jumps",
+    "profit surges", "profit up", "profit doubles", "net profit rises", "record profit",
+    "record revenue", "record high", "all-time high", "52-week high", "surge", "surges",
+    "soars", "jumps", "jump in", "rallies", "rally", "gains", "wins order", "bags order",
+    "order win", "wins contract", "upgrade", "upgraded", "raises target", "target raised",
+    "buy rating", "outperform", "bonus issue", "dividend declared", "special dividend",
+    "expansion", "acquires", "strong results", "strong sales", "sales rise", "revenue up",
+    "upside", "turnaround", "highest ever", "doubles",
+]
+
 NEGATIVE_NEWS_KEYWORDS = [
     "fraud", "probe", "raid", "scam", "default", "downgrade", "cut to",
     "resign", "resigns", "resignation", "penalty", "fine", "lawsuit", "sue",

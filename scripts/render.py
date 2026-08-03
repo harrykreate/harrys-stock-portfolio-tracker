@@ -56,6 +56,24 @@ LEVEL_COLORS = {"act": "#b45309", "warn": "#b91c1c", "good": "#047857",
 TICKER_HUES = [210, 25, 160, 45, 330, 120, 260, 0, 190, 285]
 
 
+
+def _news_link(n, big=False):
+    """Render one news item. Splits Google-News 'Title - Publisher' tails."""
+    title = n.get("title", "")
+    source = ""
+    if " - " in title:
+        head, tail = title.rsplit(" - ", 1)
+        if 2 < len(tail) <= 34:
+            title, source = head, tail
+    ncls = "neg" if n.get("negative") else ("pos" if n.get("positive") else "")
+    ncls += " big" if big else ""
+    src_html = f'<span class="src">{html.escape(source)}</span>' if source else ""
+    ev = f'<span class="evt">{html.escape(n["event"])}</span>' if n.get("event") else ""
+    return (f'<a class="news {ncls}" href="{html.escape(n.get("link",""))}" target="_blank" rel="noopener">'
+            f'<span class="nt">{html.escape(title)}</span>'
+            f'<span class="nm2">{src_html}{ev}<em>{html.escape(n.get("published",""))}</em></span></a>')
+
+
 def _chip(sig):
     color = LEVEL_COLORS.get(sig.get("level", ""), "#475569")
     return f'<span class="chip" style="--c:{color}">{html.escape(sig["text"])}</span>'
@@ -151,12 +169,31 @@ td .sub{font-size:11px;color:var(--muted)}
 .chip{display:inline-block;border:1px solid var(--c);color:var(--c);border-radius:999px;padding:2px 8px;font-size:11px;margin:0 4px 4px 0;white-space:nowrap}
 td.sig{min-width:200px} td.nws{min-width:220px;max-width:300px}
 .fin{font-size:11.5px;line-height:1.5} td.finc{min-width:150px}
-a.news{display:block;color:#334155;text-decoration:none;font-size:12px;margin-bottom:5px;border-left:2px solid var(--line);padding-left:8px}
-a.news:hover{color:#0f172a} a.news em{color:var(--muted);font-style:normal;font-size:10.5px}
-a.news.neg{border-left-color:var(--down);color:#b91c1c}
-.newsgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
-.newscard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.newscard h3{margin:0 0 8px;font-size:13px;display:flex;gap:8px;align-items:center}
+a.news{display:block;color:#27303f;text-decoration:none;font-size:13px;line-height:1.5;margin-bottom:10px;border-left:3px solid var(--line);padding:2px 0 2px 10px;border-radius:2px}
+a.news:hover{color:#0f172a;border-left-color:var(--accent);background:rgba(42,120,214,.04)}
+a.news .nt{display:block;font-weight:500}
+a.news.big{font-size:14.5px;margin-bottom:14px;padding-left:12px}
+a.news .nm2{display:flex;gap:8px;align-items:center;margin-top:3px;flex-wrap:wrap}
+a.news em{color:var(--muted);font-style:normal;font-size:11px}
+a.news .src{font-size:10.5px;font-weight:600;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 7px}
+a.news .evt{font-size:10px;font-weight:700;color:#1d4ed8;background:#dbeafe;border-radius:6px;padding:1px 7px;text-transform:uppercase;letter-spacing:.3px}
+[data-theme="dark"] a.news{color:#c9d4e3}
+[data-theme="dark"] a.news:hover{color:#fff}
+[data-theme="dark"] a.news .evt{background:rgba(57,135,229,.18);color:#7ab5f5}
+a.news.neg{border-left-color:var(--down)}
+a.news.neg .nt{color:#c02626}
+[data-theme="dark"] a.news.neg .nt{color:#f26d6d}
+a.news.pos{border-left-color:var(--up)}
+a.news.pos .nt{color:#04722c}
+[data-theme="dark"] a.news.pos .nt{color:#4ade80}
+.newsgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px}
+.newscard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.newscard h3{margin:0 0 12px;font-size:15px;display:flex;gap:9px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:10px}
+.newsbar{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.newsbar input{border:1px solid var(--line);border-radius:9px;padding:9px 14px;font-size:14px;flex:1;min-width:220px;background:var(--card);color:var(--ink)}
+.newsbar input:focus{outline:none;border-color:var(--accent)}
+.newsbar button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:9px;padding:9px 14px;cursor:pointer;font-size:13px}
+.newsbar button.on{background:var(--down);color:#fff;border-color:var(--down)}
 footer{color:var(--muted);font-size:11.5px;margin-top:22px;line-height:1.6}
 /* ---------- allocation + tiles ---------- */
 .donutwrap{display:flex;gap:14px;align-items:center}
@@ -416,6 +453,38 @@ function drawBooked(){
       plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Booked so far: '+fmtINR(c.parsed.y)}}},
       scales:{x:{grid:{display:false},ticks:{maxTicksLimit:8,color:C_TICK,font:{size:10.5}}},
         y:{grid:{color:C_GRID},ticks:{color:C_TICK,font:{size:10.5},callback:v=>fmtINR(v)}}}}});
+}
+
+/* ---------- news filters ---------- */
+let newsMode='';
+function applyNewsFilter(){
+  const q=(document.getElementById('newsFilter')?.value||'').trim().toLowerCase();
+  document.querySelectorAll('#newsGrid .newscard').forEach(card=>{
+    const tkMatch=!q||card.dataset.tk.includes(q);
+    let anyVisible=false;
+    card.querySelectorAll('a.news').forEach(a=>{
+      const modeMatch=!newsMode||(newsMode==='pos'&&a.classList.contains('pos'))||(newsMode==='neg'&&a.classList.contains('neg'));
+      a.style.display=modeMatch?'':'none';
+      if(modeMatch)anyVisible=true;
+    });
+    card.style.display=(tkMatch&&anyVisible)?'':'none';
+  });
+}
+const nf=document.getElementById('newsFilter');
+if(nf){
+  nf.addEventListener('input',applyNewsFilter);
+  document.getElementById('posOnly').addEventListener('click',function(){
+    newsMode=newsMode==='pos'?'':'pos';
+    this.classList.toggle('on',newsMode==='pos');this.style.background=newsMode==='pos'?'var(--up)':'';this.style.color=newsMode==='pos'?'#fff':'';
+    document.getElementById('negOnly').classList.remove('on');if(newsMode!=='neg'){document.getElementById('negOnly').style.background='';document.getElementById('negOnly').style.color='';}
+    applyNewsFilter();
+  });
+  document.getElementById('negOnly').addEventListener('click',function(){
+    newsMode=newsMode==='neg'?'':'neg';
+    this.classList.toggle('on',newsMode==='neg');
+    document.getElementById('posOnly').classList.remove('on');document.getElementById('posOnly').style.background='';document.getElementById('posOnly').style.color='';
+    applyNewsFilter();
+  });
 }
 
 /* ---------- sell simulator + tax-lot optimizer ---------- */
@@ -726,11 +795,7 @@ def render(model) -> str:
 
     def watch_big(r):
         sig = " ".join(_chip(sg) for sg in r["signals"]) or "<span class='muted'>—</span>"
-        news_html = ""
-        for n in r.get("news", [])[:3]:
-            ncls = "neg" if n.get("negative") else ""
-            news_html += (f'<a class="news {ncls}" href="{html.escape(n["link"])}" target="_blank" rel="noopener">'
-                          f'{html.escape(n["title"])} <em>{html.escape(n.get("published",""))}</em></a>')
+        news_html = "".join(_news_link(n, big=True) for n in r.get("news", [])[:3])
         rsi_txt = "—" if r["rsi"] is None else f"{r['rsi']:.0f}"
         trend_txt = {"up": "▲ up", "down": "▼ down", None: "—"}.get(r["trend"], "—")
         return (f'<div class="newscard"><h3>{_avatar(r["ticker"])} {html.escape(r["ticker"])} '
@@ -748,11 +813,9 @@ def render(model) -> str:
         items = r.get("news", [])
         if not items:
             continue
-        inner = "".join(
-            f'<a class="news {"neg" if n.get("negative") else ""}" href="{html.escape(n["link"])}" target="_blank" rel="noopener">'
-            f'{html.escape(n["title"])} <em>{html.escape(n.get("published",""))}</em></a>'
-            for n in items)
-        news_cards.append(f'<div class="newscard"><h3>{_avatar(r["ticker"])} {html.escape(r["ticker"])}'
+        inner = "".join(_news_link(n, big=True) for n in items)
+        news_cards.append(f'<div class="newscard" data-tk="{html.escape((r["ticker"]+" "+r["name"]).lower())}">'
+                          f'<h3>{_avatar(r["ticker"])} {html.escape(r["ticker"])}'
                           f'<span class="muted" style="font-weight:400">{html.escape(r["name"])}</span></h3>{inner}</div>')
     news_html_all = "".join(news_cards) or "<div class='muted'>No news fetched yet — appears after the first live run.</div>"
 
@@ -934,13 +997,7 @@ def render(model) -> str:
     trows = []
     for r in rows:
         signals_html = " ".join(_chip(sg) for sg in r["signals"]) or "<span class='muted'>Hold</span>"
-        news_html = ""
-        for n in r.get("news", [])[:3]:
-            ncls = "neg" if n.get("negative") else ""
-            news_html += (f'<a class="news {ncls}" href="{html.escape(n["link"])}" target="_blank" rel="noopener">'
-                          f'{html.escape(n["title"])} <em>{html.escape(n.get("published",""))}</em></a>')
-        if not news_html:
-            news_html = "<span class='muted'>—</span>"
+        news_html = "".join(_news_link(n) for n in r.get("news", [])[:3]) or "<span class='muted'>—</span>"
         price_badge = "" if r.get("has_price") else "<span class='badge'>no feed</span>"
         rsi_txt = "—" if r["rsi"] is None else f"{r['rsi']:.0f}"
         trend_txt = {"up": "▲ up", "down": "▼ down", None: "—"}.get(r["trend"], "—")
@@ -1187,7 +1244,12 @@ def render(model) -> str:
 
     <!-- ================ NEWS ================ -->
     <section data-sec="news">
-      <div class="newsgrid">{news_html_all}</div>
+      <div class="newsbar">
+        <input id="newsFilter" placeholder="Search news… stock name or ticker" spellcheck="false">
+        <button id="posOnly" style="--on:#e8f5e9">🟢 Good news</button>
+        <button id="negOnly">🔴 Bad news</button>
+      </div>
+      <div class="newsgrid" id="newsGrid">{news_html_all}</div>
     </section>
 
     <!-- ================ DISCIPLINE ================ -->

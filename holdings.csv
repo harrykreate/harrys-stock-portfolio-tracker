@@ -21,7 +21,7 @@ KALYANKJIL,Kalyan Jewellers,KALYANKJIL.NS,1,397.88,2026-03-06,573.55,Consumer,,,
 KIRLPNU,Kirloskar Pneumatic,KIRLPNU.NS,1,1594.42,2026-05-20,1497.10,Capital Goods,,,
 KITEX,Kitex Garments,KITEX.NS,2100,0.00,2025-01-17,147.04,Textiles,,,"bonus shares 17-Jan-2025, zero cost"
 KWIL,KWIL,KWIL.NS,40,43.98,2023-12-31,32.00,Capital Goods,,,vintage - held since <=2023 (date is upper bound)
-LT,Larsen and Toubro,LT.NS,1,3978.73,,3785.60,Capital Goods,,,
+LT,Larsen and Toubro,LT.NS,1,3978.73,2023-12-31,3785.60,Capital Goods,,,vintage - held since <=2023 (date is upper bound)
 LTF,L&T Finance,LTF.NS,1975,209.62,2023-12-31,302.40,Financial Services,,,vintage - held since <=2023 (date is upper bound)
 M&M,Mahindra and Mahindra,M&M.NS,117,3417.35,2025-03-25,3161.40,Auto,,,
 MAHSEAMLES,Maharashtra Seamless,MAHSEAMLES.NS,600,156.19,2023-12-31,571.55,Metals,,,vintage - held since <=2023 (date is upper bound)

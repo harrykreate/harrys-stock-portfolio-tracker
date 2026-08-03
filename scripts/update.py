@@ -214,6 +214,9 @@ def fetch_long(holdings, start, extra_syms=()):
     return out
 
 
+SNAPSHOTS = os.path.join(ROOT, "docs", "snapshots.json")
+
+
 def holdings_start(holdings):
     """Earliest buy date across current holdings — where the lot ledger becomes
     complete. Before this, only sold positions are traceable."""
@@ -237,66 +240,6 @@ def long_start(holdings):
     if m <= 0:
         y, m = y - 1, m + 12
     return max("2008-01-01", min(five, f"{y:04d}-{m:02d}-01"))
-
-
-def reconstruct_history(weekly, holdings, sells):
-    """
-    Portfolio market value week by week, with the share count on each date
-    rebuilt from the lot ledger rather than assuming today's quantities held
-    all along: qty(t) = qty_now + everything sold after t - everything bought
-    after t. Prices are carried forward across gaps; tickers with no feed are
-    reported so the chart can say what it is missing.
-    """
-    dates = weekly.get("dates") or []
-    series = weekly.get("series") or {}
-    if not dates:
-        return {"dates": [], "values": [], "missing": []}
-
-    qty_now, buys, sold = {}, {}, {}
-    for h in holdings:
-        qty_now[h["ticker"]] = qty_now.get(h["ticker"], 0) + (h.get("qty") or 0)
-        for lot in (h.get("lots") or []):
-            if lot.get("buy_date"):
-                buys.setdefault(h["ticker"], []).append((lot["buy_date"], lot.get("qty") or 0))
-    for s in sells:
-        if s.get("sell_date"):
-            sold.setdefault(s["ticker"], []).append((s["sell_date"], s.get("qty") or 0))
-        if s.get("buy_date"):
-            buys.setdefault(s["ticker"], []).append((s["buy_date"], s.get("qty") or 0))
-
-    tickers = set(qty_now) | set(sold) | set(buys)
-    missing = sorted(t for t in tickers
-                     if not series.get(t) and (qty_now.get(t) or sold.get(t)))
-
-    floor_date = holdings_start(holdings)
-    values = []
-    for i, d in enumerate(dates):
-        total = 0.0
-        for t in tickers:
-            px = series.get(t)
-            if not px:
-                continue
-            q = qty_now.get(t, 0)
-            q += sum(n for sd, n in sold.get(t, []) if sd > d)
-            q -= sum(n for bd, n in buys.get(t, []) if bd > d)
-            if q <= 0:
-                continue
-            p = px[i]
-            if p is None:                      # carry the last known close forward
-                p = next((px[j] for j in range(i - 1, -1, -1) if px[j] is not None), None)
-            if p:
-                total += q * p
-        values.append(round(total))
-    # only publish from the point the lot ledger is complete: before the oldest
-    # recorded buy date we would be showing sold positions alone, not a portfolio
-    first = next((i for i, v in enumerate(values) if v > 0), 0)
-    if floor_date:
-        first = max(first, next((i for i, d in enumerate(dates) if d >= floor_date), first))
-    return {"dates": dates[first:], "values": values[first:],
-            "missing": missing, "from": dates[first] if dates[first:] else ""}
-
-
-SNAPSHOTS = os.path.join(ROOT, "docs", "snapshots.json")
 
 
 def update_snapshots(summary, sectors):
@@ -590,7 +533,7 @@ def build(demo=False):
         prices, history, px_daily = fetch_prices(all_syms)
         known = {h["ticker"] for h in all_syms}
         exited = sorted({s["ticker"] + ".NS" for s in load_sells()
-                         if s["ticker"] not in known})
+                         if s["ticker"] not in known} | {"^NSEI"})
         px_weekly = fetch_long(all_syms, long_start(holdings), exited)
         bench = fetch_benchmark(history["dates"])
         news = fetch_all_news(all_syms)
@@ -697,13 +640,28 @@ def build(demo=False):
         friction_year=tax_model["realised_totals"].get("friction", 0),
         portfolio_value=summary["current"])
 
-    history5y = reconstruct_history(px_weekly, holdings, sells)
+    import insight
+    floor_date = holdings_start(holdings)
+    history5y = insight.actual_history(px_weekly, holdings, sells, floor_date)
+    nosell = insight.never_sold(px_weekly, holdings, sells, floor_date)
+    latest = insight.latest_prices(prices, px_weekly)
+    exits = insight.exit_report(sells, latest)
+    alpha = insight.alpha_vs_index(rows, px_weekly)
+    screen = insight.value_screen(rows, watch_rows)
+    avgdown = insight.averaging_down(holdings, sells)
+    cash = insight.cash_position(holdings, summary.get("current"))
+    for r in rows:
+        r["alpha"] = alpha.get(r["ticker"])
     if history5y["missing"]:
         print(f"  5y reconstruction: no price feed for {len(history5y['missing'])} "
-              f"exited/held ticker(s): {', '.join(history5y['missing'][:8])}")
+              f"ticker(s): {', '.join(history5y['missing'][:8])}")
+    print(f"  exits: {exits['good']}/{exits['n']} sales still look right "
+          f"(₹{exits['left_on_table']:,.0f} left on the table, ₹{exits['saved']:,.0f} saved); "
+          f"averaging-down events: {avgdown['n']}")
 
     model = {"summary": summary, "rows": rows, "watch": watch_rows,
-             "history": history, "history5y": history5y,
+             "history": history, "history5y": history5y, "nosell": nosell,
+             "exits": exits, "screen": screen, "avgdown": avgdown, "cash": cash,
              "benchmark": indexed_series(history["values"], bench_aligned),
              "sectors": sectors, "div_months": dividend_months(rows),
              "tax": tax_model, "risk": risk_model,

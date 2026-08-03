@@ -139,6 +139,8 @@ section{display:none} section.show{display:block}
 .rangebtns2 button.on{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
 .pxstats{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:10px 2px 0}
 .pxstats b{color:var(--ink)}
+.sdot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:3px}
+.sdot.ok{background:var(--up)}.sdot.no{background:var(--line)}
 .nochart{color:var(--muted);font-size:12.5px;padding:30px 0;text-align:center}
 /* watch list rows */
 .wrow{display:flex;align-items:center;gap:11px;padding:9px 2px;border-bottom:1px solid var(--line)}
@@ -306,7 +308,7 @@ table.ed input:focus{border-color:#94a3b8;background:#fff;outline:none}
 JS = """
 /* ---------- section nav ---------- */
 const navs=document.querySelectorAll('.nav a[data-sec]');
-const TITLES={overview:'Overview',holdings:'Holdings',corporate:'Corporate actions',news:'News',insights:'Insights',discipline:'Discipline',booked:'Booked P/L',ledger:'Profit & loss banks',tax:'Tax & returns',watchlist:'Watchlist'};
+const TITLES={overview:'Overview',holdings:'Holdings',corporate:'Corporate actions',news:'News',insights:'Insights',discipline:'Discipline',booked:'Booked P/L',ledger:'Profit & loss banks',exits:'Exit report card',screen:'Value screen',tax:'Tax & returns',watchlist:'Watchlist'};
 function show(sec){
   document.querySelectorAll('section[data-sec]').forEach(s=>s.classList.toggle('show',s.dataset.sec===sec));
   navs.forEach(a=>a.classList.toggle('active',a.dataset.sec===sec));
@@ -385,7 +387,8 @@ function drawPerf(days,mode){
       ? (function(){const m=D.history5y.missing||[];const f=D.history5y.from||'';
           const tail=m.length?' — except '+m.slice(0,5).join(', ')+(m.length>5?' and '+(m.length-5)+' more':'')+', which have no price feed.':'.';
           return 'Weekly, from '+f+' — the oldest buy date on your books, where the lot ledger becomes complete. '
-            +'Share counts are rebuilt from your buy and sell history, so positions you have since exited count for the period you held them'+tail;})()
+            +'Share counts are rebuilt from your buy and sell history, so positions you have since exited count for the period you held them'+tail
+            +' The dashed line is every share you ever bought, still held — an upper bound, since the proceeds of your sales funded later purchases.';})()
       : '';
   }
   const ctx=document.getElementById('perfChart').getContext('2d');
@@ -401,8 +404,13 @@ function drawPerf(days,mode){
       {label:'Nifty 50',data:rebase(D.benchmark.nifty),borderColor:C_BENCH,borderWidth:2,borderDash:[5,4],pointRadius:0,pointHitRadius:12,tension:.25}];
     fmtY=v=>v.toFixed(0);showLegend=true;
   }else{
-    datasets=[{label:'Value',data:SRC.values.slice(start),borderColor:C_SERIES,
+    datasets=[{label:long5?'What you did':'Value',data:SRC.values.slice(start),borderColor:C_SERIES,
       backgroundColor:g,fill:true,borderWidth:2,pointRadius:0,pointHitRadius:12,tension:.25}];
+    if(long5&&D.nosell&&D.nosell.values&&D.nosell.values.length===SRC.values.length){
+      datasets.push({label:'If you had never sold',data:D.nosell.values.slice(start),
+        borderColor:'#94a3b8',borderDash:[5,4],borderWidth:1.6,pointRadius:0,pointHitRadius:12,tension:.25,fill:false});
+      showLegend=true;
+    }
     fmtY=v=>fmtINR(v);
   }
   perfChart=new Chart(ctx,{type:'line',data:{labels,datasets},
@@ -820,6 +828,24 @@ $('edSave').addEventListener('click',saveEditor);
   draw();
 })();
 
+/* ---------- value screen filter ---------- */
+(function(){
+  const body=document.getElementById('scBody');
+  if(!body) return;
+  const btns={scAll:null,scHeld:'1',scWatch:'0'};
+  Object.keys(btns).forEach(id=>{
+    const b=document.getElementById(id); if(!b) return;
+    b.addEventListener('click',()=>{
+      Object.keys(btns).forEach(x=>{const e=document.getElementById(x);if(e){e.classList.remove('simbtn');}});
+      b.classList.add('simbtn');
+      const want=btns[id];
+      body.querySelectorAll('tr').forEach(tr=>{
+        tr.style.display=(want===null||tr.dataset.held===want)?'':'none';
+      });
+    });
+  });
+})();
+
 /* ---------- per-stock price history ---------- */
 (function(){
   const modal=document.getElementById('pxModal');
@@ -1217,6 +1243,69 @@ def render(model) -> str:
     _ld_opts.append('<option value="custom">Custom dates…</option>')
     ld_options = "".join(_ld_opts)
 
+    # ---- exit report card (did selling help?)
+    ex = model.get("exits") or {}
+    ex_rows = []
+    for x in (ex.get("rows") or []):
+        cls = "down" if x["impact"] > 0 else "up"
+        verdict = ("<b class='down'>cost you " + _inr(x["impact"]) + "</b>") if x["impact"] > 0 else \
+                  ("<b class='up'>saved you " + _inr(-x["impact"]) + "</b>" if x["impact"] < 0 else "<span class='muted'>flat</span>")
+        ex_rows.append(
+            f"<tr><td class='tk'><b>{html.escape(x['ticker'])}</b><div class='nm'>{html.escape(x['name'])}</div></td>"
+            f"<td class='num'>{x['qty']:,.0f}</td>"
+            f"<td class='num'>{_inr(x['sell_price'],2)}<div class='sub muted'>{html.escape(x['sell_date'])}</div></td>"
+            f"<td class='num'>{_inr(x['now'],2)}</td>"
+            f"<td class='num {cls}'>{x['since']:+.1f}%</td>"
+            f"<td class='num'>{verdict}</td></tr>")
+    ex_table = "".join(ex_rows) or ("<tr><td colspan='6' class='muted' style='padding:18px'>"
+        "No priced sales yet.</td></tr>")
+
+    # ---- averaging-down log
+    ad = model.get("avgdown") or {}
+    ad_rows = []
+    for e in (ad.get("events") or []):
+        out = ("<span class='muted'>still open</span>" if e.get("open") else
+               (f"<b class='{_cls(e.get('outcome'))}'>{_inr(e.get('outcome'))}</b>"
+                f"<div class='sub muted'>exited {html.escape(e.get('exit_date',''))}</div>"
+                if e.get("outcome") is not None else "<span class='muted'>—</span>"))
+        ad_rows.append(
+            f"<tr><td class='tk'><b>{html.escape(e['ticker'])}</b><div class='nm'>{html.escape(e['name'])}</div></td>"
+            f"<td>{html.escape(e['date'])}</td>"
+            f"<td class='num'>{e['qty']:,.0f}</td>"
+            f"<td class='num'>{_inr(e['price'],2)}</td>"
+            f"<td class='num'>{_inr(e['prev_avg'],2)}</td>"
+            f"<td class='num down'>{e['below']:+.1f}%</td>"
+            f"<td class='num'>{out}</td></tr>")
+    ad_table = "".join(ad_rows) or ("<tr><td colspan='7' class='muted' style='padding:18px'>"
+        "You have never added to a position below its own average. That is discipline.</td></tr>")
+
+    # ---- value screen
+    sc_rows = []
+    for v in (model.get("screen") or []):
+        dots = "".join("<span class='sdot " + ("ok" if c["ok"] else "no") + "' title='"
+                       + html.escape(c["label"]) + "'></span>" for c in v["checks"])
+        num = lambda x, d=1: "—" if x is None else f"{x:,.{d}f}"
+        sc_rows.append(
+            f"<tr data-held='{1 if v['held'] else 0}' data-score='{v['score']}'>"
+            f"<td class='tk'><b>{html.escape(v['ticker'])}</b>"
+            f" <span class='badge'>{'held' if v['held'] else 'watch'}</span>"
+            f"<button class='chartb' data-chart='{html.escape(v['ticker'])}' title='Price history'>📈</button>"
+            f"<div class='nm'>{html.escape(v['name'])}</div></td>"
+            f"<td class='num'><b>{v['score']}</b><span class='muted'>/5</span><div class='sub'>{dots}</div></td>"
+            f"<td class='num'>{num(v['pe'])}</td><td class='num'>{num(v['pb'],2)}</td>"
+            f"<td class='num'>{num(v['roe'])}</td><td class='num'>{num(v['de'],2)}</td>"
+            f"<td class='num'>{num(v['div_yield'],2)}</td>"
+            f"<td class='muted' style='font-size:11.5px'>{html.escape(v['sector'])}</td></tr>")
+    screen_table = "".join(sc_rows) or "<tr><td colspan='8' class='muted' style='padding:18px'>No ratio data yet.</td></tr>"
+
+    # ---- never-sold counterfactual
+    ns = model.get("nosell") or {}
+    h5 = model.get("history5y") or {}
+    ns_now = (ns.get("values") or [None])[-1]
+    ac_now = (h5.get("values") or [None])[-1]
+    ns_gap = (ns_now - ac_now) if (ns_now and ac_now) else None
+    cash = model.get("cash") or {}
+
     # ---- holdings table rows
     trows = []
     for r in rows:
@@ -1225,6 +1314,10 @@ def render(model) -> str:
         price_badge = "" if r.get("has_price") else "<span class='badge'>no feed</span>"
         rsi_txt = "—" if r["rsi"] is None else f"{r['rsi']:.0f}"
         trend_txt = {"up": "▲ up", "down": "▼ down", None: "—"}.get(r["trend"], "—")
+        a = r.get("alpha")
+        alpha_txt = ("—" if not a else
+                     f"<b class='{_cls(a['alpha'])}'>{a['alpha']:+.1f}</b><div class='sub muted'>"
+                     f"you {a['mine']:+.0f}% · nifty {a['index']:+.0f}%</div>")
         held = r.get("months_held")
         held_txt = f"{held} mo" if held is not None else "<span class='addd'>add date</span>"
         c = r.get("corp") or {}
@@ -1266,6 +1359,7 @@ def render(model) -> str:
           <td class="num">{held_txt}{(' ' + tax_badge) if tax_badge else ''}</td>
           <td class="num">{_inr(r['current'],0)}</td>
           <td class="num {_cls(r['pnl'])}">{_inr(r['pnl'],0)}<div class="sub">{_pct(r['pnl_pct'])}</div></td>
+          <td class="num">{alpha_txt}</td>
           <td class="num">{trend_txt}<div class="sub">RSI {rsi_txt}</div></td>
           <td class="finc">{fin_html}</td>
           <td class="sig">{signals_html}</td>
@@ -1285,6 +1379,7 @@ def render(model) -> str:
                 for r in rows if r.get("has_price") and r["qty"] > 0]
     data_js = json.dumps({"history": history, "div": div_m,
                           "history5y": model.get("history5y") or {},
+                          "nosell": model.get("nosell") or {},
                           "benchmark": model.get("benchmark"),
                           "sectors": model.get("sectors", []),
                           "mc": risk.get("montecarlo"),
@@ -1328,6 +1423,8 @@ def render(model) -> str:
       <a data-sec="discipline">🧭 Discipline</a>
       <a data-sec="booked">💰 Booked P/L</a>
       <a data-sec="ledger">📒 Profit &amp; loss banks</a>
+      <a data-sec="exits">🎯 Exit report card</a>
+      <a data-sec="screen">🔎 Value screen</a>
       <a data-sec="tax">🧾 Tax &amp; returns</a>
       <a data-sec="watchlist">⭐ Watchlist <span class="cnt">{n_watch}</span></a>
     </nav>
@@ -1358,6 +1455,16 @@ def render(model) -> str:
         <div class="card"><div class="k">Total P/L</div><div class="v {_cls(s['pnl'])}">{_inr(s['pnl'])}</div>{pill(s['pnl_pct'])}</div>
         <div class="card"><div class="k">Today</div><div class="v {day_cls}">{_inr(s.get('day_pnl'))}</div>
           <span class="muted" style="font-size:11.5px">{len(s['sell_review'])} to review · {len(s['issues'])} flagged</span></div>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="k">If you had never sold</div><div class="v" style="font-size:20px">{_inr(ns_now)}</div>
+          <span class="muted" style="font-size:11px">{('every share you ever bought, still held' if ns_gap is None else ('trading is <b class=down>' + _inr(ns_gap) + ' behind</b> that' if ns_gap > 0 else 'trading is <b class=up>' + _inr(-ns_gap) + ' ahead</b> of that'))} — upper bound, sale proceeds funded later buys</span></div>
+        <div class="card"><div class="k">Exit report card</div><div class="v {_cls(ex.get('net'))}" style="font-size:20px">{_inr(ex.get('net'))}</div>
+          <span class="muted" style="font-size:11px">{ex.get('good',0)}/{ex.get('n',0)} sales still look right · <a data-sec="exits" style="cursor:pointer" onclick="show('exits')">see every one →</a></span></div>
+        <div class="card"><div class="k">Dry powder</div><div class="v" style="font-size:20px">{_inr(cash.get('amount')) if cash.get('tracked') else '—'}</div>
+          <span class="muted" style="font-size:11px">{(str(cash.get('pct')) + '% of the portfolio sits in cash' if cash.get('tracked') else 'Not tracked — add a holdings row with Yahoo symbol <b>CASH</b> and qty = rupees parked')}</span></div>
+        <div class="card"><div class="k">Averaging down</div><div class="v" style="font-size:20px">{ad.get('n',0)}</div>
+          <span class="muted" style="font-size:11px">{('times you added below your own average · net ' + _inr(ad.get('net')) + ' on the closed ones') if ad.get('n') else 'never — clean record'}</span></div>
       </div>
       {unresolved_note}
       <div class="grid-main">
@@ -1431,7 +1538,7 @@ def render(model) -> str:
         <table class="data" id="tbl"><thead><tr>
           <th>Stock</th><th class="num">Price</th><th class="num">Day</th><th class="num">Qty</th>
           <th class="num">Avg cost</th><th class="num">Held</th><th class="num">Value</th><th class="num">P/L</th>
-          <th>Trend</th><th>Financials</th><th>Signals</th><th>Recent news</th>
+          <th class="num" title="Your return since you bought, minus the Nifty 50 over the identical window">vs Nifty</th><th>Trend</th><th>Financials</th><th>Signals</th><th>Recent news</th>
         </tr></thead><tbody>
 {table_body}
         </tbody></table>
@@ -1574,6 +1681,43 @@ def render(model) -> str:
           <th>Stock</th><th class="num">Qty</th><th class="num">Buy → Sell</th><th class="num">Held</th>
           <th class="num">Loss</th><th class="num">Return</th><th>Type</th><th>Sold on</th>
         </tr></thead><tbody id="ldLossBody"></tbody></table>
+      </div>
+    </section>
+
+    <!-- ================ EXIT REPORT CARD ================ -->
+    <section data-sec="exits">
+      <div class="cards">
+        <div class="card"><div class="k">Left on the table</div><div class="v down">{_inr(ex.get('left_on_table'))}</div><span class="muted" style="font-size:11px">shares you sold that are worth more today</span></div>
+        <div class="card"><div class="k">Saved by selling</div><div class="v up">{_inr(ex.get('saved'))}</div><span class="muted" style="font-size:11px">shares that fell after you got out</span></div>
+        <div class="card"><div class="k">Net verdict on exits</div><div class="v {_cls(ex.get('net'))}">{_inr(ex.get('net'))}</div><span class="muted" style="font-size:11px">positive means selling was, on balance, right</span></div>
+        <div class="card"><div class="k">Exits that still look right</div><div class="v">{('—' if ex.get('good_rate') is None else str(ex['good_rate']) + '%')}</div><span class="muted" style="font-size:11px">{ex.get('good',0)} of {ex.get('n',0)} priced sales</span></div>
+      </div>
+      <div class="warnbar">🎯 Booked P/L tells you a trade was green. This tells you whether <b>selling</b> was the right call — every closed lot measured against what those same shares fetch today.
+      Prices are split- and bonus-adjusted by the feed, but a corporate action after your sale can still distort a row. {('' if not ex.get('unpriced') else f"{ex['unpriced']} sale(s) have no current price feed and are left out.")}</div>
+      <div class="tablecard">
+        <div class="controls"><b style="font-size:13px;padding:4px">Every sale, worst decision first</b></div>
+        <table class="data" style="min-width:760px"><thead><tr>
+          <th>Stock</th><th class="num">Qty</th><th class="num">You sold at</th><th class="num">Trading now</th>
+          <th class="num">Since</th><th class="num">Verdict</th>
+        </tr></thead><tbody>{ex_table}</tbody></table>
+      </div>
+    </section>
+
+    <!-- ================ VALUE SCREEN ================ -->
+    <section data-sec="screen">
+      <div class="warnbar">🔎 A mechanical screen, not advice: five checks — P/E under 20, P/B under 3, ROE above 12%, debt/equity under 1, yield above 1% — counted per stock. It matches the tangible-asset, bank and PSU pattern your record actually rewards, and will mark good growth companies as expensive. Blank cells mean the free feed has no figure.</div>
+      <div class="tablecard">
+        <div class="controls">
+          <b style="font-size:13px;padding:4px">Holdings and watchlist by cheapness</b>
+          <span style="flex:1"></span>
+          <button class="simbtn" id="scAll" style="padding:6px 12px">All</button>
+          <button id="scHeld">Held only</button>
+          <button id="scWatch">Watchlist only</button>
+        </div>
+        <table class="data" style="min-width:820px"><thead><tr>
+          <th>Stock</th><th class="num">Screen</th><th class="num">P/E</th><th class="num">P/B</th>
+          <th class="num">ROE %</th><th class="num">D/E</th><th class="num">Yield %</th><th>Sector</th>
+        </tr></thead><tbody id="scBody">{screen_table}</tbody></table>
       </div>
     </section>
 

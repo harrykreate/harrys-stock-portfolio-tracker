@@ -1254,10 +1254,11 @@ def render(model) -> str:
             f"<tr><td class='tk'><b>{html.escape(x['ticker'])}</b><div class='nm'>{html.escape(x['name'])}</div></td>"
             f"<td class='num'>{x['qty']:,.0f}</td>"
             f"<td class='num'>{_inr(x['sell_price'],2)}<div class='sub muted'>{html.escape(x['sell_date'])}</div></td>"
-            f"<td class='num'>{_inr(x['now'],2)}</td>"
+            f"<td class='num'>{_inr(x['proceeds'])}<div class='sub muted'>you received</div></td>"
+            f"<td class='num'>{_inr(x['worth_now'])}<div class='sub muted'>had you held</div></td>"
             f"<td class='num {cls}'>{x['since']:+.1f}%</td>"
             f"<td class='num'>{verdict}</td></tr>")
-    ex_table = "".join(ex_rows) or ("<tr><td colspan='6' class='muted' style='padding:18px'>"
+    ex_table = "".join(ex_rows) or ("<tr><td colspan='7' class='muted' style='padding:18px'>"
         "No priced sales yet.</td></tr>")
 
     # ---- averaging-down log
@@ -1316,8 +1317,9 @@ def render(model) -> str:
         trend_txt = {"up": "▲ up", "down": "▼ down", None: "—"}.get(r["trend"], "—")
         a = r.get("alpha")
         alpha_txt = ("—" if not a else
-                     f"<b class='{_cls(a['alpha'])}'>{a['alpha']:+.1f}</b><div class='sub muted'>"
-                     f"you {a['mine']:+.0f}% · nifty {a['index']:+.0f}%</div>")
+                     f"<b class='{_cls(a['alpha'])}'>{'~' if a.get('approx') else ''}{a['alpha']:+.1f}</b>"
+                     f"<div class='sub muted'>you {a['mine']:+.0f}% · nifty {a['index']:+.0f}%</div>"
+                     + ("<div class='sub muted' title='Buy date is a placeholder on this lot, so the comparison window is wrong'>approx</div>" if a.get("approx") else ""))
         held = r.get("months_held")
         held_txt = f"{held} mo" if held is not None else "<span class='addd'>add date</span>"
         c = r.get("corp") or {}
@@ -1693,12 +1695,12 @@ def render(model) -> str:
         <div class="card"><div class="k">Exits that still look right</div><div class="v">{('—' if ex.get('good_rate') is None else str(ex['good_rate']) + '%')}</div><span class="muted" style="font-size:11px">{ex.get('good',0)} of {ex.get('n',0)} priced sales</span></div>
       </div>
       <div class="warnbar">🎯 Booked P/L tells you a trade was green. This tells you whether <b>selling</b> was the right call — every closed lot measured against what those same shares fetch today.
-      Prices are split- and bonus-adjusted by the feed, but a corporate action after your sale can still distort a row. {('' if not ex.get('unpriced') else f"{ex['unpriced']} sale(s) have no current price feed and are left out.")}</div>
+      Measured as the stock's own return since your sale applied to what you received, so splits, bonuses and demergers between then and now do not distort it. {('' if not ex.get('unpriced') else f"{ex['unpriced']} sale(s) have no current price feed and are left out.")}</div>
       <div class="tablecard">
         <div class="controls"><b style="font-size:13px;padding:4px">Every sale, worst decision first</b></div>
         <table class="data" style="min-width:760px"><thead><tr>
-          <th>Stock</th><th class="num">Qty</th><th class="num">You sold at</th><th class="num">Trading now</th>
-          <th class="num">Since</th><th class="num">Verdict</th>
+          <th>Stock</th><th class="num">Qty</th><th class="num">You sold at</th><th class="num">Proceeds</th>
+          <th class="num">Worth today</th><th class="num">Stock since</th><th class="num">Verdict</th>
         </tr></thead><tbody>{ex_table}</tbody></table>
       </div>
     </section>

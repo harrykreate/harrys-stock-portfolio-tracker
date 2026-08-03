@@ -65,22 +65,34 @@ def latest_prices(prices, weekly):
     return out
 
 
-def exit_report(sells, latest, today=None):
+def exit_report(sells, latest, weekly=None, today=None):
     """
-    For every closed lot: what it sold for, what it would fetch now, and the
-    dozen-word verdict. Positive `impact` means the sale cost money — the
-    shares went up after you let them go.
+    For every closed lot: was selling the right call?
+
+    The naive version — compare your sell price to today's price — breaks on
+    any split, bonus or demerger between then and now. Tata Steel sold at
+    ₹1,523 in 2021 against ₹191 today looks like a brilliant exit; it is a
+    10:1 split. So we measure the stock's *return* since the sale using the
+    adjusted series on both ends, and apply that to what you actually
+    received. Positive `impact` means holding would have been worth more.
     """
     today = today or dt.date.today()
+    dates = (weekly or {}).get("dates") or []
+    series = (weekly or {}).get("series") or {}
     rows, left, saved, unknown = [], 0.0, 0.0, 0
     for s in sells or []:
         now = latest.get(s["ticker"])
-        if not now or not s.get("sell_price"):
+        qty, sp = s.get("qty") or 0, s.get("sell_price")
+        if not now or not sp or not qty:
             unknown += 1
             continue
-        qty = s.get("qty") or 0
-        impact = (now - s["sell_price"]) * qty
-        since = (now / s["sell_price"] - 1) * 100.0
+        then = _at(dates, series.get(s["ticker"]), s.get("sell_date"))
+        if not then:
+            unknown += 1
+            continue
+        growth = now / then
+        proceeds = qty * sp
+        impact = proceeds * (growth - 1.0)
         days = None
         try:
             days = (today - dt.date.fromisoformat(s["sell_date"])).days
@@ -88,10 +100,11 @@ def exit_report(sells, latest, today=None):
             pass
         rows.append({
             "ticker": s["ticker"], "name": s.get("name", s["ticker"]), "qty": qty,
-            "sell_price": s["sell_price"], "sell_date": s.get("sell_date", ""),
-            "now": round(now, 2), "since": round(since, 1),
+            "sell_price": sp, "sell_date": s.get("sell_date", ""),
+            "now": round(now, 2), "since": round((growth - 1) * 100.0, 1),
+            "proceeds": round(proceeds), "worth_now": round(proceeds * growth),
             "impact": round(impact), "days": days,
-            "gain": round((s["sell_price"] - s.get("buy_price", 0)) * qty),
+            "gain": round((sp - s.get("buy_price", 0)) * qty),
             "verdict": "cost you" if impact > 0 else ("saved you" if impact < 0 else "neutral"),
         })
         if impact > 0:
@@ -194,8 +207,13 @@ def alpha_vs_index(rows, weekly, bench=BENCH):
             continue
         mine = (price / cost - 1) * 100.0
         index = (idx_now / idx_then - 1) * 100.0
+        # a placeholder buy date on a vintage or demerger-apportioned lot makes
+        # the window wrong, so the comparison is indicative only — say so
+        note = (r.get("notes") or "").lower()
+        approx = ("vintage" in note or "demerger" in note or "balancing" in note
+                  or "upper bound" in note)
         out[r["ticker"]] = {"mine": round(mine, 1), "index": round(index, 1),
-                            "alpha": round(mine - index, 1)}
+                            "alpha": round(mine - index, 1), "approx": approx}
     return out
 
 

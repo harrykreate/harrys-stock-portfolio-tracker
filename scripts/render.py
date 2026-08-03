@@ -154,6 +154,7 @@ ul.corp{columns:2;column-gap:28px}ul.corp li{break-inside:avoid;margin-bottom:8p
 .controls{display:flex;gap:8px;padding:8px;flex-wrap:wrap;align-items:center}
 .controls button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12.5px}
 .controls button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.controls button.simbtn{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
 .controls button.on::after{content:" ↓";font-size:11px}
 .controls button.on.asc::after{content:" ↑"}
 .controls input{border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:12.5px;width:150px;margin-left:auto}
@@ -297,7 +298,7 @@ table.ed input:focus{border-color:#94a3b8;background:#fff;outline:none}
 JS = """
 /* ---------- section nav ---------- */
 const navs=document.querySelectorAll('.nav a[data-sec]');
-const TITLES={overview:'Overview',holdings:'Holdings',corporate:'Corporate actions',news:'News',insights:'Insights',discipline:'Discipline',booked:'Booked P/L',tax:'Tax & returns',watchlist:'Watchlist'};
+const TITLES={overview:'Overview',holdings:'Holdings',corporate:'Corporate actions',news:'News',insights:'Insights',discipline:'Discipline',booked:'Booked P/L',ledger:'Profit & loss banks',tax:'Tax & returns',watchlist:'Watchlist'};
 function show(sec){
   document.querySelectorAll('section[data-sec]').forEach(s=>s.classList.toggle('show',s.dataset.sec===sec));
   navs.forEach(a=>a.classList.toggle('active',a.dataset.sec===sec));
@@ -717,6 +718,87 @@ $('edBody').addEventListener('click',e=>{
   if(e.target.classList.contains('delbtn')){e.target.closest('tr').remove();captureTab();}
 });
 $('edSave').addEventListener('click',saveEditor);
+
+/* ---------- profit & loss banks ---------- */
+(function(){
+  const sel=document.getElementById('ldPeriod');
+  if(!sel) return;
+  const R=(window.__DATA.realised||[]).filter(x=>x.sell_date);
+  const from=document.getElementById('ldFrom'),to=document.getElementById('ldTo');
+  const money=v=>(v<0?'-₹':'₹')+Math.abs(Math.round(v)).toLocaleString('en-IN');
+  const iso=d=>d.toISOString().slice(0,10);
+  const fyOf=s=>+s.slice(0,4)-(+s.slice(5,7)>=4?0:1);
+  const fyLbl=y=>'FY '+y+'-'+String(y+1).slice(2);
+
+  function window_(){
+    const v=sel.value, now=new Date(), cy=fyOf(iso(now));
+    if(v==='custom')  return [from.value||'0000-01-01', to.value||'9999-12-31', 'custom range'];
+    if(v==='all')     return ['0000-01-01','9999-12-31','all time'];
+    if(v==='thisfy')  return [cy+'-04-01',(cy+1)+'-03-31',fyLbl(cy)];
+    if(v==='lastfy')  return [(cy-1)+'-04-01',cy+'-03-31',fyLbl(cy-1)];
+    if(v==='12m'){const d=new Date(now);d.setFullYear(d.getFullYear()-1);return [iso(d),iso(now),'last 12 months'];}
+    const y=+v.slice(2); return [y+'-04-01',(y+1)+'-03-31',fyLbl(y)];
+  }
+  function rowHtml(x){
+    const held=(x.months===null||x.months===undefined)?'—':x.months+' mo';
+    const pct=(x.pct===null||x.pct===undefined)?'<span class="muted">bonus</span>':(x.pct>=0?'+':'')+x.pct.toFixed(1)+'%';
+    return '<tr><td class="tk"><b>'+x.ticker+'</b><div class="nm">'+(x.name||'')+'</div></td>'
+      +'<td class="num">'+Number(x.qty).toLocaleString('en-IN')+'</td>'
+      +'<td class="num">₹'+Number(x.buy_price).toFixed(2)+' → ₹'+Number(x.sell_price).toFixed(2)+'</td>'
+      +'<td class="num">'+held+'</td>'
+      +'<td class="num '+(x.gain>=0?'up':'down')+'"><b>'+money(x.gain)+'</b></td>'
+      +'<td class="num '+(x.gain>=0?'up':'down')+'">'+pct+'</td>'
+      +'<td>'+x.kind+'</td><td>'+x.sell_date+'</td></tr>';
+  }
+  let curWins=[],curLosses=[];
+  function draw(){
+    const [a,b,lbl]=window_();
+    const inWin=R.filter(x=>x.sell_date>=a&&x.sell_date<=b);
+    curWins=inWin.filter(x=>x.gain>0).sort((p,q)=>q.gain-p.gain);
+    curLosses=inWin.filter(x=>x.gain<=0).sort((p,q)=>p.gain-q.gain);
+    const gW=curWins.reduce((s,x)=>s+x.gain,0), gL=curLosses.reduce((s,x)=>s+x.gain,0);
+    const net=gW+gL, n=inWin.length;
+    document.getElementById('ldLbl').textContent='· '+lbl;
+    const netEl=document.getElementById('ldNet');
+    netEl.textContent=n?money(net):'—'; netEl.className='v '+(net>=0?'up':'down');
+    document.getElementById('ldNetSub').textContent=n+' trade'+(n===1?'':'s')+' closed'
+      +(n?' · est. tax '+money(inWin.reduce((s,x)=>s+(x.tax||0),0))+' · charges '+money(inWin.reduce((s,x)=>s+(x.friction||0),0)):'');
+    document.getElementById('ldWin').textContent=money(gW);
+    document.getElementById('ldWinSub').textContent=curWins.length+' winner'+(curWins.length===1?'':'s')
+      +(curWins.length?' · avg '+money(gW/curWins.length)+' · best '+curWins[0].ticker+' '+money(curWins[0].gain):'');
+    document.getElementById('ldLoss').textContent=money(gL);
+    document.getElementById('ldLossSub').textContent=curLosses.length+' loser'+(curLosses.length===1?'':'s')
+      +(curLosses.length?' · avg '+money(gL/curLosses.length)+' · worst '+curLosses[0].ticker+' '+money(curLosses[0].gain):'');
+    const rate=n?Math.round(curWins.length/n*100):null;
+    const payoff=(curWins.length&&curLosses.length)?Math.abs((gW/curWins.length)/(gL/curLosses.length)):null;
+    document.getElementById('ldRate').textContent=rate===null?'—':rate+'%';
+    document.getElementById('ldRateSub').textContent=(payoff===null?'need both winners and losers'
+      :'payoff '+payoff.toFixed(2)+'× — '+(payoff>=1?'your winners are bigger than your losers':'your losers are bigger than your winners'));
+    document.getElementById('ldWinBody').innerHTML=curWins.map(rowHtml).join('')
+      ||'<tr><td colspan="8" class="muted" style="padding:18px">No profitable trades closed in this window.</td></tr>';
+    document.getElementById('ldLossBody').innerHTML=curLosses.map(rowHtml).join('')
+      ||'<tr><td colspan="8" class="muted" style="padding:18px">No losing trades closed in this window. Clean period.</td></tr>';
+  }
+  function csv(rows,name){
+    const head=['ticker','name','qty','buy_price','buy_date','sell_price','sell_date','months_held','gain','pct','kind','est_tax','charges'];
+    const body=rows.map(x=>[x.ticker,'"'+(x.name||'').replace(/"/g,'""')+'"',x.qty,x.buy_price,x.buy_date||'',
+      x.sell_price,x.sell_date,x.months===null?'':x.months,x.gain,x.pct===null?'':x.pct,x.kind,x.tax||0,x.friction||0].join(','));
+    const blob=new Blob([head.join(',')+'\\n'+body.join('\\n')],{type:'text/csv'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download=name+'-'+window_()[2].replace(/[^a-z0-9]+/gi,'-').toLowerCase()+'.csv';
+    a.click();URL.revokeObjectURL(a.href);
+  }
+  sel.addEventListener('change',()=>{
+    const custom=sel.value==='custom';
+    from.style.display=to.style.display=custom?'':'none';
+    if(!custom) draw();
+  });
+  document.getElementById('ldGo').addEventListener('click',draw);
+  document.getElementById('ldWinCsv').addEventListener('click',()=>csv(curWins,'profit-bank'));
+  document.getElementById('ldLossCsv').addEventListener('click',()=>csv(curLosses,'loss-bank'));
+  from.style.display=to.style.display='none';
+  draw();
+})();
 """
 
 
@@ -993,6 +1075,17 @@ def render(model) -> str:
         "(and reduce the quantity in Holdings) — it appears here with your running total.</td></tr>")
     b_total = booked.get("total", 0)
 
+    # ---- P/L ledger: financial-year presets built from the data we actually have
+    _fy_years = sorted({(int(x["sell_date"][:4]) - (0 if int(x["sell_date"][5:7]) >= 4 else 1))
+                        for x in tax.get("realised", []) if x.get("sell_date")}, reverse=True)
+    _ld_opts = ['<option value="thisfy">This financial year</option>',
+                '<option value="lastfy">Last financial year</option>',
+                '<option value="12m">Last 12 months</option>',
+                '<option value="all" selected>All time</option>']
+    _ld_opts += [f'<option value="fy{y}">FY {y}-{str(y + 1)[2:]}</option>' for y in _fy_years]
+    _ld_opts.append('<option value="custom">Custom dates…</option>')
+    ld_options = "".join(_ld_opts)
+
     # ---- holdings table rows
     trows = []
     for r in rows:
@@ -1065,6 +1158,7 @@ def render(model) -> str:
                           "mc": risk.get("montecarlo"),
                           "booked": booked.get("series", []),
                           "total": s.get("current"),
+                          "realised": tax.get("realised", []),
                           "rows": sim_rows}, separators=(",", ":"))
     n_watch = len(watch)
     day_cls = "up" if s.get("day_pnl", 0) >= 0 else "down"
@@ -1093,6 +1187,7 @@ def render(model) -> str:
       <a data-sec="insights">🔬 Insights</a>
       <a data-sec="discipline">🧭 Discipline</a>
       <a data-sec="booked">💰 Booked P/L</a>
+      <a data-sec="ledger">📒 Profit &amp; loss banks</a>
       <a data-sec="tax">🧾 Tax &amp; returns</a>
       <a data-sec="watchlist">⭐ Watchlist <span class="cnt">{n_watch}</span></a>
     </nav>
@@ -1301,6 +1396,43 @@ def render(model) -> str:
           <th>Stock</th><th class="num">Qty</th><th class="num">Buy → Sell</th><th class="num">Held</th>
           <th class="num">Booked P/L</th><th>Type</th><th class="num">Tax + charges</th><th>Sold on</th>
         </tr></thead><tbody>{booked_table}</tbody></table>
+      </div>
+    </section>
+
+    <!-- ================ PROFIT & LOSS BANKS ================ -->
+    <section data-sec="ledger">
+      <div class="panel" style="margin-bottom:14px">
+        <h2>🗓️ Period</h2>
+        <div class="simrow">
+          <select id="ldPeriod">{ld_options}</select>
+          <input id="ldFrom" type="date" title="From date">
+          <input id="ldTo" type="date" title="To date">
+          <button id="ldGo" class="simbtn">Apply</button>
+        </div>
+        <div class="muted" style="font-size:12px;margin-top:9px">Pick a preset or set your own dates — both banks, the net and the ratios below recalculate for that window. Trades are counted on their <b>sell date</b>.</div>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="k">Net P/L <span class="muted" id="ldLbl" style="font-weight:400"></span></div><div class="v" id="ldNet">—</div><span class="muted" style="font-size:11px" id="ldNetSub"></span></div>
+        <div class="card"><div class="k">💚 Profit bank</div><div class="v up" id="ldWin">—</div><span class="muted" style="font-size:11px" id="ldWinSub"></span></div>
+        <div class="card"><div class="k">🩹 Loss bank</div><div class="v down" id="ldLoss">—</div><span class="muted" style="font-size:11px" id="ldLossSub"></span></div>
+        <div class="card"><div class="k">Win rate &amp; payoff</div><div class="v" id="ldRate">—</div><span class="muted" style="font-size:11px" id="ldRateSub"></span></div>
+      </div>
+      <div class="warnbar">🩹 A losing trade in this window can still shelter tax: short-term losses set off against both short- and long-term gains, long-term losses only against long-term gains, and anything unabsorbed carries forward eight assessment years if the return is filed on time. Confirm the set-off order with your CA.</div>
+      <div class="tablecard" style="margin-bottom:14px">
+        <div class="controls"><b style="font-size:13px;padding:4px">💚 Profit bank — every trade you made money on</b>
+          <button class="simbtn" id="ldWinCsv" style="margin-left:auto;padding:6px 12px">Download CSV</button></div>
+        <table class="data" style="min-width:820px"><thead><tr>
+          <th>Stock</th><th class="num">Qty</th><th class="num">Buy → Sell</th><th class="num">Held</th>
+          <th class="num">Gain</th><th class="num">Return</th><th>Type</th><th>Sold on</th>
+        </tr></thead><tbody id="ldWinBody"></tbody></table>
+      </div>
+      <div class="tablecard">
+        <div class="controls"><b style="font-size:13px;padding:4px">🩹 Loss bank — every trade you lost money on</b>
+          <button class="simbtn" id="ldLossCsv" style="margin-left:auto;padding:6px 12px">Download CSV</button></div>
+        <table class="data" style="min-width:820px"><thead><tr>
+          <th>Stock</th><th class="num">Qty</th><th class="num">Buy → Sell</th><th class="num">Held</th>
+          <th class="num">Loss</th><th class="num">Return</th><th>Type</th><th>Sold on</th>
+        </tr></thead><tbody id="ldLossBody"></tbody></table>
       </div>
     </section>
 

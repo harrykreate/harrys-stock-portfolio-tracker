@@ -646,6 +646,7 @@ def build(demo=False):
     nosell = insight.never_sold(px_weekly, holdings, sells, floor_date)
     latest = insight.latest_prices(prices, px_weekly)
     exits = insight.exit_report(sells, latest, px_weekly)
+    switches = insight.switch_report(sells, holdings, px_weekly, latest)
     alpha = insight.alpha_vs_index(rows, px_weekly)
     screen = insight.value_screen(rows, watch_rows)
     avgdown = insight.averaging_down(holdings, sells)
@@ -658,10 +659,14 @@ def build(demo=False):
     print(f"  exits: {exits['good']}/{exits['n']} sales still look right "
           f"(₹{exits['left_on_table']:,.0f} left on the table, ₹{exits['saved']:,.0f} saved); "
           f"averaging-down events: {avgdown['n']}")
+    print(f"  switches: ₹{switches['recycled']:,.0f} recycled into {switches['n']} pairs — "
+          f"worth ₹{switches['moved']:,.0f} now vs ₹{switches['stayed']:,.0f} if left alone "
+          f"(net ₹{switches['net']:,.0f}); fresh capital ₹{switches['fresh']:,.0f}, idle ₹{switches['idle']:,.0f}")
 
     model = {"summary": summary, "rows": rows, "watch": watch_rows,
              "history": history, "history5y": history5y, "nosell": nosell,
-             "exits": exits, "screen": screen, "avgdown": avgdown, "cash": cash,
+             "exits": exits, "switches": switches, "screen": screen,
+             "avgdown": avgdown, "cash": cash,
              "benchmark": indexed_series(history["values"], bench_aligned),
              "sectors": sectors, "div_months": dividend_months(rows),
              "tax": tax_model, "risk": risk_model,

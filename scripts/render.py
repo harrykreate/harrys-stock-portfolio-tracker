@@ -1261,6 +1261,21 @@ def render(model) -> str:
     ex_table = "".join(ex_rows) or ("<tr><td colspan='7' class='muted' style='padding:18px'>"
         "No priced sales yet.</td></tr>")
 
+    # ---- switch report: where the sale proceeds actually went
+    sw = model.get("switches") or {}
+    sw_rows = []
+    for r in (sw.get("rows") or []):
+        cls = "up" if r["gain"] > 0 else "down"
+        sw_rows.append(
+            f"<tr><td class='tk'><b>{html.escape(r['from'])}</b> <span class='muted'>→</span> "
+            f"<b>{html.escape(r['to'])}</b><div class='nm'>{html.escape(r['first'])} → {html.escape(r['last'])}</div></td>"
+            f"<td class='num'>{_inr(r['amount'])}</td>"
+            f"<td class='num'>{_inr(r['moved'])}<div class='sub muted'>where it went</div></td>"
+            f"<td class='num'>{_inr(r['stayed'])}<div class='sub muted'>if left alone</div></td>"
+            f"<td class='num {cls}'><b>{_inr(r['gain'])}</b></td></tr>")
+    sw_table = "".join(sw_rows) or ("<tr><td colspan='5' class='muted' style='padding:18px'>"
+        "No switches could be matched — sales and purchases need dates and prices on both sides.</td></tr>")
+
     # ---- averaging-down log
     ad = model.get("avgdown") or {}
     ad_rows = []
@@ -1461,8 +1476,8 @@ def render(model) -> str:
       <div class="cards">
         <div class="card"><div class="k">If you had never sold</div><div class="v" style="font-size:20px">{_inr(ns_now)}</div>
           <span class="muted" style="font-size:11px">{('every share you ever bought, still held' if ns_gap is None else ('trading is <b class=down>' + _inr(ns_gap) + ' behind</b> that' if ns_gap > 0 else 'trading is <b class=up>' + _inr(-ns_gap) + ' ahead</b> of that'))} — upper bound, sale proceeds funded later buys</span></div>
-        <div class="card"><div class="k">Exit report card</div><div class="v {_cls(ex.get('net'))}" style="font-size:20px">{_inr(ex.get('net'))}</div>
-          <span class="muted" style="font-size:11px">{ex.get('good',0)}/{ex.get('n',0)} sales still look right · <a data-sec="exits" style="cursor:pointer" onclick="show('exits')">see every one →</a></span></div>
+        <div class="card"><div class="k">Verdict on switching</div><div class="v {_cls(sw.get('net'))}" style="font-size:20px">{_inr(sw.get('net'))}</div>
+          <span class="muted" style="font-size:11px">{_inr(sw.get('recycled'))} recycled into new positions · <a data-sec="exits" style="cursor:pointer" onclick="show('exits')">the full report →</a></span></div>
         <div class="card"><div class="k">Dry powder</div><div class="v" style="font-size:20px">{_inr(cash.get('amount')) if cash.get('tracked') else '—'}</div>
           <span class="muted" style="font-size:11px">{(str(cash.get('pct')) + '% of the portfolio sits in cash' if cash.get('tracked') else 'Not tracked — add a holdings row with Yahoo symbol <b>CASH</b> and qty = rupees parked')}</span></div>
         <div class="card"><div class="k">Averaging down</div><div class="v" style="font-size:20px">{ad.get('n',0)}</div>
@@ -1696,6 +1711,7 @@ def render(model) -> str:
 
     <!-- ================ EXIT REPORT CARD ================ -->
     <section data-sec="exits">
+      <h2 style="font-size:15px;margin:0 2px 12px">1 · Did holding beat selling?</h2>
       <div class="cards">
         <div class="card"><div class="k">Left on the table</div><div class="v down">{_inr(ex.get('left_on_table'))}</div><span class="muted" style="font-size:11px">shares you sold that are worth more today</span></div>
         <div class="card"><div class="k">Saved by selling</div><div class="v up">{_inr(ex.get('saved'))}</div><span class="muted" style="font-size:11px">shares that fell after you got out</span></div>
@@ -1703,9 +1719,26 @@ def render(model) -> str:
         <div class="card"><div class="k">Exits that still look right</div><div class="v">{('—' if ex.get('good_rate') is None else str(ex['good_rate']) + '%')}</div><span class="muted" style="font-size:11px">{ex.get('good',0)} of {ex.get('n',0)} priced sales</span></div>
       </div>
       <div class="warnbar">🎯 Booked P/L tells you a trade was green. This tells you whether <b>selling</b> was the right call — every closed lot measured against what those same shares fetch today.
-      Measured as the stock's own return since your sale applied to what you received, so splits, bonuses and demergers between then and now do not distort it. {('' if not ex.get('unpriced') else f"{ex['unpriced']} sale(s) have no current price feed and are left out.")}</div>
+      Measured as the stock's own return since your sale applied to what you received, so splits, bonuses and demergers between then and now do not distort it. {('' if not ex.get('unpriced') else f"{ex['unpriced']} sale(s) have no current price feed and are left out.")} <b>On its own this number is unfair</b> — it assumes the proceeds sat in cash. Section 2 fixes that.</div>
+      <h2 style="font-size:15px;margin:22px 2px 12px">2 · Where the money went</h2>
+      <div class="cards">
+        <div class="card"><div class="k">Capital recycled</div><div class="v" style="font-size:20px">{_inr(sw.get('recycled'))}</div><span class="muted" style="font-size:11px">sale proceeds matched to later purchases, oldest cash first</span></div>
+        <div class="card"><div class="k">What it is worth now</div><div class="v" style="font-size:20px">{_inr(sw.get('moved'))}</div><span class="muted" style="font-size:11px">value today of where you moved it</span></div>
+        <div class="card"><div class="k">Had you left it alone</div><div class="v" style="font-size:20px">{_inr(sw.get('stayed'))}</div><span class="muted" style="font-size:11px">same rupees, still in the stock you sold</span></div>
+        <div class="card"><div class="k">Verdict on switching</div><div class="v {_cls(sw.get('net'))}">{_inr(sw.get('net'))}</div><span class="muted" style="font-size:11px">{sw.get('wins',0)} of {sw.get('n',0)} switch pairs came out ahead</span></div>
+      </div>
+      <div class="warnbar">🔁 This is the answer to “but the money went into other shares”. Every sale fills a cash pool and every purchase draws from it, oldest rupees first; each matched pair is then scored on the two stocks' own returns from their own dates. Buying back the same stock is not counted as a switch. {_inr(sw.get('fresh'))} of purchases came from fresh capital, not sale proceeds, and is excluded. {_inr(sw.get('idle'))} of proceeds was never redeployed.</div>
+      <div class="tablecard" style="margin-bottom:22px">
+        <div class="controls"><b style="font-size:13px;padding:4px">Every switch, worst first</b>
+          <span class="muted" style="font-size:11.5px;align-self:center">out of → into · what the move was worth</span></div>
+        <table class="data" style="min-width:720px"><thead><tr>
+          <th>Switch</th><th class="num">Capital</th><th class="num">Worth now</th>
+          <th class="num">If unmoved</th><th class="num">Verdict</th>
+        </tr></thead><tbody>{sw_table}</tbody></table>
+      </div>
+      <h2 style="font-size:15px;margin:22px 2px 12px">3 · Every sale on its own</h2>
       <div class="tablecard">
-        <div class="controls"><b style="font-size:13px;padding:4px">Every sale, worst decision first</b></div>
+        <div class="controls"><b style="font-size:13px;padding:4px">Worst decision first</b></div>
         <table class="data" style="min-width:760px"><thead><tr>
           <th>Stock</th><th class="num">Qty</th><th class="num">You sold at</th><th class="num">Proceeds</th>
           <th class="num">Worth today</th><th class="num">Stock since</th><th class="num">Verdict</th>

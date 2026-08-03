@@ -125,6 +125,109 @@ def exit_report(sells, latest, weekly=None, today=None):
     }
 
 
+def switch_report(sells, holdings, weekly, latest, today=None):
+    """
+    The other half of the exit question.
+
+    Selling only costs money if the proceeds did nothing. In reality every
+    sale funded a later purchase, so the honest test is a switch test: for
+    each rupee that came out of one stock and went into another, compare what
+    that rupee is worth today against what it would be worth had it stayed
+    put.
+
+    Cash is matched FIFO — sales fill a pool, purchases draw from it oldest
+    first. A purchase the pool cannot cover is fresh capital and is excluded;
+    proceeds never redeployed are reported separately as idle.
+    """
+    today = today or dt.date.today()
+    dates = (weekly or {}).get("dates") or []
+    series = (weekly or {}).get("series") or {}
+
+    def growth(ticker, when):
+        """Total return of a stock from `when` to today, split-safe."""
+        then = _at(dates, series.get(ticker), when)
+        now = latest.get(ticker) or _last(series.get(ticker))
+        if not then or not now:
+            return None
+        return now / then
+
+    events = []
+    for s in sells or []:
+        if s.get("sell_date") and s.get("sell_price") and s.get("qty"):
+            events.append((s["sell_date"], "in", s["ticker"],
+                           (s["qty"] or 0) * s["sell_price"]))
+        if s.get("buy_date") and s.get("buy_price") and s.get("qty"):
+            events.append((s["buy_date"], "out", s["ticker"],
+                           (s["qty"] or 0) * s["buy_price"]))
+    for h in holdings:
+        for lot in (h.get("lots") or []):
+            if lot.get("buy_date") and lot.get("buy_price") and lot.get("qty"):
+                events.append((lot["buy_date"], "out", h["ticker"],
+                               lot["qty"] * lot["buy_price"]))
+    events.sort(key=lambda e: (e[0], 0 if e[1] == "in" else 1))
+
+    pool, matches, fresh, skipped = [], [], 0.0, 0.0
+    for date, kind, ticker, amount in events:
+        if kind == "in":
+            pool.append([date, ticker, amount])
+            continue
+        need = amount
+        while need > 1 and pool:
+            src = pool[0]
+            if src[1] == ticker:          # buying back the same stock is not a switch
+                take = min(need, src[2])
+                src[2] -= take
+                need -= take
+                if src[2] <= 1:
+                    pool.pop(0)
+                continue
+            take = min(need, src[2])
+            matches.append({"amount": take, "from": src[1], "from_date": src[0],
+                            "to": ticker, "to_date": date})
+            src[2] -= take
+            need -= take
+            if src[2] <= 1:
+                pool.pop(0)
+        fresh += max(0.0, need)
+    idle = sum(p[2] for p in pool)
+
+    rows, held_val, switch_val, unpriced = {}, 0.0, 0.0, 0.0
+    for m in matches:
+        gh, gs = growth(m["from"], m["from_date"]), growth(m["to"], m["to_date"])
+        if gh is None or gs is None:
+            unpriced += m["amount"]
+            continue
+        stayed, moved = m["amount"] * gh, m["amount"] * gs
+        held_val += stayed
+        switch_val += moved
+        key = (m["from"], m["to"])
+        r = rows.setdefault(key, {"from": m["from"], "to": m["to"], "amount": 0.0,
+                                  "stayed": 0.0, "moved": 0.0,
+                                  "first": m["from_date"], "last": m["to_date"]})
+        r["amount"] += m["amount"]
+        r["stayed"] += stayed
+        r["moved"] += moved
+        r["first"] = min(r["first"], m["from_date"])
+        r["last"] = max(r["last"], m["to_date"])
+    out = []
+    for r in rows.values():
+        r["gain"] = round(r["moved"] - r["stayed"])
+        for k in ("amount", "stayed", "moved"):
+            r[k] = round(r[k])
+        out.append(r)
+    out.sort(key=lambda r: r["gain"])
+    recycled = sum(r["amount"] for r in out)
+    return {
+        "rows": out, "n": len(out),
+        "recycled": round(recycled),
+        "stayed": round(held_val), "moved": round(switch_val),
+        "net": round(switch_val - held_val),
+        "fresh": round(fresh), "idle": round(idle), "unpriced": round(unpriced),
+        "wins": sum(1 for r in out if r["gain"] > 0),
+        "worst": out[0] if out else None, "best": out[-1] if out else None,
+    }
+
+
 def _qty_curve(holdings, sells, ignore_sells=False):
     """qty(t) helpers: current quantity, and the dated buy/sell events."""
     qty_now, buys, sold = {}, {}, {}

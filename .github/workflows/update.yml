@@ -43,6 +43,12 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build dashboard (live data)
+        env:
+          # Set this repository secret to publish an encrypted site behind a
+          # passphrase. Unset = builds in the clear, exactly as before.
+          # Do NOT guard this step with `if: ${{ secrets.X }}` — that expression
+          # silently invalidates the whole workflow file.
+          SITE_PASSPHRASE: ${{ secrets.SITE_PASSPHRASE }}
         run: python scripts/update.py
 
       - name: Send alerts (Telegram / email if configured)

@@ -1228,7 +1228,10 @@ $('edSave').addEventListener('click',saveEditor);
 
   function load(){
     if(DOSS) return Promise.resolve();
-    if(!pending) pending=fetch('stocks.json').then(r=>r.json()).catch(()=>({})).then(a=>{DOSS=a;});
+    if(!pending) pending=(window.__decryptJSON&&window.__unlockKey
+        ? window.__decryptJSON('stocks.enc')
+        : fetch('stocks.json').then(r=>r.json())
+      ).catch(()=>({})).then(a=>{DOSS=a;});
     return pending;
   }
   const NEWSP={};
@@ -2170,6 +2173,7 @@ def render(model) -> str:
 <script src="chart.umd.min.js"></script>
 <style>{CSS}</style></head>
 <body>
+<!--APP-BODY-START-->
 <div class="layout">
   <aside class="sidebar">
     <div class="brand">📈 Sensex Tracker</div>
@@ -2780,6 +2784,119 @@ def render(model) -> str:
   </div>
 </div>
 
-<script>window.__DATA={data_js};</script>
-<script>{JS}</script>
+<!--APP-BODY-END-->
+<script id="appData" type="application/json">{data_js}</script>
+<script id="appJs">{JS}</script>
 </body></html>"""
+
+
+# ------------------------------------------------ passphrase-gate shell
+LOCK_SHELL = """<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sensex Tracker</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f172a">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<script>(function(){var t=localStorage.getItem('st_theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;})();</script>
+<script src="chart.umd.min.js"></script>
+<style>%%CSS%%
+.lockwrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg)}
+.lockbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;max-width:400px;width:100%;
+  box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.lockbox h1{margin:0 0 6px;font-size:19px;letter-spacing:-.2px}
+.lockbox p{color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 18px}
+.lockbox input{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:9px;padding:11px 12px;
+  font-size:14px;background:var(--card);color:var(--ink)}
+.lockbox button{width:100%;margin-top:10px;border:none;background:var(--accent);color:#fff;border-radius:9px;
+  padding:11px;font-size:14px;font-weight:600;cursor:pointer}
+.lockbox button[disabled]{opacity:.6;cursor:default}
+.lockmsg{font-size:12.5px;margin-top:12px;min-height:18px}
+.lockrow{display:flex;align-items:center;gap:7px;margin-top:12px;font-size:12.5px;color:var(--muted)}
+</style></head>
+<body>
+<div class="lockwrap" id="lockScreen">
+  <form class="lockbox" id="lockForm">
+    <h1>&#128274; Sensex Tracker</h1>
+    <p>This dashboard is encrypted. Enter your passphrase to decrypt it in your browser &mdash; nothing is sent anywhere, and without it the server only ever hands out ciphertext.</p>
+    <input id="lockPass" type="password" placeholder="Passphrase" autocomplete="current-password" autofocus>
+    <button type="submit" id="lockGo">Unlock</button>
+    <label class="lockrow"><input type="checkbox" id="lockRemember" style="width:auto"> Stay unlocked on this device</label>
+    <div class="lockmsg muted" id="lockMsg"></div>
+  </form>
+</div>
+<script>
+(function(){
+  var F=document.getElementById('lockForm'),P=document.getElementById('lockPass'),
+      M=document.getElementById('lockMsg'),B=document.getElementById('lockGo'),
+      R=document.getElementById('lockRemember');
+  var dec=new TextDecoder(), enc=new TextEncoder();
+  function b64(s){var b=atob(s),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a;}
+  function say(t,bad){M.textContent=t;M.className='lockmsg '+(bad?'down':'muted');}
+
+  async function keyFrom(pass,env){
+    var base=await crypto.subtle.importKey('raw',enc.encode(pass),'PBKDF2',false,['deriveKey']);
+    return crypto.subtle.deriveKey(
+      {name:'PBKDF2',salt:b64(env.salt),iterations:env.iter,hash:'SHA-256'},
+      base,{name:'AES-GCM',length:256},true,['decrypt']);
+  }
+  async function open_(env,key){
+    var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(env.iv)},key,b64(env.ct));
+    return dec.decode(pt);
+  }
+  async function boot(payload,key){
+    var app=JSON.parse(payload);
+    document.getElementById('lockScreen').remove();
+    document.body.insertAdjacentHTML('afterbegin',app.body);
+    window.__DATA=JSON.parse(app.data);
+    window.__unlockKey=key;                       // reused for the encrypted dossier
+    var s=document.createElement('script');s.textContent=app.js;document.body.appendChild(s);
+  }
+  // encrypted side-files (stock dossiers) go through the same key
+  window.__decryptJSON=async function(url){
+    var env=await fetch(url).then(function(r){return r.json();});
+    var txt=await open_(env,window.__unlockKey);
+    return JSON.parse(txt);
+  };
+
+  var ENV=null;
+  var envP=fetch('app.enc').then(function(r){return r.json();}).then(function(j){ENV=j;return j;});
+
+  async function tryPass(pass,quiet){
+    var env=ENV||await envP;
+    var key=await keyFrom(pass,env);
+    var payload=await open_(env,key);            // throws if the passphrase is wrong
+    if(R&&R.checked||quiet){
+      try{
+        var jwk=await crypto.subtle.exportKey('jwk',key);
+        localStorage.setItem('st_key',JSON.stringify(jwk));
+      }catch(e){}
+    }
+    await boot(payload,key);
+  }
+
+  F.addEventListener('submit',async function(e){
+    e.preventDefault();
+    if(!P.value){say('Enter your passphrase.',true);return;}
+    B.disabled=true;say('Decrypting…');
+    try{ await tryPass(P.value); }
+    catch(err){ B.disabled=false; P.select(); say('That passphrase does not open it.',true); }
+  });
+
+  // silent unlock if this device was remembered
+  (async function(){
+    var saved=localStorage.getItem('st_key');
+    if(!saved) return;
+    try{
+      var env=ENV||await envP;
+      var key=await crypto.subtle.importKey('jwk',JSON.parse(saved),{name:'AES-GCM',length:256},true,['decrypt']);
+      var payload=await open_(env,key);
+      await boot(payload,key);
+    }catch(e){ localStorage.removeItem('st_key'); }   // salt rotates every build
+  })();
+})();
+</script>
+</body></html>
+"""
+

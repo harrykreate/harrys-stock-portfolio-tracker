@@ -205,3 +205,33 @@ portfolio. While it is public, so is all of that.
 
 Order matters: make it private first, then verify the Access wall, then turn
 off Pages.
+
+## 🔑 Passphrase gate (SITE_PASSPHRASE)
+
+A static site has no backend, so it cannot check a password — any check
+written in JavaScript is a check the visitor controls and can delete. The only
+honest gate is to never serve the plaintext.
+
+Set a repository secret named **`SITE_PASSPHRASE`** and the next build
+publishes ciphertext instead of a dashboard:
+
+- `docs/app.enc` — the entire rendered app (markup, data, script), AES-256-GCM
+- `docs/stocks.enc` — the per-stock dossiers
+- `docs/data.json` and `docs/stocks.json` are **not published at all**
+- `docs/index.html` becomes a small unlock screen
+
+Your browser derives the key with PBKDF2-SHA256 (210,000 iterations, a fresh
+salt each build) and decrypts locally. The passphrase never leaves the page and
+is never stored in the repo. Fetch `app.enc` without it and you get noise.
+Tick *stay unlocked on this device* to keep the derived key in local storage;
+it stops working on the next build, when the salt rotates.
+
+Remove the secret and the site rebuilds in the clear.
+
+**What this does not hide.** Filenames are still public, so the *list* of
+tickers you follow is inferable from `docs/news/` and `docs/prices.json` even
+though every number about your position is encrypted. Market data is public
+information anyway. If you want the ticker list hidden too, that is what the
+Cloudflare Access wall above is for — it stops the request before any file is
+served. The two are complementary: Access controls who reaches the site,
+the passphrase controls whether the bytes mean anything.

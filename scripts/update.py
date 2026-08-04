@@ -646,6 +646,53 @@ def demo_news(holdings):
 
 
 # ---------------------------------------------------------------- build
+def lock_site(html, dossier_json, passphrase):
+    """
+    Replace the rendered page with a passphrase shell plus ciphertext.
+
+    A static host cannot verify a password — a check in JavaScript is a check
+    the attacker owns. So nothing readable is published: the app body, its data
+    and its script are encrypted into app.enc, the per-stock dossier into
+    stocks.enc, and data.json is not published at all. Market data (prices,
+    news, the index list) stays in the clear because it is public anyway.
+    """
+    import lock
+    if not lock.available():
+        print("  ! SITE_PASSPHRASE is set but the 'cryptography' package is missing "
+              "— publishing UNLOCKED. Add cryptography to requirements.txt.")
+        return html
+
+    def between(start, end):
+        # search for the closing marker *after* the opening one — looking from
+        # the top of the document found the first </script> in <head> and
+        # silently produced an empty payload
+        i = html.index(start) + len(start)
+        j = html.index(end, i)
+        return html[i:j]
+
+    try:
+        body = between("<!--APP-BODY-START-->", "<!--APP-BODY-END-->")
+        data = between('<script id="appData" type="application/json">', "</script>")
+        js = between('<script id="appJs">', "</script>")
+    except ValueError:
+        print("  ! could not find the app markers — publishing UNLOCKED")
+        return html
+
+    payload = json.dumps({"body": body, "data": data, "js": js}, separators=(",", ":"))
+    salt = lock.new_salt()
+    n1 = lock.write_encrypted(os.path.join(DOCS, "app.enc"), payload, passphrase, salt)
+    n2 = lock.write_encrypted(os.path.join(DOCS, "stocks.enc"), dossier_json, passphrase, salt)
+    for plain in ("data.json", "stocks.json"):
+        pth = os.path.join(DOCS, plain)
+        if os.path.exists(pth):
+            os.remove(pth)
+    print(f"  🔒 locked: app.enc {n1/1024:.0f} KB, stocks.enc {n2/1024:.0f} KB; "
+          f"data.json and stocks.json not published")
+
+    css = renderer.CSS
+    return renderer.LOCK_SHELL.replace("%%CSS%%", css)
+
+
 def build(demo=False):
     import corporate as corpmod
     holdings = load_holdings()
@@ -853,8 +900,12 @@ def build(demo=False):
         u["watched"] = u["ticker"] in _watched
 
     os.makedirs(DOCS, exist_ok=True)
+    # the held/watched flags say what he owns, so they never ship on a locked
+    # build — the picker recomputes them from the decrypted holdings instead
+    _pub = [{k: v for k, v in u.items() if k not in ("held", "watched")}
+            for u in universe] if (os.environ.get("SITE_PASSPHRASE") or "").strip() else universe
     with open(os.path.join(DOCS, "universe.json"), "w") as f:
-        json.dump(universe, f, separators=(",", ":"))
+        json.dump(_pub, f, separators=(",", ":"))
     print(f"  universe: {len(universe)} tickers offered "
           f"({sum(1 for u in universe if not u['held'] and not u['watched'])} not yet tracked)")
 
@@ -875,14 +926,24 @@ def build(demo=False):
     with open(os.path.join(DOCS, "prices.json"), "w") as f:
         json.dump({"daily": px_daily, "weekly": px_weekly,
                    "generated": generated}, f, separators=(",", ":"), default=str)
-    with open(os.path.join(DOCS, "data.json"), "w") as f:
-        json.dump({k: v for k, v in model.items() if k != "_dossier"},
-                  f, indent=2, default=str)
     html = renderer.render(model)
-    # the per-stock dossier is lazy-loaded by the stock page, like prices.json,
-    # so the dashboard itself does not carry 85 stocks' worth of detail
-    with open(os.path.join(DOCS, "stocks.json"), "w") as f:
-        json.dump(model.get("_dossier") or {}, f, separators=(",", ":"), default=str)
+    passphrase = (os.environ.get("SITE_PASSPHRASE") or "").strip()
+    dossier_json = json.dumps(model.get("_dossier") or {}, separators=(",", ":"), default=str)
+    data_dump = json.dumps({k: v for k, v in model.items() if k != "_dossier"},
+                           indent=2, default=str)
+
+    if passphrase:
+        html = lock_site(html, dossier_json, passphrase)
+    else:
+        # unlocked build: everything served in the clear, as before
+        with open(os.path.join(DOCS, "data.json"), "w") as f:
+            f.write(data_dump)
+        with open(os.path.join(DOCS, "stocks.json"), "w") as f:
+            f.write(dossier_json)
+        for stale in ("app.enc", "stocks.enc"):
+            pth = os.path.join(DOCS, stale)
+            if os.path.exists(pth):
+                os.remove(pth)
     with open(os.path.join(DOCS, "index.html"), "w") as f:
         f.write(html)
     print(f"Built dashboard: {summary['n_priced']}/{summary['n_holdings']} priced, "

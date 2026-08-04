@@ -362,15 +362,29 @@ def dividend_months(rows, n=12):
     }
 
 
+NEWS_DIR = os.path.join(ROOT, "docs", "news")
 NEWS_ARCHIVE = os.path.join(ROOT, "docs", "news_archive.json")
 
 
 def load_news_archive():
-    try:
-        with open(NEWS_ARCHIVE) as f:
-            return json.load(f)
-    except Exception:
-        return {}
+    """Rolling bank, one file per ticker. Falls back to the old single-file
+    archive so an existing bank is not lost on upgrade."""
+    out = {}
+    if os.path.isdir(NEWS_DIR):
+        for fn in os.listdir(NEWS_DIR):
+            if fn.endswith(".json"):
+                try:
+                    with open(os.path.join(NEWS_DIR, fn)) as f:
+                        out[fn[:-5]] = json.load(f)
+                except Exception:
+                    pass
+    if not out:
+        try:
+            with open(NEWS_ARCHIVE) as f:
+                out = json.load(f)
+        except Exception:
+            out = {}
+    return out
 
 
 def fetch_all_news(holdings):
@@ -709,8 +723,16 @@ def build(demo=False):
     news_counts = {t: len(v) for t, v in archive.items()}
 
     os.makedirs(DOCS, exist_ok=True)
-    with open(NEWS_ARCHIVE, "w") as f:
-        json.dump(archive, f, separators=(",", ":"))
+    # one file per ticker: a stock page then downloads only its own headlines
+    # instead of the whole 2 MB bank
+    os.makedirs(NEWS_DIR, exist_ok=True)
+    for t, items in archive.items():
+        safe = "".join(ch for ch in t if ch.isalnum() or ch in "-_&")
+        if safe:
+            with open(os.path.join(NEWS_DIR, safe + ".json"), "w") as f:
+                json.dump(items, f, separators=(",", ":"))
+    if os.path.exists(NEWS_ARCHIVE):
+        os.remove(NEWS_ARCHIVE)
     print(f"  news bank: {sum(news_counts.values())} headlines across "
           f"{len(archive)} tickers (deepest {max(news_counts.values(), default=0)})")
     # Price panels live in their own file: the dashboard lazy-loads it the first

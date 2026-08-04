@@ -1111,7 +1111,8 @@ $('edSave').addEventListener('click',saveEditor);
 (function(){
   const box=document.getElementById('stkBody');
   if(!box) return;
-  let DOSS=null, NEWS=null, pending=null, cur=null, srange='1y', schart=null;
+  let DOSS=null, pending=null, cur=null, srange='1y', schart=null;
+  const NEWSC={};
   const REAL=(window.__DATA.realised||[]);
   const money=(v,d)=>v===null||v===undefined?'—':(v<0?'-₹':'₹')+Math.abs(d?+(+v).toFixed(d):Math.round(v)).toLocaleString('en-IN',d?{minimumFractionDigits:d,maximumFractionDigits:d}:{});
   const pct=v=>v===null||v===undefined?'—':(v>=0?'+':'')+(+v).toFixed(1)+'%';
@@ -1120,12 +1121,18 @@ $('edSave').addEventListener('click',saveEditor);
   const cr=v=>v===null||v===undefined?'—':'₹'+(v/1e7).toLocaleString('en-IN',{maximumFractionDigits:0})+' cr';
 
   function load(){
-    if(DOSS&&NEWS) return Promise.resolve();
-    if(!pending) pending=Promise.all([
-      fetch('stocks.json').then(r=>r.json()).catch(()=>({})),
-      fetch('news_archive.json').then(r=>r.json()).catch(()=>({}))
-    ]).then(([a,b])=>{DOSS=a;NEWS=b;});
+    if(DOSS) return Promise.resolve();
+    if(!pending) pending=fetch('stocks.json').then(r=>r.json()).catch(()=>({})).then(a=>{DOSS=a;});
     return pending;
+  }
+  const NEWSP={};
+  function loadNews(tk){
+    if(NEWSC[tk]) return Promise.resolve(NEWSC[tk]);
+    if(NEWSP[tk]) return NEWSP[tk];
+    const safe=tk.replace(/[^A-Za-z0-9\-_&]/g,'');
+    NEWSP[tk]=fetch('news/'+safe+'.json').then(r=>r.ok?r.json():[]).catch(()=>[])
+      .then(j=>{NEWSC[tk]=j;return j;});
+    return NEWSP[tk];
   }
   function kv(k,v,c){return '<div><div class="k2">'+k+'</div><div class="v2 '+(c||'')+'">'+v+'</div></div>';}
 
@@ -1169,7 +1176,7 @@ $('edSave').addEventListener('click',saveEditor);
     if(!d){box.innerHTML='<div class="muted" style="padding:30px">No data for '+esc(tk)+'. It may have been fully exited — try the Booked P/L tab.</div>';return;}
     const c=d.corp||{}, sells=REAL.filter(x=>x.ticker===tk).sort((a,b)=>a.sell_date<b.sell_date?1:-1);
     const booked=sells.reduce((s2,x)=>s2+(x.gain||0),0);
-    const news=(NEWS||{})[tk]||[];
+    const news=NEWSC[tk]||[];
     const rangePos=(c.wk_high&&c.wk_low&&d.price)?Math.max(0,Math.min(100,(d.price-c.wk_low)/(c.wk_high-c.wk_low)*100)):null;
 
     // header
@@ -1292,7 +1299,8 @@ $('edSave').addEventListener('click',saveEditor);
   window.__openStock=function(tk){
     cur=tk; srange='1y';
     box.innerHTML='<div class="muted" style="padding:30px">Loading '+esc(tk)+'…</div>';
-    Promise.all([load(), (window.__loadPx?window.__loadPx():Promise.resolve())]).then(()=>{ if(cur===tk) render(tk); });
+    Promise.all([load(), loadNews(tk), (window.__loadPx?window.__loadPx():Promise.resolve())])
+      .then(()=>{ if(cur===tk) render(tk); });
   };
   document.addEventListener('click',e=>{
     const s2=e.target.closest('[data-stock]');

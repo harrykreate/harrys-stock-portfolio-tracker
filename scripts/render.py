@@ -792,9 +792,11 @@ $('edSave').addEventListener('click',saveEditor);
     $('trSellF').style.display=x==='sell'?'':'none';
     $('trFixF').style.display=x==='fix'?'':'none';
     $('trWatchF').style.display=x==='watch'?'':'none';
-    $('trGo').style.display=(x==='fix'||x==='watch')?'none':'';
+    $('trCashF').style.display=x==='cash'?'':'none';
+    $('trGo').style.display=(x==='fix'||x==='watch'||x==='cash')?'none':'';
     $('trStatus').textContent='';
     if(x==='watch') loadUniverse();
+    if(x==='cash') fillCash();
   }
   function fillLists(){
     const held={};
@@ -821,6 +823,31 @@ $('edSave').addEventListener('click',saveEditor);
     catch(e){ $('trStatus').textContent='⚠ '+e.message; }
   }
   function today(){return new Date().toISOString().slice(0,10);}
+  function plusMonths(n){const d=new Date();d.setMonth(d.getMonth()+n);return d.toISOString().slice(0,10);}
+  function fillCash(){
+    const row=FILES.holdings.rows.find(r=>(r.yahoo_symbol||'').toUpperCase()==='CASH');
+    $('tcAmt').value=row?row.qty:'';
+    const idle=(window.__DATA.switchmeta||{}).idle||0;
+    $('tcHint').innerHTML=(row?'Currently recorded: <b>₹'+Number(row.qty).toLocaleString('en-IN')+'</b>. ':'No cash recorded yet. ')
+      +(idle?'Your exit report says <b>₹'+Math.round(idle).toLocaleString('en-IN')+'</b> of sale proceeds was never redeployed — a starting point, not a balance.':'');
+  }
+  async function saveCash(){
+    const amt=+$('tcAmt').value;
+    if(!(amt>=0)){$('trStatus').textContent='⚠ Enter an amount (0 is fine).';return;}
+    const{repo,tok}=cfg();
+    if(!repo||!tok){$('trStatus').textContent='⚠ Enter repo and token via ✎ Edit data files first.';return;}
+    $('trStatus').textContent='Saving…';
+    try{
+      const i=FILES.holdings.rows.findIndex(r=>(r.yahoo_symbol||'').toUpperCase()==='CASH');
+      if(i>=0) FILES.holdings.rows[i].qty=String(amt);
+      else FILES.holdings.rows.push({ticker:'CASH',name:'Cash & dry powder',yahoo_symbol:'CASH',
+        qty:String(amt),buy_price:'1',buy_date:today(),seed_price:'1',sector:'Cash',
+        target_price:'',stop_loss:'',notes:'parked capital'});
+      await putFile('holdings');
+      $('trStatus').textContent='✅ Cash balance saved. Allocations recompute on the next build.';
+      fillCash();
+    }catch(e){ $('trStatus').textContent='⚠ '+e.message; }
+  }
   function planBuy(){
     const t=($('tbTicker').value||'').trim().toUpperCase();
     const q=+$('tbQty').value, pr=+$('tbPrice').value, d=$('tbDate').value||today();
@@ -831,12 +858,18 @@ $('edSave').addEventListener('click',saveEditor);
       yahoo_symbol:$('tbSym').value||((known&&known.yahoo_symbol)||t+'.NS'),
       qty:String(q),buy_price:pr.toFixed(2),buy_date:d,seed_price:known?known.seed_price:pr.toFixed(2),
       sector:$('tbSector').value||((known&&known.sector)||'Others'),
-      target_price:'',stop_loss:'',notes:''};
-    return {kind:'buy',row,
+      target_price:$('tbTarget').value||'',stop_loss:$('tbStop').value||'',notes:''};
+    const thesis=($('tbThesis').value||'').trim();
+    const disc=thesis?{ticker:t,stage:$('tbStage').value||'',thesis:thesis,
+      proof_metric:'',kill_condition:($('tbKill').value||'').trim(),
+      review_date:$('tbReview').value||'',horizon_quarters:''}:null;
+    return {kind:'buy',row,disc,thesis,
       html:`<table class="data" style="min-width:0"><thead><tr><th>Action</th><th class="num">Qty</th><th class="num">Price</th><th>Date</th><th>Goes to</th></tr></thead>
       <tbody><tr><td class="tk"><b>BUY ${t}</b><div class="nm">${row.name}${known?'':' · new position'}</div></td>
       <td class="num">${q.toLocaleString('en-IN')}</td><td class="num">₹${pr.toFixed(2)}</td><td>${d}</td>
-      <td class="muted">new lot in holdings.csv</td></tr></tbody></table>`};
+      <td class="muted">new lot in holdings.csv</td></tr></tbody></table>`
+      +(thesis?`<div class="muted" style="font-size:12px;margin-top:8px">📌 Thesis recorded: “${thesis}”${$('tbReview').value?' · review '+$('tbReview').value:''}</div>`
+              :`<div class="muted" style="font-size:12px;margin-top:8px">⚠️ No thesis written. This will save, but the position joins the other 45 with nothing to test news against.</div>`)};
   }
   function planSell(){
     const t=$('tsTicker').value, q=+$('tsQty').value, pr=+$('tsPrice').value, d=$('tsDate').value||today();
@@ -882,7 +915,16 @@ $('edSave').addEventListener('click',saveEditor);
     if(!plan)return;
     $('trSave').disabled=true; $('trStatus').textContent='Committing…';
     try{
-      if(plan.kind==='buy'){ FILES.holdings.rows.push(plan.row); await putFile('holdings'); }
+      if(plan.kind==='buy'){
+        FILES.holdings.rows.push(plan.row);
+        if(plan.disc){
+          const i=FILES.discipline.rows.findIndex(r=>r.ticker===plan.row.ticker);
+          if(i>=0) FILES.discipline.rows[i]=Object.assign({},FILES.discipline.rows[i],plan.disc);
+          else FILES.discipline.rows.push(plan.disc);
+          await putFile('discipline');
+        }
+        await putFile('holdings');
+      }
       else{
         plan.edits.forEach(e2=>{ FILES.holdings.rows[e2.i].qty=String(e2.newQty); });
         FILES.holdings.rows=FILES.holdings.rows.filter(r=>+r.qty>0);
@@ -905,7 +947,7 @@ $('edSave').addEventListener('click',saveEditor);
       setMode(bb?'buy':'sell');
       if(bb){ $('tbTicker').value=tk; const m=PXM[tk]||{};
         if(m.name)$('tbName').value=m.name;
-        $('tbDate').value=today(); $('tbQty').focus(); }
+        $('tbDate').value=today(); $('tbReview').value=plusMonths(6); $('tbQty').focus(); }
       else { $('tsTicker').value=tk; $('tsDate').value=today(); $('tsQty').focus(); }
     });
   });
@@ -913,6 +955,7 @@ $('edSave').addEventListener('click',saveEditor);
   $('trSave').addEventListener('click',save);
   $('trCancel').addEventListener('click',()=>tm.classList.remove('open'));
   tm.addEventListener('click',e=>{if(e.target===tm)tm.classList.remove('open');});
+  $('tcSave').addEventListener('click',saveCash);
   $('trFixH').addEventListener('click',()=>{tm.classList.remove('open');curTab='holdings';openEditor();});
   $('trFixS').addEventListener('click',()=>{tm.classList.remove('open');curTab='sells';openEditor();});
   let UNIV=null, univPending=null;
@@ -1706,11 +1749,42 @@ def render(model) -> str:
 
     # ---- concentration panel (overview)
     conc = s.get("concentration", [])
+    _kindword = {"stock": "stock", "sector": "sector", "group": "promoter group"}
     conc_html = "".join(
-        f"<li><b>{html.escape(c['name'])}</b> ({'stock' if c['kind']=='stock' else 'sector'}) is "
-        f"<b>{c['pct']}%</b> of your portfolio — above your {c['limit']:.0f}% limit. Consider trimming or "
-        f"diversifying new money elsewhere.</li>"
-        for c in conc) or "<li class='muted'>No stock or sector breaches your concentration limits.</li>"
+        f"<li><b>{html.escape(c['name'])}</b> ({_kindword.get(c['kind'], c['kind'])}) is "
+        f"<b>{c['pct']}%</b> of your portfolio — above your {c['limit']:.0f}% limit."
+        + (f" Spread across {len(c['tickers'])} listed entities — "
+           + ", ".join(html.escape(t) for t in c["tickers"]) +
+           " — so no sector check can see it as one bet." if c.get("tickers") else
+           " Consider trimming or diversifying new money elsewhere.")
+        + "</li>"
+        for c in conc) or "<li class='muted'>No stock, sector or promoter group breaches your concentration limits.</li>"
+
+    # ---- promoter group exposure
+    grp_rows = []
+    for g in (s.get("groups") or []):
+        grp_rows.append(
+            f"<tr><td><b>{html.escape(g['name'])}</b><div class='nm'>"
+            + " · ".join(f"<a href='#stock/{html.escape(t)}' data-stock='{html.escape(t)}' style='color:inherit'>{html.escape(t)}</a>" for t in g["tickers"])
+            + f"</div></td><td class='num'>{len(g['tickers'])}</td>"
+            f"<td class='num'>{_inr(g['value'])}</td>"
+            f"<td class='num'><b>{g['pct']}%</b></td></tr>")
+    grp_table = "".join(grp_rows) or ("<tr><td colspan='4' class='muted' style='padding:16px'>"
+        "No group holds more than one of your positions. Map tickers to a parent in <code>groups.csv</code>.</td></tr>")
+
+    # ---- dust positions
+    DUST = 3000.0
+    dust = sorted([r for r in rows if r.get("has_price") and 0 < (r.get("current") or 0) < DUST],
+                  key=lambda r: r["current"])
+    dust_rows = "".join(
+        f"<tr><td class='tk'><a href='#stock/{html.escape(r['ticker'])}' data-stock='{html.escape(r['ticker'])}' style='color:inherit;text-decoration:none'><b>{html.escape(r['ticker'])}</b></a>"
+        f"<div class='nm'>{html.escape(r['name'])}</div></td>"
+        f"<td class='num'>{r['qty']:,.0f}</td><td class='num'>{_inr(r['current'])}</td>"
+        f"<td class='num {_cls(r['pnl'])}'>{_inr(r['pnl'])}</td>"
+        f"<td class='num'><button class='sellb' data-sell='{html.escape(r['ticker'])}'>Sell</button></td></tr>"
+        for r in dust) or ("<tr><td colspan='5' class='muted' style='padding:16px'>"
+        "No leftover fragments. Clean book.</td></tr>")
+    dust_total = sum(r["current"] for r in dust)
 
     # ---- upcoming events calendar (corporate section, next 30 days)
     events = []
@@ -2248,6 +2322,21 @@ def render(model) -> str:
         </tr></thead><tbody>{bt_rows}</tbody></table></div>
         <div class="muted" style="font-size:11.5px;margin-top:8px">Simplified test over the last year of prices: entry at window start, cash after a rule-sell, top {len(bt.get('rows',[]))} by value shown. It measures the rule's tendency, not an exact replay of your trades.</div>
       </div>
+          <div class="grid-main" style="margin-top:14px">
+        <div class="tablecard">
+          <div class="controls"><b style="font-size:13px;padding:4px">🏛️ Promoter group exposure</b>
+            <span class="muted" style="font-size:11.5px;align-self:center">one balance sheet, several tickers</span></div>
+          <table class="data" style="min-width:0"><thead><tr><th>Group</th><th class="num">Entities</th><th class="num">Value</th><th class="num">% of book</th></tr></thead>
+          <tbody>{grp_table}</tbody></table>
+        </div>
+        <div class="tablecard">
+          <div class="controls"><b style="font-size:13px;padding:4px">🧹 Leftover fragments</b>
+            <span class="muted" style="font-size:11.5px;align-self:center">{len(dust)} position(s) under ₹3,000 · {_inr(dust_total)} total</span></div>
+          <table class="data" style="min-width:0"><thead><tr><th>Stock</th><th class="num">Qty</th><th class="num">Value</th><th class="num">P/L</th><th class="num"></th></tr></thead>
+          <tbody>{dust_rows}</tbody></table>
+          <div class="muted" style="font-size:11.5px;padding:8px">Stubs left by partial exits. They inflate your position count and every per-position statistic on the site — including win rate — while representing almost none of your money.</div>
+        </div>
+      </div>
     </section>
 
     <!-- ================ NEWS ================ -->
@@ -2533,6 +2622,7 @@ def render(model) -> str:
       <button data-m="sell">I sold</button>
       <button data-m="fix">Fix / delete a trade</button>
       <button data-m="watch">Add to watchlist</button>
+      <button data-m="cash">Cash</button>
     </div>
     <div id="trBuyF">
       <div class="simrow">
@@ -2547,6 +2637,25 @@ def render(model) -> str:
         <input id="tbSym" placeholder="Yahoo symbol (auto: TICKER.NS)">
         <input id="tbSector" list="trSectors" placeholder="Sector">
         <datalist id="trSectors"></datalist>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line)">
+        <div class="muted" style="font-size:12px;margin-bottom:8px">
+          <b>Why are you buying this?</b> One line, now, while you know the answer. Without it there is nothing to test news against later — and every one of your 45 positions is currently blank.
+        </div>
+        <input id="tbThesis" placeholder="Thesis — e.g. cheap PSU bank, credit cycle turning, trades below book" style="width:100%;box-sizing:border-box">
+        <div class="simrow" style="margin-top:8px">
+          <input id="tbKill" placeholder="What would prove you wrong?" style="flex:2;min-width:220px">
+          <input id="tbReview" type="date" title="Review date">
+        </div>
+        <div class="simrow" style="margin-top:8px">
+          <input id="tbTarget" type="number" step="0.05" placeholder="Target ₹ (optional)">
+          <input id="tbStop" type="number" step="0.05" placeholder="Stop ₹ (optional)">
+          <select id="tbStage">
+            <option value="">Stage — unset</option><option value="PROVE">PROVE</option>
+            <option value="MONETIZE">MONETIZE</option><option value="SYSTEMATIZE">SYSTEMATIZE</option>
+            <option value="SCALE">SCALE</option>
+          </select>
+        </div>
       </div>
     </div>
     <div id="trSellF" style="display:none">
@@ -2573,6 +2682,14 @@ def render(model) -> str:
         <button class="simbtn" id="trFixH">Open holdings (buys)</button>
         <button class="simbtn" id="trFixS">Open sells (bookings)</button>
       </div>
+    </div>
+    <div id="trCashF" style="display:none">
+      <div class="hint" style="margin:4px 0 10px">Cash is a position. Until it is recorded, every allocation percentage on the site is computed against a portfolio that is smaller than the one you actually have.</div>
+      <div class="simrow">
+        <input id="tcAmt" type="number" step="1" placeholder="Cash / dry powder in ₹">
+        <button class="simbtn" id="tcSave">Save cash balance</button>
+      </div>
+      <div class="muted" id="tcHint" style="font-size:12px;margin-top:10px"></div>
     </div>
     <div id="trWatchF" style="display:none">
       <div class="hint" style="margin:4px 0 10px">Pick from the Nifty 50, Nifty Next 50 and Sensex names the price feed actually serves. Membership is a static list in <code>universe.csv</code> — edit it there when an index reshuffles.</div>

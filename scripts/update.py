@@ -50,6 +50,23 @@ def load_watchlist():
     return out
 
 
+GROUPS = os.path.join(ROOT, "groups.csv")
+
+
+def load_groups():
+    """ticker -> promoter/parent group, for exposure that spans sectors."""
+    out = {}
+    if not os.path.exists(GROUPS):
+        return out
+    with open(GROUPS, newline="") as f:
+        for row in csv.DictReader(f):
+            t = (row.get("ticker") or "").strip()
+            g = (row.get("group") or "").strip()
+            if t and g:
+                out[t] = g
+    return out
+
+
 UNIVERSE = os.path.join(ROOT, "universe.csv")
 
 
@@ -359,9 +376,19 @@ def fetch_benchmark(dates):
     try:
         import yfinance as yf
         d = yf.download("^NSEI", period="1y", interval="1d", progress=False, auto_adjust=True)
-        close = d["Close"].dropna()
+        close = d["Close"]
+        # yfinance returns MultiIndex columns even for a single ticker, so
+        # d["Close"] is a DataFrame, not a Series — iterating it yielded column
+        # names and the whole benchmark silently came back empty. That killed
+        # beta and the "vs Nifty" overlay without any error.
+        if hasattr(close, "columns"):
+            close = close.iloc[:, 0]
+        close = close.dropna()
         m = {ts.strftime("%Y-%m-%d"): float(v) for ts, v in close.items()}
-    except Exception:
+        if not m:
+            raise ValueError("no benchmark closes")
+    except Exception as e:
+        print(f"  ! benchmark (^NSEI) unavailable: {e}")
         return []
     out, last = [], None
     for day in dates:
@@ -639,6 +666,8 @@ def build(demo=False):
         news, news_deep = fetch_all_news(all_syms)
         corp = corpmod.fetch_all_corporate(all_syms)
 
+    group_map = load_groups()
+
     import discipline as discmod
     disc_map = discmod.load_discipline()
     journal = discmod.load_journal()
@@ -680,6 +709,7 @@ def build(demo=False):
         p = prices[h["ticker"]]
         rec = {**h, "price": p["price"], "prev_close": p["prev_close"], "has_price": p["has_price"],
                "discipline": disc_map.get(h["ticker"], {})}
+        rec["group"] = group_map.get(h["ticker"], "")
         rows.append(engine.analyse_holding(rec, p["closes"], news.get(h["ticker"], []),
                                            corp=corp.get(h["ticker"]), cfg=floor_cfg))
 

@@ -182,3 +182,26 @@ python scripts/update.py --demo   # offline demo with synthetic data
 python scripts/test_engine.py     # sanity-check the rule maths
 open docs/index.html
 ```
+
+## 🔒 Making this private (do this)
+
+This repo holds every position, every trade and the running value of a real
+portfolio. While it is public, so is all of that.
+
+1. **GitHub → Settings → General → Danger Zone → Change visibility → Private.**
+   Nothing breaks: the Action still runs, Cloudflare Pages still deploys (it
+   publishes from the workflow, not from repo access), and the in-page editor
+   still works because it authenticates with your personal access token.
+2. **Settings → Pages → Source: None.** The old `github.io` site is a second,
+   unprotected copy of the same data. Private repos cannot serve Pages on a
+   free plan anyway, so leaving it on just produces a broken public URL.
+3. **Cloudflare → Zero Trust → Access → Applications** — confirm the
+   `harrys-sensex-tracker.pages.dev` application exists and its policy allows
+   only your email. Then **open the site in a private window** and check you
+   are challenged for a login. Until that test passes, assume it is open.
+4. **Rotate the token when it expires** (fine-grained, Contents + Workflows
+   read/write, this repo only). The scrapes keep running without it, but the
+   editor and trade recorder stop being able to save.
+
+Order matters: make it private first, then verify the Access wall, then turn
+off Pages.

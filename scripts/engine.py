@@ -23,6 +23,9 @@ RSI_OVERSOLD = 30
 # Concentration limits (rebalancing flags)
 MAX_STOCK_PCT = 10.0     # one stock above this % of portfolio -> flag
 MAX_SECTOR_PCT = 30.0    # one sector above this % of portfolio -> flag
+# A promoter group's tickers sit in different sectors, so the sector check can
+# never see them: five Vedanta entities were 9.5% of the book and invisible.
+MAX_GROUP_PCT = 15.0
 
 # A gain marker, NOT a rule. Harry: "forget the 15% rule, that is just an
 # option." His own booked record argues against acting on it: trades held
@@ -399,6 +402,27 @@ def portfolio_summary(rows):
             concentration.append({"kind": "sector", "name": sec,
                                   "pct": round(pct, 1), "limit": MAX_SECTOR_PCT})
 
+    # promoter / parent group exposure, summed across however many listed
+    # entities the group has been split into
+    gtot = {}
+    for r in priced:
+        g = (r.get("group") or "").strip()
+        if g:
+            e = gtot.setdefault(g, {"value": 0.0, "tickers": []})
+            e["value"] += r["current"]
+            e["tickers"].append(r["ticker"])
+    for g, e in sorted(gtot.items(), key=lambda kv: -kv[1]["value"]):
+        pct = (e["value"] / current * 100.0) if current else 0.0
+        if pct > MAX_GROUP_PCT and len(e["tickers"]) > 1:
+            concentration.append({"kind": "group", "name": g,
+                                  "pct": round(pct, 1), "limit": MAX_GROUP_PCT,
+                                  "tickers": sorted(e["tickers"])})
+    groups = [{"name": g, "value": round(e["value"]),
+               "pct": round((e["value"] / current * 100.0) if current else 0.0, 1),
+               "tickers": sorted(e["tickers"])}
+              for g, e in sorted(gtot.items(), key=lambda kv: -kv[1]["value"])
+              if len(e["tickers"]) > 1]
+
     return {
         "invested": round(invested, 2),
         "current": round(current, 2),
@@ -413,4 +437,5 @@ def portfolio_summary(rows):
         "sell_review": sell_review,
         "issues": issues,
         "concentration": concentration,
+        "groups": groups,
     }

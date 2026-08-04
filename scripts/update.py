@@ -50,6 +50,73 @@ def load_watchlist():
     return out
 
 
+UNIVERSE = os.path.join(ROOT, "universe.csv")
+
+
+def load_universe():
+    """Index constituents offered by the 'add to watchlist' picker. A static,
+    hand-maintained list — index membership drifts, so edit universe.csv when
+    it does. Symbols that no longer resolve are dropped at validation."""
+    if not os.path.exists(UNIVERSE):
+        return []
+    out = []
+    with open(UNIVERSE, newline="") as f:
+        for row in csv.DictReader(f):
+            t = (row.get("ticker") or "").strip()
+            if t:
+                out.append({"ticker": t,
+                            "name": (row.get("name") or t).strip(),
+                            "yahoo_symbol": (row.get("yahoo_symbol") or (t + ".NS")).strip(),
+                            "sector": (row.get("sector") or "").strip(),
+                            "index": (row.get("index") or "").strip()})
+    return out
+
+
+def validate_universe(universe, known_prices):
+    """Keep only names the price feed actually serves, so the picker can never
+    offer a symbol that would break the next scrape. Anything already priced in
+    this run passes for free; the rest are checked in one batch."""
+    ok, unknown = [], []
+    for u in universe:
+        if u["ticker"] in known_prices and known_prices[u["ticker"]].get("has_price"):
+            u["live"] = True
+            ok.append(u)
+        else:
+            unknown.append(u)
+    if unknown:
+        found = []
+        try:
+            import yfinance as yf
+            data = yf.download([u["yahoo_symbol"] for u in unknown], period="5d",
+                               interval="1d", group_by="ticker", threads=True,
+                               progress=False, auto_adjust=True)
+            for u in unknown:
+                try:
+                    col = data[u["yahoo_symbol"]]["Close"].dropna()
+                    if len(col) and float(col.iloc[-1]) > 0:
+                        u["live"] = True
+                        u["price"] = round(float(col.iloc[-1]), 2)
+                        found.append(u)
+                except Exception:
+                    pass
+        except Exception:
+            pass
+        if found:
+            ok.extend(found)
+            ok.extend([])
+        else:
+            # nothing resolved at all -> offline, demo, or a Yahoo outage. Trust
+            # the file rather than silently emptying the picker.
+            for u in unknown:
+                u["live"] = None
+            ok.extend(unknown)
+    dropped = len(universe) - len(ok)
+    if dropped:
+        bad = [u["ticker"] for u in universe if u not in ok]
+        print(f"  universe: dropped {dropped} symbol(s) with no price feed: {', '.join(bad[:10])}")
+    return sorted(ok, key=lambda u: u["ticker"])
+
+
 def load_holdings():
     """
     Read holdings.csv. Multiple rows with the same ticker are separate
@@ -722,7 +789,20 @@ def build(demo=False):
     archive = {t: v for t, v in archive.items() if v}
     news_counts = {t: len(v) for t, v in archive.items()}
 
+    # the picker's universe, pruned to symbols that actually resolve
+    universe = validate_universe(load_universe(), prices)
+    _known = {h["ticker"] for h in holdings}
+    _watched = {w["ticker"] for w in watch}
+    for u in universe:
+        u["held"] = u["ticker"] in _known
+        u["watched"] = u["ticker"] in _watched
+
     os.makedirs(DOCS, exist_ok=True)
+    with open(os.path.join(DOCS, "universe.json"), "w") as f:
+        json.dump(universe, f, separators=(",", ":"))
+    print(f"  universe: {len(universe)} tickers offered "
+          f"({sum(1 for u in universe if not u['held'] and not u['watched'])} not yet tracked)")
+
     # one file per ticker: a stock page then downloads only its own headlines
     # instead of the whole 2 MB bank
     os.makedirs(NEWS_DIR, exist_ok=True)

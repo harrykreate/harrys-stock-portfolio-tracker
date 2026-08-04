@@ -766,6 +766,7 @@ document.querySelectorAll('#edModal .tabs button').forEach(b=>b.addEventListener
 }));
 $('editBtn').addEventListener('click',openEditor);
 $('editBtn2').addEventListener('click',openEditor);
+{const _aw=$('addWatchBtn'); if(_aw) _aw.addEventListener('click',()=>window.__addWatchlist&&window.__addWatchlist());}
 $('edCancel').addEventListener('click',()=>modal.classList.remove('open'));
 modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open');});
 $('addRow').addEventListener('click',()=>{
@@ -790,8 +791,10 @@ $('edSave').addEventListener('click',saveEditor);
     $('trBuyF').style.display=x==='buy'?'':'none';
     $('trSellF').style.display=x==='sell'?'':'none';
     $('trFixF').style.display=x==='fix'?'':'none';
-    $('trGo').style.display=x==='fix'?'none':'';
+    $('trWatchF').style.display=x==='watch'?'':'none';
+    $('trGo').style.display=(x==='fix'||x==='watch')?'none':'';
     $('trStatus').textContent='';
+    if(x==='watch') loadUniverse();
   }
   function fillLists(){
     const held={};
@@ -912,6 +915,63 @@ $('edSave').addEventListener('click',saveEditor);
   tm.addEventListener('click',e=>{if(e.target===tm)tm.classList.remove('open');});
   $('trFixH').addEventListener('click',()=>{tm.classList.remove('open');curTab='holdings';openEditor();});
   $('trFixS').addEventListener('click',()=>{tm.classList.remove('open');curTab='sells';openEditor();});
+  let UNIV=null, univPending=null;
+  function loadUniverse(){
+    if(UNIV) return drawUniverse();
+    $('uwList').innerHTML='<div class="muted" style="padding:14px">Loading the index list…</div>';
+    if(!univPending) univPending=fetch('universe.json').then(r=>r.json()).catch(()=>[]);
+    univPending.then(u=>{UNIV=u;drawUniverse();});
+  }
+  function drawUniverse(){
+    const q=($('uwFilter').value||'').trim().toLowerCase();
+    const idx=$('uwIndex').value, show=$('uwShow').value;
+    // before the CSVs load (no token yet) fall back to what the page already
+    // knows, so "already tracked" is right either way
+    const have=new Set(FILES.watchlist.rows.length
+      ? FILES.watchlist.rows.map(r=>r.ticker)
+      : (UNIV||[]).filter(u=>u.watched).map(u=>u.ticker));
+    const held=new Set(FILES.holdings.rows.length
+      ? FILES.holdings.rows.filter(r=>+r.qty>0).map(r=>r.ticker)
+      : (UNIV||[]).filter(u=>u.held).map(u=>u.ticker));
+    const rows=(UNIV||[]).filter(u=>{
+      if(idx&&u.index!==idx) return false;
+      const tracked=have.has(u.ticker)||held.has(u.ticker);
+      if(show==='new'&&tracked) return false;
+      if(!q) return true;
+      return (u.ticker+' '+u.name+' '+(u.sector||'')).toLowerCase().includes(q);
+    });
+    $('uwList').innerHTML = rows.length ? ('<table class="ed" style="min-width:0;width:100%;table-layout:fixed"><tbody>'+rows.map(u=>{
+      const tracked = held.has(u.ticker) ? 'held' : (have.has(u.ticker) ? 'watching' : '');
+      return '<tr><td style="width:110px;overflow:hidden"><b>'+u.ticker+'</b></td><td style="overflow:hidden">'+u.name
+        +'<div class="muted" style="font-size:11px">'+(u.sector||'')+' · '+(u.index==='NIFTY50'?'Nifty 50':'Nifty Next 50')
+        +(u.live===null?' · not verified this run':'')+'</div></td>'
+        +'<td style="width:96px;text-align:right">'+(tracked
+          ? '<span class="badge">'+tracked+'</span>'
+          : '<button class="simbtn uwAdd" data-tk="'+u.ticker+'" style="padding:4px 12px">+ Watch</button>')+'</td></tr>';
+    }).join('')+'</tbody></table>')
+      : '<div class="muted" style="padding:14px">Nothing matches. Try "Everything" to include what you already track.</div>';
+  }
+  async function addWatch(tk){
+    const u=(UNIV||[]).find(x=>x.ticker===tk); if(!u) return;
+    const{repo,tok}=cfg();
+    if(!repo||!tok){$('trStatus').textContent='⚠ Enter repo and token via ✎ Edit data files first.';return;}
+    $('trStatus').textContent='Adding '+tk+'…';
+    try{
+      FILES.watchlist.rows.push({ticker:u.ticker,name:u.name,yahoo_symbol:u.yahoo_symbol,target_price:'',notes:''});
+      await putFile('watchlist');
+      $('trStatus').textContent='✅ '+tk+' added to your watchlist. Rebuilds in ~2 minutes.';
+      drawUniverse();
+    }catch(e){ $('trStatus').textContent='⚠ '+e.message; }
+  }
+  ['uwFilter','uwIndex','uwShow'].forEach(id=>{
+    const el=$(id); if(el) el.addEventListener('input',()=>{if(UNIV)drawUniverse();});
+    if(el&&el.tagName==='SELECT') el.addEventListener('change',()=>{if(UNIV)drawUniverse();});
+  });
+  $('uwList').addEventListener('click',e=>{
+    const b=e.target.closest('.uwAdd'); if(b) addWatch(b.dataset.tk);
+  });
+  window.__addWatchlist=()=>openTrade().then(()=>setMode('watch'));
+
   window.__trade={planSellTest:(t,q,p,d)=>{$('tsTicker').innerHTML=`<option value="${t}">${t}</option>`;$('tsTicker').value=t;$('tsQty').value=q;$('tsPrice').value=p;$('tsDate').value=d;mode='sell';return planSell();}};
 })();
 
@@ -2404,6 +2464,7 @@ def render(model) -> str:
     <section data-sec="watchlist">
       <div class="panel" style="margin-bottom:14px">
         <h2>⭐ Watchlist <span class="sp"></span>
+        <button class="editbtn" id="addWatchBtn" style="background:var(--accent);padding:7px 12px;font-weight:600">➕ Add from Nifty / Sensex</button>
         <button class="editbtn" id="editBtn2" style="background:var(--ink);padding:7px 12px">✎ Edit watchlist</button></h2>
         <div class="muted" style="font-size:12.5px">Stocks you track but don't own — same prices, fundamentals, indicators and news scanning as your holdings. Click a ticker for its full page; <b>Buy</b> records the trade.</div>
       </div>
@@ -2471,6 +2532,7 @@ def render(model) -> str:
       <button data-m="buy" class="on">I bought</button>
       <button data-m="sell">I sold</button>
       <button data-m="fix">Fix / delete a trade</button>
+      <button data-m="watch">Add to watchlist</button>
     </div>
     <div id="trBuyF">
       <div class="simrow">
@@ -2511,6 +2573,15 @@ def render(model) -> str:
         <button class="simbtn" id="trFixH">Open holdings (buys)</button>
         <button class="simbtn" id="trFixS">Open sells (bookings)</button>
       </div>
+    </div>
+    <div id="trWatchF" style="display:none">
+      <div class="hint" style="margin:4px 0 10px">Pick from the Nifty 50, Nifty Next 50 and Sensex names the price feed actually serves. Membership is a static list in <code>universe.csv</code> — edit it there when an index reshuffles.</div>
+      <div class="simrow">
+        <input id="uwFilter" placeholder="Search name, ticker or sector…" style="flex:1;min-width:220px">
+        <select id="uwIndex"><option value="">All indices</option><option value="NIFTY50">Nifty 50</option><option value="NIFTYNEXT50">Nifty Next 50</option></select>
+        <select id="uwShow"><option value="new">Not yet tracked</option><option value="all">Everything</option></select>
+      </div>
+      <div id="uwList" class="edwrap" style="max-height:340px;overflow:auto;margin-top:10px"></div>
     </div>
     <div id="trPrev" style="margin-top:12px"></div>
     <div class="mrow" style="margin-top:14px">

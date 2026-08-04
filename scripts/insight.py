@@ -498,3 +498,63 @@ def cash_position(holdings, portfolio_value):
     return {"amount": round(amount),
             "pct": round(amount / total * 100, 1) if total else 0.0,
             "tracked": amount > 0}
+
+
+# ---------------------------------------------------------------- capital flows
+def capital_flows(holdings, sells, withdrawals, switches, portfolio_value, cash_amount):
+    """
+    The account statement the broker never gives you: what went in, what came
+    out, and what is unaccounted for.
+
+    Every purchase is cash leaving your pocket unless a prior sale paid for it,
+    and the FIFO pass in switch_report already separates those. What it cannot
+    know is where the leftover proceeds went — a broker balance and a bank
+    transfer look identical in a trade ledger. So the gap is stated as a gap,
+    and closes as you record cash and withdrawals.
+    """
+    buys, sold = [], []
+    for h in holdings:
+        for lot in (h.get("lots") or []):
+            if lot.get("qty") and lot.get("buy_price"):
+                buys.append({"d": lot.get("buy_date") or "", "amt": lot["qty"] * lot["buy_price"]})
+    for s in sells or []:
+        if s.get("qty") and s.get("buy_price"):
+            buys.append({"d": s.get("buy_date") or "", "amt": s["qty"] * s["buy_price"]})
+        if s.get("qty") and s.get("sell_price"):
+            sold.append({"d": s.get("sell_date") or "", "amt": s["qty"] * s["sell_price"]})
+
+    gross_in = sum(b["amt"] for b in buys)          # total ever deployed into stocks
+    gross_out = sum(x["amt"] for x in sold)         # total ever returned by sales
+    fresh = (switches or {}).get("fresh") or 0.0    # buys no sale could have funded
+    idle = (switches or {}).get("idle") or 0.0      # proceeds no buy consumed
+    wtot = sum(w["amount"] for w in (withdrawals or []))
+
+    unexplained = idle - (cash_amount or 0) - wtot
+
+    # cumulative external contribution over time, for the chart
+    events = sorted([(b["d"], -b["amt"]) for b in buys if b["d"]]
+                    + [(x["d"], x["amt"]) for x in sold if x["d"]])
+    run, series = 0.0, []
+    pocket = 0.0
+    for d, amt in events:
+        run += amt                       # running broker cash if nothing withdrawn
+        if run < 0:                      # went negative -> you funded it from outside
+            pocket += -run
+            run = 0.0
+        series.append({"date": d, "contributed": round(pocket), "float": round(run)})
+
+    return {
+        "gross_in": round(gross_in), "gross_out": round(gross_out),
+        "contributed": round(fresh), "withdrawn": round(wtot),
+        "idle": round(idle), "cash": round(cash_amount or 0),
+        "unexplained": round(unexplained),
+        "net_committed": round(fresh - wtot),
+        "wealth": round((portfolio_value or 0) + (cash_amount or 0)),
+        # Money you withdrew is still money the portfolio returned to you, and
+        # so is anything unaccounted for — it is yours either way, just not
+        # classified yet. Leaving it out understates the return.
+        "gain": round((portfolio_value or 0) + (cash_amount or 0) + wtot
+                      + max(0.0, unexplained) - fresh),
+        "withdrawals": sorted(withdrawals or [], key=lambda w: w.get("date") or "", reverse=True),
+        "series": series[-400:],
+    }

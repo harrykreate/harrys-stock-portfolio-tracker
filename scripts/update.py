@@ -50,6 +50,27 @@ def load_watchlist():
     return out
 
 
+WITHDRAWALS = os.path.join(ROOT, "withdrawals.csv")
+
+
+def load_withdrawals():
+    """Money moved out of the investing account and not returned."""
+    out = []
+    if not os.path.exists(WITHDRAWALS):
+        return out
+    with open(WITHDRAWALS, newline="") as f:
+        for row in csv.DictReader(f):
+            try:
+                amt = float(row.get("amount") or 0)
+            except (TypeError, ValueError):
+                continue
+            if amt:
+                out.append({"date": (row.get("date") or "").strip(),
+                            "amount": amt,
+                            "note": (row.get("note") or "").strip()})
+    return out
+
+
 GROUPS = os.path.join(ROOT, "groups.csv")
 
 
@@ -782,6 +803,10 @@ def build(demo=False):
     screen = insight.value_screen(rows, watch_rows)
     avgdown = insight.averaging_down(holdings, sells)
     cash = insight.cash_position(holdings, summary.get("current"))
+    flows = insight.capital_flows(holdings, sells, load_withdrawals(), switches,
+                                  summary.get("current"), cash.get("amount"))
+    print(f"  capital: ₹{flows['contributed']:,.0f} contributed from outside, "
+          f"₹{flows['withdrawn']:,.0f} withdrawn, ₹{flows['unexplained']:,.0f} unaccounted")
     for r in rows:
         r["alpha"] = alpha.get(r["ticker"])
     if history5y["missing"]:
@@ -800,7 +825,7 @@ def build(demo=False):
     model = {"summary": summary, "rows": rows, "watch": watch_rows,
              "history": history, "history5y": history5y, "nosell": nosell,
              "exits": exits, "switches": switches, "screen": screen,
-             "avgdown": avgdown, "cash": cash,
+             "avgdown": avgdown, "cash": cash, "flows": flows,
              "benchmark": indexed_series(history["values"], bench_aligned),
              "sectors": sectors, "div_months": dividend_months(rows),
              "tax": tax_model, "risk": risk_model,

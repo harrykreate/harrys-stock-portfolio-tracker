@@ -634,6 +634,9 @@ const FILES={
   sells:{path:'sells.csv',head:['ticker','name','qty','buy_price','buy_date','sell_price','sell_date','reason','benefit'],
     cols:[['ticker','Ticker'],['name','Name'],['qty','Qty'],['buy_price','Buy price'],['buy_date','Buy date'],['sell_price','Sell price'],['sell_date','Sell date'],['reason','Why (tax/risk/rebalance/cash or blank)'],['benefit','₹ benefit']],
     sha:null,orig:null,rows:[]},
+  withdrawals:{path:'withdrawals.csv',head:['date','amount','note'],
+    cols:[['date','Date'],['amount','Amount ₹'],['note','Where it went']],
+    sha:null,orig:null,rows:[]},
   floor:{path:'floor.csv',head:['key','value'],
     cols:[['key','Setting'],['value','Value']],
     sha:null,orig:null,rows:[]}
@@ -675,7 +678,7 @@ function captureTab(){
     const prev=f.rows.find(r=>r.ticker===o.ticker)||{};
     f.head.forEach(h=>{if(!(h in o))o[h]=prev[h]||(h==='seed_price'?'0':'');});
     return o;
-  }).filter(r=>r.ticker);
+  }).filter(r=>r.ticker||r.date||r.key);
 }
 async function loadFile(key){
   const{repo,tok}=cfg();const f=FILES[key];
@@ -1760,6 +1763,15 @@ def render(model) -> str:
         + "</li>"
         for c in conc) or "<li class='muted'>No stock, sector or promoter group breaches your concentration limits.</li>"
 
+    # ---- capital flows: what went in, what came out, what is unaccounted
+    fl = model.get("flows") or {}
+    w_rows = "".join(
+        f"<tr><td>{html.escape(w.get('date',''))}</td><td class='num'>{_inr(w.get('amount'))}</td>"
+        f"<td class='muted'>{html.escape(w.get('note',''))}</td></tr>"
+        for w in (fl.get("withdrawals") or [])) or (
+        "<tr><td colspan='3' class='muted' style='padding:14px'>Nothing recorded. "
+        "Add a row in ✎ Edit data files → Withdrawals for money you moved out and did not put back.</td></tr>")
+
     # ---- promoter group exposure
     grp_rows = []
     for g in (s.get("groups") or []):
@@ -2128,6 +2140,21 @@ def render(model) -> str:
             return d
     gain_marker_pct = _fnum("gain_marker_pct", 15.0)
     gain_marker_mo = _fnum("gain_marker_months", 6.0)
+    _unacc = (model.get("flows") or {}).get("unexplained") or 0
+    if _unacc > 1000:
+        unaccounted_html = (
+            "<div class='warnbar' style='margin-top:14px'>❓ <b>" + _inr(_unacc) + " is unaccounted for.</b> "
+            "That much came back from sales and was never spent on another stock. It is either sitting as cash in "
+            "your broker account, or it left the account. A trade ledger cannot tell those apart — only you can. "
+            "Record the balance under ➕ Record a trade → Cash, and anything you actually withdrew under "
+            "✎ Edit data files → Withdrawals. The number closes as you do.</div>")
+    elif _unacc < -1000:
+        unaccounted_html = ("<div class='warnbar' style='margin-top:14px'>❓ Recorded cash and withdrawals exceed "
+            "the proceeds this ledger can see by " + _inr(-_unacc) + " — likely dividends, or a sale that predates "
+            "your records.</div>")
+    else:
+        unaccounted_html = ("<div class='muted' style='font-size:12px;margin-top:14px'>✅ Every rupee of sale "
+            "proceeds is accounted for, as reinvestment, recorded cash or recorded withdrawals.</div>")
     n_watch = len(watch)
     day_cls = "up" if s.get("day_pnl", 0) >= 0 else "down"
 
@@ -2537,6 +2564,28 @@ def render(model) -> str:
         <div class="panel"><h2>⏳ Approaching long-term (save tax by holding)</h2><ul class="act">{appr_html}</ul></div>
         <div class="panel"><h2>💸 Realised gains (from sells.csv)</h2>{realised_html}</div>
       </div>
+      <div class="tablecard" style="margin:14px 0">
+        <div class="controls"><b style="font-size:13px;padding:4px">💰 Where the money came from and went</b>
+          <span class="muted" style="font-size:11.5px;align-self:center">every rupee in and out of the investing account</span></div>
+        <div style="padding:12px 14px">
+          <div class="kv">
+            <div><div class="k2">You put in from outside</div><div class="v2">{_inr(fl.get('contributed'))}</div></div>
+            <div><div class="k2">You took out</div><div class="v2">{_inr(fl.get('withdrawn'))}</div></div>
+            <div><div class="k2">Net capital committed</div><div class="v2">{_inr(fl.get('net_committed'))}</div></div>
+            <div><div class="k2">Stocks you hold today</div><div class="v2">{_inr(fl.get('wealth'))}</div></div>
+            <div><div class="k2">Returned but unclassified</div><div class="v2">{_inr(max(0, fl.get('unexplained') or 0))}</div></div>
+            <div><div class="k2">Gain on capital committed</div><div class="v2 {_cls(fl.get('gain'))}">{_inr(fl.get('gain'))}</div></div>
+          </div>
+          <div class="muted" style="font-size:12px;margin-top:14px;line-height:1.6">
+            Total ever deployed into stocks: <b>{_inr(fl.get('gross_in'))}</b> · total ever returned by sales: <b>{_inr(fl.get('gross_out'))}</b>.
+            Most of that is the same money going round more than once, so only the outside contribution is counted as capital.
+            The gain treats withdrawals and unclassified proceeds as money the portfolio gave back to you — it is yours whether it sits in the broker, your bank, or was spent.
+          </div>
+          {unaccounted_html}
+        </div>
+        <table class="data" style="min-width:0"><thead><tr><th>Withdrawn on</th><th class="num">Amount</th><th>Note</th></tr></thead>
+        <tbody>{w_rows}</tbody></table>
+      </div>
       <div class="panel">
         <h2>🧮 Sell simulator — what happens if I sell?</h2>
         <div class="simrow">
@@ -2598,6 +2647,7 @@ def render(model) -> str:
       <button data-tab="journal">Journal</button>
       <button data-tab="violations">Violations</button>
       <button data-tab="sells">Sells</button>
+      <button data-tab="withdrawals">Withdrawals</button>
       <button data-tab="floor">Floor</button>
     </div>
     <div class="edwrap">

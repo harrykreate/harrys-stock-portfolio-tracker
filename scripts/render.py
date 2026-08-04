@@ -140,6 +140,28 @@ section{display:none} section.show{display:block}
 .pxstats{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:10px 2px 0}
 .pxstats b{color:var(--ink)}
 .sdot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:3px}
+.stkhead{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.stkhead h1{margin:0;font-size:23px;letter-spacing:-.3px}
+.stkhead .sub2{color:var(--muted);font-size:13px;margin-top:3px}
+.stkprice{margin-left:auto;text-align:right}
+.stkprice .big{font-size:26px;font-weight:700}
+.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px 16px}
+.kv div{font-size:12.5px}.kv .k2{color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.5px}
+.kv .v2{font-weight:600;font-size:14px}
+.newsrow{display:flex;gap:10px;padding:9px 2px;border-bottom:1px solid var(--line);font-size:13px;align-items:baseline}
+.newsrow:last-child{border-bottom:none}
+.newsrow .nd{color:var(--muted);font-size:11px;white-space:nowrap;min-width:74px}
+.newsrow a{color:var(--ink);text-decoration:none}.newsrow a:hover{text-decoration:underline}
+.tagn{font-size:10px;padding:1px 6px;border-radius:99px;background:var(--line);color:var(--muted);white-space:nowrap}
+.tagn.bad{background:rgba(242,109,109,.15);color:var(--down)}
+.tagn.good{background:rgba(49,176,87,.15);color:var(--up)}
+.buyb,.sellb{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px;
+  padding:2px 8px;font-size:11px;cursor:pointer;margin-left:3px}
+.buyb:hover{background:var(--up);color:#fff;border-color:var(--up)}
+.sellb:hover{background:var(--down);color:#fff;border-color:var(--down)}
+.stkbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.rangebar{height:6px;border-radius:99px;background:var(--line);position:relative;margin:7px 0 4px}
+.rangebar i{position:absolute;top:-3px;width:3px;height:12px;background:var(--accent);border-radius:2px}
 .sdot.ok{background:var(--up)}.sdot.no{background:var(--line)}
 .nochart{color:var(--muted);font-size:12.5px;padding:30px 0;text-align:center}
 /* watch list rows */
@@ -308,15 +330,24 @@ table.ed input:focus{border-color:#94a3b8;background:#fff;outline:none}
 JS = """
 /* ---------- section nav ---------- */
 const navs=document.querySelectorAll('.nav a[data-sec]');
-const TITLES={overview:'Overview',holdings:'Holdings',corporate:'Corporate actions',news:'News',insights:'Insights',discipline:'Discipline',booked:'Booked P/L',ledger:'Profit & loss banks',exits:'Exit report card',screen:'Value screen',tax:'Tax & returns',watchlist:'Watchlist'};
-function show(sec){
+const TITLES={overview:'Overview',holdings:'Holdings',corporate:'Corporate actions',news:'News',insights:'Insights',discipline:'Discipline',booked:'Booked P/L',ledger:'Profit & loss banks',exits:'Exit report card',screen:'Value screen',stock:'Stock',tax:'Tax & returns',watchlist:'Watchlist'};
+function show(sec,arg,quiet){
   document.querySelectorAll('section[data-sec]').forEach(s=>s.classList.toggle('show',s.dataset.sec===sec));
   navs.forEach(a=>a.classList.toggle('active',a.dataset.sec===sec));
-  const t=document.getElementById('secTitle');if(t)t.textContent=TITLES[sec]||sec;
-  location.hash=sec;
+  const t=document.getElementById('secTitle');
+  if(t)t.textContent=(sec==='stock'&&arg)?arg:(TITLES[sec]||sec);
+  if(!quiet) location.hash=(sec==='stock'&&arg)?('stock/'+arg):sec;
+  if(sec==='stock'&&arg&&window.__openStock) window.__openStock(arg);
+  window.scrollTo(0,0);
 }
 navs.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.sec);}));
-show(location.hash&&document.querySelector(`section[data-sec="${location.hash.slice(1)}"]`)?location.hash.slice(1):'overview');
+function routeFromHash(quiet){
+  const h=(location.hash||'').slice(1);
+  if(h.startsWith('stock/')) return show('stock',decodeURIComponent(h.slice(6)),quiet);
+  return show(document.querySelector(`section[data-sec="${h}"]`)?h:'overview',null,quiet);
+}
+window.addEventListener('hashchange',()=>routeFromHash(true));
+routeFromHash(true);
 
 /* ---------- holdings table sort + filter ---------- */
 const tb=document.querySelector('#tbl tbody');
@@ -773,6 +804,9 @@ $('edSave').addEventListener('click',saveEditor);
     $('trSectors').innerHTML=[...secs].sort().map(x=>`<option value="${x}">`).join('');
   }
   async function openTrade(){
+    return openTradeInner();
+  }
+  async function openTradeInner(){
     if(!$('cfgRepo').value)$('cfgRepo').value=localStorage.getItem('st_repo')||guessRepo();
     if(!$('cfgTok').value)$('cfgTok').value=localStorage.getItem('st_tok')||'';
     tm.classList.add('open'); setMode(mode);
@@ -858,7 +892,20 @@ $('edSave').addEventListener('click',saveEditor);
     $('trSave').disabled=false;
   }
   document.querySelectorAll('#trTabs button').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.m)));
-  $('tradeBtn').addEventListener('click',openTrade);
+  $('tradeBtn').addEventListener('click',()=>openTrade());
+  document.addEventListener('click',e=>{
+    const bb=e.target.closest('[data-buy]'), sb=e.target.closest('[data-sell]');
+    if(!bb&&!sb) return;
+    e.preventDefault(); e.stopPropagation();
+    const tk=(bb||sb).dataset.buy||(bb||sb).dataset.sell;
+    openTrade().then(()=>{
+      setMode(bb?'buy':'sell');
+      if(bb){ $('tbTicker').value=tk; const m=PXM[tk]||{};
+        if(m.name)$('tbName').value=m.name;
+        $('tbDate').value=today(); $('tbQty').focus(); }
+      else { $('tsTicker').value=tk; $('tsDate').value=today(); $('tsQty').focus(); }
+    });
+  });
   $('trGo').addEventListener('click',preview);
   $('trSave').addEventListener('click',save);
   $('trCancel').addEventListener('click',()=>tm.classList.remove('open'));
@@ -1048,6 +1095,214 @@ $('edSave').addEventListener('click',saveEditor);
   });
 })();
 
+/* ---------- watchlist filter ---------- */
+(function(){
+  const f=document.getElementById('wFilter'), b=document.getElementById('wbody');
+  if(!f||!b) return;
+  f.addEventListener('input',()=>{
+    const q=f.value.trim().toLowerCase();
+    b.querySelectorAll('tr').forEach(tr=>{
+      tr.style.display=(!q||(tr.dataset.tk||'').includes(q))?'':'none';
+    });
+  });
+})();
+
+/* ---------- stock dossier page ---------- */
+(function(){
+  const box=document.getElementById('stkBody');
+  if(!box) return;
+  let DOSS=null, NEWS=null, pending=null, cur=null, srange='1y', schart=null;
+  const REAL=(window.__DATA.realised||[]);
+  const money=(v,d)=>v===null||v===undefined?'—':(v<0?'-₹':'₹')+Math.abs(d?+(+v).toFixed(d):Math.round(v)).toLocaleString('en-IN',d?{minimumFractionDigits:d,maximumFractionDigits:d}:{});
+  const pct=v=>v===null||v===undefined?'—':(v>=0?'+':'')+(+v).toFixed(1)+'%';
+  const cls=v=>v===null||v===undefined?'':(v>=0?'up':'down');
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const cr=v=>v===null||v===undefined?'—':'₹'+(v/1e7).toLocaleString('en-IN',{maximumFractionDigits:0})+' cr';
+
+  function load(){
+    if(DOSS&&NEWS) return Promise.resolve();
+    if(!pending) pending=Promise.all([
+      fetch('stocks.json').then(r=>r.json()).catch(()=>({})),
+      fetch('news_archive.json').then(r=>r.json()).catch(()=>({}))
+    ]).then(([a,b])=>{DOSS=a;NEWS=b;});
+    return pending;
+  }
+  function kv(k,v,c){return '<div><div class="k2">'+k+'</div><div class="v2 '+(c||'')+'">'+v+'</div></div>';}
+
+  function drawChart(d){
+    const el=document.getElementById('stkChart');
+    if(!el||!window.__pxData) return;
+    const PX=window.__pxData;
+    const wk=(PX.weekly||{}), dy=(PX.daily||{});
+    let dates,vals,step;
+    if(srange==='max'||srange==='5y'){
+      const v=(wk.series||{})[d.t]; if(!v) return;
+      const k=srange==='5y'?261:v.length, s0=Math.max(0,v.length-k);
+      dates=wk.dates.slice(s0); vals=v.slice(s0); step='Weekly';
+    }else{
+      const v=(dy.series||{})[d.t]; if(!v) return;
+      const k=srange==='6m'?126:v.length, s0=Math.max(0,v.length-k);
+      dates=dy.dates.slice(s0); vals=v.slice(s0); step='Daily';
+    }
+    const mark=(evs,val)=>{const a=new Array(dates.length).fill(null);let n=0;
+      for(const e of evs){if(!e.d||dates[0]>e.d)continue;let i=dates.findIndex(x=>x>=e.d);if(i<0)i=dates.length-1;a[i]=e.p;n++;}
+      return {a,n};};
+    const buys=mark((d.lots||[]).map(l=>({d:l.d,p:l.p})));
+    const sells=mark(REAL.filter(x=>x.ticker===d.t).map(x=>({d:x.sell_date,p:x.sell_price})));
+    const ds=[{label:d.t,data:vals,borderColor:'#2563eb',borderWidth:1.8,pointRadius:0,tension:.15,spanGaps:true,fill:false}];
+    if(d.avg) ds.push({label:'Your avg cost',data:dates.map(()=>d.avg),borderColor:'#94a3b8',borderWidth:1.2,borderDash:[5,4],pointRadius:0,fill:false});
+    if(buys.n) ds.push({label:'You bought',data:buys.a,showLine:false,pointRadius:6,pointStyle:'triangle',backgroundColor:'#16a34a',borderColor:'#16a34a'});
+    if(sells.n) ds.push({label:'You sold',data:sells.a,showLine:false,pointRadius:6,pointStyle:'rectRot',backgroundColor:'#dc2626',borderColor:'#dc2626'});
+    if(schart)schart.destroy();
+    schart=new Chart(el,{type:'line',data:{labels:dates,datasets:ds},options:{responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true,labels:{boxWidth:10,font:{size:11}}},
+        tooltip:{callbacks:{label:c=>c.raw===null?null:c.dataset.label+': '+money(c.raw,2)}}},
+      scales:{x:{ticks:{maxTicksLimit:8,font:{size:10}}},y:{ticks:{font:{size:10},callback:v=>'₹'+v.toLocaleString('en-IN')}}}}});
+    const note=document.getElementById('stkChartNote');
+    if(note) note.textContent=step+' closes · '+dates.length+' points'
+      +(buys.n?' · '+buys.n+' buy marker'+(buys.n===1?'':'s'):'')+(sells.n?' · '+sells.n+' sale marker'+(sells.n===1?'':'s'):'');
+  }
+
+  function render(tk){
+    const d=(DOSS||{})[tk];
+    if(!d){box.innerHTML='<div class="muted" style="padding:30px">No data for '+esc(tk)+'. It may have been fully exited — try the Booked P/L tab.</div>';return;}
+    const c=d.corp||{}, sells=REAL.filter(x=>x.ticker===tk).sort((a,b)=>a.sell_date<b.sell_date?1:-1);
+    const booked=sells.reduce((s2,x)=>s2+(x.gain||0),0);
+    const news=(NEWS||{})[tk]||[];
+    const rangePos=(c.wk_high&&c.wk_low&&d.price)?Math.max(0,Math.min(100,(d.price-c.wk_low)/(c.wk_high-c.wk_low)*100)):null;
+
+    // header
+    let h='<div class="stkhead"><div><h1>'+esc(d.t)+' <span class="muted" style="font-weight:400;font-size:16px">'+esc(d.n)+'</span></h1>'
+      +'<div class="sub2">'+esc(d.sector||'—')+' · '+esc(d.sym||'')+' · '+(d.held?('you hold '+(+d.qty).toLocaleString('en-IN')+' shares'):'watchlist only')+'</div></div>'
+      +'<div class="stkprice"><div class="big">'+money(d.price,2)+'</div><div class="'+cls(d.day)+'">'+pct(d.day)+' today</div></div></div>'
+      +'<div class="stkbar"><button class="simbtn" data-buy="'+d.t+'">➕ Buy '+esc(d.t)+'</button>'
+      +(d.held?'<button class="simbtn" style="background:var(--down)" data-sell="'+d.t+'">➖ Sell '+esc(d.t)+'</button>':'')
+      +'<span style="flex:1"></span><a class="simbtn" style="text-decoration:none;background:var(--card);color:var(--ink);border:1px solid var(--line)" href="https://www.google.com/finance/quote/'+esc(d.t)+':NSE" target="_blank" rel="noopener">Google Finance ↗</a>'
+      +'<a class="simbtn" style="text-decoration:none;background:var(--card);color:var(--ink);border:1px solid var(--line)" href="https://www.screener.in/company/'+esc(d.t)+'/" target="_blank" rel="noopener">Screener.in ↗</a></div>';
+
+    // position / performance cards
+    h+='<div class="cards">';
+    if(d.held){
+      h+='<div class="card"><div class="k">Your position</div><div class="v" style="font-size:20px">'+money(d.value)+'</div>'
+        +'<span class="muted" style="font-size:11px">'+(+d.qty).toLocaleString('en-IN')+' sh · avg '+money(d.avg,2)+' · '+(d.pct||0).toFixed(1)+'% of portfolio</span></div>'
+        +'<div class="card"><div class="k">Unrealised P/L</div><div class="v '+cls(d.pnl)+'" style="font-size:20px">'+money(d.pnl)+'</div>'
+        +'<span class="muted" style="font-size:11px">'+pct(d.pnlpct)+' · held '+(d.held_mo===null||d.held_mo===undefined?'?':d.held_mo+' mo')+' · '+(d.tax||'—')+'</span></div>';
+    }else{
+      h+='<div class="card"><div class="k">Not held</div><div class="v" style="font-size:20px">Watchlist</div>'
+        +'<span class="muted" style="font-size:11px">'+(d.target?('your target '+money(d.target,2)):'no target set')+'</span></div>'
+        +'<div class="card"><div class="k">Booked here historically</div><div class="v '+cls(booked)+'" style="font-size:20px">'+(sells.length?money(booked):'—')+'</div>'
+        +'<span class="muted" style="font-size:11px">'+(sells.length?sells.length+' past sale(s)':'never owned')+'</span></div>';
+    }
+    h+='<div class="card"><div class="k">vs Nifty since you bought</div><div class="v '+(d.alpha?cls(d.alpha.alpha):'')+'" style="font-size:20px">'
+      +(d.alpha?((d.alpha.approx?'~':'')+(d.alpha.alpha>=0?'+':'')+d.alpha.alpha.toFixed(1)+' pp'):'—')+'</div>'
+      +'<span class="muted" style="font-size:11px">'+(d.alpha?('you '+pct(d.alpha.mine)+' · index '+pct(d.alpha.index)+(d.alpha.approx?' · buy date is a placeholder':'')):'needs an exact buy date')+'</span></div>'
+      +'<div class="card"><div class="k">Value screen</div><div class="v" style="font-size:20px">'+(d.score===null||d.score===undefined?'—':d.score+'<span class="muted" style="font-size:13px">/5</span>')+'</div>'
+      +'<span class="muted" style="font-size:11px">'+(d.checks||[]).map(x=>'<span class="sdot '+(x.ok?'ok':'no')+'" title="'+esc(x.label)+'"></span>').join('')+' health '+(d.health===null||d.health===undefined?'—':d.health)+'/100</span></div>';
+    h+='</div>';
+
+    // signals
+    if((d.sig||[]).length){
+      h+='<div class="warnbar" style="margin-bottom:14px">'+d.sig.map(x=>'<div>'+({act:'🔴',warn:'⚠️',good:'✅',info:'ℹ️'}[x.level]||'•')+' '+esc(x.text)+'</div>').join('')+'</div>';
+    }
+
+    // chart
+    h+='<div class="panel" style="margin-bottom:14px"><h2>📈 Price history</h2>'
+      +'<div class="rangebtns2" id="stkRange"><button data-r="6m">6M</button><button data-r="1y" class="on">1Y</button>'
+      +'<button data-r="5y">5Y</button><button data-r="max">Since you bought</button></div>'
+      +'<div class="chartbox lg"><canvas id="stkChart"></canvas></div>'
+      +'<div class="muted" id="stkChartNote" style="font-size:11.5px;margin-top:8px"></div></div>';
+
+    // fundamentals + technicals
+    h+='<div class="grid-main"><div class="panel"><h2>📊 Fundamentals</h2><div class="kv">'
+      +kv('P/E',c.pe==null?'—':(+c.pe).toFixed(1))+kv('P/B',c.pb==null?'—':(+c.pb).toFixed(2))
+      +kv('ROE',c.roe==null?'—':(+c.roe).toFixed(1)+'%')+kv('Debt / equity',c.de==null?'—':(+c.de).toFixed(2))
+      +kv('Dividend yield',c.div_yield==null?'—':(+c.div_yield).toFixed(2)+'%')+kv('Market cap',cr(c.mcap))
+      +kv('Next results',c.next_earnings?esc(c.next_earnings):'—')
+      +kv(esc(c.q_label||'Latest quarter')+' revenue',cr(c.q_revenue)+(c.rev_yoy==null?'':' <span class="'+cls(c.rev_yoy)+'" style="font-size:11px">'+pct(c.rev_yoy)+'</span>'))
+      +kv(esc(c.q_label||'Latest quarter')+' profit',cr(c.q_profit)+(c.profit_yoy==null?'':' <span class="'+cls(c.profit_yoy)+'" style="font-size:11px">'+pct(c.profit_yoy)+'</span>'))
+      +'</div>'
+      +(rangePos===null?'':'<div style="margin-top:14px"><div class="k2" style="color:var(--muted);font-size:10.5px;text-transform:uppercase">52-week range</div>'
+        +'<div class="rangebar"><i style="left:'+rangePos.toFixed(1)+'%"></i></div>'
+        +'<div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted)"><span>'+money(c.wk_low,2)+'</span><span>'+rangePos.toFixed(0)+'% of range</span><span>'+money(c.wk_high,2)+'</span></div></div>')
+      +'</div>';
+    h+='<div class="panel"><h2>📐 Technicals &amp; your marks</h2><div class="kv">'
+      +kv('RSI (14)',d.rsi==null?'—':(+d.rsi).toFixed(0),d.rsi>70?'down':(d.rsi<30?'up':''))
+      +kv('50-day avg',money(d.smaf,2))+kv('200-day avg',money(d.smas,2))
+      +kv('Trend',d.trend==='up'?'▲ up':(d.trend==='down'?'▼ down':'—'))
+      +kv('6-month return',pct(d.ret6),cls(d.ret6))
+      +kv('Cross',d.cross?esc(d.cross):'—')
+      +kv('Your target',d.target?money(d.target,2):'not set')
+      +kv('Your stop',d.stop?money(d.stop,2):'not set')
+      +'</div>'
+      +(d.notes?'<div class="muted" style="font-size:12px;margin-top:12px">📝 '+esc(d.notes)+'</div>':'')
+      +'</div></div>';
+
+    // thesis
+    const dc=d.disc||{};
+    h+='<div class="panel" style="margin:14px 0"><h2>🧭 Your thesis</h2>'
+      +(dc.thesis?('<div class="kv">'+kv('Stage',esc(dc.stage||'—'))+kv('Review date',esc(dc.review_date||'—'))+kv('Horizon',esc(dc.horizon_quarters||'—')+' qtrs')+'</div>'
+        +'<div style="font-size:13px;margin-top:12px"><b>Thesis.</b> '+esc(dc.thesis)+'</div>'
+        +(dc.proof_metric?'<div style="font-size:13px;margin-top:8px"><b>Proof metric.</b> '+esc(dc.proof_metric)+'</div>':'')
+        +(dc.kill_condition?'<div style="font-size:13px;margin-top:8px"><b>Kill condition.</b> '+esc(dc.kill_condition)+'</div>':''))
+       :'<div class="muted" style="font-size:12.5px">Nothing written. Without a thesis and a kill condition there is nothing to test news against — add one in ✎ Edit data files → Discipline.</div>')
+      +'</div>';
+
+    // your history: lots + sales + dividends
+    h+='<div class="grid-main"><div class="tablecard"><div class="controls"><b style="font-size:13px;padding:4px">Your trades in '+esc(d.t)+'</b></div>'
+      +'<table class="data" style="min-width:0"><thead><tr><th>Action</th><th class="num">Qty</th><th class="num">Price</th><th>Date</th><th class="num">P/L</th></tr></thead><tbody>';
+    (d.lots||[]).forEach(l=>{h+='<tr><td><b class="up">BUY</b></td><td class="num">'+(+l.q).toLocaleString('en-IN')+'</td><td class="num">'+money(l.p,2)+'</td><td>'+esc(l.d||'—')+'</td><td class="num muted">holding</td></tr>';});
+    sells.forEach(x=>{h+='<tr><td><b class="down">SELL</b></td><td class="num">'+(+x.qty).toLocaleString('en-IN')+'</td><td class="num">'+money(x.sell_price,2)+'</td><td>'+esc(x.sell_date)+'</td><td class="num '+cls(x.gain)+'">'+money(x.gain)+'</td></tr>';});
+    if(!(d.lots||[]).length&&!sells.length) h+='<tr><td colspan="5" class="muted" style="padding:16px">No trades recorded.</td></tr>';
+    h+='</tbody></table>'+(sells.length?'<div class="muted" style="font-size:11.5px;padding:8px">Booked here so far: <b class="'+cls(booked)+'">'+money(booked)+'</b> across '+sells.length+' sale(s).</div>':'')+'</div>';
+
+    const divs=(c.dividends||[]);
+    h+='<div class="tablecard"><div class="controls"><b style="font-size:13px;padding:4px">Dividends &amp; corporate actions</b></div>'
+      +'<table class="data" style="min-width:0"><thead><tr><th>Date</th><th>Event</th><th class="num">Per share</th><th class="num">On your holding</th></tr></thead><tbody>';
+    divs.slice().reverse().forEach(x=>{h+='<tr><td>'+esc(x.date)+'</td><td>Dividend</td><td class="num">'+money(x.amount,2)+'</td><td class="num">'+(d.qty?money(x.amount*d.qty):'—')+'</td></tr>';});
+    (c.splits||[]).forEach(x=>{h+='<tr><td>'+esc(x.date||'')+'</td><td>Split / bonus</td><td class="num">'+esc(x.ratio||x.amount||'')+'</td><td class="num">—</td></tr>';});
+    if(!divs.length&&!(c.splits||[]).length) h+='<tr><td colspan="4" class="muted" style="padding:16px">None on record in the last 12 months.</td></tr>';
+    h+='</tbody></table>'
+      +(divs.length&&d.qty?'<div class="muted" style="font-size:11.5px;padding:8px">Trailing 12m income on your holding: <b>'+money(divs.reduce((s2,x)=>s2+x.amount*d.qty,0))+'</b>'
+        +(d.avg?' · yield on your cost '+((divs.reduce((s2,x)=>s2+x.amount,0)/d.avg)*100).toFixed(2)+'%':'')+'</div>':'')
+      +'</div></div>';
+
+    // news bank
+    h+='<div class="tablecard" style="margin-top:14px"><div class="controls"><b style="font-size:13px;padding:4px">📰 News bank — '+news.length+' headline'+(news.length===1?'':'s')+'</b>'
+      +'<span class="muted" style="font-size:11.5px;align-self:center">rolling 120-day archive, rebuilt every scrape from Google News</span></div>'
+      +'<div style="padding:4px 10px 10px">';
+    if(!news.length) h+='<div class="muted" style="padding:16px">Nothing archived yet for this stock. The bank fills up from the next scrape onward.</div>';
+    news.forEach(x=>{
+      const tag=x.negative?'<span class="tagn bad">flagged</span>':(x.positive?'<span class="tagn good">positive</span>':(x.event?'<span class="tagn">'+esc(x.event)+'</span>':''));
+      h+='<div class="newsrow"><span class="nd">'+esc(x.published||x.date||'')+'</span>'
+        +'<a href="'+esc(x.link)+'" target="_blank" rel="noopener">'+esc(x.title)+'</a>'
+        +'<span style="flex:1"></span>'+tag+'</div>';
+    });
+    h+='</div></div>';
+
+    box.innerHTML=h;
+    drawChart(d);
+    document.querySelectorAll('#stkRange button').forEach(b=>b.addEventListener('click',()=>{
+      srange=b.dataset.r;
+      document.querySelectorAll('#stkRange button').forEach(x=>x.classList.toggle('on',x===b));
+      drawChart(d);
+    }));
+  }
+
+  window.__openStock=function(tk){
+    cur=tk; srange='1y';
+    box.innerHTML='<div class="muted" style="padding:30px">Loading '+esc(tk)+'…</div>';
+    Promise.all([load(), (window.__loadPx?window.__loadPx():Promise.resolve())]).then(()=>{ if(cur===tk) render(tk); });
+  };
+  document.addEventListener('click',e=>{
+    const s2=e.target.closest('[data-stock]');
+    if(s2){e.preventDefault();show('stock',s2.dataset.stock);}
+  });
+  // the router runs before this module registers, so a first-load deep link
+  // (#stock/TICKER typed or bookmarked) has to be picked up here
+  if((location.hash||'').startsWith('#stock/')) window.__openStock(decodeURIComponent(location.hash.slice(7)));
+})();
+
 /* ---------- per-stock price history ---------- */
 (function(){
   const modal=document.getElementById('pxModal');
@@ -1060,9 +1315,10 @@ $('edSave').addEventListener('click',saveEditor);
     if(PX) return Promise.resolve(PX);
     if(!pending) pending=fetch('prices.json').then(r=>r.json())
       .catch(()=>({daily:{dates:[],series:{}},weekly:{dates:[],series:{}}}))
-      .then(j=>{PX=j;return j;});
+      .then(j=>{PX=j;window.__pxData=j;return j;});
     return pending;
   }
+  window.__loadPx=load;
   function pick(tk){
     const d=(PX.daily||{}), w=(PX.weekly||{});
     if((range==='max'||range==='5y')&&w.series&&w.series[tk]){
@@ -1245,6 +1501,8 @@ def render(model) -> str:
                                   f"{html.escape(n['title'])}</a> <span class='muted'>[{html.escape(n['event'])}]</span></li>")
     corp_html = "".join(corp_items[:24]) or "<li class='muted'>No corporate actions or event announcements detected.</li>"
 
+    _score = {v["ticker"]: v["score"] for v in (model.get("screen") or [])}
+    _checks = {v["ticker"]: v["checks"] for v in (model.get("screen") or [])}
     # ---- watchlist rows (panel + full section share markup)
     def watch_row(r):
         return (f'<div class="wrow">{_avatar(r["ticker"])}'
@@ -1255,19 +1513,44 @@ def render(model) -> str:
         "<div class='muted' style='padding:10px 0'>Watchlist is empty — add stocks via ✎ Edit portfolio.</div>"
 
     def watch_big(r):
-        sig = " ".join(_chip(sg) for sg in r["signals"]) or "<span class='muted'>—</span>"
-        news_html = "".join(_news_link(n, big=True) for n in r.get("news", [])[:3])
+        c = r.get("corp") or {}
         rsi_txt = "—" if r["rsi"] is None else f"{r['rsi']:.0f}"
-        trend_txt = {"up": "▲ up", "down": "▼ down", None: "—"}.get(r["trend"], "—")
-        return (f'<div class="newscard"><h3>{_avatar(r["ticker"])} {html.escape(r["ticker"])} '
-                f'<span class="muted" style="font-weight:400">{html.escape(r["name"])}</span>'
-                f'<button class="chartb" data-chart="{html.escape(r["ticker"])}" title="Price history">📈</button>'
-                f'<span class="sp" style="flex:1"></span><b>{_inr(r["price"],2)}</b> {pill(r["day_pct"])}</h3>'
-                f'<div class="muted" style="font-size:11.5px;margin-bottom:6px">Trend {trend_txt} · RSI {rsi_txt}</div>'
-                f'<div>{sig}</div>{news_html or "<span class=muted>No recent news.</span>"}</div>')
+        trend_txt = {"up": "▲", "down": "▼", None: "—"}.get(r["trend"], "—")
+        num = lambda x, d=1: "—" if x is None else f"{x:,.{d}f}"
+        sc = _score.get(r["ticker"])
+        dots = "".join("<span class='sdot " + ("ok" if ck["ok"] else "no") + "'></span>"
+                       for ck in (_checks.get(r["ticker"]) or []))
+        tgt = r.get("target_price")
+        gap = ((tgt / r["price"] - 1) * 100) if (tgt and r.get("price")) else None
+        pos = None
+        if c.get("wk_high") and c.get("wk_low") and r.get("price"):
+            span = c["wk_high"] - c["wk_low"]
+            pos = max(0.0, min(100.0, (r["price"] - c["wk_low"]) / span * 100)) if span else None
+        nneg = sum(1 for n in (r.get("news") or []) if n.get("negative"))
+        npos = sum(1 for n in (r.get("news") or []) if n.get("positive"))
+        newsbits = (f"<span class='tagn bad'>{nneg}</span>" if nneg else "") + \
+                   (f"<span class='tagn good'>{npos}</span>" if npos else "") or "<span class='muted'>—</span>"
+        gap_html = "" if gap is None else (
+            "<div class='sub " + _cls(gap) + "'>" + f"{gap:+.0f}%" + "</div>")
+        return (f"<tr data-tk='{html.escape(r['ticker'].lower())} {html.escape(r['name'].lower())}'>"
+                f"<td class='tk'><a href='#stock/{html.escape(r['ticker'])}' data-stock='{html.escape(r['ticker'])}' style='color:inherit;text-decoration:none'><b>{html.escape(r['ticker'])}</b></a>"
+                f"<button class='chartb' data-chart='{html.escape(r['ticker'])}' title='Quick chart'>📈</button>"
+                f"<div class='nm'>{html.escape(r['name'])}</div>"
+                f"<div style='margin-top:3px'><button class='buyb' data-buy='{html.escape(r['ticker'])}'>Buy</button></div></td>"
+                f"<td class='num'>{_inr(r['price'],2)}</td>"
+                f"<td class='num {_cls(r['day_pct'])}'>{_pct(r['day_pct'])}</td>"
+                f"<td class='num'><b>{'—' if sc is None else sc}</b><div class='sub'>{dots}</div></td>"
+                f"<td class='num'>{num(c.get('pe'))}</td><td class='num'>{num(c.get('pb'),2)}</td>"
+                f"<td class='num'>{num(c.get('roe'))}</td><td class='num'>{num(c.get('de'),2)}</td>"
+                f"<td class='num'>{num(c.get('div_yield'),2)}</td>"
+                f"<td class='num'>{'—' if pos is None else f'{pos:.0f}%'}"
+                f"<div class='sub muted'>{_inr(c.get('wk_low'),0)}–{_inr(c.get('wk_high'),0)}</div></td>"
+                f"<td class='num'>{rsi_txt} {trend_txt}</td>"
+                f"<td class='num'>{_inr(tgt,2) if tgt else '—'}{gap_html}</td>"
+                f"<td class='num'>{newsbits}</td></tr>")
 
     watch_section = "".join(watch_big(r) for r in watch) or \
-        "<div class='muted'>Watchlist is empty — add stocks via ✎ Edit portfolio → Watchlist tab.</div>"
+        "<tr><td colspan='13' class='muted' style='padding:18px'>Watchlist is empty — add stocks via ✎ Edit data files → Watchlist.</td></tr>"
 
     # ---- news section (all stocks with news)
     news_cards = []
@@ -1603,7 +1886,9 @@ def render(model) -> str:
         health_badge = (f"<span class='hb {hcls}' title='Rule-based health score (formula in engine.py)'>{hv}</span>"
                         if hv is not None else "")
         trows.append(f"""<tr data-day="{r['day_pct'] or 0}" data-pnl="{r['pnl_pct'] or 0}" data-val="{r['current']}" data-price="{r['price'] or 0}" data-qty="{r['qty']}" data-date="{html.escape(r.get('buy_date') or '')}" data-tk="{html.escape(r['ticker'].lower())} {html.escape(r['name'].lower())}">
-          <td class="tk"><b>{html.escape(r['ticker'])}</b>{health_badge}{price_badge}<button class="chartb" data-chart="{html.escape(r['ticker'])}" title="Price history">📈</button><div class="nm">{html.escape(r['name'])}</div>{notes_html}</td>
+          <td class="tk"><a href="#stock/{html.escape(r['ticker'])}" data-stock="{html.escape(r['ticker'])}" style="color:inherit;text-decoration:none"><b>{html.escape(r['ticker'])}</b></a>{health_badge}{price_badge}<button class="chartb" data-chart="{html.escape(r['ticker'])}" title="Quick chart">📈</button>
+            <div class="nm">{html.escape(r['name'])}</div>
+            <div style="margin-top:3px"><button class="buyb" data-buy="{html.escape(r['ticker'])}">Buy</button><button class="sellb" data-sell="{html.escape(r['ticker'])}">Sell</button></div>{notes_html}</td>
           <td class="num">{_inr(r['price'],2)}</td>
           <td class="num {_cls(r['day_pct'])}">{_pct(r['day_pct'])}</td>
           <td class="num">{r['qty']:,.0f}</td>
@@ -1629,7 +1914,35 @@ def render(model) -> str:
                  "qty": r["qty"], "sector": r.get("sector", "Others"),
                  "lots": r.get("lots", [])}
                 for r in rows if r.get("has_price") and r["qty"] > 0]
-    _score = {v["ticker"]: v["score"] for v in (model.get("screen") or [])}
+    def _dossier(r, held):
+        c = r.get("corp") or {}
+        return {
+            "t": r["ticker"], "n": r["name"], "held": 1 if held else 0,
+            "sector": r.get("sector", ""), "sym": r.get("yahoo_symbol", ""),
+            "price": r.get("price"), "day": r.get("day_pct"),
+            "qty": r.get("qty") or 0, "avg": r.get("avg_cost"),
+            "value": r.get("current"), "pnl": r.get("pnl"), "pnlpct": r.get("pnl_pct"),
+            "held_mo": r.get("months_held"), "tax": r.get("tax_status"),
+            "lots": [{"q": l.get("qty"), "p": l.get("buy_price"), "d": l.get("buy_date")}
+                     for l in (r.get("lots") or [])],
+            "alpha": r.get("alpha"), "health": r.get("health"),
+            "rsi": r.get("rsi"), "smaf": r.get("sma_fast"), "smas": r.get("sma_slow"),
+            "ret6": r.get("ret_6m"), "trend": r.get("trend"), "cross": r.get("cross"),
+            "target": r.get("target_price"), "stop": r.get("stop_loss"),
+            "notes": r.get("notes", ""), "disc": r.get("discipline") or {},
+            "sig": r.get("signals") or [],
+            "score": _score.get(r["ticker"]), "checks": _checks.get(r["ticker"]) or [],
+            "pct": r.get("pct_of_portfolio"),
+            "corp": {k: c.get(k) for k in ("pe", "pb", "roe", "de", "mcap", "wk_high",
+                                           "wk_low", "div_yield", "next_earnings",
+                                           "q_label", "q_revenue", "q_profit",
+                                           "rev_yoy", "profit_yoy", "dividends", "splits")},
+        }
+
+    dossier = {r["ticker"]: _dossier(r, True) for r in rows}
+    dossier.update({w["ticker"]: _dossier(w, False) for w in watch
+                    if w["ticker"] not in dossier})
+    model["_dossier"] = dossier
     data_js = json.dumps({"history": history, "div": div_m,
                           "history5y": model.get("history5y") or {},
                           "nosell": model.get("nosell") or {},
@@ -1976,6 +2289,11 @@ def render(model) -> str:
       </div>
     </section>
 
+    <!-- ================ STOCK PAGE ================ -->
+    <section data-sec="stock">
+      <div id="stkBody"><div class="muted" style="padding:30px">Pick a stock from Holdings or the Watchlist.</div></div>
+    </section>
+
     <!-- ================ EXIT REPORT CARD ================ -->
     <section data-sec="exits">
       <div class="panel" style="margin-bottom:16px">
@@ -2079,9 +2397,19 @@ def render(model) -> str:
       <div class="panel" style="margin-bottom:14px">
         <h2>⭐ Watchlist <span class="sp"></span>
         <button class="editbtn" id="editBtn2" style="background:var(--ink);padding:7px 12px">✎ Edit watchlist</button></h2>
-        <div class="muted" style="font-size:12.5px">Stocks you're tracking but don't own. They get the same price, trend, RSI and news scanning as your holdings — add one here first, buy later when it looks right.</div>
+        <div class="muted" style="font-size:12.5px">Stocks you track but don't own — same prices, fundamentals, indicators and news scanning as your holdings. Click a ticker for its full page; <b>Buy</b> records the trade.</div>
       </div>
-      <div class="newsgrid">{watch_section}</div>
+      <div class="tablecard">
+        <div class="controls"><input id="wFilter" placeholder="Filter… e.g. PSU, bank, ONGC">
+        </div>
+        <table class="data" id="wtbl" style="min-width:1080px"><thead><tr>
+          <th>Stock</th><th class="num">Price</th><th class="num">Day</th>
+          <th class="num" title="How many of the five value checks it passes">Screen</th>
+          <th class="num">P/E</th><th class="num">P/B</th><th class="num">ROE %</th><th class="num">D/E</th><th class="num">Yield %</th>
+          <th class="num" title="Where it sits in its 52-week range">52wk pos</th>
+          <th class="num">RSI</th><th class="num">Your target</th><th class="num" title="Flagged / positive headlines in the latest scan">News</th>
+        </tr></thead><tbody id="wbody">{watch_section}</tbody></table>
+      </div>
     </section>
 
     <footer>

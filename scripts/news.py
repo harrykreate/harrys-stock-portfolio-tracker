@@ -18,7 +18,9 @@ from engine import NEGATIVE_NEWS_KEYWORDS, POSITIVE_NEWS_KEYWORDS, _kw_hit
 from corporate import classify_event
 
 GOOGLE_NEWS = "https://news.google.com/rss/search?q={q}&hl=en-IN&gl=IN&ceid=IN:en"
-MAX_ITEMS = 4
+MAX_ITEMS = 4          # shown on cards / used by the signal rules
+ARCHIVE_ITEMS = 40     # kept per run for the rolling news bank
+ARCHIVE_DAYS = 120     # how far back the bank keeps headlines
 
 
 def _is_negative(title: str) -> bool:
@@ -46,10 +48,12 @@ def fetch_news(name: str, ticker: str, max_items: int = MAX_ITEMS):
             continue
         published = getattr(e, "published", "") or ""
         # normalise date to YYYY-MM-DD if parseable
-        pub_short = published
+        pub_short, iso = published, ""
         try:
             if getattr(e, "published_parsed", None):
-                pub_short = dt.datetime(*e.published_parsed[:6]).strftime("%d %b %Y")
+                d = dt.datetime(*e.published_parsed[:6])
+                pub_short = d.strftime("%d %b %Y")
+                iso = d.strftime("%Y-%m-%d")
         except Exception:
             pass
         neg = _is_negative(title)
@@ -57,8 +61,33 @@ def fetch_news(name: str, ticker: str, max_items: int = MAX_ITEMS):
             "title": title,
             "link": getattr(e, "link", ""),
             "published": pub_short,
+            "date": iso,
+            "source": (title.rsplit(" - ", 1)[-1] if " - " in title else ""),
             "negative": neg,
             "positive": (not neg) and _is_positive(title),
             "event": classify_event(title),
         })
     return items
+
+
+def merge_archive(old, fresh, today=None, days=ARCHIVE_DAYS, cap=160):
+    """
+    Fold this run's headlines into the rolling bank: dedupe on title, drop
+    anything older than `days`, newest first. Google News only serves a recent
+    window, so the bank is how the platform accumulates depth over time —
+    it is thin on day one and fills out with every scrape.
+    """
+    today = today or dt.date.today()
+    cutoff = (today - dt.timedelta(days=days)).strftime("%Y-%m-%d")
+    seen, out = set(), []
+    for item in list(fresh or []) + list(old or []):
+        key = (item.get("title") or "").strip().lower()
+        if not key or key in seen:
+            continue
+        d = (item.get("date") or "")
+        if d and d < cutoff:
+            continue
+        seen.add(key)
+        out.append(item)
+    out.sort(key=lambda x: x.get("date") or "", reverse=True)
+    return out[:cap]

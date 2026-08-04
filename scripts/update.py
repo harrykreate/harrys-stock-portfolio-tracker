@@ -362,15 +362,31 @@ def dividend_months(rows, n=12):
     }
 
 
+NEWS_ARCHIVE = os.path.join(ROOT, "docs", "news_archive.json")
+
+
+def load_news_archive():
+    try:
+        with open(NEWS_ARCHIVE) as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
 def fetch_all_news(holdings):
+    """Fresh headlines per ticker: a deep pull for the archive, and the few
+    most recent for the cards and signal rules."""
     import news as newsmod
-    out = {}
+    out, deep = {}, {}
     for h in holdings:
         try:
-            out[h["ticker"]] = newsmod.fetch_news(h["name"], h["ticker"])
+            items = newsmod.fetch_news(h["name"], h["ticker"],
+                                       max_items=newsmod.ARCHIVE_ITEMS)
         except Exception:
-            out[h["ticker"]] = []
-    return out
+            items = []
+        deep[h["ticker"]] = items
+        out[h["ticker"]] = items[:newsmod.MAX_ITEMS]
+    return out, deep
 
 
 # ---------------------------------------------------------------- demo synth
@@ -530,6 +546,7 @@ def build(demo=False):
         px_daily, px_weekly = synth_px(prices, history["dates"])
         bench = synth_benchmark(history)
         news = demo_news(all_syms)
+        news_deep = news
         corp = corpmod.demo_corporate(all_syms)
     else:
         prices, history, px_daily = fetch_prices(all_syms)
@@ -538,7 +555,7 @@ def build(demo=False):
                          if s["ticker"] not in known} | {"^NSEI"})
         px_weekly = fetch_long(all_syms, long_start(holdings), exited)
         bench = fetch_benchmark(history["dates"])
-        news = fetch_all_news(all_syms)
+        news, news_deep = fetch_all_news(all_syms)
         corp = corpmod.fetch_all_corporate(all_syms)
 
     import discipline as discmod
@@ -683,16 +700,34 @@ def build(demo=False):
              "floor_cfg": floor_cfg,
              "meta": {"generated": generated, "demo": demo}}
 
+    # rolling news bank — accumulates across runs, pruned to the last 120 days
+    import news as newsmod
+    archive = load_news_archive()
+    for t, items in (news_deep or {}).items():
+        archive[t] = newsmod.merge_archive(archive.get(t), items)
+    archive = {t: v for t, v in archive.items() if v}
+    news_counts = {t: len(v) for t, v in archive.items()}
+
     os.makedirs(DOCS, exist_ok=True)
+    with open(NEWS_ARCHIVE, "w") as f:
+        json.dump(archive, f, separators=(",", ":"))
+    print(f"  news bank: {sum(news_counts.values())} headlines across "
+          f"{len(archive)} tickers (deepest {max(news_counts.values(), default=0)})")
     # Price panels live in their own file: the dashboard lazy-loads it the first
     # time a chart is opened, so the main page stays small.
     with open(os.path.join(DOCS, "prices.json"), "w") as f:
         json.dump({"daily": px_daily, "weekly": px_weekly,
                    "generated": generated}, f, separators=(",", ":"), default=str)
     with open(os.path.join(DOCS, "data.json"), "w") as f:
-        json.dump(model, f, indent=2, default=str)
+        json.dump({k: v for k, v in model.items() if k != "_dossier"},
+                  f, indent=2, default=str)
+    html = renderer.render(model)
+    # the per-stock dossier is lazy-loaded by the stock page, like prices.json,
+    # so the dashboard itself does not carry 85 stocks' worth of detail
+    with open(os.path.join(DOCS, "stocks.json"), "w") as f:
+        json.dump(model.get("_dossier") or {}, f, separators=(",", ":"), default=str)
     with open(os.path.join(DOCS, "index.html"), "w") as f:
-        f.write(renderer.render(model))
+        f.write(html)
     print(f"Built dashboard: {summary['n_priced']}/{summary['n_holdings']} priced, "
           f"P/L {summary['pnl']:.0f} ({summary['pnl_pct']:.2f}%), "
           f"{len(summary['sell_review'])} booking reviews, {len(summary['issues'])} issue flags. demo={demo}")

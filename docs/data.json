@@ -74,6 +74,16 @@
         "cross": null,
         "news": [
           {
+            "title": "Kwality Walls (India) Limited Estimates \u2013 NSE:KWIL - TradingView",
+            "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBLNUNMUkFldkN2TjZHWmtEQk0wY1pUNkdqc21NbVpqSnVRR2R1UnVJSFVsQVZSdkhtSEFaanB6M056MW4xOE1taUhrTENhSFAwSlNPY2FQUHZJWV9UXzJBX1hfLUpMbWZuODhkWF9Od2dIcUZZ?oc=5",
+            "published": "03 Nov 2026",
+            "date": "2026-11-03",
+            "source": "TradingView",
+            "negative": false,
+            "positive": false,
+            "event": null
+          },
+          {
             "title": "TMICC completes KWIL stake buy in HUL\u2019s ice-cream demerger - Law.asia",
             "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1Bc0ItOG5iM3Z2NFB0dXNOTk5PTnNkREJsRHc3OFk0RlhQTDNEOTJhRXVMZlhsbjByX24yd21mdElsV3o0dDliUHFYODYzaVJvMGc?oc=5",
             "published": "01 Apr 2026",
@@ -94,21 +104,11 @@
             "event": null
           },
           {
-            "title": "KWIL Stock Price and Chart \u2014 NSE:KWIL - TradingView",
-            "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9Gd21RWlZyVTZheFhjekJUZFFWNHFwdWNiX2FJSURuSGI0R0llcDNiSEtKVHFaM2JtT3MyTmNxbGh5R2dIUU1ZLXd2MWFsMk82a1lvblU3NUQ?oc=5",
-            "published": "16 Feb 2026",
-            "date": "2026-02-16",
-            "source": "TradingView",
-            "negative": false,
-            "positive": false,
-            "event": null
-          },
-          {
-            "title": "Kwality Walls (India) Limited (KWIL.BO) Stock Price, News, Quote & History - Yahoo! Finance Canada",
-            "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5pamhOZTZjMWd4UXdhNU12VE1vN1pMelhfTU5oWURwNTJLVkpWdlpCbDNPUE5QNmh0VTM5NWE1cmlYQURoM3V0bW5FSmdEbnpsOUw4QUt3?oc=5",
-            "published": "05 Apr 2026",
-            "date": "2026-04-05",
-            "source": "Yahoo! Finance Canada",
+            "title": "Kwality Walls (India) Limited (KWIL.BO) stock price, news, quote and history - Yahoo Finance Singapore",
+            "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9LM3k5TXhSYWVtbHRYajlwTGhoN0ZDQ0ZNWnRKUUV1RDA5Um5fcDIxZjlqS2xTMTF6TUZnQVh5VnZMYW8zT1pHdC1GMUFQZ2tIamZpQ3p3?oc=5",
+            "published": "01 Apr 2026",
+            "date": "2026-04-01",
+            "source": "Yahoo Finance Singapore",
             "negative": false,
             "positive": false,
             "event": null
@@ -167,7 +167,7 @@
         "group": "",
         "months_held": 8,
         "tax_status": "STCG",
-        "health": 85,
+        "health": 70,
         "corp": {
           "dividends": [
             {
@@ -204,13 +204,23 @@
         "cross": null,
         "news": [
           {
-            "title": "Eicher Motors Q2 results: Net profit rises 15% to Rs 1,573 crore - Moneycontrol.com",
+            "title": "Eicher Motors Q2FY27 results: Net profit rises 15% to \u20b91,573 crore - Business Standard",
+            "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNT21CUk1ubEljSVNKNmNielN5WEdsS2xmSkNVZzZzVXRrM2RyeXRQS2Y4MjhGcTVVMkMwbjFiSEhFeEp4NlRPcDdJYkl0VWxsSXY4Wml1X05ydmxfVXJPakVCV2JMc1RVMHRpdERkVmlPb2RqN1ZvRi1ZSDBwYkVfNkxIdGZnSFQ3MExRNGNUZHd0ZW91aDFXUUc2UkdQTEFnNk1CdmViRDd4UFdwLWs4S1RWTWFlUEpjVDVZRzMwV294WnVMa1hVRkxyS091Y2lBdllQWjYxWmZ2ZURKclHSAeMBQVVfeXFMUHNqREQ1a1N3QzB0UzJPLWlmdEgtNU5KTmlLQXhCaEZtN1R1bUxqVTRFS3ZiZHdxbzB3WjJHWGxqZUFZMF85VGVZcTRVR0VTOXo1emtFaVJjMDZIZzNydXRCcEhMdjNrSXZCeU9oUjRPYmZBMENqLVZIX3ZDM25NcU1XS2w5dVk5cDM3aTRBeEpnLS15ZVphX2hhN2daaENtUVIweklDNlhacWxIbTRyU2pseWd5NXV1ajZ4RjZRUXlBVFV5NmRGTjFsT2JLLWM3X0thNkUwempkX2RSZFloaS1Ielk?oc=5",
+            "published": "13 Nov 2026",
+            "date": "2026-11-13",
+            "source": "Business Standard",
+            "negative": false,
+            "positive": true,
+            "event": null
+          },
+          {
+            "title": "Eicher Motors Q2 results: Net profit rises 15% to Rs 1,573 crore, misses estimates - Moneycontrol.com",
             "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPV2EtZ1BSa3pZTF94emVyVHFVbGNYRkxpaTJQTENpMGVLckxQLWJ3b0RVT3V6VDg0azRhWWt0LUpxUUxMM3RBWjM3X1kyME90U05iTUdQRVMxTVZLSzM1V1phT2Z2Rk8tcndpa3ZSektfS1QxY29GRlJhMmpfbmhCNmszSzZHTFFUZ2VkNUxNMXA2WlhBQUd1RkI3MkFJcWlWbVE3eUtyV21vbTVsOTZXOWFncldfbi1sampxNFFfRXNEUnNTT1VV0gHMAUFVX3lxTE9kbFNVT09zWWhwd2hoSWVOREViT19kQldNelBDZFZ5c241SmFsV2tfM3NHRmpkd1NvOU8ybHFpNTZUNGlpR3d6WGw5RjhvNDF6UkFrNHBzYjlNa0dfUHVvQ0ZtckE4bnlrelpTLUtRandEbk44UW5BbGg3UkQ3a3N1UG1PeWNIbDlXZzlHVFFzaVJuU1hoQU9TNG9DdzBuY1JvcmYzTUFhNUt5aFMzSEM4RWF2Qm1hNjdVTXltQ3VldHRIcU9xblJRTGpBWQ?oc=5",
             "published": "13 Nov 2026",
             "date": "2026-11-13",
             "source": "Moneycontrol.com",
-            "negative": false,
-            "positive": true,
+            "negative": true,
+            "positive": false,
             "event": "q2 results"
           },
           {
@@ -224,27 +234,22 @@
             "event": "q2 results"
           },
           {
-            "title": "Eicher Motors Q2FY27 results: Net profit rises 15% to \u20b91,573 crore - Business Standard",
-            "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNT21CUk1ubEljSVNKNmNielN5WEdsS2xmSkNVZzZzVXRrM2RyeXRQS2Y4MjhGcTVVMkMwbjFiSEhFeEp4NlRPcDdJYkl0VWxsSXY4Wml1X05ydmxfVXJPakVCV2JMc1RVMHRpdERkVmlPb2RqN1ZvRi1ZSDBwYkVfNkxIdGZnSFQ3MExRNGNUZHd0ZW91aDFXUUc2UkdQTEFnNk1CdmViRDd4UFdwLWs4S1RWTWFlUEpjVDVZRzMwV294WnVMa1hVRkxyS091Y2lBdllQWjYxWmZ2ZURKclHSAeMBQVVfeXFMUHNqREQ1a1N3QzB0UzJPLWlmdEgtNU5KTmlLQXhCaEZtN1R1bUxqVTRFS3ZiZHdxbzB3WjJHWGxqZUFZMF85VGVZcTRVR0VTOXo1emtFaVJjMDZIZzNydXRCcEhMdjNrSXZCeU9oUjRPYmZBMENqLVZIX3ZDM25NcU1XS2w5dVk5cDM3aTRBeEpnLS15ZVphX2hhN2daaENtUVIweklDNlhacWxIbTRyU2pseWd5NXV1ajZ4RjZRUXlBVFV5NmRGTjFsT2JLLWM3X0thNkUwempkX2RSZFloaS1Ielk?oc=5",
+            "title": "Eicher Motors : Allotment of Equity Share- November 13, 2026 - www.marketscreener.com",
+            "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOQlY3dXM0cjN0T3NJLXN0SVRRRHdnQ2RLYVVKQzgxX2tXN2s5MFdJeDNJWDA4M2JOb0RlUUg0aDRZY01uVDVEY21na2JHa0JGeFRlUnlyS1VOQUM4WE9qSWV4Rkd5M0hTaTNFVHNnRjJaVzQ1TnpBc2NkNjFYYjYzM2U3VkU5SElPNmRJUDhrOG12a1VubzF2M1FETGZLU3Q3ek1uRFZ6a2F5d05Rc2c?oc=5",
             "published": "13 Nov 2026",
             "date": "2026-11-13",
-            "source": "Business Standard",
-            "negative": false,
-            "positive": true,
-            "event": null
-          },
-          {
-            "title": "Top Gainers & Losers Today, 13 November 2026 at 3:30 PM IST: Eicher Motors Ltd Leads Gainers - HDFC Sky",
-            "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQaDRhbG52bG93eEJZamUwT2p0QnE2LXFOdUxuYndWcFhoWXFpSms3YXJLem5zY09KQkVaaVNCSkVZeU4tWkxRSUdEdHNSNE5zTUhMUG8wZmtIRjBnSW9IV0NQTDVzaWNnQm9uM3p5OUJqOTE2cVpVNnhNVC0xT1Jubkh2bw?oc=5",
-            "published": "13 Nov 2026",
-            "date": "2026-11-13",
-            "source": "HDFC Sky",
+            "source": "www.marketscreener.com",
             "negative": false,
             "positive": false,
             "event": null
           }
         ],
         "signals": [
+          {
+            "type": "issue_watch",
+            "level": "warn",
+            "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+          },
           {
             "type": "earnings_soon",
             "level": "info",
@@ -624,6 +629,16 @@
         "cross": null,
         "news": [
           {
+            "title": "South Indian Bank schedules Avendus meet; holds Millenium call - scanx.trade",
+            "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxObGtVZ2dhQmJ3UGtUMGZTYVd2Wm16MllOVzNSdEx2bWdJSURhWnAzZDJ6ZnZUSVFFQ2FQLUtmY3RveWlTbUx3RE9uUG1jNkNZdUlyT3l5U18zZ25EdldoT1pEdDllSzlxakhMRXNUSHRFd1kxNXZsS1hmN1RTWmJha0NvZTBFVDZNazdwd3owdnhtM0JkU2tndnlfZ3R3Q29RRFQ0eG1DQUN2aWJCQ2doSmt6anIxUkdyVzVfNkx2ZGlhdw?oc=5",
+            "published": "13 Nov 2026",
+            "date": "2026-11-13",
+            "source": "scanx.trade",
+            "negative": false,
+            "positive": false,
+            "event": null
+          },
+          {
             "title": "South Indian Bank stock gains 3% on Q2 business update, can it breach record high? - Business Today",
             "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOVXNPWHIxMEVXNk5ua2RKc2I3V1AtbGtQVHJBTWlLc2ZaQlZZMFQ5WXp6ZFNqZFZFNnV2U1haYVdYaDdhaklSLWUzdjRCOGttdTZoMWpPeHRhdWRFdEdCdU5XZkM2SUxwWWpVZG5fbU91eE9mMVZWTlYybll6VDhGcFlKVURDejNrUmFnRXFxaHJ4Y09zUEpNNWhXRHlLZVhyQUx1dldlUkFyN085cWR6R1dPdHJNWmY4dVdNX09ENFlXZlZIMHdIQTJVb0pqM3BrcDhjcC0wdDUtOGo4blRfOdIB5gFBVV95cUxNbnVncTdiYzkyTFMxbTh4T0tVeF9tem05R3Z6R29rd0o0M3JzSFdMSjdZRllXcDNXdjRGNmNVVTlkUUNCQkdqTkZXY3ZRV21ySkc1eXRORjhnQ0pTYVVLQzZxNXMyM0tLeUlqU3BoRTBhM3BqLWhDM1dRMlBHcGtTajduT0JFZ0VPNHR0YTJUTW9CM0tzN2FhNFVlY3JMNVhzclpMZElmU04yem1pdVoyRUF4TW5zSGFJN3o3eF9mTldBaThXWmF5bjJVR0doZHllVjlveF9PV1FKSlAwZmNEUkV0LTdodw?oc=5",
             "published": "05 Oct 2026",
@@ -651,16 +666,6 @@
             "source": "Simply Wall St",
             "negative": false,
             "positive": false,
-            "event": null
-          },
-          {
-            "title": "South Indian Bank Share Price Hits 52-Week High: Analysis - Univest",
-            "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPRzhfMW1wWGpYazA4SnZnMjZzUGdINGNKRlJueXctcXhtRXFPOUY3QjBzV29wMDNfMGNZRFBMZ0NTWjBQUVg4dFpfM0Q5bjl0NE96VHZyZWh1MElnMmxOSTNlZEtidFU5bHQtSDI2VS1rNm9Yd1p4dTdWZE8wTU9GWFM5M1RRWkVUWWVBVlZjZkRrNEF3?oc=5",
-            "published": "29 Oct 2026",
-            "date": "2026-10-29",
-            "source": "Univest",
-            "negative": false,
-            "positive": true,
             "event": null
           }
         ],
@@ -766,6 +771,26 @@
         "cross": null,
         "news": [
           {
+            "title": "Maharashtra Seamless Q2 results: Profit falls 42% to \u20b973 crore, revenue rises nearly 10% - CNBC TV18 - LinkedIn",
+            "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNVUdyNnlrUXBDVkg2aV96YnUxN2k0VXl4bHJtdmNSdVhZaVpkT3JQRjRIM2FuaVJmZk5pak1aUlAzTVBVRlFYR3dKOS01eXdDeEI4amluTkEwVGNZNXpESDBjaEl4TFJ5b3F3QVJueUZkcVhiRlMwc2JWOEZWdjRKQnJsTGMyd0c4eHdhV1FQNW9ZbTNwcjhvT245WFpiOWw1TVlaTTlncF94VUtSR0djYWxNQlhuRjZDWm93?oc=5",
+            "published": "13 Nov 2026",
+            "date": "2026-11-13",
+            "source": "LinkedIn",
+            "negative": false,
+            "positive": false,
+            "event": "q2 results"
+          },
+          {
+            "title": "Maharashtra Seamless falls 5% after Q2 profit drops 42%; company appoints new CFO - Moneycontrol.com",
+            "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOeFRVdUg5d2g1RkZyNmNoMng4T0tQN3k2ZElkeGhhbURvQmstN2huRjBnSVJqVkRKal9QWnhrZFJKcDhTQWtIOFBmZ2E4YVpnU2ZzTzFfUDBfakJqQlgyTkNoQVh1YWtjWTlTX21KejZ6Y204Z05vY09KOGUyc1JHX1M3dm5LcFBGTmRlS2VaSHhDbC1Rdk1ISEhmV0dfUmZnMElOd0l4aGs1NDhITW4tMFREV3RWaGdtNFBrYnFuMWdHcHBsa3FQU2o0d1plaGpqbk5QQ1JMNVF5WTDSAeABQVVfeXFMTTF5ZC1abjRJcFc3QzBmRkZBTmJjTDhya1NjT0xWZ0p1X2c4MVBEb1o2bHJyZFN5S3NFN3dyWFdaM25XNXJ0OHBCRS14S055bDcxNjdZQk4zcFNib3JNYWU3TnV2WnFSb0R6MkJZSXVuQ0c5YlFGa2ZnbllGR2lIRXFhSFZLcGNGYmFiYXVlRk8zZXJrWU1ZNTFUUUdNRkw5RmdheEU5aVdKVVZXeTZhc1l4X0xHSUFHMGxmX3gySV9fcEYwazJ3LUFHS0o4ODRpNkczV0hQT3AyR04tM0FKZ2I?oc=5",
+            "published": "13 Nov 2026",
+            "date": "2026-11-13",
+            "source": "Moneycontrol.com",
+            "negative": false,
+            "positive": false,
+            "event": null
+          },
+          {
             "title": "Maharashtra Seamless Limited Estimates \u2013 NSE:MAHSEAMLES - TradingView",
             "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9wY1kyaDRvSkRweXlFcF9vVUtOenlKS0hyWUJnbHd2VXJVQUx5cGRORUtNM0dUNEd3Q3ZKR2NoYzJMb2ktNXFtLUlkbDhOSml6ZGVTYm5jbkxUSUdVVEN5TEE5cHRldjlSM3BzR01Fbk5VMHFoNGQzcFlzQks?oc=5",
             "published": "24 Oct 2026",
@@ -784,33 +809,13 @@
             "negative": false,
             "positive": false,
             "event": "demerger"
-          },
-          {
-            "title": "Maharashtra Seamless Number of Employees 2026 | Employee Count & Headcount Data - Revelio Labs",
-            "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1SRzJheGNOYmgzMFBqM0RNX0JleGhfT0RyYXQ1eV9ET1c2bE9YVUlKRm9WbWFBT1M0M3BkcnB0TGl0TTBQRTVpbWRjenk2QkZCc1FKdUNNTzlpQkdyYTUtTHZBZVlWZGFDMEZVbEp5N3lWSlJBbUJF?oc=5",
-            "published": "22 Sep 2026",
-            "date": "2026-09-22",
-            "source": "Revelio Labs",
-            "negative": false,
-            "positive": false,
-            "event": null
-          },
-          {
-            "title": "Maharashtra Seamless board approves demerger into two entities - scanx.trade",
-            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdGg3QzBTbjhLbDhqV0pkakFKZldXbExEOXY3LXN4dmoyQ2ZxZEswdkNVT1Q2cGYyRGtURWNieXBZN08yMjZ1MTBIOHlHZV9VMEFlak90RXVVQndSWkVKU2tJU1BScHg3aGNLdEI4Tjdoek9ZbUxMQXBObnZvZERrLVJnbGJjNGt0bDVDeWljSFJ0S2pWVjFIdjhIVzhIR1pmRGpqWmdfcU1NekJUYVdUWW52ZEhLYXRkbUdyQlc4Zw?oc=5",
-            "published": "07 Oct 2026",
-            "date": "2026-10-07",
-            "source": "scanx.trade",
-            "negative": false,
-            "positive": false,
-            "event": "demerger"
           }
         ],
         "signals": [
           {
             "type": "corp_event",
             "level": "info",
-            "text": "Announcement: demerger"
+            "text": "Announcement: demerger, q2 results"
           },
           {
             "type": "no_thesis",
@@ -905,16 +910,6 @@
         "cross": null,
         "news": [
           {
-            "title": "Top gainers and losers, Nov 13: Shriram Finance, Tata Motors PV fall 3%; Eicher Motors, Bharti Airtel rise over 1% - Upstox",
-            "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNLVR5MWI3TEhLUUZqVXdpdkNTTDFLWG5rRWYtZW5hSUNsWkF5ZkVINmdRdTlHVS0xdG14ZTdzdFNGYV9wbjF1T2tNc3VnWVpfQkFKT0lDQXRNQ0ZSRzlXbEVXRi1NMXF1cl9HeDhqVnRPM3BSdHRZZ2xaaEJCdnUtelFGTGRQZ1hteGw4UXhUMVY0N3IwblhWS0V1Q3c3eG9XUlFqbEpTVHQ2dlEzUWN3bzczT09vakgxc2x2X1g0S3VlYXNMUjNLQzZFcVd5YlY2dlpHdE5MckdUVXFUb28zYzdQNi1pS0QwWWdwZ3VBWVRGR2U4dlRKLVln?oc=5",
-            "published": "13 Nov 2026",
-            "date": "2026-11-13",
-            "source": "Upstox",
-            "negative": false,
-            "positive": false,
-            "event": null
-          },
-          {
             "title": "Shriram Finance rallies 7%; what's driving NBFC stock price? - Business Standard",
             "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOcEE0WXluMDFxQTNycmNZc0NCaS1najh0WUpUTWZ3ZlZxbDlKMG15UVF2Ukppak9wQlJ5VFVGZzVZRmZwTXRsQ2R0dlIwSFo0VmxCZFM0TWpwZ2NNRUlvRi1VR2tURmlKb19ySE5qVHdJN3JFcXRWM2RwWnpIcDNkdV9QSlhlZHFTS1dKdnlkYVZWVkFfUzlHNHZTbE9iRmgwX0w5M1R6M1FqUWowbkNQaWExbmcwRjhVZEFBMndTNHR1Z9IBxwFBVV95cUxPTjNabW9sZm9VYjNabjBXdG5PTjMxTjZ1cWw3djRLMjRMNGkySjUyNDg2Ql9iT2g5bUdKanZudU40VmVWcGR1WHgweFlOQjJrT2V3a2ZhOVU0OHhxS01yeUVjSVQydjJoX2pxS3pqQWNJeVJLWkhoX1dkdkMxdHZDbFJsQWJVRGxfeFFaZFVhMlNTRTFnQnppd29oYWV4U0NjZkRrSnV5WTQ4aUtCY01xT2VvZG83XzhRck1oUWRLS2pPeU1vM3A0?oc=5",
             "published": "13 Oct 2026",
@@ -940,6 +935,16 @@
             "published": "12 Nov 2026",
             "date": "2026-11-12",
             "source": "HDFC Sky",
+            "negative": false,
+            "positive": false,
+            "event": null
+          },
+          {
+            "title": "Shriram Finance Stock Slips Despite Strong Q1 Profit - Equitypandit",
+            "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOczB2VXJrVUZPWld3MUNjdmR1UjgtZ1VYT0F5S1VZQ2hfb0NoVkd1eG1hdDhXR3Q0Z0IxSjZzSWZYLUo5c2czaXNfYzhQUFRjb3Zvb3l2RG5KZDRXdmZXUnQ5MExfZThOVFNIVElqMnB1RF92SWdCU3VpT2JlUEU2UFlpMThzaC16dXc?oc=5",
+            "published": "24 Jul 2026",
+            "date": "2026-07-24",
+            "source": "Equitypandit",
             "negative": false,
             "positive": false,
             "event": null
@@ -1020,7 +1025,7 @@
           "pb": 0.94435096,
           "roe": null,
           "de": 0.7,
-          "mcap": 1058491924480.0,
+          "mcap": 1058507063296.0,
           "wk_high": 408.0,
           "wk_low": 259.1,
           "div_yield": 1.01
@@ -1038,17 +1043,17 @@
         "cross": null,
         "news": [
           {
-            "title": "Tata Motors PV Q2 Results: PV Arm Swings To Loss On JLR Restructuring Costs, Revenue Up 35%; Misses Estimates - NDTV Profit",
-            "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPWFVBb3R4cGRJRDFUWWVoYmlPQm9wemwtNVB6Z3FRUmhuYnlad2p5dFJSU2tuODk0ZGo0Y3c4WmVUa25JMHd2ajNWT1c5d05WNDlIWDh2RndIWEItUXhIREsycXNCdnJfVXpHWFEwZEpqZkdDSjdQa2RQUm9jTnRmNlgzbF91RWVpQjZwc241VHZ2dmlscXFGS3l1SE41bDM4cWkxanpxY0VnZXZkZW00bkRxZExySS1LUmUwQldjOWwyQzlxX1FFbVpCc3hxVGJabXg4WEpJYzFPODZ0NVRrQnBMV1hrdkpQWjJidnFlRnJwQzE3bkUyc3ZkcHdCd9IBhgJBVV95cUxQRTdIQ2NJZU1HSWhoNFpVRjlQTGpEVXM5a3k4cDFaNHAtY2k0c0lBWC0xZVBTSW1QdS1obnh4dFFzd1JmOW9zX0Njc1pMVEpQVVdXTlBDNlZpU2p3SGtvcjlZdmlXWUFwYldweF8xTFFrSU5mam9LdmliWnVPejhsWFN3NlFBbGtNMVRaQ09YNkNLZ3pvLXRHeW5fNkVGbGMxMFAzSTkxeHYyZjNRM1ZtQWlRTmpYalpJUHcyWC1kWU9mT1NhVHUyT2VRUXhrRmdUczdfcUlIOUtELUJMYVY2LTB2MGVCRXVjUk9NYm1WdGJDWUZQbWpvX2I2NUFkLW5fSXJtazF3?oc=5",
+            "title": "India's Tata Motors PV cuts JLR margin outlook as costs, geopolitical risks bite - Reuters",
+            "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTmU4TzhZUm1PVzY1TWIxNC1kVDJWaGh1VXdxdnk4THdGVkt0YmNiaGtHeWVFSXVkclBubnVVM1ZGUjZHelJNdFFDUjR3bmZhSEVYcm96RmRpc1prYWhTdzVja1MwSENoUFJfRHgtU0tBTHNDV285ZHFVRXBsUFlPX1k4N191dmRxRHlVT1kwQ3NzbktMbEtBNlhzRExxOGV0SlI3M1lYbkF6eS1hTXJ5MWs3cC1nV3NvTjZwbXR1VnJ6QQ?oc=5",
             "published": "13 Nov 2026",
             "date": "2026-11-13",
-            "source": "NDTV Profit",
-            "negative": true,
+            "source": "Reuters",
+            "negative": false,
             "positive": false,
-            "event": "q2 results"
+            "event": null
           },
           {
-            "title": "Tata Motors PV's Q2 net loss at \u20b95,531 cr as JLR restructuring costs bite - Business Standard",
+            "title": "Tata Motors PV narrows Q2FY27 loss to \u20b95,451 cr as revenue rises 34% - Business Standard",
             "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOemszV015eGtLRThZTnVhU0I1Nkh6UVhmUGdjcGk4Z0JCNmxjMWFZSkdwWGFRN1U2bGVhWmpuLVpwdVBBNTRVY2xEbnlwdGZsMUJYdjMzSzVVd0N2SjFDVVVjVVloaUdvcUo4enJwMGtvXzJJMFo4T0lPU3F2VzhSMzgxMFduWjJweThvbk9vQ3NVSmJtcTZ0YWRmQnJUbUNMaERIUVZmbEtHT2lfYm4ycVhtZDFFZ1VtWThTQ3N3T2RXcEd0TkR1YUpyNjhKdHBRd25ocS1xQ04zUnFiQXfSAeMBQVVfeXFMUDF6d2hkdWlBdmhzaUNES3ZScWZGUXREYmd0N25oQzZzcnBYRkM3NVdRSnU2Ul90dDhCU05GRzBWel8zUTVBTE5BSm8tSGJaekFGMzVlRk1Qb3BIbGplb3RFSU5QVmdyeEpRNFUtRHdGOFJjbFRaMFZGdUNWZ1VCVDVuenNuRUVrSm1WQTNKZDVVU0hPakVhVi0xZHdFbVRaOTduTC1vUGpWZjBUNE9hS0xPLTU0enhwTUsyLXhfZVdXck5EWC1hclBPTlM4UW96a21YZXRLdS00NHZRU1E5NFQ3VVk?oc=5",
             "published": "13 Nov 2026",
             "date": "2026-11-13",
@@ -1193,16 +1198,6 @@
             "event": null
           },
           {
-            "title": "Bharat Petroleum Corporation Limited Stock 12\u2011Month Price Target Raised to INR 336, Implies 9% Upside - TradingView",
-            "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQeDVmWjloOFY5cHdmR1BEZFEwSlM2bUtGa2lUMENyejJxMldKWEVxdEhRc0JWVktYVjJ5ZW1KVzNCcVNjNUZZZVY0Vmk5RHR0aG1SdHNQSzFFYW9mMmNBN0liVDdCVmRrQ3JEWW1VNG1yeGx1NmFMZDlhTzBVYnlTd0xqX25JMVdwd1BBSkpSM211ajJ1MjVHdnZrS09OOUhqd3hVYVpHMWJLaDJvOTJ1cVVDT212SXlzUTFBRnJ4Y0hwYkZtb0FsQlREV01oMmlvbnlFQ0NOd2M3blo2eFh0VElTeE56MGpDRzJoZk5XUDFpXzg?oc=5",
-            "published": "14 Jul 2026",
-            "date": "2026-07-14",
-            "source": "TradingView",
-            "negative": false,
-            "positive": true,
-            "event": null
-          },
-          {
             "title": "Bharat Petroleum (NSEI:BPCL) Stock Forecast & Analyst Predictions - Simply Wall St",
             "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPM0JRRjZYZkVYRnBWVFozVVpISWsxaHhYdi0tWWsyTjR3TUlRaUhmT191UUxMVndXNnBHQVhoSHJ5OVRHazA0RDNaUHVaNU1qaUdYdktPbzhteFUyX1EyaVBkelE3OC1JQkZKYnktTEVianFSaTVDSTZPT2oyaTFBVzFNV1A?oc=5",
             "published": "02 Nov 2026",
@@ -1210,6 +1205,16 @@
             "source": "Simply Wall St",
             "negative": false,
             "positive": false,
+            "event": null
+          },
+          {
+            "title": "Bharat Petroleum Corporation Limited Stock 12\u2011Month Price Target Raised to INR 336, Implies 9% Upside - TradingView",
+            "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQeDVmWjloOFY5cHdmR1BEZFEwSlM2bUtGa2lUMENyejJxMldKWEVxdEhRc0JWVktYVjJ5ZW1KVzNCcVNjNUZZZVY0Vmk5RHR0aG1SdHNQSzFFYW9mMmNBN0liVDdCVmRrQ3JEWW1VNG1yeGx1NmFMZDlhTzBVYnlTd0xqX25JMVdwd1BBSkpSM211ajJ1MjVHdnZrS09OOUhqd3hVYVpHMWJLaDJvOTJ1cVVDT212SXlzUTFBRnJ4Y0hwYkZtb0FsQlREV01oMmlvbnlFQ0NOd2M3blo2eFh0VElTeE56MGpDRzJoZk5XUDFpXzg?oc=5",
+            "published": "14 Jul 2026",
+            "date": "2026-07-14",
+            "source": "TradingView",
+            "negative": false,
+            "positive": true,
             "event": null
           },
           {
@@ -1386,6 +1391,286 @@
     ],
     "sell_review": [],
     "issues": [
+      {
+        "ticker": "EICHERMOT",
+        "name": "Eicher Motors",
+        "yahoo_symbol": "EICHERMOT.NS",
+        "qty": 199.0,
+        "buy_date": "2026-02-26",
+        "seed_price": 7628.0,
+        "sector": "Auto",
+        "target_price": null,
+        "stop_loss": null,
+        "notes": "",
+        "lots": [
+          {
+            "qty": 199.0,
+            "buy_price": 7219.45,
+            "buy_date": "2026-02-26"
+          }
+        ],
+        "avg_cost": 7219.45,
+        "price": 7650.0,
+        "prev_close": 7549.0,
+        "has_price": true,
+        "discipline": {
+          "stage": "",
+          "thesis": "",
+          "proof_metric": "",
+          "kill_condition": "",
+          "review_date": "",
+          "horizon_quarters": ""
+        },
+        "group": "",
+        "months_held": 8,
+        "tax_status": "STCG",
+        "health": 70,
+        "corp": {
+          "dividends": [
+            {
+              "date": "31 Jul 2026",
+              "amount": 82.0
+            }
+          ],
+          "splits": [],
+          "next_earnings": "13 Nov 2026",
+          "q_revenue": 64887400000.0,
+          "q_profit": 14625100000.0,
+          "rev_yoy": 31.2,
+          "profit_yoy": 21.3,
+          "q_label": "Jun 2026",
+          "pe": 36.40257,
+          "pb": 8.360518,
+          "roe": null,
+          "de": 0.02,
+          "mcap": 2100091027456.0,
+          "wk_high": 8230.0,
+          "wk_low": 6442.0,
+          "div_yield": 1.09
+        },
+        "invested": 1436670.55,
+        "current": 1522350.0,
+        "pnl": 85679.45,
+        "pnl_pct": 5.96,
+        "day_pct": 1.34,
+        "sma_fast": 7364.15,
+        "sma_slow": 7352.44,
+        "rsi": 61.7,
+        "ret_6m": 10.9,
+        "trend": "up",
+        "cross": null,
+        "news": [
+          {
+            "title": "Eicher Motors Q2FY27 results: Net profit rises 15% to \u20b91,573 crore - Business Standard",
+            "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNT21CUk1ubEljSVNKNmNielN5WEdsS2xmSkNVZzZzVXRrM2RyeXRQS2Y4MjhGcTVVMkMwbjFiSEhFeEp4NlRPcDdJYkl0VWxsSXY4Wml1X05ydmxfVXJPakVCV2JMc1RVMHRpdERkVmlPb2RqN1ZvRi1ZSDBwYkVfNkxIdGZnSFQ3MExRNGNUZHd0ZW91aDFXUUc2UkdQTEFnNk1CdmViRDd4UFdwLWs4S1RWTWFlUEpjVDVZRzMwV294WnVMa1hVRkxyS091Y2lBdllQWjYxWmZ2ZURKclHSAeMBQVVfeXFMUHNqREQ1a1N3QzB0UzJPLWlmdEgtNU5KTmlLQXhCaEZtN1R1bUxqVTRFS3ZiZHdxbzB3WjJHWGxqZUFZMF85VGVZcTRVR0VTOXo1emtFaVJjMDZIZzNydXRCcEhMdjNrSXZCeU9oUjRPYmZBMENqLVZIX3ZDM25NcU1XS2w5dVk5cDM3aTRBeEpnLS15ZVphX2hhN2daaENtUVIweklDNlhacWxIbTRyU2pseWd5NXV1ajZ4RjZRUXlBVFV5NmRGTjFsT2JLLWM3X0thNkUwempkX2RSZFloaS1Ielk?oc=5",
+            "published": "13 Nov 2026",
+            "date": "2026-11-13",
+            "source": "Business Standard",
+            "negative": false,
+            "positive": true,
+            "event": null
+          },
+          {
+            "title": "Eicher Motors Q2 results: Net profit rises 15% to Rs 1,573 crore, misses estimates - Moneycontrol.com",
+            "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPV2EtZ1BSa3pZTF94emVyVHFVbGNYRkxpaTJQTENpMGVLckxQLWJ3b0RVT3V6VDg0azRhWWt0LUpxUUxMM3RBWjM3X1kyME90U05iTUdQRVMxTVZLSzM1V1phT2Z2Rk8tcndpa3ZSektfS1QxY29GRlJhMmpfbmhCNmszSzZHTFFUZ2VkNUxNMXA2WlhBQUd1RkI3MkFJcWlWbVE3eUtyV21vbTVsOTZXOWFncldfbi1sampxNFFfRXNEUnNTT1VV0gHMAUFVX3lxTE9kbFNVT09zWWhwd2hoSWVOREViT19kQldNelBDZFZ5c241SmFsV2tfM3NHRmpkd1NvOU8ybHFpNTZUNGlpR3d6WGw5RjhvNDF6UkFrNHBzYjlNa0dfUHVvQ0ZtckE4bnlrelpTLUtRandEbk44UW5BbGg3UkQ3a3N1UG1PeWNIbDlXZzlHVFFzaVJuU1hoQU9TNG9DdzBuY1JvcmYzTUFhNUt5aFMzSEM4RWF2Qm1hNjdVTXltQ3VldHRIcU9xblJRTGpBWQ?oc=5",
+            "published": "13 Nov 2026",
+            "date": "2026-11-13",
+            "source": "Moneycontrol.com",
+            "negative": true,
+            "positive": false,
+            "event": "q2 results"
+          },
+          {
+            "title": "Q2 Results, Nov 13: Grasim, Eicher Motors, ABB India, Tata Motors PV, Manipal Health, Indo-MIM, RVNL, Godrej Industries, others to post earnings - Upstox",
+            "link": "https://news.google.com/rss/articles/CBMioAJBVV95cUxQR21QbTdmTnZZTmpKN3FBRXNMU3QtWEtHclhDMUxpZm9ERC0zcWhRc3BuYlh4WW5ESHpJRDZTNk5xeXR5RE0zQUtHSVlaaXYzZlNhUTNSYkdtNHZ4WXRJR25OdTU0c2tCQUZmcllRcTd2Nmx5TFkzcXpmUGpOTGNfTzZBdFNWZE95VFhOdU1Ba0pSRkdHd1JIX191MkxqRm4zUkEweTZCcmpyZEh3b0VpYndyMmZwMHFrY3lxZ2NuM0ZJSlk4X2xFWHQ0Q2FfSDZsU0ZSeXp5RVRtcm1kQ2paRWlReXQ4RjF2ZmM3THRiTjVGbDBscGJtdnVrY0dELTBQdzZUbDVJdThmRmMwbkpoalpwbXV0NFdzdG5kTkl2WHk?oc=5",
+            "published": "13 Nov 2026",
+            "date": "2026-11-13",
+            "source": "Upstox",
+            "negative": false,
+            "positive": false,
+            "event": "q2 results"
+          },
+          {
+            "title": "Eicher Motors : Allotment of Equity Share- November 13, 2026 - www.marketscreener.com",
+            "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOQlY3dXM0cjN0T3NJLXN0SVRRRHdnQ2RLYVVKQzgxX2tXN2s5MFdJeDNJWDA4M2JOb0RlUUg0aDRZY01uVDVEY21na2JHa0JGeFRlUnlyS1VOQUM4WE9qSWV4Rkd5M0hTaTNFVHNnRjJaVzQ1TnpBc2NkNjFYYjYzM2U3VkU5SElPNmRJUDhrOG12a1VubzF2M1FETGZLU3Q3ek1uRFZ6a2F5d05Rc2c?oc=5",
+            "published": "13 Nov 2026",
+            "date": "2026-11-13",
+            "source": "www.marketscreener.com",
+            "negative": false,
+            "positive": false,
+            "event": null
+          }
+        ],
+        "signals": [
+          {
+            "type": "issue_watch",
+            "level": "warn",
+            "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+          },
+          {
+            "type": "earnings_soon",
+            "level": "info",
+            "text": "Results due 13 Nov 2026"
+          },
+          {
+            "type": "corp_event",
+            "level": "info",
+            "text": "Announcement: q2 results"
+          },
+          {
+            "type": "no_thesis",
+            "level": "info",
+            "text": "No written thesis \u2014 add one in \u270e Discipline"
+          }
+        ],
+        "pct_of_portfolio": 14.9,
+        "alpha": {
+          "mine": 6.0,
+          "index": 2.8,
+          "alpha": 3.1,
+          "approx": false
+        }
+      },
+      {
+        "ticker": "FEDERALBNK",
+        "name": "Federal Bank",
+        "yahoo_symbol": "FEDERALBNK.NS",
+        "qty": 1550.0,
+        "buy_date": "2021-03-31",
+        "seed_price": 354.3,
+        "sector": "Banking",
+        "target_price": null,
+        "stop_loss": null,
+        "notes": "vintage - held since <=Mar-2021 (demat statement FY21-22)",
+        "lots": [
+          {
+            "qty": 1550.0,
+            "buy_price": 27.96,
+            "buy_date": "2021-03-31"
+          }
+        ],
+        "avg_cost": 27.96,
+        "price": 360.95001220703125,
+        "prev_close": 362.5,
+        "has_price": true,
+        "discipline": {
+          "stage": "",
+          "thesis": "",
+          "proof_metric": "",
+          "kill_condition": "",
+          "review_date": "",
+          "horizon_quarters": ""
+        },
+        "group": "",
+        "months_held": 67,
+        "tax_status": "LTCG",
+        "health": 60,
+        "corp": {
+          "dividends": [
+            {
+              "date": "14 Aug 2026",
+              "amount": 1.2
+            }
+          ],
+          "splits": [],
+          "next_earnings": "14 Jan 2027",
+          "q_revenue": 51200200000.0,
+          "q_profit": 14986500000.0,
+          "rev_yoy": 35.6,
+          "profit_yoy": 63.2,
+          "q_label": "Sep 2026",
+          "pe": 17.624514,
+          "pb": 2.084404,
+          "roe": 13.3,
+          "de": null,
+          "mcap": 891812970496.0,
+          "wk_high": 371.7,
+          "wk_low": 235.08,
+          "div_yield": 0.33
+        },
+        "invested": 43338.0,
+        "current": 559472.52,
+        "pnl": 516134.52,
+        "pnl_pct": 1190.95,
+        "day_pct": -0.43,
+        "sma_fast": 337.65,
+        "sma_slow": 313.93,
+        "rsi": 66.3,
+        "ret_6m": 29.3,
+        "trend": "up",
+        "cross": null,
+        "news": [
+          {
+            "title": "Federal Bank gets \u20b914.95 lakh GST penalty set aside by appellate authority - scanx.trade",
+            "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOZGJod3poSDByTjhVOTRSR0ZiM0xjYzVyWVNoZ1plcV9pTTBVTTVKQk0tZ1dNRUR1MXlDVDZaQmN2aHh6Vl9pSkRCbGw4ZTh2N04xSm1iQjQyMU5NOG5pOFJfTW1DNG1Ec2c2bnctUmdrZEJaeG5sRVBiSFItR1NxSVpSaUZEVXhXalFRS1VhcnloU3JqQWJvSW9sdGJtU1NtWGZSMTQxWkZOSjZBNE4ya2FfVFNPcVhqU3UwVFkzQnJ5WmxFcXc?oc=5",
+            "published": "13 Nov 2026",
+            "date": "2026-11-13",
+            "source": "scanx.trade",
+            "negative": true,
+            "positive": false,
+            "event": null
+          },
+          {
+            "title": "Federal Bank Q2 Results: Net Profit Jumps 45% to Record \u20b91,386 Crore; NII Rises 26% - India Infoline",
+            "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQUUU2anJEQnlLUk5xcXN4MG5uNC1yWmR2TE9xc3ZYaEdtQjlndVhOMjZYNzhHRGpwamZYVklwbEE0TDhKbHp4bVN0aVBVZVNHQTE0dmZmQ3prZVBORkpZVkdQTHRvLWdWYjNvaFZSZlFqTlkwRURTRm5zUWpUUXhWRkwxWnNObHBNb2czZXRGT1hqbTJnYTMtQ2UyVVVYYmRPQVE?oc=5",
+            "published": "16 Oct 2026",
+            "date": "2026-10-16",
+            "source": "India Infoline",
+            "negative": false,
+            "positive": true,
+            "event": "q2 results"
+          },
+          {
+            "title": "NIFTY Bank reclaims 61,000: HDFC Bank, Axis Bank, Federal Bank, other banking stocks rally up to 6%; here's why - Upstox",
+            "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNa0RvSWFtNF9xTmFKQnNuN2xad3dBWk5vQTBSeGhUYjhDSFhxRks1VTk1eDBFVWNTNlllcGdZazlnQTJYVDNzVlZNNmw5a0JzMGhZWGZtcEhURzVQNGIzNThoSjMxakQ5ZTFEVS1HNXVwbWpQQl9YX0E3RmVjYUlQUWZBVUdBS0hlODcxSmo5NTh1YXVnZjBLMlBrNGR1bkdVM1ZKcTh6ZUg2dXZyTmtUdVFZbjZnSzlnVzFKWXFhem5HalRicXM5RFN6d1VPVEJuMURPYkNjaGpmXzNtOEFBT1RBemZxTUVmelFVZDBJdHJzdmtmWGlF?oc=5",
+            "published": "11 Nov 2026",
+            "date": "2026-11-11",
+            "source": "Upstox",
+            "negative": false,
+            "positive": true,
+            "event": null
+          },
+          {
+            "title": "Federal Bank Shares Rally After Strong Q1; The Next Trigger Matters More - NiftyTrader",
+            "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFAydWRCUkpDLVE4NUFySWhIeWVMMnFGLVp1cHFmbmRobUJGUGJLVndObUVuYlA4ajJ3OWxCX3NMYzdmVUdKejBUWEN4RWlkRU5TejJfSnhlMlpWUGhKR3JmczlLQTA1T1NQVWNBZDByNWlYWjVRMnZ1YzFsN2k?oc=5",
+            "published": "17 Jul 2026",
+            "date": "2026-07-17",
+            "source": "NiftyTrader",
+            "negative": false,
+            "positive": true,
+            "event": null
+          }
+        ],
+        "signals": [
+          {
+            "type": "issue_watch",
+            "level": "warn",
+            "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+          },
+          {
+            "type": "earnings_soon",
+            "level": "info",
+            "text": "Results due 14 Jan 2027"
+          },
+          {
+            "type": "corp_event",
+            "level": "info",
+            "text": "Announcement: q2 results"
+          },
+          {
+            "type": "no_thesis",
+            "level": "info",
+            "text": "No written thesis \u2014 add one in \u270e Discipline"
+          }
+        ],
+        "pct_of_portfolio": 5.5,
+        "alpha": {
+          "mine": 1191.0,
+          "index": 69.5,
+          "alpha": 1121.5,
+          "approx": true
+        }
+      },
       {
         "ticker": "LTF",
         "name": "L&T Finance",
@@ -1576,7 +1861,7 @@
           "pb": 0.94435096,
           "roe": null,
           "de": 0.7,
-          "mcap": 1058491924480.0,
+          "mcap": 1058507063296.0,
           "wk_high": 408.0,
           "wk_low": 259.1,
           "div_yield": 1.01
@@ -1594,17 +1879,17 @@
         "cross": null,
         "news": [
           {
-            "title": "Tata Motors PV Q2 Results: PV Arm Swings To Loss On JLR Restructuring Costs, Revenue Up 35%; Misses Estimates - NDTV Profit",
-            "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPWFVBb3R4cGRJRDFUWWVoYmlPQm9wemwtNVB6Z3FRUmhuYnlad2p5dFJSU2tuODk0ZGo0Y3c4WmVUa25JMHd2ajNWT1c5d05WNDlIWDh2RndIWEItUXhIREsycXNCdnJfVXpHWFEwZEpqZkdDSjdQa2RQUm9jTnRmNlgzbF91RWVpQjZwc241VHZ2dmlscXFGS3l1SE41bDM4cWkxanpxY0VnZXZkZW00bkRxZExySS1LUmUwQldjOWwyQzlxX1FFbVpCc3hxVGJabXg4WEpJYzFPODZ0NVRrQnBMV1hrdkpQWjJidnFlRnJwQzE3bkUyc3ZkcHdCd9IBhgJBVV95cUxQRTdIQ2NJZU1HSWhoNFpVRjlQTGpEVXM5a3k4cDFaNHAtY2k0c0lBWC0xZVBTSW1QdS1obnh4dFFzd1JmOW9zX0Njc1pMVEpQVVdXTlBDNlZpU2p3SGtvcjlZdmlXWUFwYldweF8xTFFrSU5mam9LdmliWnVPejhsWFN3NlFBbGtNMVRaQ09YNkNLZ3pvLXRHeW5fNkVGbGMxMFAzSTkxeHYyZjNRM1ZtQWlRTmpYalpJUHcyWC1kWU9mT1NhVHUyT2VRUXhrRmdUczdfcUlIOUtELUJMYVY2LTB2MGVCRXVjUk9NYm1WdGJDWUZQbWpvX2I2NUFkLW5fSXJtazF3?oc=5",
+            "title": "India's Tata Motors PV cuts JLR margin outlook as costs, geopolitical risks bite - Reuters",
+            "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTmU4TzhZUm1PVzY1TWIxNC1kVDJWaGh1VXdxdnk4THdGVkt0YmNiaGtHeWVFSXVkclBubnVVM1ZGUjZHelJNdFFDUjR3bmZhSEVYcm96RmRpc1prYWhTdzVja1MwSENoUFJfRHgtU0tBTHNDV285ZHFVRXBsUFlPX1k4N191dmRxRHlVT1kwQ3NzbktMbEtBNlhzRExxOGV0SlI3M1lYbkF6eS1hTXJ5MWs3cC1nV3NvTjZwbXR1VnJ6QQ?oc=5",
             "published": "13 Nov 2026",
             "date": "2026-11-13",
-            "source": "NDTV Profit",
-            "negative": true,
+            "source": "Reuters",
+            "negative": false,
             "positive": false,
-            "event": "q2 results"
+            "event": null
           },
           {
-            "title": "Tata Motors PV's Q2 net loss at \u20b95,531 cr as JLR restructuring costs bite - Business Standard",
+            "title": "Tata Motors PV narrows Q2FY27 loss to \u20b95,451 cr as revenue rises 34% - Business Standard",
             "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOemszV015eGtLRThZTnVhU0I1Nkh6UVhmUGdjcGk4Z0JCNmxjMWFZSkdwWGFRN1U2bGVhWmpuLVpwdVBBNTRVY2xEbnlwdGZsMUJYdjMzSzVVd0N2SjFDVVVjVVloaUdvcUo4enJwMGtvXzJJMFo4T0lPU3F2VzhSMzgxMFduWjJweThvbk9vQ3NVSmJtcTZ0YWRmQnJUbUNMaERIUVZmbEtHT2lfYm4ycVhtZDFFZ1VtWThTQ3N3T2RXcEd0TkR1YUpyNjhKdHBRd25ocS1xQ04zUnFiQXfSAeMBQVVfeXFMUDF6d2hkdWlBdmhzaUNES3ZScWZGUXREYmd0N25oQzZzcnBYRkM3NVdRSnU2Ul90dDhCU05GRzBWel8zUTVBTE5BSm8tSGJaekFGMzVlRk1Qb3BIbGplb3RFSU5QVmdyeEpRNFUtRHdGOFJjbFRaMFZGdUNWZ1VCVDVuenNuRUVrSm1WQTNKZDVVU0hPakVhVi0xZHdFbVRaOTduTC1vUGpWZjBUNE9hS0xPLTU0enhwTUsyLXhfZVdXck5EWC1hclBPTlM4UW96a21YZXRLdS00NHZRU1E5NFQ3VVk?oc=5",
             "published": "13 Nov 2026",
             "date": "2026-11-13",
@@ -1874,6 +2159,16 @@
         "cross": null,
         "news": [
           {
+            "title": "South Indian Bank schedules Avendus meet; holds Millenium call - scanx.trade",
+            "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxObGtVZ2dhQmJ3UGtUMGZTYVd2Wm16MllOVzNSdEx2bWdJSURhWnAzZDJ6ZnZUSVFFQ2FQLUtmY3RveWlTbUx3RE9uUG1jNkNZdUlyT3l5U18zZ25EdldoT1pEdDllSzlxakhMRXNUSHRFd1kxNXZsS1hmN1RTWmJha0NvZTBFVDZNazdwd3owdnhtM0JkU2tndnlfZ3R3Q29RRFQ0eG1DQUN2aWJCQ2doSmt6anIxUkdyVzVfNkx2ZGlhdw?oc=5",
+            "published": "13 Nov 2026",
+            "date": "2026-11-13",
+            "source": "scanx.trade",
+            "negative": false,
+            "positive": false,
+            "event": null
+          },
+          {
             "title": "South Indian Bank stock gains 3% on Q2 business update, can it breach record high? - Business Today",
             "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOVXNPWHIxMEVXNk5ua2RKc2I3V1AtbGtQVHJBTWlLc2ZaQlZZMFQ5WXp6ZFNqZFZFNnV2U1haYVdYaDdhaklSLWUzdjRCOGttdTZoMWpPeHRhdWRFdEdCdU5XZkM2SUxwWWpVZG5fbU91eE9mMVZWTlYybll6VDhGcFlKVURDejNrUmFnRXFxaHJ4Y09zUEpNNWhXRHlLZVhyQUx1dldlUkFyN085cWR6R1dPdHJNWmY4dVdNX09ENFlXZlZIMHdIQTJVb0pqM3BrcDhjcC0wdDUtOGo4blRfOdIB5gFBVV95cUxNbnVncTdiYzkyTFMxbTh4T0tVeF9tem05R3Z6R29rd0o0M3JzSFdMSjdZRllXcDNXdjRGNmNVVTlkUUNCQkdqTkZXY3ZRV21ySkc1eXRORjhnQ0pTYVVLQzZxNXMyM0tLeUlqU3BoRTBhM3BqLWhDM1dRMlBHcGtTajduT0JFZ0VPNHR0YTJUTW9CM0tzN2FhNFVlY3JMNVhzclpMZElmU04yem1pdVoyRUF4TW5zSGFJN3o3eF9mTldBaThXWmF5bjJVR0doZHllVjlveF9PV1FKSlAwZmNEUkV0LTdodw?oc=5",
             "published": "05 Oct 2026",
@@ -1901,16 +2196,6 @@
             "source": "Simply Wall St",
             "negative": false,
             "positive": false,
-            "event": null
-          },
-          {
-            "title": "South Indian Bank Share Price Hits 52-Week High: Analysis - Univest",
-            "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPRzhfMW1wWGpYazA4SnZnMjZzUGdINGNKRlJueXctcXhtRXFPOUY3QjBzV29wMDNfMGNZRFBMZ0NTWjBQUVg4dFpfM0Q5bjl0NE96VHZyZWh1MElnMmxOSTNlZEtidFU5bHQtSDI2VS1rNm9Yd1p4dTdWZE8wTU9GWFM5M1RRWkVUWWVBVlZjZkRrNEF3?oc=5",
-            "published": "29 Oct 2026",
-            "date": "2026-10-29",
-            "source": "Univest",
-            "negative": false,
-            "positive": true,
             "event": null
           }
         ],
@@ -2181,7 +2466,7 @@
       "group": "",
       "months_held": 8,
       "tax_status": "STCG",
-      "health": 85,
+      "health": 70,
       "corp": {
         "dividends": [
           {
@@ -2218,13 +2503,23 @@
       "cross": null,
       "news": [
         {
-          "title": "Eicher Motors Q2 results: Net profit rises 15% to Rs 1,573 crore - Moneycontrol.com",
+          "title": "Eicher Motors Q2FY27 results: Net profit rises 15% to \u20b91,573 crore - Business Standard",
+          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNT21CUk1ubEljSVNKNmNielN5WEdsS2xmSkNVZzZzVXRrM2RyeXRQS2Y4MjhGcTVVMkMwbjFiSEhFeEp4NlRPcDdJYkl0VWxsSXY4Wml1X05ydmxfVXJPakVCV2JMc1RVMHRpdERkVmlPb2RqN1ZvRi1ZSDBwYkVfNkxIdGZnSFQ3MExRNGNUZHd0ZW91aDFXUUc2UkdQTEFnNk1CdmViRDd4UFdwLWs4S1RWTWFlUEpjVDVZRzMwV294WnVMa1hVRkxyS091Y2lBdllQWjYxWmZ2ZURKclHSAeMBQVVfeXFMUHNqREQ1a1N3QzB0UzJPLWlmdEgtNU5KTmlLQXhCaEZtN1R1bUxqVTRFS3ZiZHdxbzB3WjJHWGxqZUFZMF85VGVZcTRVR0VTOXo1emtFaVJjMDZIZzNydXRCcEhMdjNrSXZCeU9oUjRPYmZBMENqLVZIX3ZDM25NcU1XS2w5dVk5cDM3aTRBeEpnLS15ZVphX2hhN2daaENtUVIweklDNlhacWxIbTRyU2pseWd5NXV1ajZ4RjZRUXlBVFV5NmRGTjFsT2JLLWM3X0thNkUwempkX2RSZFloaS1Ielk?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "Business Standard",
+          "negative": false,
+          "positive": true,
+          "event": null
+        },
+        {
+          "title": "Eicher Motors Q2 results: Net profit rises 15% to Rs 1,573 crore, misses estimates - Moneycontrol.com",
           "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPV2EtZ1BSa3pZTF94emVyVHFVbGNYRkxpaTJQTENpMGVLckxQLWJ3b0RVT3V6VDg0azRhWWt0LUpxUUxMM3RBWjM3X1kyME90U05iTUdQRVMxTVZLSzM1V1phT2Z2Rk8tcndpa3ZSektfS1QxY29GRlJhMmpfbmhCNmszSzZHTFFUZ2VkNUxNMXA2WlhBQUd1RkI3MkFJcWlWbVE3eUtyV21vbTVsOTZXOWFncldfbi1sampxNFFfRXNEUnNTT1VV0gHMAUFVX3lxTE9kbFNVT09zWWhwd2hoSWVOREViT19kQldNelBDZFZ5c241SmFsV2tfM3NHRmpkd1NvOU8ybHFpNTZUNGlpR3d6WGw5RjhvNDF6UkFrNHBzYjlNa0dfUHVvQ0ZtckE4bnlrelpTLUtRandEbk44UW5BbGg3UkQ3a3N1UG1PeWNIbDlXZzlHVFFzaVJuU1hoQU9TNG9DdzBuY1JvcmYzTUFhNUt5aFMzSEM4RWF2Qm1hNjdVTXltQ3VldHRIcU9xblJRTGpBWQ?oc=5",
           "published": "13 Nov 2026",
           "date": "2026-11-13",
           "source": "Moneycontrol.com",
-          "negative": false,
-          "positive": true,
+          "negative": true,
+          "positive": false,
           "event": "q2 results"
         },
         {
@@ -2238,27 +2533,22 @@
           "event": "q2 results"
         },
         {
-          "title": "Eicher Motors Q2FY27 results: Net profit rises 15% to \u20b91,573 crore - Business Standard",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNT21CUk1ubEljSVNKNmNielN5WEdsS2xmSkNVZzZzVXRrM2RyeXRQS2Y4MjhGcTVVMkMwbjFiSEhFeEp4NlRPcDdJYkl0VWxsSXY4Wml1X05ydmxfVXJPakVCV2JMc1RVMHRpdERkVmlPb2RqN1ZvRi1ZSDBwYkVfNkxIdGZnSFQ3MExRNGNUZHd0ZW91aDFXUUc2UkdQTEFnNk1CdmViRDd4UFdwLWs4S1RWTWFlUEpjVDVZRzMwV294WnVMa1hVRkxyS091Y2lBdllQWjYxWmZ2ZURKclHSAeMBQVVfeXFMUHNqREQ1a1N3QzB0UzJPLWlmdEgtNU5KTmlLQXhCaEZtN1R1bUxqVTRFS3ZiZHdxbzB3WjJHWGxqZUFZMF85VGVZcTRVR0VTOXo1emtFaVJjMDZIZzNydXRCcEhMdjNrSXZCeU9oUjRPYmZBMENqLVZIX3ZDM25NcU1XS2w5dVk5cDM3aTRBeEpnLS15ZVphX2hhN2daaENtUVIweklDNlhacWxIbTRyU2pseWd5NXV1ajZ4RjZRUXlBVFV5NmRGTjFsT2JLLWM3X0thNkUwempkX2RSZFloaS1Ielk?oc=5",
+          "title": "Eicher Motors : Allotment of Equity Share- November 13, 2026 - www.marketscreener.com",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOQlY3dXM0cjN0T3NJLXN0SVRRRHdnQ2RLYVVKQzgxX2tXN2s5MFdJeDNJWDA4M2JOb0RlUUg0aDRZY01uVDVEY21na2JHa0JGeFRlUnlyS1VOQUM4WE9qSWV4Rkd5M0hTaTNFVHNnRjJaVzQ1TnpBc2NkNjFYYjYzM2U3VkU5SElPNmRJUDhrOG12a1VubzF2M1FETGZLU3Q3ek1uRFZ6a2F5d05Rc2c?oc=5",
           "published": "13 Nov 2026",
           "date": "2026-11-13",
-          "source": "Business Standard",
-          "negative": false,
-          "positive": true,
-          "event": null
-        },
-        {
-          "title": "Top Gainers & Losers Today, 13 November 2026 at 3:30 PM IST: Eicher Motors Ltd Leads Gainers - HDFC Sky",
-          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQaDRhbG52bG93eEJZamUwT2p0QnE2LXFOdUxuYndWcFhoWXFpSms3YXJLem5zY09KQkVaaVNCSkVZeU4tWkxRSUdEdHNSNE5zTUhMUG8wZmtIRjBnSW9IV0NQTDVzaWNnQm9uM3p5OUJqOTE2cVpVNnhNVC0xT1Jubkh2bw?oc=5",
-          "published": "13 Nov 2026",
-          "date": "2026-11-13",
-          "source": "HDFC Sky",
+          "source": "www.marketscreener.com",
           "negative": false,
           "positive": false,
           "event": null
         }
       ],
       "signals": [
+        {
+          "type": "issue_watch",
+          "level": "warn",
+          "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+        },
         {
           "type": "earnings_soon",
           "level": "info",
@@ -2363,6 +2653,16 @@
           "event": null
         },
         {
+          "title": "Why is Bajaj Auto stock tumbling today? By Investing.com - Investing.com India",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNdk9GdlNNRzRNTlMtZDluWFFSMVhjVmdFYUxkOHhHZlpBOVYtdnV3R3hvR1I4UzlDWkR4RU1EbmxtYm9ndWJ4Y1dUWDRPSFV6Y0Y0ejNOMlhlNUFMdkxZRE41SEJEeFVXOTdjbEZtWElFbXFnS1dBcENwb3dWZDg0cEp3bnc4ZEtRUHlqTm9NQ0dfczBqN2xydmp5Z0lrYzNP?oc=5",
+          "published": "01 Oct 2026",
+          "date": "2026-10-01",
+          "source": "Investing.com India",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "Does Bajaj Auto (NSE:BAJAJ-AUTO) Deserve A Spot On Your Watchlist? - Simply Wall St",
           "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQZEg4U0tia2FEcWF0Slo4dXo1UUUxXzNaVFNqQWlFd1dMU29lV0NVTWhVdzVDTVFoVHBySWtJYUVMT0NZMmZXVWJqNGFfRjhxSWY2cW85bThSS0NxQ2FPZkp5LTdvbFN0VDQwT0t1VkNTcDJXajBZWkxuLXNiTVAyYkdHZXhDRVIwemZ3S05ySC1fOUV1U3pLQjNQTGt0b2pkelE2Mmxjd29CRm1MbzgxY283cHl3Vzdxc0xfZXJhZGtFSUlSOFNQT01Na2Q4QXluWGd4ZHZUb29iNXBR0gHiAUFVX3lxTE9EVldqZE1MRzdCUlZiOFE4QlhoZ0NPcExhVHZrZ3k1eEItNXhSVGZ2aHQ5bU1iRzExbmg2RjhzT3k4UWtoVzZ2MGY3U1hwUzlvMVVMdnp2dUxHVklwYl9hVGlNcXd4MEVtWTNVenctLXI4MWMwbnBWQWoySFRIMndreUZjMW9iV28zbDNDTlRuYW5wM3NRR29ERDJkYmhNNjU2STBONS15UFVMcUprSHdLejhPYWFMc0VzUGh5WWVTLUNaTVZTZ0dKWjM1REVtWVNKczB3aUlMOEE0Tzg5SmNoZVE?oc=5",
           "published": "09 Nov 2026",
@@ -2381,16 +2681,6 @@
           "negative": false,
           "positive": false,
           "event": "q2 results"
-        },
-        {
-          "title": "Why is Bajaj Auto stock tumbling today? - Investing.com",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNUUI0M0tCbXVIYTMtT1JNRzZCdzNqbkVyN2dxUlE2Z29WZFVnUDFWeDFpenY1RWs2R1FGSEJwZTZtZHVlbVJEVC0tN1FFekRDYVlqdjBOLWVCelVYQno0NWttWGdZb2FRY1pST3VodlkzLThic1lOaDN5ak1vWFNsOXFtM2pNZHZRVmd1bEt3aVJtX3NRNnhGQTJ6aF8tMHRoZGc?oc=5",
-          "published": "01 Oct 2026",
-          "date": "2026-10-01",
-          "source": "Investing.com",
-          "negative": false,
-          "positive": false,
-          "event": null
         }
       ],
       "signals": [
@@ -2518,14 +2808,14 @@
           "event": null
         },
         {
-          "title": "Tata Steel share price target cut by Nomura; Find out why UBS is 'neutral' on the stock - CNBC TV18",
-          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQRHVRenY2em0yOHgydG91NlNBbFlPdDl5dExJdGNBQVliRFVUMGRWdGplZndkRjJzeG5FbG1BRGdvb2lhalNnMFJzSlNibkloT0I5ZUZJczIxZE9kdFBXQXdMQUNVcmVCX3FqcGFva3FzQk8zeExycjJMdGd2UDA4NXR4X2xidHVVdDBZZ01yRll6NkNMZ1ptY1czSi1NbmxZM0tqOU05UE5GZUsyanJudFVXU3RKV3BJQ3doWldleVRZUXMxWlNDYTZCTGRXTDRSd3VrSjJR0gHbAUFVX3lxTE9ZWDR3QzFFNkdCMnlvODVVQVFPR1kzbFBuZ0Z1MWN6bEwyenhIZEQyM1RNMW5yaVMxdmo3eEFRdFpYNFJSRjRqclhVQjBHQTlVZTRmMkVxXzZxSHhJR3p4WUJVbmZBTVhlUDN2R2JiQVJmeDJlYzZXREI2WFI0TVNtV2pSTF94UEN0ckdMdklIRi05YlVjU2lOeFJmY1dtbGRIV0tCVWg1NUpxbTNSLWhOa2dnLUdiYkl2Sy1XMmZfXy0xd1VnTmRCck9XRmpaMGRzMHRES0VtQzdjQQ?oc=5",
+          "title": "Tata Steel shares gain 2% as brokerages see stronger India earnings, flag risks in Europe - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQODczM1NleEJhM0lUNFRwN3ZXZzJDd0JhcEZZX0ptVEtndm8tckxxanlMVmdTUUIzYTJwUGhkTWNBd2pTZ1c5YTRuR1pvd1gtRDZzSnByS2hPQUxHMl9WVkM3N2twTUZZWjM3ZjBqU2U1SmhBU3pmS0hYNFpZMllmVDN6RFpHeExIWk9NdXhmMUMyTHpjMkdYblhOb1JacW5wSHZ3RHhFMzUtVVpkX1p6ZmktNjhzT24xanJmb1JwNnJvY3U1cW05akQ0MHl0YXRkYjdiOGQzdDNlVExuWWR3UFdqNzI0ckXSAewBQVVfeXFMTmpGakNEdXA0dkRCc3JtYWZKemRGTjRqV2d0ZTA1bjVYTHFJM0lBQktFSm9ub1o4M09VSW5IdXFsV2ZPZEdKQ0ZETHNpN1JRNjBnMW14VVF3Z3RYNDNMRUlaWTBGaU5GbXozUEhOSzJkNXFCVmFxTEFBVEhNbmpvbmxjQnBSZmVHb2VaenRMejVUQnBNOFBLTDJGbTRSU1A3c0RZMkZBMnhuZWZHUGNkY3JtVWVmM1pPbGU5VlNBS2NPUVRaNEYzMzg3OFMwRGIxa05DNmJJMG82ZVh2OUUzZkdBejk5VzFZT0ZNUnA?oc=5",
           "published": "11 Nov 2026",
           "date": "2026-11-11",
-          "source": "CNBC TV18",
+          "source": "Moneycontrol.com",
           "negative": false,
           "positive": false,
-          "event": null
+          "event": "earnings"
         }
       ],
       "signals": [
@@ -2537,7 +2827,7 @@
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: q2 results"
+          "text": "Announcement: earnings, q2 results"
         },
         {
           "type": "no_thesis",
@@ -2871,7 +3161,7 @@
       "group": "",
       "months_held": 67,
       "tax_status": "LTCG",
-      "health": 75,
+      "health": 60,
       "corp": {
         "dividends": [
           {
@@ -2890,7 +3180,7 @@
         "pb": 2.084404,
         "roe": 13.3,
         "de": null,
-        "mcap": 891751366656.0,
+        "mcap": 891812970496.0,
         "wk_high": 371.7,
         "wk_low": 235.08,
         "div_yield": 0.33
@@ -2907,6 +3197,16 @@
       "trend": "up",
       "cross": null,
       "news": [
+        {
+          "title": "Federal Bank gets \u20b914.95 lakh GST penalty set aside by appellate authority - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOZGJod3poSDByTjhVOTRSR0ZiM0xjYzVyWVNoZ1plcV9pTTBVTTVKQk0tZ1dNRUR1MXlDVDZaQmN2aHh6Vl9pSkRCbGw4ZTh2N04xSm1iQjQyMU5NOG5pOFJfTW1DNG1Ec2c2bnctUmdrZEJaeG5sRVBiSFItR1NxSVpSaUZEVXhXalFRS1VhcnloU3JqQWJvSW9sdGJtU1NtWGZSMTQxWkZOSjZBNE4ya2FfVFNPcVhqU3UwVFkzQnJ5WmxFcXc?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "scanx.trade",
+          "negative": true,
+          "positive": false,
+          "event": null
+        },
         {
           "title": "Federal Bank Q2 Results: Net Profit Jumps 45% to Record \u20b91,386 Crore; NII Rises 26% - India Infoline",
           "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQUUU2anJEQnlLUk5xcXN4MG5uNC1yWmR2TE9xc3ZYaEdtQjlndVhOMjZYNzhHRGpwamZYVklwbEE0TDhKbHp4bVN0aVBVZVNHQTE0dmZmQ3prZVBORkpZVkdQTHRvLWdWYjNvaFZSZlFqTlkwRURTRm5zUWpUUXhWRkwxWnNObHBNb2czZXRGT1hqbTJnYTMtQ2UyVVVYYmRPQVE?oc=5",
@@ -2936,19 +3236,14 @@
           "negative": false,
           "positive": true,
           "event": null
-        },
-        {
-          "title": "Trade Spotlight: How should you trade Devyani International, FACT, Federal Bank, MCX India, Samvardhana... - Moneycontrol.com",
-          "link": "https://news.google.com/rss/articles/CBMipgJBVV95cUxQR1BpZkdKaHFHQVRpanRWQnBEY054YkN1RFJhN0xucFR6azRXUTU1YU4ySlZCTjM3YlVQaHFPUHN0NG4welpLRk5vd05CclRHTlQ5RkxYSVFIYnctUkd5cW9lNUZOLU9WOGdtcXBIUnFVVFAxaVNKOGpMZFphUm9UZ3lQMENoVURWUklvdWwzaDFkUEw5VzZwX2phdU9DWUdLM0J0ZUgyV3N2ZFJBR0lnTG0xTjdFaEthc0JVa0xWR3JKeklzZm5kQ0lYcXgzSUpQZHVCSURzeTFHMXZLMWt4VUpqOU9ISUpYQ2V1eUFhR2RzcHYybXBSZkxWWkplUzZGc0VtbXhTQTF4V2JDc3dPOU5WajNZY043TkJHdjBReVh6QkVablHSAasCQVVfeXFMT2FMNjZiTVlwalJrSWpHRExMZDAwLW93Zzk4LWNNSjdsX3licGNuTW0zc2Nndms3WXpMNEhDcmY4NUZpOU5DTW5uT1c5dEtNRTBvYjEwR0NEOUVraXphZjNnS2x1MTZtQTJPMTRLVk5JUmFmdG9nS1FGZ04welZVcXVxWVNnWHBSeS1iNHVBVk43SC1FcFhXa2wyc0VVZmtSSHdLRklMeHZHTjhJQVJfbWtpTldYakE5Q2x4VkF2MGtFdXZkSmlJREhqU2ZpSXRJdzI1SXliT3BQNDg1WWxIYVJTc1dNVzFBSU4yOTB4N0ZKQnVrRl9zWi1oekM5bGVzVVdabWlwdFpWU2EzZjNkRGN1ek1CN2ZwOFlGYXVuVzkybWwxUm40S3R6NjQ?oc=5",
-          "published": "12 Nov 2026",
-          "date": "2026-11-12",
-          "source": "Moneycontrol.com",
-          "negative": false,
-          "positive": false,
-          "event": null
         }
       ],
       "signals": [
+        {
+          "type": "issue_watch",
+          "level": "warn",
+          "text": "Possible company/scope issue in recent news \u2014 read before deciding"
+        },
         {
           "type": "earnings_soon",
           "level": "info",
@@ -3712,6 +4007,26 @@
       "cross": null,
       "news": [
         {
+          "title": "Maharashtra Seamless Q2 results: Profit falls 42% to \u20b973 crore, revenue rises nearly 10% - CNBC TV18 - LinkedIn",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNVUdyNnlrUXBDVkg2aV96YnUxN2k0VXl4bHJtdmNSdVhZaVpkT3JQRjRIM2FuaVJmZk5pak1aUlAzTVBVRlFYR3dKOS01eXdDeEI4amluTkEwVGNZNXpESDBjaEl4TFJ5b3F3QVJueUZkcVhiRlMwc2JWOEZWdjRKQnJsTGMyd0c4eHdhV1FQNW9ZbTNwcjhvT245WFpiOWw1TVlaTTlncF94VUtSR0djYWxNQlhuRjZDWm93?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "LinkedIn",
+          "negative": false,
+          "positive": false,
+          "event": "q2 results"
+        },
+        {
+          "title": "Maharashtra Seamless falls 5% after Q2 profit drops 42%; company appoints new CFO - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOeFRVdUg5d2g1RkZyNmNoMng4T0tQN3k2ZElkeGhhbURvQmstN2huRjBnSVJqVkRKal9QWnhrZFJKcDhTQWtIOFBmZ2E4YVpnU2ZzTzFfUDBfakJqQlgyTkNoQVh1YWtjWTlTX21KejZ6Y204Z05vY09KOGUyc1JHX1M3dm5LcFBGTmRlS2VaSHhDbC1Rdk1ISEhmV0dfUmZnMElOd0l4aGs1NDhITW4tMFREV3RWaGdtNFBrYnFuMWdHcHBsa3FQU2o0d1plaGpqbk5QQ1JMNVF5WTDSAeABQVVfeXFMTTF5ZC1abjRJcFc3QzBmRkZBTmJjTDhya1NjT0xWZ0p1X2c4MVBEb1o2bHJyZFN5S3NFN3dyWFdaM25XNXJ0OHBCRS14S055bDcxNjdZQk4zcFNib3JNYWU3TnV2WnFSb0R6MkJZSXVuQ0c5YlFGa2ZnbllGR2lIRXFhSFZLcGNGYmFiYXVlRk8zZXJrWU1ZNTFUUUdNRkw5RmdheEU5aVdKVVZXeTZhc1l4X0xHSUFHMGxmX3gySV9fcEYwazJ3LUFHS0o4ODRpNkczV0hQT3AyR04tM0FKZ2I?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "Moneycontrol.com",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "Maharashtra Seamless Limited Estimates \u2013 NSE:MAHSEAMLES - TradingView",
           "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9wY1kyaDRvSkRweXlFcF9vVUtOenlKS0hyWUJnbHd2VXJVQUx5cGRORUtNM0dUNEd3Q3ZKR2NoYzJMb2ktNXFtLUlkbDhOSml6ZGVTYm5jbkxUSUdVVEN5TEE5cHRldjlSM3BzR01Fbk5VMHFoNGQzcFlzQks?oc=5",
           "published": "24 Oct 2026",
@@ -3730,33 +4045,13 @@
           "negative": false,
           "positive": false,
           "event": "demerger"
-        },
-        {
-          "title": "Maharashtra Seamless Number of Employees 2026 | Employee Count & Headcount Data - Revelio Labs",
-          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1SRzJheGNOYmgzMFBqM0RNX0JleGhfT0RyYXQ1eV9ET1c2bE9YVUlKRm9WbWFBT1M0M3BkcnB0TGl0TTBQRTVpbWRjenk2QkZCc1FKdUNNTzlpQkdyYTUtTHZBZVlWZGFDMEZVbEp5N3lWSlJBbUJF?oc=5",
-          "published": "22 Sep 2026",
-          "date": "2026-09-22",
-          "source": "Revelio Labs",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
-          "title": "Maharashtra Seamless board approves demerger into two entities - scanx.trade",
-          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdGg3QzBTbjhLbDhqV0pkakFKZldXbExEOXY3LXN4dmoyQ2ZxZEswdkNVT1Q2cGYyRGtURWNieXBZN08yMjZ1MTBIOHlHZV9VMEFlak90RXVVQndSWkVKU2tJU1BScHg3aGNLdEI4Tjdoek9ZbUxMQXBObnZvZERrLVJnbGJjNGt0bDVDeWljSFJ0S2pWVjFIdjhIVzhIR1pmRGpqWmdfcU1NekJUYVdUWW52ZEhLYXRkbUdyQlc4Zw?oc=5",
-          "published": "07 Oct 2026",
-          "date": "2026-10-07",
-          "source": "scanx.trade",
-          "negative": false,
-          "positive": false,
-          "event": "demerger"
         }
       ],
       "signals": [
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: demerger"
+          "text": "Announcement: demerger, q2 results"
         },
         {
           "type": "no_thesis",
@@ -3856,6 +4151,26 @@
       "cross": null,
       "news": [
         {
+          "title": "Vedanta Aluminium seeks shareholder nod for material related party transactions - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNWGYzSDVjQ3A2UVBYeVVjd2ZpbVktczAwbG00Wjc2TzVROEc3aF9tdTlBbXdMOVZiVHVMMWN1X3ZiOXhjU2xQSGxqTmpUUUhrNnl5SWJVVU03SkRZczJodkRVOWdOaGJMa0h5bkNxOUVGYzhPU3RYU0N0SFoyTTNEQkpiRFlpZmxDNWFKMWM3UEVzV29ib0lSaTAweG9VX3hHd2FhVWJvN2l1X2RjcVEycVVEcmxKRGVrdTU0?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "scanx.trade",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
+          "title": "AMFI Rejig : Vedanta and HDFC AMC among 7 largecaps stocks that may get midcap status - The Economic Times",
+          "link": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQVTZKVHRuZktDWVdVRFZBaXhyR2VkeGRhb2Ffc0hzaGJSV3VGSklVaU5BYUltbWhzRE40RVhiZXIyNGxqXzIxUGV3QWkxV0VPUXE3bnNiODNSc2ZQLU44alY3RHNZMXBOS2NsWXBNUTVaanBmYVBMZzQ0cmNXM2IwNkdkX3N4SDV5Y0l3RkxCeS1hek1KcTNpeTBBUUpEbE9vMGw2YXpJQW9TenZmQ0t2M0laa0ludng4YlA4TVpVRmF1NnlhZ2h6OFhoQk5RMDQ4RWNNYkRHa2ZWaWZwQVlmRDd1N1VwZlRWTVRIdXAyVjdMYXhQS2Nvdk5TOHU5SXdFclRjNlZjNDY5WlNJVTh2QUFR?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "The Economic Times",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "AMFI Rejig: Reliance's Jio Platforms, NSE, Lenskart, LG among 7 stocks set for large cap upgrade - Vedanta in mid cap? - Livemint",
           "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPMlA3Q1RRajh3LTJmZDZmXzh6VFVteG8zY3ROOERiTXQ3Y0VhWUdUT0JMSVZIOEhPZG5mQ1ktRGF1b2JtYWljT0NIcE5BbllZQnNwVkdwQjhHY1RlLUdiZkFQQVNVRUpib2RtS0JHWl9wc3g4SENfR0FBRU9zTW5kWWIzVUVLWHpPWVFsYzhEN1lSNWlWWGNzTU12S3NOUkpIcnFma1l5M1pnbExVdzZsWUlBVFpmY1VJTFB4cEFUWG1QcmIyLS1tS0daYVcxdmFsRGZYWGh5X2RuOWhBQXRRYU9NTWo0SUtSdnhuekhnSVhLaEM1Y2RKSDZNT01rMS1SdEMtZkp1S1pzSGJY0gGSAkFVX3lxTE5qMjViLVhCT25leGM1T2xES25oVzlKbjRXT2lJVmE5Sk5HbUJ2UnVLQlBBUEhrdVJMeW16TU9aOTlZaGFsV3ZLN0lpa1hLc0t3cGVMQVVuekl5S0ZfVTFLQWdkZmpka01DVG40QjN6RDMySkVZQ2dCVHh6WE9tUTN3aGljVXFCbTB6WW4yZktwTlViV1BFYzR6c2dkMGtBdVNiVVgtYmVCNmo5b2lsNFNBb21UdnFVbl83N2ZiazlmaTlmQk1jMllEd3p0d1ZVMDhqTFl3STh5azIzR0JoOXpKX1RTUE5GTHRscWt6QzAtUkgxaTd2MmlwdkVzcE1GekdLNkFRUTR2UWw4eVUtR2Iycnc?oc=5",
           "published": "10 Nov 2026",
@@ -3874,26 +4189,6 @@
           "negative": false,
           "positive": false,
           "event": null
-        },
-        {
-          "title": "Vedanta stock in focus today as promoter Twin Star likely to sell Rs 1,890 crore stake via block deal - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxPa0N1QUdVcWZJZnVWa1pOM3lMU19ia29Zdy1XTkdtYm9SQjR1VHRndWRUWGlrM1Y4MmhwejNuZW9mRk9RMzN2cWtQaFFLUEM2R3lIdGRvekJpWWJIQWR1WVBaV08yamV1cTh2THAyMzVsQ0c3bFdmbGFJT2c2UnBPMk9yc1BoRHJfQlpybFVmZ09WY1BhSXRuU2hDYUVWRTVaYVJObjlLTy1oUnZFNGZOY1lYLWdPSGFOZks3eVd2dno1RTJGUmJ5QzdPUFpDcXRaa2NNR3R0blE0T2VrVm00X3p4X1ZjZ3IwaFFMSVQ1bVZfRURyYzRj?oc=5",
-          "published": "22 Jun 2026",
-          "date": "2026-06-22",
-          "source": "TradingView",
-          "negative": false,
-          "positive": false,
-          "event": "stake"
-        },
-        {
-          "title": "Vedanta Demerger: Five Pure-Play Entities Finally See the Light of Day - ICICI Direct",
-          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPaDdMNTJVS2U3cUZnTV84WWNKZ3M1SVRGMWJJRld5anVxZ2tTaVdRNmVlS3RhRmZ2Q01Wel9qb28tOVZJeWFqM2NIM2ZGNEE2d3pZRW5CVEtZcWV2RnlBeHY0NVZDdW90akxuVkJweF9tTGlCZEh2a3dHcV96MG9LWmw1WQ?oc=5",
-          "published": "24 Apr 2026",
-          "date": "2026-04-24",
-          "source": "ICICI Direct",
-          "negative": false,
-          "positive": false,
-          "event": "demerger"
         }
       ],
       "signals": [
@@ -3901,11 +4196,6 @@
           "type": "earnings_soon",
           "level": "info",
           "text": "Results due 28 Jan 2027"
-        },
-        {
-          "type": "corp_event",
-          "level": "info",
-          "text": "Announcement: demerger, stake"
         },
         {
           "type": "no_thesis",
@@ -4134,16 +4424,6 @@
       "cross": null,
       "news": [
         {
-          "title": "Bharat Electronics bags additional orders worth Rs 909 crore - Business Today",
-          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOb2Zjem1lN1pSU2w5cjMzYzlZSG1rYm1pdVBPRTZ0d0U5LThtbGFuNGxSZ0Y1RE9DUXVOTGJEa3ZxdTBSUWZxSlNLR3dmTVJ3TXg1RUdOMXE0RmtkV3p2ZndIUFRMalQ3R2hPdDAyUE5xQnctcjF6bV9aY1hMWFVZcUNhaDJKZk5uVjhGZFRSQUtQZzNhUTgtNHdWZ21xa1E5T1lXcU9UcVJWWlVjZkVXaGZjZTZrdV9YdVdId2VpTjVIdV9mU25z0gHMAUFVX3lxTE56ZnJYRmU3c01pOFcwOHRZbWdUeEtPLWlaWFpJc2t1VU05a3hTaWh3ZndRdVpJN0tRRTg0TXFkc3FrMzlOWHlwQXo1Z1Q1LUU4cmF2ekJVVHdRZmR3SHNwYXJkX1pEZ3QyZjNnM25VcFV2Sm1rd2dYekJGN0pKN2dPbHBQMWItRkNESnh6ZFA2SjVhQmJhTHNWZ3VJTDJ1ZEtOd0VwT2hxY0ZiR2dfZlM3V1p4dDFzYm84Rm5zU0VLMXlhS2tzUWppQ0NLUg?oc=5",
-          "published": "09 Nov 2026",
-          "date": "2026-11-09",
-          "source": "Business Today",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
           "title": "Why Bharat Electronics Share Price is Falling - Equitymaster",
           "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOOTlnajhZTkNncHFUdlJqRXJRV3NybGhDUzN3cDM0UkdLMG9jVVBnYXZCOUQyaHNSLUZsaGU2anRhUVFyeTJYSm83TmxteC03S1d4clJ2bjJFSmswcFA1QmNOc1R2OTRTMm15dWRkMG1nNW90N0lkZ1N5VlVwdHRhNnFzWHpKdUY2dDctUjFVZklBMkVRSG1UTGZScm9KTGNFOS1IY3kxdlZXSFFTZEdyLTgwbkhHdw?oc=5",
           "published": "21 Oct 2026",
@@ -4172,6 +4452,16 @@
           "negative": false,
           "positive": false,
           "event": null
+        },
+        {
+          "title": "Only Four Days Left To Cash In On Bharat Electronics' (NSE:BEL) Dividend - Simply Wall St",
+          "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPeGRIM054aDhMQVFkN0I4VTZhRk9VQ1d2MWktNU96aTNlZ1RsS3ZiLS03cUVsWWRia0ZLdGMwWHY0T0M0YXRWcWR0b3l2bk5TREp3TVZrVHJ4OWFESjloY0VDNXlNcWVMSmpEY2hfTFZVbzFxVlpiclVlMGtSdnZGRUw2YnFFMjJKWjNFc1Fic0d3cGZJbzlyYTYwNUl5RTBUTWFCbXVuaVNKVkxnbEtpM3hiaExRYUx6d0pwMVI5cWtGN1ZxajREVnJkVkJZdF9uNlloUE5TSzBmeU0t0gHiAUFVX3lxTE5BNG9KcXJBc1hXSVJZb3B5eEZWZi0zby1oY2R0Qm1vNWJwNmF4OGM4MkZrYngwYS16WllRYU1TZ1l2TXdvUmxubGQxLUFEMHBWRzZ0UDBqZFhNek0xM0dyLUY4WWlxcVpUZzBiX2VCa0RKQnNYU1ZET3ozSS1aZlk2RHVCZGtIc3hrbk5YMXZnM3VnQUhhODdzRVFFb3dGZlRILTVpbUZKLWoyajJnSm91SG5aUHhMWXRwazQ0dW9QQ1hSTFlPNUNpNHNYbmRRb3pkbGVjYm9zaWZvZ3RpOGFpS0E?oc=5",
+          "published": "08 Aug 2026",
+          "date": "2026-08-08",
+          "source": "Simply Wall St",
+          "negative": false,
+          "positive": false,
+          "event": "dividend"
         }
       ],
       "signals": [
@@ -4179,6 +4469,11 @@
           "type": "earnings_soon",
           "level": "info",
           "text": "Results due 28 Jan 2027"
+        },
+        {
+          "type": "corp_event",
+          "level": "info",
+          "text": "Announcement: dividend"
         },
         {
           "type": "no_thesis",
@@ -4279,16 +4574,6 @@
           "event": null
         },
         {
-          "title": "Bharat Petroleum Corporation Limited Stock 12\u2011Month Price Target Raised to INR 336, Implies 9% Upside - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQeDVmWjloOFY5cHdmR1BEZFEwSlM2bUtGa2lUMENyejJxMldKWEVxdEhRc0JWVktYVjJ5ZW1KVzNCcVNjNUZZZVY0Vmk5RHR0aG1SdHNQSzFFYW9mMmNBN0liVDdCVmRrQ3JEWW1VNG1yeGx1NmFMZDlhTzBVYnlTd0xqX25JMVdwd1BBSkpSM211ajJ1MjVHdnZrS09OOUhqd3hVYVpHMWJLaDJvOTJ1cVVDT212SXlzUTFBRnJ4Y0hwYkZtb0FsQlREV01oMmlvbnlFQ0NOd2M3blo2eFh0VElTeE56MGpDRzJoZk5XUDFpXzg?oc=5",
-          "published": "14 Jul 2026",
-          "date": "2026-07-14",
-          "source": "TradingView",
-          "negative": false,
-          "positive": true,
-          "event": null
-        },
-        {
           "title": "Bharat Petroleum (NSEI:BPCL) Stock Forecast & Analyst Predictions - Simply Wall St",
           "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPM0JRRjZYZkVYRnBWVFozVVpISWsxaHhYdi0tWWsyTjR3TUlRaUhmT191UUxMVndXNnBHQVhoSHJ5OVRHazA0RDNaUHVaNU1qaUdYdktPbzhteFUyX1EyaVBkelE3OC1JQkZKYnktTEVianFSaTVDSTZPT2oyaTFBVzFNV1A?oc=5",
           "published": "02 Nov 2026",
@@ -4296,6 +4581,16 @@
           "source": "Simply Wall St",
           "negative": false,
           "positive": false,
+          "event": null
+        },
+        {
+          "title": "Bharat Petroleum Corporation Limited Stock 12\u2011Month Price Target Raised to INR 336, Implies 9% Upside - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQeDVmWjloOFY5cHdmR1BEZFEwSlM2bUtGa2lUMENyejJxMldKWEVxdEhRc0JWVktYVjJ5ZW1KVzNCcVNjNUZZZVY0Vmk5RHR0aG1SdHNQSzFFYW9mMmNBN0liVDdCVmRrQ3JEWW1VNG1yeGx1NmFMZDlhTzBVYnlTd0xqX25JMVdwd1BBSkpSM211ajJ1MjVHdnZrS09OOUhqd3hVYVpHMWJLaDJvOTJ1cVVDT212SXlzUTFBRnJ4Y0hwYkZtb0FsQlREV01oMmlvbnlFQ0NOd2M3blo2eFh0VElTeE56MGpDRzJoZk5XUDFpXzg?oc=5",
+          "published": "14 Jul 2026",
+          "date": "2026-07-14",
+          "source": "TradingView",
+          "negative": false,
+          "positive": true,
           "event": null
         },
         {
@@ -5166,7 +5461,7 @@
         "pb": 0.94435096,
         "roe": null,
         "de": 0.7,
-        "mcap": 1058491924480.0,
+        "mcap": 1058507063296.0,
         "wk_high": 408.0,
         "wk_low": 259.1,
         "div_yield": 1.01
@@ -5184,17 +5479,17 @@
       "cross": null,
       "news": [
         {
-          "title": "Tata Motors PV Q2 Results: PV Arm Swings To Loss On JLR Restructuring Costs, Revenue Up 35%; Misses Estimates - NDTV Profit",
-          "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPWFVBb3R4cGRJRDFUWWVoYmlPQm9wemwtNVB6Z3FRUmhuYnlad2p5dFJSU2tuODk0ZGo0Y3c4WmVUa25JMHd2ajNWT1c5d05WNDlIWDh2RndIWEItUXhIREsycXNCdnJfVXpHWFEwZEpqZkdDSjdQa2RQUm9jTnRmNlgzbF91RWVpQjZwc241VHZ2dmlscXFGS3l1SE41bDM4cWkxanpxY0VnZXZkZW00bkRxZExySS1LUmUwQldjOWwyQzlxX1FFbVpCc3hxVGJabXg4WEpJYzFPODZ0NVRrQnBMV1hrdkpQWjJidnFlRnJwQzE3bkUyc3ZkcHdCd9IBhgJBVV95cUxQRTdIQ2NJZU1HSWhoNFpVRjlQTGpEVXM5a3k4cDFaNHAtY2k0c0lBWC0xZVBTSW1QdS1obnh4dFFzd1JmOW9zX0Njc1pMVEpQVVdXTlBDNlZpU2p3SGtvcjlZdmlXWUFwYldweF8xTFFrSU5mam9LdmliWnVPejhsWFN3NlFBbGtNMVRaQ09YNkNLZ3pvLXRHeW5fNkVGbGMxMFAzSTkxeHYyZjNRM1ZtQWlRTmpYalpJUHcyWC1kWU9mT1NhVHUyT2VRUXhrRmdUczdfcUlIOUtELUJMYVY2LTB2MGVCRXVjUk9NYm1WdGJDWUZQbWpvX2I2NUFkLW5fSXJtazF3?oc=5",
+          "title": "India's Tata Motors PV cuts JLR margin outlook as costs, geopolitical risks bite - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTmU4TzhZUm1PVzY1TWIxNC1kVDJWaGh1VXdxdnk4THdGVkt0YmNiaGtHeWVFSXVkclBubnVVM1ZGUjZHelJNdFFDUjR3bmZhSEVYcm96RmRpc1prYWhTdzVja1MwSENoUFJfRHgtU0tBTHNDV285ZHFVRXBsUFlPX1k4N191dmRxRHlVT1kwQ3NzbktMbEtBNlhzRExxOGV0SlI3M1lYbkF6eS1hTXJ5MWs3cC1nV3NvTjZwbXR1VnJ6QQ?oc=5",
           "published": "13 Nov 2026",
           "date": "2026-11-13",
-          "source": "NDTV Profit",
-          "negative": true,
+          "source": "Reuters",
+          "negative": false,
           "positive": false,
-          "event": "q2 results"
+          "event": null
         },
         {
-          "title": "Tata Motors PV's Q2 net loss at \u20b95,531 cr as JLR restructuring costs bite - Business Standard",
+          "title": "Tata Motors PV narrows Q2FY27 loss to \u20b95,451 cr as revenue rises 34% - Business Standard",
           "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOemszV015eGtLRThZTnVhU0I1Nkh6UVhmUGdjcGk4Z0JCNmxjMWFZSkdwWGFRN1U2bGVhWmpuLVpwdVBBNTRVY2xEbnlwdGZsMUJYdjMzSzVVd0N2SjFDVVVjVVloaUdvcUo4enJwMGtvXzJJMFo4T0lPU3F2VzhSMzgxMFduWjJweThvbk9vQ3NVSmJtcTZ0YWRmQnJUbUNMaERIUVZmbEtHT2lfYm4ycVhtZDFFZ1VtWThTQ3N3T2RXcEd0TkR1YUpyNjhKdHBRd25ocS1xQ04zUnFiQXfSAeMBQVVfeXFMUDF6d2hkdWlBdmhzaUNES3ZScWZGUXREYmd0N25oQzZzcnBYRkM3NVdRSnU2Ul90dDhCU05GRzBWel8zUTVBTE5BSm8tSGJaekFGMzVlRk1Qb3BIbGplb3RFSU5QVmdyeEpRNFUtRHdGOFJjbFRaMFZGdUNWZ1VCVDVuenNuRUVrSm1WQTNKZDVVU0hPakVhVi0xZHdFbVRaOTduTC1vUGpWZjBUNE9hS0xPLTU0enhwTUsyLXhfZVdXck5EWC1hclBPTlM4UW96a21YZXRLdS00NHZRU1E5NFQ3VVk?oc=5",
           "published": "13 Nov 2026",
           "date": "2026-11-13",
@@ -5468,11 +5763,21 @@
       "cross": null,
       "news": [
         {
-          "title": "Hindustan Copper H1 Results Soar by 173% - https://whispersinthecorridors.net/",
-          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOU1BhWXFUTE43Nk9FQlZyU1RXRFpwVTk1cnI4SEs5eHFON0psaW9iTi1QclJBUUU4Vm45LWk5Q0pNZll2NGk5REFfVm9tOUtIQXBYZXV4Qjh5RmZkWTFRamdnZzFKdnI1NDhGd1pLcWhfUE93dUUzVzBaMWtNcWlVSS1RU1BiQQ?oc=5",
-          "published": "13 Nov 2026",
-          "date": "2026-11-13",
-          "source": "https://whispersinthecorridors.net/",
+          "title": "Hindustan Copper Q2 Results: Profit Jumps 47% To Rs 520 Crore As Margins Expand, Revenue Up 25% - NDTV Profit",
+          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPbzFvOWNiZjNnTWpXcGdHc2g0OE5KRjVXVldqQnJnZjdKdnVoQWZNT0tBbFQxcEhCb2t3alpGc3hfRE11UkZPblR6djRxMkxjdWY0MzU5blVpa1h3ckJnSEdna2JubGdvTVBUVWVEd1lJMElCckJhU1BUbmVpUEZFUlJqdjNJTTd4VmJsbXFBZkUxODhLdkJLOWk2LUJ6d0ZfeUh1TXlnVDhldUdZV3I5WTFaRWdfTWVua080UjNSNjIwX19pLTQ4NV9ySDhmNG5M0gHYAUFVX3lxTFB1MjF4Ry1fQ3RiOExtdm5MOEhtRV9oUG41UEtCbnBxNnhXelg2TzQtbHpHdEszQmJBZHJuSWlCLWlzX1lTRlhxN1YybWtZajVPYkxhVHNmcndDT0N2WF85ckVVZnhGMjNDZk4ya0VxTXJLY2MzQkl2ME1BeHkxZDdINmdJVktBZFluTV9KNDVDdzNYOUQ5c3ducEs3UDg2TXZNZkRidklTV1p3Y00zclFYdzF2OXR6OHRPZ1VTTFFiM1VhMzZHWVB5R0M1dWlIVnI0dWpMZDBvTw?oc=5",
+          "published": "11 Nov 2026",
+          "date": "2026-11-11",
+          "source": "NDTV Profit",
+          "negative": false,
+          "positive": true,
+          "event": "q2 results"
+        },
+        {
+          "title": "Hindustan Copper Share Price - Live NSE: HINDCOPPER Stock Price & Chart - Upstox",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBlQXJXQi02SVlvaFFnOU00M3I4T0xDOWFWNmF2WHU5Z3BkeFhudDJEZ0dLOXJtV1hDUFo3eEx2N3JPeDd3LXhTUmx0S2MwMkJrczk5akpjM1E4OVVpakhIRjVzQUJZLUNtWUtV?oc=5",
+          "published": "12 Nov 2026",
+          "date": "2026-11-12",
+          "source": "Upstox",
           "negative": false,
           "positive": false,
           "event": null
@@ -5483,16 +5788,6 @@
           "published": "12 Nov 2026",
           "date": "2026-11-12",
           "source": "Equitymaster",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
-          "title": "Hindustan Copper Share Price - Live NSE: HINDCOPPER Stock Price & Chart - Upstox",
-          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBlQXJXQi02SVlvaFFnOU00M3I4T0xDOWFWNmF2WHU5Z3BkeFhudDJEZ0dLOXJtV1hDUFo3eEx2N3JPeDd3LXhTUmx0S2MwMkJrczk5akpjM1E4OVVpakhIRjVzQUJZLUNtWUtV?oc=5",
-          "published": "12 Nov 2026",
-          "date": "2026-11-12",
-          "source": "Upstox",
           "negative": false,
           "positive": false,
           "event": null
@@ -5509,6 +5804,11 @@
         }
       ],
       "signals": [
+        {
+          "type": "corp_event",
+          "level": "info",
+          "text": "Announcement: q2 results"
+        },
         {
           "type": "no_thesis",
           "level": "info",
@@ -5817,6 +6117,16 @@
       "cross": null,
       "news": [
         {
+          "title": "South Indian Bank schedules Avendus meet; holds Millenium call - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxObGtVZ2dhQmJ3UGtUMGZTYVd2Wm16MllOVzNSdEx2bWdJSURhWnAzZDJ6ZnZUSVFFQ2FQLUtmY3RveWlTbUx3RE9uUG1jNkNZdUlyT3l5U18zZ25EdldoT1pEdDllSzlxakhMRXNUSHRFd1kxNXZsS1hmN1RTWmJha0NvZTBFVDZNazdwd3owdnhtM0JkU2tndnlfZ3R3Q29RRFQ0eG1DQUN2aWJCQ2doSmt6anIxUkdyVzVfNkx2ZGlhdw?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "scanx.trade",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "South Indian Bank stock gains 3% on Q2 business update, can it breach record high? - Business Today",
           "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOVXNPWHIxMEVXNk5ua2RKc2I3V1AtbGtQVHJBTWlLc2ZaQlZZMFQ5WXp6ZFNqZFZFNnV2U1haYVdYaDdhaklSLWUzdjRCOGttdTZoMWpPeHRhdWRFdEdCdU5XZkM2SUxwWWpVZG5fbU91eE9mMVZWTlYybll6VDhGcFlKVURDejNrUmFnRXFxaHJ4Y09zUEpNNWhXRHlLZVhyQUx1dldlUkFyN085cWR6R1dPdHJNWmY4dVdNX09ENFlXZlZIMHdIQTJVb0pqM3BrcDhjcC0wdDUtOGo4blRfOdIB5gFBVV95cUxNbnVncTdiYzkyTFMxbTh4T0tVeF9tem05R3Z6R29rd0o0M3JzSFdMSjdZRllXcDNXdjRGNmNVVTlkUUNCQkdqTkZXY3ZRV21ySkc1eXRORjhnQ0pTYVVLQzZxNXMyM0tLeUlqU3BoRTBhM3BqLWhDM1dRMlBHcGtTajduT0JFZ0VPNHR0YTJUTW9CM0tzN2FhNFVlY3JMNVhzclpMZElmU04yem1pdVoyRUF4TW5zSGFJN3o3eF9mTldBaThXWmF5bjJVR0doZHllVjlveF9PV1FKSlAwZmNEUkV0LTdodw?oc=5",
           "published": "05 Oct 2026",
@@ -5844,16 +6154,6 @@
           "source": "Simply Wall St",
           "negative": false,
           "positive": false,
-          "event": null
-        },
-        {
-          "title": "South Indian Bank Share Price Hits 52-Week High: Analysis - Univest",
-          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPRzhfMW1wWGpYazA4SnZnMjZzUGdINGNKRlJueXctcXhtRXFPOUY3QjBzV29wMDNfMGNZRFBMZ0NTWjBQUVg4dFpfM0Q5bjl0NE96VHZyZWh1MElnMmxOSTNlZEtidFU5bHQtSDI2VS1rNm9Yd1p4dTdWZE8wTU9GWFM5M1RRWkVUWWVBVlZjZkRrNEF3?oc=5",
-          "published": "29 Oct 2026",
-          "date": "2026-10-29",
-          "source": "Univest",
-          "negative": false,
-          "positive": true,
           "event": null
         }
       ],
@@ -6314,16 +6614,6 @@
       "cross": null,
       "news": [
         {
-          "title": "Power Grid Corp Share Price - Live NSE: POWERGRID Stock Price & Chart - Upstox",
-          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE81Z0M1TlZBcTl0ZnYxei1LeDBXN1hNaElqT3lJTUlFZmpEZGwyeDliNER1N0VsUkNnMEtEWWdDYURHd1haMHR6c01uM3F1NU9Fb192NTlYek1nUUdpV1M3dVJYQS12TzFNTFE?oc=5",
-          "published": "10 Nov 2026",
-          "date": "2026-11-10",
-          "source": "Upstox",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
           "title": "BHEL shares up 3.5% on Power Grid order for Gujarat synchronous condensers - Business Standard",
           "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNMUZWeWEzVTVUVlVYdGdld09wb0pQaTRhbFhyM0ZsWXNGWk9lVExkOHhpdTd0MFZ1UEh5UjhiYmJfZ3RfWVhnVkxJUWFzaVV5SEJCeWRDYmRZa1B1T3dZdGNaWUNoQXJXeHVLbWFTUTBGOWtDcXdrTU4xRXJFeWdlZUh3UGdYT2lMcEFFY3VSRkhyeEkyNVRhbEpXMGJFWnVCU21nR3hjaC1BX19mODFMTmpNVk9zek9NallfVDdOMlByeXlzWG9YTjhyMVdEVkZyNlhQODJWZ9IB3AFBVV95cUxPZG5LbjNJLWh0SGhkZGFLWU5FcVFSVEx2aHM3MmVaU2hpeXRNbENFclo1eEh6aEg4Zlg4RHd5YlZYcnpJS3VIVTNOanFzdjJ2WHJ0SVhTcG41Wk02eEQ4NkcwZmU3dnhYWUpUQ3ZrQUlrY2VsU1NmMk9YZ3JzQ0RvNGx4ZE5tZTRUQjhEa0YycWVvdUpDMjFETVEtODdFc2pwVjg4azhLUFd1bHJ6MGhfYmlCUmVudUQza3NSQ3h6OW43WVBla2luSi05Uk15TVJSVG5xTFpvS2dtNTVn?oc=5",
           "published": "11 Nov 2026",
@@ -6349,6 +6639,16 @@
           "published": "11 Nov 2026",
           "date": "2026-11-11",
           "source": "CNBC TV18",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
+          "title": "Power Grid Corporation NSE:POWERGRID Wins Karnataka TBCB Bid - Kalkine India",
+          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOQkRtZ1NvMF82bFVZd1VfMjU4UzJiQ01FVUdUdVd1a1EtN1JRNjk3WUxta2p0QlE4VmZidmI3cF8yeTlzeGVFSWV1bVVGd1d2Nkl2TnZqN1NLQnBRSHhWcXdZQWFmWlRTQWxSTWRTdHhZWXZXSmdybWUxaWppV2xUcEdLUmpJYktNYktCcm1YZ2piY1Jmc0t0TlhJUkkzS1MxZzVlT3R5V3Vjc2lOQjd1Rzlrcm83XzczeTAwaTBmbXVXN1FuSWtyZFBKQXNHaE0tc1o0SGdBT2F5LVVKS2c?oc=5",
+          "published": "11 Nov 2026",
+          "date": "2026-11-11",
+          "source": "Kalkine India",
           "negative": false,
           "positive": false,
           "event": null
@@ -6454,6 +6754,16 @@
           "event": null
         },
         {
+          "title": "Suzlon, Waaree Energies, NTPC Green, ACME Solar shares: Targets post Q2 results - MSN",
+          "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQOHdrTW96bk0zX2FVNEdMdkZfS0pwMzdrdERUcjZoWGpDTDZpRUcxS01tcFFmX1RPQlE2YktJSVVHNTFfWFFMNzFrdzA4NXBxMC00dDh4UVA2YWhfNnJjQkNPbGJZUVBURFhjMjhrZXVRc3VZWkRRd1lWaGJIU3lmLUZrYi1aREowYWdMdXdYNE5XZm9BN3Q4T2hnMl9ZWjNBckVCQ19va2ZTemJfSnBIWUFfSFEzcUNnOEFCRjJ6LW41dm5DdjAyMEpkcGtmLXNlUm5DN1dnc3Jwa2ttNU9tSHF2T2VKUzlpT0czRw?oc=5",
+          "published": "11 Nov 2026",
+          "date": "2026-11-11",
+          "source": "MSN",
+          "negative": false,
+          "positive": false,
+          "event": "q2 results"
+        },
+        {
           "title": "Where Could Suzlon Energy Share Price Potentially Be in the Next 5 Years? - Equitymaster",
           "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQQ3l2a0hkRzcyR1BkMlU0ZkUxaURUZE5meWthbGZuTC1MdTNGNWFjQnJ4Z2kwblI3THRWdzZsZTlEOWd4VXlUMHFMNDJIN3RBNzhWZE9DeWlXYUp5Z2pDbzVWVGRlb2N1SVI2X2QyMUgtM3R1Z3F3ZUttNHRRVDhxSW9acm9qa2lwQ3ZyRFUzQ3ZXdUtLZVZOckd1UGhGWU9PakhRMUJ5Yk8ycUd3dVY1NjNaR05vckFxanBwSjVtdGltZ2RyRXA1Q2dvMlVqN09teHNXR00yUjdTZw?oc=5",
           "published": "02 Oct 2026",
@@ -6472,19 +6782,14 @@
           "negative": false,
           "positive": false,
           "event": null
-        },
-        {
-          "title": "Suzlon jumps 5% on \u20b9550 cr investment plan; MOFSL says valuation attractive - Business Standard",
-          "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQM0pTVllVNUktcmJBTlc2Znh4Rk52a0drRE8tdTRVX3VRUzkxV3BqRnVTc3dLUzlHYWNuR2szcVkwZlhsNFFQeGZrWGlxZ1R0SUc1bUltWVJaRjlGNFJ2VFJ1ZE1xYzY4VVd6eXIzSGNVWXhQUXpyVk4tT3NVc2U1VlprNzczcjBjc2VTRkxXVWhXVThVRHRoOGd4MTI0ODktdUlKV3NVa1RUSm1nbUJ5bm44RVpBZWFjMUdyQXh2dnVOOGI4ei1nVFVDeGFxczR3R3BIc0k0a0JtUUFUZXJPV3pnWDhza095T09PWFI0RdIB9AFBVV95cUxOUWdZY2hlMmlkX2pJc1g0LWVQMEE5czNrTHRiTDlwYkY0anV2bGNyV3BvQXhlelFrQnk3TEpWUklSRGR5bDF1V2NndzUxdHVJMENQR1VXNVloTWhabnA0MzhDeHdBN3FDUndydWZhaW1DOC1Hb3NnNXl1WGh0eXNnNUVIZi1fUW1uV1hLODRuWE1SNi0wYkdQcTJkTjVUNkQyX2hraTFlMlExMDBqVlp5R0s4NFdCSlFDeDhWbnZsdkg5OHlGaFQwQVlIVmlkUngxYkZ1YTJGMkY0TF92OWZXT1NVVmJ3YVNtdHI2T2pCRHhrUVFn?oc=5",
-          "published": "12 Oct 2026",
-          "date": "2026-10-12",
-          "source": "Business Standard",
-          "negative": false,
-          "positive": true,
-          "event": null
         }
       ],
       "signals": [
+        {
+          "type": "corp_event",
+          "level": "info",
+          "text": "Announcement: q2 results"
+        },
         {
           "type": "no_thesis",
           "level": "info",
@@ -6584,6 +6889,16 @@
           "event": null
         },
         {
+          "title": "India's Larsen and Toubro secures AI data centre order worth up to $1.57 billion - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQR2x3SVk0QkJKRU1yUzFMNk4zakNFZ0tFY0hpRWxjYjZ1X2dQaWlMMGVXcGtjdjR2b3VONWlkRU9UZXJlaGxOMGd3M29abUpjcVpTZkcyazBRN3BSUkxya09wX090WWJnTWFIUS0tcnEzaGN5QlJsNVI5VlhzbFdFenJReUlJY2RJdU9QOFNaRHNUTXBDdVd5WUNUMlpCZnc?oc=5",
+          "published": "12 Aug 2026",
+          "date": "2026-08-12",
+          "source": "Yahoo Finance",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "India's Larsen and Toubro secures AI data centre order worth up to $1.57 billion - Reuters",
           "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxONjd5OHJBUmlVRjZJclVLaGdiOW5oVkVEcXpwdzQ2Y3BIaHNpQWpIaHFUTW5tUnFqUGk2TDFORVRLeFZCcHI3cDJUd1IzQ090b1BXTWo3SVQyMnk1aVFKMjRBX2ZiZ1Q5WVY0bFJrZl95UXFGX1F0ZjNEUXU4a1pFN1lqOTFVUmJVd0tycGRLM0UwdUg3VnlWSVJvcDUwc2RMdy1MUlFmMTNzQQ?oc=5",
           "published": "13 Aug 2026",
@@ -6601,16 +6916,6 @@
           "source": "Moneycontrol.com",
           "negative": false,
           "positive": false,
-          "event": null
-        },
-        {
-          "title": "Larsen & Toubro gains 2%, rallies 11% in two weeks; what's driving stock? - Business Standard",
-          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNMVk2c3FRcExiM3VNNHlDZDNoR09fUzd6bHl0TEpQRmx0ZGI3SHJzd19ycWl6Q2lHNUlEdWh3MElOeVdhdWNZYmlsWTJ2REhsX09jeHZ1NFBxVUNvRjZtbkZjNTVieHFtcTBaVlBFZTFPZ2FkTmNENHlmSHF0NVN2WXNwX0lyM3hfUXA1VHBORDZWRU5aWU54RHVFT0tnaXotV0l2eHBaLWpXZkxNYUMwbE5vY2N6V0lIQjRJX3hCb2QxNFdiNDlGcHEtLUMyd9IB0wFBVV95cUxOMDQ2RlljM1VjZ3lrU3k5a240bG1odVV4LWJ2NWI3Y2NESkhlY3lLLWlrbENwYVVMVVdFU2ZqekhDZ2h3akNRSW9PWVNUVVFhQUk3TzBNdFpqNzJBT3RHYVJoRE5PSWFFRlVNaWpOSjI5VkxZTVNvZDBHVHJ4R1NZaTNqQW9INXREV1NQTHpxU2tqV1NtSVU3a0dWNlJ0eE1ub2NGODN1QmRiU2N4NVlLWUdaLWRnay16Y1pCaFkzdmZrTW40cW5ONENKNlhxN0xjUFdn?oc=5",
-          "published": "25 Jun 2026",
-          "date": "2026-06-25",
-          "source": "Business Standard",
-          "negative": false,
-          "positive": true,
           "event": null
         }
       ],
@@ -6876,11 +7181,11 @@
           "event": null
         },
         {
-          "title": "SBI Life Insurance Share Price News: What the Numbers Show - Univest",
-          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQRjZNamFRcDlkVnZHRlFQdFdWcjI0X3dqd3UzV05BTlZEUE44T0kxX2hPSlFVeU1FeExycUJaQTVKTE50T05tM1V3Rm1RbnNfenhpVlV5N09NSWUwWnBlS2pwZ1JTckpfTXIwbEZEZWNkdHZyakFmYVlPT2tGb1hNOFRhNHBzb0tzUUln?oc=5",
-          "published": "22 Oct 2026",
-          "date": "2026-10-22",
-          "source": "Univest",
+          "title": "SBI Life Insurance FY26 Results: Navigated Well in a Challenging Year - ICICI Direct",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQZFN5WENSVXdRU3FHbW9QUnNFRnMySjhfb3JndDRjVnRIOUZFY29VUUxza1lNSFdKclJNRWJZX3JtSDg2VjlQODRNYkJnSEIzN1ExSWl3NC1CRy1lY1cwS0VBVmJUb081Z0d4a01CSGlHT0R3a21HZlR2SVM3VzNHcVdpT1JFbGlMeDlvY01pZEdoaFdQZ2M0MXJtcHRFUzB5V2RJMktnemdNQkJqczdfVzM2eks2OTFGa2Rj?oc=5",
+          "published": "23 Apr 2026",
+          "date": "2026-04-23",
+          "source": "ICICI Direct",
           "negative": false,
           "positive": false,
           "event": null
@@ -7110,6 +7415,16 @@
       "cross": null,
       "news": [
         {
+          "title": "Kwality Walls (India) Limited Estimates \u2013 NSE:KWIL - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBLNUNMUkFldkN2TjZHWmtEQk0wY1pUNkdqc21NbVpqSnVRR2R1UnVJSFVsQVZSdkhtSEFaanB6M056MW4xOE1taUhrTENhSFAwSlNPY2FQUHZJWV9UXzJBX1hfLUpMbWZuODhkWF9Od2dIcUZZ?oc=5",
+          "published": "03 Nov 2026",
+          "date": "2026-11-03",
+          "source": "TradingView",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "TMICC completes KWIL stake buy in HUL\u2019s ice-cream demerger - Law.asia",
           "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1Bc0ItOG5iM3Z2NFB0dXNOTk5PTnNkREJsRHc3OFk0RlhQTDNEOTJhRXVMZlhsbjByX24yd21mdElsV3o0dDliUHFYODYzaVJvMGc?oc=5",
           "published": "01 Apr 2026",
@@ -7130,21 +7445,11 @@
           "event": null
         },
         {
-          "title": "KWIL Stock Price and Chart \u2014 NSE:KWIL - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9Gd21RWlZyVTZheFhjekJUZFFWNHFwdWNiX2FJSURuSGI0R0llcDNiSEtKVHFaM2JtT3MyTmNxbGh5R2dIUU1ZLXd2MWFsMk82a1lvblU3NUQ?oc=5",
-          "published": "16 Feb 2026",
-          "date": "2026-02-16",
-          "source": "TradingView",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
-          "title": "Kwality Walls (India) Limited (KWIL.BO) Stock Price, News, Quote & History - Yahoo! Finance Canada",
-          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5pamhOZTZjMWd4UXdhNU12VE1vN1pMelhfTU5oWURwNTJLVkpWdlpCbDNPUE5QNmh0VTM5NWE1cmlYQURoM3V0bW5FSmdEbnpsOUw4QUt3?oc=5",
-          "published": "05 Apr 2026",
-          "date": "2026-04-05",
-          "source": "Yahoo! Finance Canada",
+          "title": "Kwality Walls (India) Limited (KWIL.BO) stock price, news, quote and history - Yahoo Finance Singapore",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9LM3k5TXhSYWVtbHRYajlwTGhoN0ZDQ0ZNWnRKUUV1RDA5Um5fcDIxZjlqS2xTMTF6TUZnQVh5VnZMYW8zT1pHdC1GMUFQZ2tIamZpQ3p3?oc=5",
+          "published": "01 Apr 2026",
+          "date": "2026-04-01",
+          "source": "Yahoo Finance Singapore",
           "negative": false,
           "positive": false,
           "event": null
@@ -7270,14 +7575,14 @@
           "event": "q1 results"
         },
         {
-          "title": "SBI shares soar! State Bank of India stock jumps nearly 7% today \u2014 Should you buy or sell? - The Times of India",
-          "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPTUp0WEo0M2xRd1dkR3d3d0VuTVAxaUZGaU9jeFQxZlRGZkNubHB0Nkp4T09wWHpqQnhiV0dsZUJic19YVmdkTEZNN2xvbHoweV9VMjFtUG05bHBCa1U0SlNiSWZ6YmlqT0w1X1pqdUxLMTFib1QxdzNHNHk2WmwxU2FTeGl6NFNyaXM3dVdPUDJFSXRQVlJONEtpUkE1aWtpVWpjdnRzLXpSX2ZsRnR3R3JkXzg0UENKVzZYV3VzN1VUTUp3YVBrNnRtWmpOU3NtTUo2LUd3LV9LTGhfUzlJc2lSRzEwYXdTbldpa1ZzNFVMSFVxSFNDOU15VDdZNUFx0gGGAkFVX3lxTE9UV3NqVEFPY2tWNC1GT2lodU9ITHhybThGNzhYV1duM3ZMU1pRN2VKeXIyc1V1SXlCYURyaktBbXdhbWp3b0t3bmZTclJVUmd5QjJPQ1ptT3VEM0lJMVI5eXNSamhSTDNJMkNhbjIyZjQ3Y3Y2UDlEV3hPcWpFZXBmSmotek1JbnRIR0xtcW9uV2tJbDVVd2sxazBVVVpYVDdBS3BjRExVMV9TLVhpM0VzU0IxcG1GVlJScTVXdVFCVVdHNV9WVFRfTFZqa092aE9oS3l3RG9ETjlNMllOakJ5RjVQTzVMT3VwNUswUERqVnVjM1VPQlI5NXJjZW1Kc2FiLUFSeVE?oc=5",
-          "published": "09 Feb 2026",
-          "date": "2026-02-09",
-          "source": "The Times of India",
+          "title": "Care Ratings sells partial stake in CGIL to SBI and NSE IX - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNT1YwVlpCX2Z5bHcyd0VuWWYwbmtqQXpiN1FSMk1FVUMwZW8xYWVYaFVjTDU5UkVHbzNNSGd1bnlJVTMzd24xdjJ5YzBRTTktUW5SMGNSVGRwclR6Ti1jQ09uSUhSd0RBQTBqQWxfR2t6NWVFUDZFc3I3UE5UejAwOE4zSnA1d0V3bkRJMUc1c1AzM1BtaHpMSFBnMzdPV2pEUW1kTTVELWo?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "scanx.trade",
           "negative": false,
-          "positive": true,
-          "event": null
+          "positive": false,
+          "event": "stake"
         }
       ],
       "signals": [
@@ -7289,7 +7594,7 @@
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: q1 results"
+          "text": "Announcement: q1 results, stake"
         },
         {
           "type": "no_thesis",
@@ -7384,16 +7689,6 @@
       "cross": null,
       "news": [
         {
-          "title": "Top gainers and losers, Nov 13: Shriram Finance, Tata Motors PV fall 3%; Eicher Motors, Bharti Airtel rise over 1% - Upstox",
-          "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNLVR5MWI3TEhLUUZqVXdpdkNTTDFLWG5rRWYtZW5hSUNsWkF5ZkVINmdRdTlHVS0xdG14ZTdzdFNGYV9wbjF1T2tNc3VnWVpfQkFKT0lDQXRNQ0ZSRzlXbEVXRi1NMXF1cl9HeDhqVnRPM3BSdHRZZ2xaaEJCdnUtelFGTGRQZ1hteGw4UXhUMVY0N3IwblhWS0V1Q3c3eG9XUlFqbEpTVHQ2dlEzUWN3bzczT09vakgxc2x2X1g0S3VlYXNMUjNLQzZFcVd5YlY2dlpHdE5MckdUVXFUb28zYzdQNi1pS0QwWWdwZ3VBWVRGR2U4dlRKLVln?oc=5",
-          "published": "13 Nov 2026",
-          "date": "2026-11-13",
-          "source": "Upstox",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
           "title": "Shriram Finance rallies 7%; what's driving NBFC stock price? - Business Standard",
           "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOcEE0WXluMDFxQTNycmNZc0NCaS1najh0WUpUTWZ3ZlZxbDlKMG15UVF2Ukppak9wQlJ5VFVGZzVZRmZwTXRsQ2R0dlIwSFo0VmxCZFM0TWpwZ2NNRUlvRi1VR2tURmlKb19ySE5qVHdJN3JFcXRWM2RwWnpIcDNkdV9QSlhlZHFTS1dKdnlkYVZWVkFfUzlHNHZTbE9iRmgwX0w5M1R6M1FqUWowbkNQaWExbmcwRjhVZEFBMndTNHR1Z9IBxwFBVV95cUxPTjNabW9sZm9VYjNabjBXdG5PTjMxTjZ1cWw3djRLMjRMNGkySjUyNDg2Ql9iT2g5bUdKanZudU40VmVWcGR1WHgweFlOQjJrT2V3a2ZhOVU0OHhxS01yeUVjSVQydjJoX2pxS3pqQWNJeVJLWkhoX1dkdkMxdHZDbFJsQWJVRGxfeFFaZFVhMlNTRTFnQnppd29oYWV4U0NjZkRrSnV5WTQ4aUtCY01xT2VvZG83XzhRck1oUWRLS2pPeU1vM3A0?oc=5",
           "published": "13 Oct 2026",
@@ -7419,6 +7714,16 @@
           "published": "12 Nov 2026",
           "date": "2026-11-12",
           "source": "HDFC Sky",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
+          "title": "Shriram Finance Stock Slips Despite Strong Q1 Profit - Equitypandit",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOczB2VXJrVUZPWld3MUNjdmR1UjgtZ1VYT0F5S1VZQ2hfb0NoVkd1eG1hdDhXR3Q0Z0IxSjZzSWZYLUo5c2czaXNfYzhQUFRjb3Zvb3l2RG5KZDRXdmZXUnQ5MExfZThOVFNIVElqMnB1RF92SWdCU3VpT2JlUEU2UFlpMThzaC16dXc?oc=5",
+          "published": "24 Jul 2026",
+          "date": "2026-07-24",
+          "source": "Equitypandit",
           "negative": false,
           "positive": false,
           "event": null
@@ -7534,6 +7839,16 @@
           "event": null
         },
         {
+          "title": "Kalyan Jewellers India Q2 results today; key expectations, what you should know - Business Today",
+          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOazFKN2k0SGdreEQxUE56MlpZTG5NbGhLc1ZLVldMX0NHX092OHJ4ZGNpbW52X3J0bTBoNEo2TDRYQl9NcFBYcjlualF3OUFvS2s3WkhiQ20xUm9qYWdkSzNqdE16dzc1YkJMQjBVak1GTHdZTEVzTkd6Vm1YdVdFNnpkOWd4eHcydFpGTkg4Nlc0b1hPVl9KX3BreURMYTJQd3NIR3hNcnBjTHRhWXpRV09ZYjBsRzZqUFA5b25ZbG00TEVCM0s5bEtadXBCQXIwakdISEFZMk13OHNRa2fSAeMBQVVfeXFMT0pSVkNKblNGYkc1QmRndDRITTdjaGdJYXp5RnQ1RkY3Vno5UmR5V0xBMm02M21Oalk5RzEyeWRzaEc2UGpNaG12U1RMUy01czlRbFBsLXlMQlF4RU9obTJKVG9XVm44VHdSLUpKMHc4d0o4MDlucC1CbFJCTDBvdWw2WV9HdnVSYlJIUkxaaElPMTN5bE9WRjJud0JiNE5MSzhSaTJVTTAyU0NRVWlwOEdnRVF3WDB6a1pQVEpPN1lTbjB3YWpqQW1aWm8yR2dYXzNma2tEbDhpalhZZ3RDWFFadEU?oc=5",
+          "published": "10 Nov 2026",
+          "date": "2026-11-10",
+          "source": "Business Today",
+          "negative": false,
+          "positive": false,
+          "event": "q2 results"
+        },
+        {
           "title": "Kalyan Jewellers Share Price Rallies 33% in Seven Sessions; Stock Jumps 6.67% Today - India Infoline",
           "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQdHhyb1Z1YzVyWjR5ZDA2eGdlcmNCaEp2MEhPMkxBQkJZU0x0bDFTZk5nQlJidl94SklfSXVUNFZ5dzBFZFBoWmJRd1ZrYjZZZnpUNElYR1kyMU1IRzdUUS1XTmx1cW9tVVVfWnBBcjViZ0tFbHp4dC1CcDFzM3RSS0NwT20xSm1RR0lmVXpFS2hrN3JqandQSm5ZQXdWdmVhTGMwSTZSN0R0cklIWUNaQ25xdnFYaVYydUF1Q0xFSUV1QnM?oc=5",
           "published": "12 Nov 2026",
@@ -7551,16 +7866,6 @@
           "source": "BusinessLine",
           "negative": false,
           "positive": false,
-          "event": "q2 results"
-        },
-        {
-          "title": "Kalyan Jewellers surges 10%, hits 52-week high post Q2 results - Business Standard",
-          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPcFdmYWRHamFhUC12bmhTQ2pzYzlWMHlsUXBGRkJOaEJ6WVBCM01JM0lmblZuM3ZPU2loYnJING1BUFRubVlsSXBTUDlHcnkwWGJ1ajhZZ2Z6WUhueDN3Zm9xTjlnY2ZLT3NTNko2VGFKQmQ4MFEzcHMzcjhoQ2thTERVN2VpNnZMdlFteDFUeEEzSnpxS3VVQlBudlhfVzdaOXptcURfc2xiNFNpRHc0UXpVemllbklKLVFaTFRjM1lPQmxXbkHSAcsBQVVfeXFMTlIyazZYZTc5Q1VpUXM1WnRDcXJrZG1ScGRFQzh4MGpNSE9vUlYxVTRHcFR5anNybXQ5bFowYnh3cU9nQ0V2eDdDZkNjc19lVWdQMHZSanVDc2NIbU9ldHNsSjBHdVZhU1NLcG1sNGk2aVBzNTZnQ3FqVTdWSWt0ZFoxNS16RlR3Ti1TbEotenFTVFFlaDBMVGI4c0ZDT3BSVEI1SjNrdlljS0FPcDY3ZDluajhGdmhuWm5oVEoteUZQNmkwellXOGN6RFk?oc=5",
-          "published": "11 Nov 2026",
-          "date": "2026-11-11",
-          "source": "Business Standard",
-          "negative": false,
-          "positive": true,
           "event": "q2 results"
         }
       ],
@@ -8082,6 +8387,16 @@
           "event": null
         },
         {
+          "title": "Gold Erases Eight Months of Gains in Two Months; Who in China's A-Share Gold Supply Chain Is Under Pressure? - BigGo Finance",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA0emxSX0E1S0JFN0hVb3dXYmk5TFFwTWFPazc1NW9uTE9qYzlxTnRubEU4ZGJlRTZyYkFXcXBFX01WaDRDNXQ1NlhPOXRVRUZtbzZTdnNldlhHTFFOMElzendmTlpTb3hHcUNxX0RtNkVNek8yQ0E?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "BigGo Finance",
+          "negative": false,
+          "positive": true,
+          "event": null
+        },
+        {
           "title": "Zerodha CASE Mutual Fund - Value Research",
           "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOWlgzUXdpVHVzLUxGX2p6ME4tSlpCS21CWGl6M2I3U2ZrWmRlTVA5Y3dJenBVcmZPMWVvNmlvT0lXekZWLUF5UzlyTVZVOGlyRjZXVkpIc0dCQjNCdzIxdC1jeUNVczRUQ2FpSlQ1Y1FJR3lHV0UxQ1RyNUZJZjk4OHVUM1ZZSTZPLTF3Tk5ta1gzWU9uX2lTY3g2Mm9fQS1XNmN2MWFIUDdnQnJBeVc3Vm1PUTFFQ1pJRzZwUF94SkllVlcwUzZTX1VsRXNRMl95ZDRkZUlMemNHdTBqeWtVS0Nic2Zyb1E?oc=5",
           "published": "12 Nov 2026",
@@ -8099,16 +8414,6 @@
           "source": "Yahoo Finance",
           "negative": false,
           "positive": true,
-          "event": null
-        },
-        {
-          "title": "Gold ETF Inflows Fall 22% To Rs 3,474 Crore In October, Silver ETFs See 56% MoM Jump: AMFI Data - NDTV Profit",
-          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNS3Rpa2FCNW9MdVQ2cC1mS0l1MGVoamgyV1I4TjR3c0NFTldfTG4tOEI0VXlkR3FkY01EcFRYOEl5T2l2aDUzNm1lcW5fdi15TDd2ZFRwZ3ItdU5UbGtHMnkyWHI3UnpYSy1iM0JOazFLaWRieVllVGlacVhaMFpfRDlGTWgyb0NQOGFkQW1oS0lhRzFCUExZSmlxMHU2Ti1vRkVXVUNVWlpXay0xQWdabTJLWFNCRFBrQlNEWkw4bTVtYkhaa0VtUlhoQ0PSAdQBQVVfeXFMTV9nMkEwaUtfSFJsdnVHaGgwQWs2R2xGSjN2TDQ2WmVKZ3F5NHU0ODlKSVQzcGV1WnpKcVpSYTBhRUgzNW9oSTN6clRMcFNMMjFkN2hLejVzN0tjMFEtaDBTUmI5em02VjBQa1dqaXc0S1pZaElTSFpGSUZvOWhLWGJ0azFHSFJjdVhpUy1UX3Z1NFc1eEdiTHZ1cC1rX3U0bzFyMjRjNnZTd3JHOFpZRnF0M2dWeG16cV9iVW1DVDN5ZjhBc0xjUW14ZE1HZVlERmFSSEk?oc=5",
-          "published": "11 Nov 2026",
-          "date": "2026-11-11",
-          "source": "NDTV Profit",
-          "negative": false,
-          "positive": false,
           "event": null
         }
       ],
@@ -8174,6 +8479,16 @@
       "cross": null,
       "news": [
         {
+          "title": "Reliance Industries to host investor meetings at Morgan Stanley Summit - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONGxvTWNBdk9JX2xjY3dIVXNuVWkxYVlpc1pyZzRoNXhFZDdBZ0xaSXZpTUxLYlV4bXFXTXdhWHlxbElrMm8yNjNMMmllN3ctNzFmS3l5cEt2YjhhY0dET0dMSDB4QUV5Rjl3bU5pa01YU2tPSEJQblhUY2JYc2FpMllpVFZjcG9iazRKckd6U3pNbm1hUkozWDhSNF9VWjdGbHRDbkZlSXNPZDR0dHluRWNrNFFKSmh6dzlFT0lR?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "scanx.trade",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "Reliance Industries Plans INR430 Billion Coal-to-Gas Project in Andhra Pradesh, India - marketscreener.com",
           "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPcEtFcUJUbFJmRmkwS21tNTFWZEJmWDZIUGF1RzNDbTgtazA4dW9zaUFkdy04V3JqUDB0OV9zOFNyZU9udF9heFRqejlkV2hidFRUNzZkQ201cV9wRHZuYW9veVdidmFDS3V6RHhyUDdNZzlsV1Q0YW1OTUtVd3Q5X1FwRjNaYjU1TURqQ2ZuU1BybmNZUjdKRUdrZ2xTcTY4dGxDYnhseHB2OHJEZ204RHFQVWRuYy1ja21tb3NUY2NybDM5U1hrdDV4cm5QQUdXY1FF?oc=5",
           "published": "13 Nov 2026",
@@ -8201,16 +8516,6 @@
           "source": "Upstox",
           "negative": false,
           "positive": true,
-          "event": null
-        },
-        {
-          "title": "Reliance Industries gets 25-year approval to lay overhead transmission line in Gujarat - CNBC TV18",
-          "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOZ1NXOWQ0OWR2R1NTd210bjhPWjJSZzF2X3h2LXR4ck1YdDBsRFdGU2sya3ZhUzM3aWRpMy1ZUzdfTlRleEJKM0gwSlBiNXF2dmF3emNKY1JKdzE4X2I0ZDNXU3Y2cjVSdGlDMGlmUDMzcnQ1bDhjcDR0aHdkOHJjOGQzQ21QYjctSWFJY3hGSlIzYm9BVVBhRXZuM2NiNHBJT3NudUNMeHBtcENFTGJFME9YaG1SbFNaRjY2TG9ZSGdQLTk4U2hkSjBCTHZvajN3eUpsSDFMRkRoN3JwdW1BYzBn0gHnAUFVX3lxTFBYOUlUYWxJUWFzSzZ2bXcxWGdLU29ldEVhT1piZUtydUxWNnJ3SlEzTktjRHVtTjFjdnc1YWtGTzkxekROLUU5RFRVd0hyc3BBYU1WS2lPeWVhS1FPZUhLaThwWGxXV3kzZ1lxRnZHSjZGR1FGTEg4SzlsYldtQVpnYmVDRlBQWUlDQUJXbjIweVpiX1RTb1UtcWdFZ01FNnRuMndnREdKTi14TWhRbk1BSGdyWW9zZXd2WjQyLUdoaXEzNE1HaUliYXQwZ3huQlFFTFRMX1IyNmtnSXNKcE1RcDVNMGdBSQ?oc=5",
-          "published": "12 Nov 2026",
-          "date": "2026-11-12",
-          "source": "CNBC TV18",
-          "negative": false,
-          "positive": false,
           "event": null
         }
       ],
@@ -8308,11 +8613,11 @@
           "event": null
         },
         {
-          "title": "Sensex falls over 400 points, Nifty above 25,100; HDFC Bank, M&M among top losers - India Today",
-          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPYVNQYWFCOFpXY05XSjBKSU8zdVh3Vlp4OVdFTDN5bFh1MFFtLVlqQlZvRm1XOHRwaUVQOEYwYkEtYkt6bHl6TDA0NzBZeENmY0t4S3NtMHBfb2czcDBQYmFhM0taSURvR05JeVJQYkF5eWxqdFJqRHhQczFqVnVnV0lpUlkwT2NiVXNuc20wekNpM25PY0I1c29uUUY2SWlSblR5elZyUHVCdVdGTzZZNlk1X3JYdEFWRExvaXZOV3NHNXdGcmt0ZnNCUUprWDNVaVZ1NzhrcTYwMWPSAeABQVVfeXFMUFkwNU5rczFLYkJKTXdHTk5PVGZLd243WHY2ZlFBd2w3NU9IU2ptUmJRaVVoTEF4VnY5R2t0bmt5Wm5ENTcwX2VQMTZBRjJPOXRYQk5EalZmb25ZX2s5emFZX3R4YUlHZkhmemQwSnB1X2EzQzllWDcyck41MEhYSUkyTmZYbkJlemRiekRCdnh3RG10bTAyZDRIazU3RjBoZFY0empqUmRPWkxmb240bzZQMWl4cndtdUdTZlg0NjRoYk1YV3g4TGNTd2ltUEx4ZTBmZ21TQ0pKbWFXTFhRUnQ?oc=5",
+          "title": "HDFC Bank board approves V. Srinivasa Rangan re-appointment as ED - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQnNFTjV2TXZ3empHNXdkRlRkRWE0R2pYcW81ZTNONk00RENCRFZ0OHBCYUc5bm5yM21LSHlOQlpzQ240cGxibEhrQ25qUXlSLUR2T2JDSmNEYnpwR25iWHZlY1o5NmxoZHp2RjBFSFgzVnRXSHhmNlhPS3JmbC03TFZnUm4xRm04X241VnRpaDFqTVM4aVZ3LU4zRWYyc0RwOEJmeVVJTm5VV0lLWERXOTU4VQ?oc=5",
           "published": "13 Nov 2026",
           "date": "2026-11-13",
-          "source": "India Today",
+          "source": "scanx.trade",
           "negative": false,
           "positive": false,
           "event": null
@@ -8607,6 +8912,16 @@
       "cross": null,
       "news": [
         {
+          "title": "Suzlon, Waaree Energies, NTPC Green, ACME Solar shares: Targets post Q2 results - MSN",
+          "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQOHdrTW96bk0zX2FVNEdMdkZfS0pwMzdrdERUcjZoWGpDTDZpRUcxS01tcFFmX1RPQlE2YktJSVVHNTFfWFFMNzFrdzA4NXBxMC00dDh4UVA2YWhfNnJjQkNPbGJZUVBURFhjMjhrZXVRc3VZWkRRd1lWaGJIU3lmLUZrYi1aREowYWdMdXdYNE5XZm9BN3Q4T2hnMl9ZWjNBckVCQ19va2ZTemJfSnBIWUFfSFEzcUNnOEFCRjJ6LW41dm5DdjAyMEpkcGtmLXNlUm5DN1dnc3Jwa2ttNU9tSHF2T2VKUzlpT0czRw?oc=5",
+          "published": "11 Nov 2026",
+          "date": "2026-11-11",
+          "source": "MSN",
+          "negative": false,
+          "positive": false,
+          "event": "q2 results"
+        },
+        {
           "title": "NTPC Share Price Rises After Board Approves \u20b912,000 Crore NCD Fundraising - India Infoline",
           "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPaC1RcHpFSkR4T213OHhTLUxKTUNRa2RkNFNxTFZNSEI0OTBCZHY4WUd3LWlKTHpyOS1JbHJDbFFfM3hWY240UXhMMEJVeTBwdUFzY0ZXTTdwTnRlSzU1ZkEtRTJGdGRJejY2TzhxUmlaNkVfamNBSWpySGpiNTdXTHkyTXZYVUczc0dnWHgwenRHMVBVel9nMjlCbUU1cF9CUUZyTkl3Q242WHJaQW5MZ3hjUVprQ1E?oc=5",
           "published": "27 Jul 2026",
@@ -8635,16 +8950,6 @@
           "negative": false,
           "positive": false,
           "event": null
-        },
-        {
-          "title": "We Think You Should Be Aware Of Some Concerning Factors In NTPC's (NSE:NTPC) Earnings - Simply Wall St",
-          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNVDRNMXdkQWw4djBvN2NzMzJMU0p1YXlXT2l5TVJFeG9fcVpJSDJiZzlUaVVCVURBSWpZQTJJaXh3aDFGSjA3U2xBM2xmMnpaTzAtanRUNlNFSF92VV9zWWctS3BOdjBCQXU2bEVRX1JPUEJhWmRYZHQ2ZkphZlVpbERnZTdXNmpSazhCem9UZmJlaHBGT1QxbWRjVWl5RGpBMVYyQ1BOWFYtSWV0OXlPdF85cHhIYmtFMi1SZkg1eGFHdGVuUF81QlRuRdIB0AFBVV95cUxPZUZpTDRfMEp2VkRrWE5xdTVobmgyUnNEMzVGMXE3U2VESUNBSDB1UjJIUkozU0hjRFc3NnhmaWxZYVZHMWVyMENqYkVrbWNVV1ZvTU5UaHY3VVZPc1oxREdDQ3pZTjVLMmMxVE1OQk1pZHVDZXh4WGVqNUswRkFTN295dHBLc3ZVOVJFVXg1M1JtNlM0X1FkRjVaalpBNzcyU0VMaGRONVlSUDFLeFBpczIxaHJjSGpOWFBLWTlYVm1rLUZrZXBOYTZXQ3M5cFNP?oc=5",
-          "published": "31 May 2026",
-          "date": "2026-05-31",
-          "source": "Simply Wall St",
-          "negative": false,
-          "positive": false,
-          "event": "earnings"
         }
       ],
       "signals": [
@@ -8656,7 +8961,7 @@
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: earnings"
+          "text": "Announcement: q2 results"
         },
         {
           "type": "below_200dma",
@@ -8728,14 +9033,14 @@
       "cross": null,
       "news": [
         {
-          "title": "Mahanadi Coalfields IPO: Coal India to divest up to 10% stake; here's everything you should know - Moneycontrol.com",
-          "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNdTJxVXN0RDZST2d5RTB4VUZLdDJROFpMWjVSOHozZ1JKN0lQb3dBYXZ6TlZOXzdhZzNRV0VxUnRvd0FfcGJqTVJfbmxhcGdza0ptcUl1OWlNUTdqeFJNa0Ffelh2SElHbEdFWjhfNHo2SVJ1MU9QSzZPenJKM2pxZ0txcy1ubWR3Smd1UTZxSE5UdmJYMjVuMGVHcl9fTzZiM2NHZ0Z4bThXcGdEeThnd3J3dkVoeC1ULXQ3cnptS1BDRV96dUlDV0tWSDNCYmRkc3pPOUVmSWY2cGlYWDhqcHF1bWxRQzY5TXfSAe8BQVVfeXFMTWg5blo4elhaNVJwaHdreWtzcGNxblBIZEk5UENjOWI1azZkU180Uy1LX2VtY0poRzNES1lUVnQ4NENiM0ZTbzRLY3pRQXVxNnRSZFZXWHdYSllwa05Vblo1S1d4b2hWUWZxOWRkR1VfalhVWjdkSWwwSEhZWDBHcTl1SER0M1dOWHk2Nkw3U095S3AtTk9ISldSYXk5OE9HUWpwUk1wZ0FNVG00Vjl5emlIY3dCMjFiaUVHLWNZUUVwZnRnSWd1Q200d1BLVTJwYjNtT19wcDYydjFUNk9wN0ZiNV8zNDFrVi1DRHdKTHc?oc=5",
-          "published": "12 Nov 2026",
-          "date": "2026-11-12",
+          "title": "Mahanadi Coalfields IPO likely to open next week, issue size expected around $1 billion - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxONnhPUWZwVlZBbUo5ZElBdDBPWHNBdnBra1hVWjVVNDJ4VXM3eTlvUGRjY0t0UnRFUFhCdl9OWGRPZkNOVm9USXBsSVFEeUF3eUswZlJDTnQ3MkJKVmF4R01vUklKSGFVSVhVRkZmOWZqV3FwWDJoZDI3VERlb2VlWW81Mmg4ckg4S0hwdGowUWJNRDZhbFl1Q0RuZTlFcUdkWTlCQXhHZmdtcmNNcU05ZXNkY3RRaVU0TU5jbkw1YUs0U3prSHhJWG8yWjBFdlBjXzJKM1R3Q2ZSa2pqN0Zr0gHkAUFVX3lxTE9FSmtxRzRLVXpXeTNEZ2lXRVdlc2ZuWm5lQTFpTGV5ZlMyNXh5bmlTV195SS15bWdjOWpLbUhTWHdHcEE5eExyQjRnLTV2R2Y3cjh0VDFWNlZiRWRLOXZXdE9xOE9pejhmakMzamNMUklmRWNrVzFtc3c4aWVxXy1JNGhCcWUzVnRLbzRWUTZuM3ZmNDh0ejVpMlFVRW1aTmRIYXZGOVQ1MFRCYjBQRjl3bGlwbHNWamk1NDY4OWdYU3Z4bkZIMDdOMUVQeDJTbnVzZW1BdEw1NTlYekVVQVM0QWxLTA?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
           "source": "Moneycontrol.com",
           "negative": false,
           "positive": false,
-          "event": "stake"
+          "event": "ipo"
         },
         {
           "title": "Coal India Limited has adequate stock to meet nation\u2019s energy demand: Chairman B. Sairam - News On AIR",
@@ -8748,21 +9053,21 @@
           "event": null
         },
         {
+          "title": "Mahanadi Coalfields IPO: Coal India to divest up to 10% stake; here's everything you should know - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNdTJxVXN0RDZST2d5RTB4VUZLdDJROFpMWjVSOHozZ1JKN0lQb3dBYXZ6TlZOXzdhZzNRV0VxUnRvd0FfcGJqTVJfbmxhcGdza0ptcUl1OWlNUTdqeFJNa0Ffelh2SElHbEdFWjhfNHo2SVJ1MU9QSzZPenJKM2pxZ0txcy1ubWR3Smd1UTZxSE5UdmJYMjVuMGVHcl9fTzZiM2NHZ0Z4bThXcGdEeThnd3J3dkVoeC1ULXQ3cnptS1BDRV96dUlDV0tWSDNCYmRkc3pPOUVmSWY2cGlYWDhqcHF1bWxRQzY5TXfSAe8BQVVfeXFMTWg5blo4elhaNVJwaHdreWtzcGNxblBIZEk5UENjOWI1azZkU180Uy1LX2VtY0poRzNES1lUVnQ4NENiM0ZTbzRLY3pRQXVxNnRSZFZXWHdYSllwa05Vblo1S1d4b2hWUWZxOWRkR1VfalhVWjdkSWwwSEhZWDBHcTl1SER0M1dOWHk2Nkw3U095S3AtTk9ISldSYXk5OE9HUWpwUk1wZ0FNVG00Vjl5emlIY3dCMjFiaUVHLWNZUUVwZnRnSWd1Q200d1BLVTJwYjNtT19wcDYydjFUNk9wN0ZiNV8zNDFrVi1DRHdKTHc?oc=5",
+          "published": "12 Nov 2026",
+          "date": "2026-11-12",
+          "source": "Moneycontrol.com",
+          "negative": false,
+          "positive": false,
+          "event": "stake"
+        },
+        {
           "title": "Why Coal India Share Price Is Rising - Equitymaster",
           "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQWkFGNTNwQUNSNWdZNl9jM0V3OHZpRHpnV2lnU3VuMTFTY3FoQ0tnaDdsQnhWX1hwazM0SjRXVFhoM1dDMXBac25mNUxBZnZhMVdZanlWQmlIUEtudzdhQ1RlbjlKTVNwM3BDQmVzN3MtbHE0R00yVDV1YWNscFBJUFc2S2pWbnhxZTEwYXlKTDB3UGdmQzFESkVQYy12WWRzS01CZVdDVlNrZw?oc=5",
           "published": "02 Sep 2026",
           "date": "2026-09-02",
           "source": "Equitymaster",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
-          "title": "Coal India stock falls over 4% to emerge top Nifty loser today after cost absorption measures, pricing moves - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPU185VUVpT1M1WEF1NGtndUlBNVBzUnRfVElKRHdCLWN6TE5FWHl5TmlCQ2VyTkVtRjJQa0JVTEJfdC1VQU5neU00U2xWZWk3Q2d4NWxib0F5ZDBhT0tIRnF0VW5Ebm1KM1hhTFYzYV85MmFOVXI4Um9UbFNpbVUzem9DX3VrYlo4d0xjcnUxbmxlZ0xCX25fZG1sNzQ5dkdzZDNTdlVSOVJmTEJTNTg2TjdMdTY3bGxnb1R5UkdsU2dpUjN6QlRzckJ1YXRUaENFN2p1elYtbzFxeGVMMk1CcklKNVBQY2RxTE9NREZHUHpzX19BX2RkemZHWnFLUQ?oc=5",
-          "published": "10 Apr 2026",
-          "date": "2026-04-10",
-          "source": "TradingView",
           "negative": false,
           "positive": false,
           "event": null
@@ -8772,7 +9077,7 @@
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: stake"
+          "text": "Announcement: ipo, stake"
         },
         {
           "type": "below_200dma",
@@ -8991,11 +9296,11 @@
           "event": null
         },
         {
-          "title": "Best Oil & Gas Stocks in India - Groww",
-          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFAzY0hhV2Z0VktSR0dIaTEzWTVmUE5oMUt6M3FtY2ZBbGNfcmZGS2ZEak5tUkgxNGd3enV1dUhKTzRySkJOVndxaEtqWUdTM0VtOU4wMWNOS2ZtVjBnWlNoMUZxcWc?oc=5",
-          "published": "20 Apr 2026",
-          "date": "2026-04-20",
-          "source": "Groww",
+          "title": "Indian Oil approves INR 24.49 billion pipeline: what it means for Indian Oil stock - ad-hoc-news.de",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPQlR6cTVhc2Vzcm8tblRUVUhEcnFwTEFOck1rV0JsRnpYeS1oTUpOZTFuN0VpSTBmc1RkaV9pUXZnVndyT3JjRXh0Qlg1MDloT0VxTVNMZGx3Mzk0aE5rb2FicmJlTnVyVjVCNm5lVnAxaVVhUmZCMGtwQURvVlo0VGFZOWdfckhwX1dvbHN4R0hqLTZ3alJMMy1KaHFWS2FTTmFRbzVZdmJRTXlsTEJvbTRTMjlZTTJBMzE4Unc3Ulo0X0plNnVlNHoybG42V1pBZTZySzNyRQ?oc=5",
+          "published": "20 Oct 2026",
+          "date": "2026-10-20",
+          "source": "ad-hoc-news.de",
           "negative": false,
           "positive": false,
           "event": null
@@ -9078,16 +9383,6 @@
           "event": "dividend"
         },
         {
-          "title": "GAIL (India) Limited (NSE:GAIL) Stock Goes Ex-Dividend In Just Three Days - Simply Wall St",
-          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNOVFtQzZHOHFOY2ZLakdqR2tkNF9LM2NYQ2xGWlRyZmxUQ3F5N2FBMk1uX1ZMcWs0Rlkxbm5lVlhHS2FIcXp6SVlLa2pLblpNZ0pCT1lLeU5GTmZTQVdrZjJhTERFTHE4N1ZHazljS0NhUW1weXRZS05kdUFseHVNcHFqempuWGRObV9Dc0NSSFJudWUxRk4yd0h3ZWtmQmROZllXeU1yaVlnUmNVY1B0WDdoYzIweEFFRnFNMGhKQUJtejRJT0h1LVduc2Z0U0XSAdQBQVVfeXFMTjJOUWFYWGIzUjdUc2VMWnJYOFBOT2JEUlZTaW9Jbm95Y0s4RkhuMDhmWmtCdHM5TUVpdEtkZ3JJUjhNd2lhV3ExZWRJVWZIS0daeGs3LVlyVVFSN2kyWjBPeUlldkNMN0JZZVM4c1FOX1BGd0gwYnRzLUtPRDVuNjVSWGNlWExjczNMZXIxRHRHSVBIMzVhMlA2emN5MURibWd6Qm5IVUYwU3E0cVNfOV9pc3NmdTFGQzh4LXdWQjdHTVpUU0ljNXRaVDhzNnZiZXl2QXQ?oc=5",
-          "published": "29 Aug 2026",
-          "date": "2026-08-29",
-          "source": "Simply Wall St",
-          "negative": false,
-          "positive": false,
-          "event": "dividend"
-        },
-        {
           "title": "GAIL India Q4 net profit falls 40.41% to \u20b91,485 crore; revenue declines 2.30% - ET EnergyWorld",
           "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPMXUxWVBKQTJGODAtMDJqbzlSSkUyZTloX0hyUmdzUHk2THlxRlZHVE5SUkp4Ry1UQTB1aWo2bEJOSTkwbnFDRDAxUGhhbXJsLW9nLVREUkx1WWF1QWoteHd6VTZJeEdvS3J0N3FjM0FzdXRYQzFIZ3RmYUJqZzBXN0xhbGpJZC1HTi1DWXlMLTJ3RGdrck1NMUozckNCS0dUUWVqWWRkTXRXV3ZBZGM3V19FaTY0Ums4R2Z4Q0FNcFFZX2t6NzRnTFRoQ0dyTG5yQS1MUklIYWEwVnPSAeABQVVfeXFMTU1RWFV0RkdhdC1KcVExMFIyLUxWUTVDWGZrM2tGUXdOSjU3LWxPaHhJeDBad2dHaGxrU0hySHVSU1lDdzRpZGp6d2RvSDlvYy0yUkpPZTAxcDZUd3MzbURVR3NsU3hkWTNveEVLR2E5QVFEX2VhcG9fSjZ2d2huVDc4VmJNZ2xDeXA3OGFDYTNxMXZJRzRIUGFVZl9MSnQxM1FyckJGNXByOE9nSnV1NjhQVUhKclRRRy00b2ZRVjBPWnpTXzA0czQ3VkxNb2NQX2RROE9Eak93eHA0OU1haUY?oc=5",
           "published": "21 May 2026",
@@ -9096,6 +9391,16 @@
           "negative": false,
           "positive": false,
           "event": null
+        },
+        {
+          "title": "GAIL (India) Limited (NSE:GAIL) Stock Goes Ex-Dividend In Just Three Days - Simply Wall St",
+          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNOVFtQzZHOHFOY2ZLakdqR2tkNF9LM2NYQ2xGWlRyZmxUQ3F5N2FBMk1uX1ZMcWs0Rlkxbm5lVlhHS2FIcXp6SVlLa2pLblpNZ0pCT1lLeU5GTmZTQVdrZjJhTERFTHE4N1ZHazljS0NhUW1weXRZS05kdUFseHVNcHFqempuWGRObV9Dc0NSSFJudWUxRk4yd0h3ZWtmQmROZllXeU1yaVlnUmNVY1B0WDdoYzIweEFFRnFNMGhKQUJtejRJT0h1LVduc2Z0U0XSAdQBQVVfeXFMTjJOUWFYWGIzUjdUc2VMWnJYOFBOT2JEUlZTaW9Jbm95Y0s4RkhuMDhmWmtCdHM5TUVpdEtkZ3JJUjhNd2lhV3ExZWRJVWZIS0daeGs3LVlyVVFSN2kyWjBPeUlldkNMN0JZZVM4c1FOX1BGd0gwYnRzLUtPRDVuNjVSWGNlWExjczNMZXIxRHRHSVBIMzVhMlA2emN5MURibWd6Qm5IVUYwU3E0cVNfOV9pc3NmdTFGQzh4LXdWQjdHTVpUU0ljNXRaVDhzNnZiZXl2QXQ?oc=5",
+          "published": "29 Aug 2026",
+          "date": "2026-08-29",
+          "source": "Simply Wall St",
+          "negative": false,
+          "positive": false,
+          "event": "dividend"
         }
       ],
       "signals": [
@@ -9176,6 +9481,26 @@
       "cross": null,
       "news": [
         {
+          "title": "LCA deliveries, order book to drive gains for Hindustan Aeronautics - Business Standard",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPNlplUFhpLTgwdEtHczdDMldRcTFyUm5BTW15TlN1YU14MzdOXzVqdzdIVUhOTVdXbi1tLWZjTGRjNWRpMzZvSnNmR09UdzNxSHpzNC0yY3NlN3FHU2xIRFktdVN5Qk1STlJHWm5TVWYtUnVEc3ZJUTMyc3p5VzVseXZXajhOamI1UTc2V3FPTHZrVEkzV21CZFF3aFdxUnlLTjE1ZmRyMm5BQVkyTVRvNUhQR2FtVlRPNXFUalVyZGFqVXZ5NnYyZ1ZCQllud9IB0wFBVV95cUxNLUtNMmQ0a1RaRElnOGRCWHcwdGxKM0ZWV0R1bjd0Y0JCUmtyckctMFltNGJNX3l3NW9ja09qdHI2ckFrZTRMaFQ3R3FBaUxwS1RuenBBdk9BaHZQd3Q5MDV0ellFUU1GLWg4cnNSNHN3a1hDX3hFOS1ONEdlNmVsMUhWbjhfYjV3eGhyYTg1dmhRaHU5VnYzSFVkNTdwQmljVlRDNFM5YkZJbTJIVTluT1dWbDhHLVN6MU0tWFg2V2t2Y1ljNnJvN3dqT2d5YWpJWVd3?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "Business Standard",
+          "negative": false,
+          "positive": true,
+          "event": null
+        },
+        {
+          "title": "Hindustan Aeronautics Q2 Results: Stock falls after margins miss expectations; Revenue up 15% - CNBC TV18",
+          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOU1N2cGZSbUlvWGp5am45M1Y4akFETTZza0R2NEFwOGJvN21pYTVNQ0FfY1o1YXhxNGdnQk9lUEZZMzhnNjNVZ2NSUUI3WFl1UzJHa25FcHdPQXZNV2ZLaFZfandqRFhSbU0wT1BsQVhLTndXLWxVNm15U3djcHgwSm5Tc1llN2FJQmNRdnJrOFl2eGpwXzJyc014QjdMcWE5TVU0b0RqdWZKWUZJZ2tKaVNRbkt3SFdNT2dMNnZZVExiVE9DUHp0elRobWRjT2lQM0hDWjF6Qm9DMWRoTGlF0gHkAUFVX3lxTE9kbWdWZ1FVaVppVkFKTmtjSXdWZGhPd0tEdlR3TV9WczBEOEFnbWJjQVBQNmhDTkktVnVYaC1PVWRXRVhjemZvRjBoS0hCaE80TlZnamZtcnRKYVVobklSaDNCa2RGV013bHQtZV9qVVl1VnBUN292c0VHWnBVOVJOVXE3Z1FOTVVUQl9kUlVMZDZWWF9tRGhBZXMzX1BodHFZZFF1TGRYZC1ybzlRYXp2WlRDYURSb19iLWh3b05kOVBIOGFGTTVWZlBWaGxNdUc4RnczVlJ0WDBCcnJTODdDTEpDTQ?oc=5",
+          "published": "12 Nov 2026",
+          "date": "2026-11-12",
+          "source": "CNBC TV18",
+          "negative": false,
+          "positive": true,
+          "event": "q2 results"
+        },
+        {
           "title": "Buy Hindustan Aeronautics; target of Rs 5900: Motilal Oswal - Moneycontrol.com",
           "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQY28tbV9rUld3djAtYkhzOVlmUzI0TUJpTjE5Mm1JSEY5TnJrNjZyZFNheFlBVmktMm0yZmJnU1ZYRGVTWUtLRm54QUhRM0tDV3lWN1RkbmNuUDBoOVhlMW42S2hHY3FWSkRjaG8wZU1GSHNQVW04b2w0c2R4YmJuWWN2YnBLUHdlWkcwYjdMcWtOajlvdWw2eGpyOUtTSGUwbUh6eTJndWVsNm1ObFRhTzczM3ZNckgyVmdGXzJB0gHDAUFVX3lxTE9ubmV3S0F4cF96ZXdHR2habkNQaDBILXF0aXh6M1puOEZqbTJGQ29tbEZMNk40LU5tbEZnaDd0blJISk5Ud1RFZV9fRS1xSmlkZmh1Y2J5Q3NxSGlJNkE4NUJKQnhLNUFpOGUxdFVSa2w0d25JZHZ2WWhhSTNDZjYtMjBpclpGRTM1cm9oX01USHpMek13cGhrMUFxUFF4bUZmcnhhWW9YbzhoTm9Mcno3YU1JRUpodDlQZW83UGpQSnZtOA?oc=5",
           "published": "13 Nov 2026",
@@ -9194,26 +9519,6 @@
           "negative": false,
           "positive": false,
           "event": null
-        },
-        {
-          "title": "Hindustan Aeronautics Q2 Results: Stock falls after margins miss expectations; Revenue up 15% - CNBC TV18",
-          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOU1N2cGZSbUlvWGp5am45M1Y4akFETTZza0R2NEFwOGJvN21pYTVNQ0FfY1o1YXhxNGdnQk9lUEZZMzhnNjNVZ2NSUUI3WFl1UzJHa25FcHdPQXZNV2ZLaFZfandqRFhSbU0wT1BsQVhLTndXLWxVNm15U3djcHgwSm5Tc1llN2FJQmNRdnJrOFl2eGpwXzJyc014QjdMcWE5TVU0b0RqdWZKWUZJZ2tKaVNRbkt3SFdNT2dMNnZZVExiVE9DUHp0elRobWRjT2lQM0hDWjF6Qm9DMWRoTGlF0gHkAUFVX3lxTE9kbWdWZ1FVaVppVkFKTmtjSXdWZGhPd0tEdlR3TV9WczBEOEFnbWJjQVBQNmhDTkktVnVYaC1PVWRXRVhjemZvRjBoS0hCaE80TlZnamZtcnRKYVVobklSaDNCa2RGV013bHQtZV9qVVl1VnBUN292c0VHWnBVOVJOVXE3Z1FOTVVUQl9kUlVMZDZWWF9tRGhBZXMzX1BodHFZZFF1TGRYZC1ybzlRYXp2WlRDYURSb19iLWh3b05kOVBIOGFGTTVWZlBWaGxNdUc4RnczVlJ0WDBCcnJTODdDTEpDTQ?oc=5",
-          "published": "12 Nov 2026",
-          "date": "2026-11-12",
-          "source": "CNBC TV18",
-          "negative": false,
-          "positive": true,
-          "event": "q2 results"
-        },
-        {
-          "title": "Hindustan Aeronautics Q2 Results: Stock falls after margins miss expectations; Revenue up 15% - CNBC TV18 - LinkedIn",
-          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNVDJVeWRqelZrMW9PTkxvemtDSUxfVGlDZzJ5WGJsT05uaVFrOVdJdlZpaXBNbWdvbDd1MklYcExFWHVMTUtSQTNMVS1HU2FpZUxVSmlIdVYzN1RDLTk2OEg3YkFPYm9SOVVoQzBwWTM2RVdqamVTZWxkWC04UFo2SlEtSjQ4SVVRMlBrbmFfZ25RV3YxTHU0cm9jeUZqbVlOcDU4b256Z2VSalB3NDZzenNSMDlST2pldVlB?oc=5",
-          "published": "12 Nov 2026",
-          "date": "2026-11-12",
-          "source": "LinkedIn",
-          "negative": false,
-          "positive": true,
-          "event": "q2 results"
         }
       ],
       "signals": [
@@ -9397,6 +9702,16 @@
       "cross": null,
       "news": [
         {
+          "title": "Solar Industries Q2 Results: Shares jump as profit surges 79%, margins expand - CNBC TV18 - LinkedIn",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQUF96dlVaeVFhbXd1bjU3WUVQX2h3YjQ3cDZ5c0Zvc2xsZmNLOVExd0NDS3hpZEV1Nlo2alMwMURmanY4WlpHRDJGTDFQd2N4QTBRVEhxMlZvLWZiREFZYXl6NzMxbDFMTG03ZksyLXY0UHdBZlF2N0tTZ2EtazlyaE1EWTdpZnJhUE4wa0h1UlFWZDFvY2pnd2VTVmhzcjVSdzBTekI5dmZTdnI1SUNVd2NfWEU?oc=5",
+          "published": "03 Nov 2026",
+          "date": "2026-11-03",
+          "source": "LinkedIn",
+          "negative": false,
+          "positive": true,
+          "event": "q2 results"
+        },
+        {
           "title": "Solar Industries India (NSEI:SOLARINDS) - Stock Analysis - Simply Wall St",
           "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOdHBDYnJUSlN3Zmtobi1Ec0xlYl9XdVFGNld0YVF3d2luQXk5RHNNNjh6NV9PVVNxMXNlWmI1cHFrcU9waVU1Smlpc0VnUVFkLUtQLUdVckV0ZEVCMEJDd0NDZ29FQXE4OFVQaDhISGU2STZxNEpFeHFYSFpnR1kzT3dqZG9nWXljZzdNb1Zn?oc=5",
           "published": "09 Nov 2026",
@@ -9425,16 +9740,6 @@
           "negative": false,
           "positive": false,
           "event": null
-        },
-        {
-          "title": "Solar Industries Share Price: Motilal Oswal initiates Buy; sees 17% upside - Zee Business",
-          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNek0teXRxSUEtWmpQeXkzWVJJdzNYVTdsc0pXdXFMd21xLU1mbGR6cWZwMmZPWHdaN0RSeXROSU0yR2ZyUGlkWVhveWZzR21Vdm1weXI1R0ZIaF9tNlB3Q3FJY1h6YUF4SmFUUGJMZGVFSzM5NExVcjVCdF9TWTJvbDhKakxZRjdNNEYxbEFBc3dGcE9LdFVLQ1FwTnYyTlNEcGE2RE9XTF8wT3FfdDF3ZTBGcTZtcVNWUlE?oc=5",
-          "published": "22 Sep 2026",
-          "date": "2026-09-22",
-          "source": "Zee Business",
-          "negative": false,
-          "positive": true,
-          "event": null
         }
       ],
       "signals": [
@@ -9442,6 +9747,11 @@
           "type": "earnings_soon",
           "level": "info",
           "text": "Results due 03 Feb 2027"
+        },
+        {
+          "type": "corp_event",
+          "level": "info",
+          "text": "Announcement: q2 results"
         }
       ]
     },
@@ -9474,7 +9784,7 @@
         "rev_yoy": 9.5,
         "profit_yoy": -32.9,
         "q_label": "Sep 2026",
-        "pe": 40.38179,
+        "pe": 40.462814,
         "pb": 4.836976,
         "roe": 11.5,
         "de": 0.38,
@@ -9708,33 +10018,33 @@
           "event": null
         },
         {
-          "title": "Grasim Industries Q2 Results: Net profit nearly triples YoY to \u20b923B - scanx.trade",
+          "title": "Grasim Posts Q2 Net Loss of Rs 234 Crore on Account of One-Time Cost - HDFC Sky",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNMjRUOWdQZkg4Y3ZYQlZrbWpKUTFmbXJIVGE3VXgzYU81REhrYWRxYXpuOFkyZ0wzOUw3b3RmcG45LVVLX1loMl9VZXdMSVJuOGRFR25oZXlCWFZ5WHJHWXFVM2VMdV8tWkdfcWVrbU9tLW5VNmJtZE5MeWRBQnVwN0ZDenJ2ZE56LUdFcGtvVTA2eDg3aW0wQQ?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "HDFC Sky",
+          "negative": true,
+          "positive": false,
+          "event": null
+        },
+        {
+          "title": "Grasim Industries Q2 results: Standalone net profit up 187 per cent at Rs 2,306.2 cr - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQdDVMY2tRMW14ejVVXzhkYmtrLUdHVGtSNnkybXpwT3hpcjg4aGp4MEF5VmZ2d2xhZEhaeEdDUm8wMFJOVmtmc2FDYVhDNmI4X3NOVzRnQVBVay1CT3plOVo3eHRMaEhkRTVmY2pjVGVIZngwNEhrU0g5Z0RzRlhZZm5Hb183VGpscGxjNEJPcGk1VExVSVhDSlJaQlR4UjRQeG56VVJUQ2FMUWd1TzJIbnp0c04zRHhhTzFXZmdQejBDTUVSdXBCSmxiU2IzZWtYQlgtNTZIMW92NzgzdjNyedIB5gFBVV95cUxNcnBJUWZGVkRESnlTM3ByOHVnMDVqR0RyWGNqRFE3WlVwVXpSeXVpN0c5SkQ1a0FZUnBtOGNmcW5ic2FTX24zdVIyb08yY0pxa3FvRm9HV2ZBUlJvem5PQ0sxX1NidnQwUFdacWNINDFDeVlQbnk3NnBSWWNDNEFDcVpWbEU0MXQ0MFh0UFZ2SldvcXFndnkyaldZS3lpZE1iazQ3RGFNUnpOYXZGYU43b0JGMXNJWjJwTVZxcDM0dWJHT0dVMWJsM3c4TTZhcHFENnJGSy1aUVZBdVdFa2U4dnZMejM0UQ?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "Moneycontrol.com",
+          "negative": false,
+          "positive": true,
+          "event": "q2 results"
+        },
+        {
+          "title": "Grasim Industries Q2 EBITDA up 158% to \u20b94,615 crore - scanx.trade",
           "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQT182SzU3SVhxZDMtQ2g5bjVvb0JuazlkU2ZUczcxMm9rOGNqQk50Vk5VbGJqMkJJd0NvMmtKeUlydDllY1ExcHdOb3ZOeU5jU3hwdFBiaEFpN2twcEJpYW1vRHRQc09oRTNnSTRRZXZVNG5JSkFoUjA4RTVLdEZ5VnFrX0dhdERzazBuR3N0REhvczdJNkp4RWs1WGpNWENhS2lqeGpxVENMTnlSQWc0cDE2OWdVUkF4dl9v?oc=5",
           "published": "13 Nov 2026",
           "date": "2026-11-13",
           "source": "scanx.trade",
           "negative": false,
           "positive": false,
-          "event": "q2 results"
-        },
-        {
-          "title": "Grasim Q2 Results: \u20b9825 crore one-time loss drags profit; Margins miss expectations - CNBC TV18 - LinkedIn",
-          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNeW9qbDNJaUFZZlA3UVloLUdJYVNidnoxV25WU1Npd0dzQWp2cklvTXo2SGhIUXZndlZSNUw5TF82N0J4Y3dSWElkOFBUR3l1bHV5aXIzUHJHUHZNUjQteTh1UjE0WXhNb0xpR3FxTmxfLThsZ3c3OWt3dzRvdVE4bzd6T2pUVjF6S2JKQnR0STJHM3NvRm8xN0dLbFVMZFBSZGNlSk5TMV9qYURURnVRdlBXQk5VUVU?oc=5",
-          "published": "13 Nov 2026",
-          "date": "2026-11-13",
-          "source": "LinkedIn",
-          "negative": true,
-          "positive": false,
-          "event": "q2 results"
-        },
-        {
-          "title": "Grasim Industries Q2FY27 results: Net profit jumps to \u20b92,306 crore - Business Standard",
-          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPdnN1QWpzUzRtRjNZU3NXZk5VWnJRNHJOY0xHeDg2SHBqYnBaa1V0bEhmc0lpdDYwV0lBRl9rSEVqXzhIWVJYRW9kR1dhQjhWZ3BUN2dKc1AwXzRoWmlNOGpQdWVmUUxJM0FzVWJUV1k1ZDd3czZzYWswdENkeXpSdFRsUFBLMndKSGhXeng4ZVNaZVprbUVBZFhweUkxTkE3akR1NWRPdGJqQ0tkTkZXcXZRYzEzWjlPVUliNmxfY0RUWF9uRkRhU0lqeU5nSmp2M1RBaElTYjZqVHp3OVRj0gHkAUFVX3lxTE1YZ3ZOVW1PV21iS0lpbmwzeWV4ekRYM3Z2d09SeHJDcGVLVURfZUFrT1JXc21NY1MyR2tHQmcwc1FQWktXdEpldHhFZ1JEQjlKdEtRb0QxMzh3aFhnbFNBblFReE9vTHZpcHVRZlNlZW9neUtXLVk3Tkw5b3hPbzNEd3JlWWFaTUdjcEdneEh4TDgxUXZRNXNUbWtlSm9PcVZaUC0td2U1OThtNkMwN1RZMXBPRUFiY1NqeUQ3RU11clNKNGZoUWZ2TGJQS3pHV0p0emMzbDdwbGhuR1d0N3ZMaVFtdQ?oc=5",
-          "published": "13 Nov 2026",
-          "date": "2026-11-13",
-          "source": "Business Standard",
-          "negative": false,
-          "positive": true,
           "event": null
         }
       ],
@@ -9811,10 +10121,10 @@
       "cross": null,
       "news": [
         {
-          "title": "Cummins India shares tank 14% after Q2 results miss; all eyes on earnings call - CNBC TV18",
-          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQYy1NN3BUSHBIYkxwQjY5OUZxME1Zd0dUa1pscndjZ0NVanlzZFVUVkg4SXRGN3BjTWZaM3h0WE5DTkh3M2tNQUNleVplZDJqU3hnRmZhTV83V1l1eFNhU0FSOXQ0R1A3eTR0SVU0WGYxNjg4cHZQZFpDUFhfWUYxMmFaU2JwZTZDdU43RHpRRzlHSE1LTXlaMmZzVVQyVWZmblJUTzMzYkZMMW1HSnowSks4U1FDOWfSAbwBQVVfeXFMT2NvazF3anhUZG80VW03Mm5MQjQ1aTZ6OGpWNk41SmdyTlpPUFJRUFNXRHFFZlZrT193MzgwS3dHbUwtQmFnQllXcERSNTM1OC1DcnJJUG92MXNtWXpraHd3UFZfcUtJcF90RHV4R2hPYlRaLVBENTJGZnlMRkc3bFo4MGxJeDB0UTJJUHBYSXJNVV9SZzNxU2l6SGE0NTFhMVFFNnQyRlFET204czJ3WEdSaTZONk9hQjhJakU?oc=5",
-          "published": "05 Nov 2026",
-          "date": "2026-11-05",
+          "title": "Cummins India Q2 results: Revenue at \u20b93,247 crore led by growth in domestic and export markets - CNBC TV18",
+          "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPT2k4cDBhNDF5QmlVSV9jUVQxbVJZZDJ5Q1hleDhmcTNiemc4RklIUDJBZUUzUS1YcGFVQTdaM2Zhb0hWOFhfRk16WFZhWHJzcjB5a2MwNE9MRkVIV1A4dE1IZzlqcl94Um1RYlRRdjhRVnM1YXJEWUlNQVhkYXVjOWFLV05ldDdaWVpRcm1RRWRIeEk0MHdyYnUtSXJVY2FVdTFwNnZ6Z1lLU1dZdzI2MXpvWVN1YnR1SjY4NDROSnFVVGRMVklHN1FYUVRLRElpbGlpenUzdXBXN3VFNnNwRHVB0gHnAUFVX3lxTFA0NlBxMTlqRk1vX2hCRHBvVWZVMDJnckZHemVXdkJRVTFBSHg3V3ZNVzFzSXpoVWtRUlR2NGtyRWRQVmQ5NTFtdDNPSUVQY0tmcXl0RDhCbzNCTGNJckNkcG0yX3Ztd0JHRTlSWGJuNGlwam9tTUkyb3RsbjhJV2FxX2szdHhmX3g4XzRhMVdGZDdpR25JRWJBU3A3bGZUbFNrT2x1NTRKSS1QdC1faFNsTjNKY29DcThTOHR2Q1ZrcGRfVC0wMTBZc0RLUXhRLXN4TUVnay1HYS1ZdTJtZ0JVSUhONmVLNA?oc=5",
+          "published": "04 Nov 2026",
+          "date": "2026-11-04",
           "source": "CNBC TV18",
           "negative": false,
           "positive": false,
@@ -9934,33 +10244,33 @@
           "event": "q2 results"
         },
         {
-          "title": "ABB India stock jumps up to 10% on parent's $5.5-billion deal, Q2 results - Moneycontrol.com",
-          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQaDAzY01BdEt1QnpNcDFSYlFVRG52VGpPbThIWTBrNzNpbFZYcUdEM0RGMVFnUUlvWWZTd0hrdXRjUTJpMGRwNUQtZDVKdmJ4S1U3MHk5N0g5MWpPdHNhZVFrdnJ4VDlRbllJSUN0QzVpQkRRZXdaV1JtNDllVXFKMklKU0VDR3hNYzdQN2tSTnBnTlpfa01zZHJFUHJUbWs3a2xwWFQ1UU1XVVFMb0R4NW5Ca1UzaWViSDNpWjVkLUc4WlZPckoyTVZURzBxbmlH0gHWAUFVX3lxTE9jNUc5S2t6UU5vTHBUUkd2dkczY2hYWnVERU9XcTBSbHJ2V0VfM2Q1Y3ZpcnozNDZHRnMzREtkNHJ5N3YxRjZrenNPZUhxQ2NPMVNXTWpqNVNMc2pqLWJvckIwaDgteUxRMVAxX0VLcVpBc3kzQnh6LW90cGdEMGNhRURZWEM4TUdDZXZOTVo0blRsNHpYRVZlY24yUUlKdnJRZ2EycExTcGp3bzV0Mk5zZkpHa0lOdXU1MEdiS21PQ245c25XcDVLbHdoVVJsRUxjWjlZSGc?oc=5",
-          "published": "16 Jul 2026",
-          "date": "2026-07-16",
-          "source": "Moneycontrol.com",
-          "negative": false,
-          "positive": true,
-          "event": "q2 results"
-        },
-        {
-          "title": "Engineering firm ABB India quarterly profit rises on strong demand - Reuters",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbkdQNzg0RGc2LUhJWE1vdFM4OWRlT01Da01mVUNlUWtYZmhtaFdncU1ycEsxQm85ZXFXVk9zMmtZc0djdmMzNnBrTEhXYjhVLVRWNGZvY01QaVUtZ1dZWHEySi04Vms1SnZnd3g4eHItN2p1dklfSnJKdUxQak5aU0paZE0tWUdtd09mYzZHNXd5ZmVaV0tUbEItZ250cWNRdl82emZXMnhucjBHMVp3UQ?oc=5",
-          "published": "31 Jul 2026",
-          "date": "2026-07-31",
-          "source": "Reuters",
+          "title": "ABB India Q3CY26 results: Net profit rises 11% to \u20b9440 cr, revenue up 19.4% - Business Standard",
+          "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQclB0TzBHcG9XdmRTS1ZiWTJrblhUQ0ctSjBVcFlNTzRGUmx6OFd6M3YxTV83UzI5blhRV2VjR1liWHIzcjlwWktGRWdhR3BwZ1JFM0h5UzlIMGJ0WE1KZ3l6NXJmSzdpVzFITThDN0NMVzJNTGZLRE9NSmxLanlTWXV5QzNtMHh1N2oza1NSVWZVRGQ3U3N0LU1ISjl5Y2dJR0NDT250ZU8xWHlCUkpaLTJzcHkzc1N6WUhodUZjMzhUNldaUG1hQXFyd01NU0J2MkZkeFdOQm1XMWdBM09vdTRlLUtZS1nSAewBQVVfeXFMT2VXSTVpckVMa2N5ZGdTV3FWV1pxemZ5SlJqR0pxbGM2Zzk5bmt1eC1rMFRxa1k2Zmg3R2Jfc3EzR3lMR1M2bk9pd3NRSEEwdWVYZ2xnX2dHQkUxVkkzelpjZ0o0V3JBTDQ0UzE3LUZsZ2JWdjMtXzluUzQxNzdhenQzbDJtRF9MdHlFdHFibGFSeGNmRWJDeUcxdWIxU3U5dGVIUzdiRUhUVnBWd0p3V2tYNWo3cjFMYXd0Y3JqN05kanZiRW5sd3kwbnZibndQd1dVVEt0R2VmNVFjaXpndFZJSVlEUmI4YzdwVE8?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "Business Standard",
           "negative": false,
           "positive": true,
           "event": null
         },
         {
-          "title": "ABB India Shares Surge 10% To Record High as India Order Growth Sparks Rally - HDFC Sky",
-          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOTkdMUzdsNm1uUmJRUEhadER1V20yNXlmSFlsTGlLbXpnX2VkRGpKV25IUS1landGNGNjQlZzWHNCNTVuWGs2eE1lb3NvVjYtUUJ2S200djItdEotZkExWFhmZEtnWWxJSWh0YnZFYjVDcHNzX3ZrM0hHRzhhdXREcGx4Y2dsaDNWcEEyRw?oc=5",
-          "published": "16 Jul 2026",
-          "date": "2026-07-16",
-          "source": "HDFC Sky",
+          "title": "ABB India Posts Q2 EBITDA of \u20b95.52 Billion Versus \u20b94.86 Billion YoY - Sahi",
+          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQQ2xucVFqdTNNaGUtMERTMlRyUFkxenMxNjgtMXpPWlRmbVhkYm9BVElndFo3bGRZMExxOUNHbWpHYjJYSXFpRk1QNU1hR2d1aElFLWl0TkpJSExERmNZNFdDN3RJQ1UxQ3kyd0NBZDhOV1kzb2FiNjUwZTFST19PcDYwUEYwWGQ2UUpMa1JURW5CWnVidEE?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "Sahi",
           "negative": false,
-          "positive": true,
+          "positive": false,
+          "event": null
+        },
+        {
+          "title": "ABB India appoints N.V. Sivakumar as Independent Director from Jan 2027 - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNa2ZFVHNtZFVKb09RbUxjekh2eG15YUp0YUxfZUFFTkd5T1JfQzNjMDR6ekEwOHQyQU5fMWdRRTJ5ejZyX1c3eVdDd25SQjltRDZUNm02TnFvRXJ5eE1Ka0hwaDZaREROaUZWQUJKZmxtV0tOaDU0OFliSWxsOFFDSWVYdDdhSTZ5UnZPUkdoeUhMMWVEZUU3QTFWejA0TkxqTkhqTklxQ0NUVm5FQndoR2VHOFZfZm8tcktv?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "scanx.trade",
+          "negative": false,
+          "positive": false,
           "event": null
         }
       ],
@@ -10236,6 +10546,16 @@
       "cross": null,
       "news": [
         {
+          "title": "Rich valuations may cap Hitachi Energy gains despite strong order inflows - Business Standard",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPZjdkWUc3YTFHa3o3cjZCRUNycWVualk4ZTZWN0lKSmVLXzkwTzQzbmtIellOck9BeDBpa2M5NENHTFk0Q25TUy1EN1JHOGxJdzJxTHpOV1V3LTNJZjRWdUhQZVlEZTJ2ZXNxSFhkWmZXeDkzbmNqVVJlQVZmUk9sa1ZCWmo0M18yRG1tY19EUks3N05UcnlCNEZuSmtNYlVnLTFnSXBpRmdiVW40blZKdTBKZkZLbzdsU2JLNEh5RTYtLURYT1pKY2h2ZHA5aS1mZ01EZDBxb9IB3AFBVV95cUxOS1VCTXpNMXVpRUVlLXpLT0twcUJaQm5zak5uTWJWVm1aNng1akFfZU9kTEFCYXZnbzQyTjg0UFFDV0Z5ZWEyaDJVVU1LU29GRFl4WGhxS2VDSHhoVS14S1JOOTlWMFNXdzdRY0pjaVQ0bHdRVUNBYkFyNFdNcDBDTm9VeWFFSFh6SS1pZktHYkdnRVRPaWJVOHJBanlhQndBcUd1ZjdOOFFZcmpVb2tNQmozelNtZjVYSXVxQzlTaF85M3BCWkpDWVp5Sm5IbU5XQl8yUjdUUEI4ZFlp?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "Business Standard",
+          "negative": false,
+          "positive": true,
+          "event": null
+        },
+        {
           "title": "Hitachi Energy India shares rally 12% after robust Q2 earnings; check what Nomura, Jefferies, other analysts said - Upstox",
           "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNSTVUclRHeUw1cGFnVWpTM1BVLWN4ZkpxRGVJNXZ6QWtKLURaZ1I2WXZva1FZd1Awc0tVS3dIWmZaS0hvSWNENWNKeUphWkduZ0xzVURkSjNQOUNUWm10ZVA1dUlKUkhYQkdlcm5sU1MxM3RxMzVaaW9iNE5NeExPaFZ3bk1meUpvUEdVRHM0TV9TSDhVRThxeE9PZ254NHJ6S2QtLTEzTW9MeENNV0d1NHlwdEJzaEp0ZzY2QjJFMmZrdkZEcjFDQ3ZTV2p6TUVLcFBtRjR5bmhJWndsZWwxSVlvcFZiazEzdGNBbWhfeV85cGFiOUl3M2dBemk?oc=5",
           "published": "13 Nov 2026",
@@ -10246,23 +10566,13 @@
           "event": "earnings"
         },
         {
-          "title": "Hitachi Energy shares rally 12% on 86% rise in Q2 order inflows, PAT up 21% - Business Standard",
-          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPblotdlpWUVg3aXN4WWlyY3pQN0hjQ2c0OFNDanJJTTZZQjVEbnZ2djZNLWhSYTlKU3pOQzJzaWpod01ZeTlaalF5TExnYlJUUjZ6WHRySzlVQ1JzM29qM0RQQW1TZE8xdU9lQnZpaHBSTGhIT3ByNUZvX0x4OXcxZ1dlaFd0VXRuNXpreUJCVjhVWHlEdWNmVE9ScmZIYmF5aU5Xem5ZZzBpQlRGS01NcC1OV2NDN2xuWXJremQ4MndOMlhJLVJXUjhDSkJVSEFBOXZWNdIB2gFBVV95cUxOaV9aTzZtS0VWeGgxWmd0QU1KQmpEUWF6aFlqVWtVQkFJa29RcVRuUHlaRjlKeTJ0Z2JMSkJCMHcyb0xsRXJlTXdwYkZfOThBNDFQMTVrZTBsYnRwYWZYRVNHUjl0a1BmTDVzRG5IYmVQUHcwWUpEOVZNOTBYaGI2RmQ0NEh5amY0ZDdzcVdvZloyaVpFd2xTNVo0UkplM2tsaWdBN0hrb2RXWmo2YVM4ek1iQThDNHMzYjI3TEJnb1VGRGlzREhtVlc1UU5xZXZVdkJ1QWd2V3JIdw?oc=5",
+          "title": "Hitachi Energy India Reports 63.5% Revenue Growth in Q2 FY27 - Machine Maker",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOMmJXRW9tdTZ0VHlKQ0FSQWhjeTJDd3VUVXZKSzJYeFBVdGdvS0NCd0hEbTk3TWVzUjItUmpGZ0QxUlFLWmxYQ0p6TURSNjQxU3JEOTlwSlE1X3VYSV9VSFprTVpOWG9HN2ZFNEVEdXUxdk8xNUoweG9xVnRwMDltR0poajM5S25VZGFudDFoRmJKdXRudmtpNA?oc=5",
           "published": "13 Nov 2026",
           "date": "2026-11-13",
-          "source": "Business Standard",
+          "source": "Machine Maker",
           "negative": false,
-          "positive": true,
-          "event": null
-        },
-        {
-          "title": "Hitachi Energy Share Price Target: Nomura, Jefferies, JPMorgan see upside towards \u20b946,000 levels after Q2 - CNBC TV18 - LinkedIn",
-          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWW9VWDJBdFFHT1hYRWdKVWVjM21fLUVPa0x5V0xJY09rdnAxaGM2RjBibndKSnV5OUJDcEFuRWZkdXQ0Q29oZmRHbk9OSFVxd1ZYS1F6VHpjWVBQM284Qk96Q0ZGRXJmSXR4Y24xbHlWaTlpWm9mYW5FLUxzM3pZQjB3enlBMk5QNFpZUGxfTHVNSDg4VzZCTXlITzlPNjZ4eGRTZlI3TU12UFYxZ1lKZXlyYjJBdw?oc=5",
-          "published": "13 Nov 2026",
-          "date": "2026-11-13",
-          "source": "LinkedIn",
-          "negative": false,
-          "positive": true,
+          "positive": false,
           "event": null
         },
         {
@@ -10355,11 +10665,11 @@
           "event": null
         },
         {
-          "title": "Tata Power grants 64.88 lakh stock options to eligible employees - HR Katha",
-          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQVFNBRlJmbmRNQnltTWlud19INmlYNnhaYUQzeWN3dXdESVZZVXA3WVNId2tHeFNNMGpTRzk4REsxTWhIcFczc2Qya05rdEwtMU5KY3dIRUxrS1MxUEJHYVJxeHRxbkh4azRVVjdoRmh1THpoQ21VbnJBenhGNFBwWGl4eUdadE0wdkxjQUtOWW5MbURKVHdRZWZn?oc=5",
+          "title": "Tata Power Grants 64.88 Lakh Stock Options To Employees - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSm1ua3E4eXFobE9iMEhlaElvMW9Nb1VHdTRGMXFucER3ZHFfNjBEZEU3SGJvUTFlQjZZZTRtSHZ1dEllSTRZQWQtaFJkQ2JJUUd4dTN1Uk42M0wzWndQUWxnbk5hVmc2a0hFbzUzcUU0dFlMaFUwY2F1elVFNEtrYkJFclJGdWZVZ2hzYjJWbGluVmdQTHpqc29QaE9PcmRWaVI0aTltN1lJcDZ3dzcwTWF3?oc=5",
           "published": "13 Nov 2026",
           "date": "2026-11-13",
-          "source": "HR Katha",
+          "source": "TradingView",
           "negative": false,
           "positive": false,
           "event": null
@@ -10480,6 +10790,16 @@
           "event": null
         },
         {
+          "title": "India's PFC, REC will merge to create large state-run power financier - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNT3JPOUtRN0tPcy12VHY2d0NaNWE3SXE2QUxVLUFLQUxTbG1JQmpEbHZ5dnU2eGNPaWJkc2tDLUdEcDM0ZlBTbndibVItME5ORDUyUm5GcXVjWjU2ckN6alU5VVpLZHpNcXM5M29pRGc3bHpGOXBsVWJDb1lWcTB0UUZGbVBxazJyM3UzVm1acEZKS2ZySnJNTTBtZURRMHBDb1pRdkFpY2E2X01vNEE?oc=5",
+          "published": "06 Feb 2026",
+          "date": "2026-02-06",
+          "source": "Reuters",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "Power Finance Corp Q3FY26 results: Net profit rises 6% to \u20b98,212 cr - Business Standard",
           "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQclRkdGRwdWRUc0pyTDJJOENrcUd6X0VtZDdRQVdKUm85cXZQTUU1d29kRGd1emxUTk9pT1hKN2RDUDJ4UjREWXlPVUpKaUdBWjA2WUFyN1V4eFVRUVgycGxOX29felFycnZtR2VCcDQ2Y1dzd0FPMV83cUplbzJGeDc4WjRxTFZzSmFoTXU1MkU2VnFJT2s3MFZVNU1RWmtnSEdRNkRlLWFlTXYxZlpoWkxpaUNmekVCc2xZbE5nTDdhXzVVZVFkNU1acmRTd0FIQ2JTUGFOVFJqSWMxWVZXeERrRDBmVmRTLUpDRjhyWdIB9AFBVV95cUxPZ1JyOU4ya1MxNnhjMHI5ZGJDZWw4WVQ5QkhtTUFlVHV6ZFhxdUFVSjlFbHR6dU9DZmlYdS1fSEtSRVBoVlFFX2pWSWtkVWIwd2JsZndrUDNpVGI4eDI5a2VMR0t5SExPM0tGMDNyMnNUN1I4LXhRYjUzMzl0S0NtakJrNl9QTldMa0w0Yy1Dai1jTDYtTlNLZkFqV1NOS3JweEh1MEZLS2lSR3ZXNWhGcjBzZFIwU2xGN1VZS0lyZ05zNWVabmREWkFwS3o1RWR6dWF2eFFTRUtBc3QxeHpWeVNWcWxvd0dubGhENi1tVHdOXzZi?oc=5",
           "published": "05 Feb 2026",
@@ -10488,16 +10808,6 @@
           "negative": false,
           "positive": true,
           "event": null
-        },
-        {
-          "title": "Power Finance Corp to absorb REC Limited; Cyril Amarchand Mangaldas acts on merger - Bar and Bench",
-          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQM3NPVldaNENPSl9lT2o3bVJiQzhUU1FadUFscUMtRlBoVTEwYWNWd0xCeHBzRlZ1ekpta25EZ2JVQm9xUmZNUW1ReDRmQVZlZ243eEhuaW5sZXI1cjRyS1VlSUlEaE9CNlJyM1pFLXR4Q2daWU5ES1ZjNUpCdXlPQXRkWGRsTlpidFJUWW9pREtVTGo4emgwNThiOHlYdFVpcmJCVmVHNmtpVU9id2h0bjVKQW9uYTFMSjFZd0lGMktOX1FfZDRIUXVB0gHXAUFVX3lxTE8zRWF6bnp6R29GR1ZtR2F5clN0bVNtbnpqVGdLXzhCR1lrTjlxTnRtQkQ4NEJJY1FXRGJibGtJYUJYZjBNMFB1bHIzeXh3ZmhSaS15T0l4V2NIT0xubEI4MEVxWEhJV29YMTZfXzlyUDNFVjMtOHRiOTZ0cEJsU1Y0M1ppQm1Nd2FfZVItQm5VWDBiMmdweXlWUXE2bEFtdUV3bWFETmstbWNaSWhlaTJqZUxOc1NOWm5DSGUwYXA4bkZ6bTRyRGpHZkhmVWJDUV83bmQ0MUpr?oc=5",
-          "published": "01 Jul 2026",
-          "date": "2026-07-01",
-          "source": "Bar and Bench",
-          "negative": false,
-          "positive": false,
-          "event": "merger"
         }
       ],
       "signals": [
@@ -10505,11 +10815,6 @@
           "type": "earnings_soon",
           "level": "info",
           "text": "Results due 04 Feb 2027"
-        },
-        {
-          "type": "corp_event",
-          "level": "info",
-          "text": "Announcement: merger"
         },
         {
           "type": "high_debt",
@@ -10610,10 +10915,10 @@
           "event": "dividend"
         },
         {
-          "title": "REC Limited's (NSE:RECLTD) Low P/E No Reason For Excitement - Simply Wall St",
-          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxORjRNTkEyREJyZUlIaGZ0R2c5QkRNT2JjN2hzeFhCZTZBT0w0QWVyZDVSUHpKXzFnQ1kwXzBrQ1UxYk9qTDNyM25DMTFjVHZMbXdmQUs5RlFtUmVKMGdxYi1MU1FHcmh0em1WN2UwQ0NSdG82dXZYdXhWdEdmM0dUbXk4QlRmOWN0M3BLYUptV1Jvek9UbDg2aUtUOXNZZXVySjZGS19fX3hTc013ODl4RTR0ekhxMDJXVnpnZ0hZenhZV0tVeFFWNjBZTnduTmVNQjFaQ9IB2gFBVV95cUxQOTRmOVNWbEw3bmJ5YzhzRHhrVHMtb2tiNEc3cDBCVlJ2b0htdHY5bkNiT0JaTW5KeERKMXRua3JJc3E0b3B3Mmt6QmhCcE54YXFvSDBiemNmcDJnMDRWakhLVjVKbDdfWGg0WHNDZ0UwZW5WUWdFdnlUQUc1OWQ1MURLTXFkY19OeXZYS1hoQlNaY3N4VW5xTm1jdXJXRzRIOXpNZGR2T0w5TEZqalhXeFowS3ljLVA4V190eGZZNEpFUzZxOG00blZVdGJLRTdCMER3OUgyWGhJZw?oc=5",
-          "published": "15 Dec 2025",
-          "date": "2025-12-15",
+          "title": "Individual investors own 24% of REC Limited (NSE:RECLTD) shares but public companies control 53% of the company - Simply Wall St",
+          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQeUhrUlBVd2I3M05USnBpX0J1WjJVSHdJOTVyNE94Y0F6b2tkUGFGX0dVS0s2eTB6czRIVnJXTWVWc2paWGFudTB1cTE4MUdDbldyMjhjbGxEUGJKOUh6MHB5SWhRQ1p5MHhqX24wUmtVVXE4TC1pYnJQZzU3WkZHRWlrR3pfdWJzTHdsZXRIdmE5WF9TTzlMckVHNUJxVG5hQ25QSnZkLTNqcEhwR0RXcERRd2lodFlpdGVybDFuYXZFU1Y2RXpHdEFfUFVZY2dHNUpPNlhJbmFHbTjSAeABQVVfeXFMTy12b2l4Q092LVpCdWxUejlRUGVWbVdXSDBIY3ZXZTZaYTVBaXpoYldzTGFpRWhaZzlLLWwxMWdTcGV1bVhqbTBzcUpHQVN2Q3ZzY1l5TkgzV0FNamNYM185aTl5MkkzZlhwR2hsRVEweXV3UTh3N0tmS3NsdC1vb0JoeTVFZGxpd1RmZFVmQkdxU1hvcFJZaHVqRXpnNnJNcEJIRF9sMlJxeE1Db1Q3bDNtQjJtQU5NQ3ljcVVzYy15andtZS1OOU9IYV9GVkdZdFJ3eklMYllFTGFMM1NDZ3M?oc=5",
+          "published": "19 Jan 2026",
+          "date": "2026-01-19",
           "source": "Simply Wall St",
           "negative": false,
           "positive": false,
@@ -10847,11 +11152,11 @@
           "event": null
         },
         {
-          "title": "Bank of Baroda (NSE:BANKBARODA) Revises MCLR Upward From 12 November - Kalkine India",
-          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQS2p3Mi1iekV3Znk0RGlrZjZEYUNyYzRLVGROOHR4MlhsZUhIaF9QN3gxUkZ1cDYtRGFXcVI3MFRUSzFDVDFPb1FweXl0YnpVeFhwdEVqMTZyRGdUdWNERHEyZlJpQkp3UFppTkhwSUszWmdQRUNmb2hVMndBc2pZWTdPWGZSQnFjUTRoSmxNVGJtZ1hPRlRmZnBRYmFRa2w3Vy00cGhmMzFkUGp4NTBDS19vUVhOS1ZTTnZMdS1rMkloN2dnN3lKVEtZcw?oc=5",
-          "published": "10 Nov 2026",
-          "date": "2026-11-10",
-          "source": "Kalkine India",
+          "title": "Why Bank of Baroda Share Price is Falling - Equitymaster",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOcEphUkszZmN0Vk9fUy1XemVmMnlCQ2ljWjdqOFllcC1HcXNlRW12a0hqZG5Ud0E3ZlpvVnk3UzJFZUxXUVl5MnQ3RFBUa1VBalNWb0Y3NG9zWnJvV0NiS043UUZxZ1VYVGpIc3ppblhaeTkxRW13UURMQmFWMjVmdU9iWGVJQkQ1em5wWF9sSXVwd2Nxcmx0UGNSckY3VVFJVlZQcFg1NWl6eENQVGlMTw?oc=5",
+          "published": "24 Aug 2026",
+          "date": "2026-08-24",
+          "source": "Equitymaster",
           "negative": false,
           "positive": false,
           "event": null
@@ -10931,22 +11236,22 @@
           "event": null
         },
         {
-          "title": "What should investors do about Canara Bank\u2019s stock? - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNamN6aHJpZFpiZTJrOVEtekFfQzVSVG1hWTh0VTFyMjhGTnhDTTNWNE85Y1pINWd1TWpHdlBlRWM4UktpMUk2b3poZUhrUFZxMy1jNU00eU10VXltMEZ0Rk1rZ253dnpPTHVtcVFWeUpoeXZlbzdjRUJncnBKU2hySGlqWWpxOGkyVXZTbXNOWjVNcnJjc1Q5Rzh0am5LQldOZGJGMzJ0ZEZnY0k?oc=5",
-          "published": "07 Nov 2026",
-          "date": "2026-11-07",
-          "source": "TradingView",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
           "title": "Canara Bank Share Price Falls 6% Near 52-Week Low After \u20b915,000 Crore ECL Provision Warning - India Infoline",
           "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNT1FXcXNuOVZGVzFpQWxraHFfSDItdFRHTlJtNUZXWnBLQTYxLVdQTFlmT0N5SWtZZjFpaUEtY1NnZzBOTGxtVWJ4dE9oaWtxNUV1a0hmZlRab2RwN0FuU21EWDFPM0luQXBITVI1WjlBWFpiTHRoZlBmdzVkUVJtOC1oR1BZTHNneXI5VFdVUWpGQzFKT0hYMzZoMmhqZkpZWVFxZ1BBTHBYX01CV1JLckVQR05PenV4WHg1VGlBU0dGNktsWWQ4S1BadzRKZw?oc=5",
           "published": "15 Oct 2026",
           "date": "2026-10-15",
           "source": "India Infoline",
           "negative": true,
+          "positive": false,
+          "event": null
+        },
+        {
+          "title": "What should investors do about Canara Bank\u2019s stock? - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNamN6aHJpZFpiZTJrOVEtekFfQzVSVG1hWTh0VTFyMjhGTnhDTTNWNE85Y1pINWd1TWpHdlBlRWM4UktpMUk2b3poZUhrUFZxMy1jNU00eU10VXltMEZ0Rk1rZ253dnpPTHVtcVFWeUpoeXZlbzdjRUJncnBKU2hySGlqWWpxOGkyVXZTbXNOWjVNcnJjc1Q5Rzh0am5LQldOZGJGMzJ0ZEZnY0k?oc=5",
+          "published": "07 Nov 2026",
+          "date": "2026-11-07",
+          "source": "TradingView",
+          "negative": false,
           "positive": false,
           "event": null
         },
@@ -11050,6 +11355,16 @@
           "event": "q1 results"
         },
         {
+          "title": "SBI, Wipro, IOCL, Union Bank among top stocks to buy for short-term gains; check price targets - Business Today",
+          "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPa2xhby01R0FqY1lSekRod3BhdXVuR2VzZUViX3hjSXIyT0ZpWm1aWE92NDFtYmloZUtkUzFubGg4Y0VyOFhPNmRFcDZ3VS1KN2pwU3BRMVE1X1o4VVk4ZVFEQXRRV0xZN21idXpVR2t1NjNzbzQ2M3RhdGh1dDFmMkd1YjM0bXlnTm5qaG9ONnEzSEN4djhOM19FbGx2Ymlxa2VmZm0yOUhlckFnc2FCS0JmZ05QUzVGdXk5QlAwSkdTSVFFUkh1YVQ0Tk5pZ3ozMVYwMnZHQldjR0xmVEdpMWl0TFk0SjYzbEZoakdxMNIB9AFBVV95cUxNMXlPU2FmM3o4UEdLdjNnSzNBZ1J5cWNIYkh6UkRNaFNoaXpqZjlXZjllRVNTc2V1LW04MklJaWhYdi1CRXR3dG5JamxENTl5OGJwWGRieDF6NXZYQm9RWVBCUzhpdDRJcnY0VzQ5bHFXWVh3T2VudXZWcjlwcDNnLXJaTE5tcnREQ05JQm9ORVVpX2JnTUx5ZGhFeEZrU0RpMGw1eGo0NWU2TjdYMnVGWk8tdW9fZDBDbFJrV2FzdUY0Z0xQZkc1R3dSZDdJb1hhcGNZcVgwd0V4aTJXUmVQbmNSVHJUVmVzdWNyWmdVZ1J2emFC?oc=5",
+          "published": "09 Nov 2026",
+          "date": "2026-11-09",
+          "source": "Business Today",
+          "negative": false,
+          "positive": true,
+          "event": null
+        },
+        {
           "title": "Union Bank Q1 Beats Estimates; Target Price Raised to \u20b9200 - HDFC Sky",
           "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOTGUxRks5YkladVA2SWVPZlZkcWc3eWVjVHdyaWNHMnZESGVmb2dfV2RoT1lHdkM4dExJZ2JzZks2VnF0T3YyMmtYNXBHOUdjVTc4Y2JJQmE0MUVpZXVUTmdJS3ptOHhsd3hlZHR5MDlDcjNhaTluTEM4eXhaSzEwWg?oc=5",
           "published": "16 Jul 2026",
@@ -11058,16 +11373,6 @@
           "negative": false,
           "positive": true,
           "event": null
-        },
-        {
-          "title": "Union Bank shares fall 9% after Q4 results; weak NII, higher slippages hit - Business Standard",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPbnJZRFhyV2RDRFRKblpWTHM4WGRTYWR0U0NaU2M5bjIxWkkybFAwS3ItbHdFNFdKdTcxS2VES1dMWUpyYjdPcUNUdFhCY3B2bk5XZW5qTk1ZNDQ3MmlfVFpORW13WUxTbG9GYzBCcXNKZktyanM0ZnpHVHJ4RklWVmRaX0pxM0tTY3BiWHdGblpQcXNNMGs5a0oxVW9ZTlJ1c3RZaEhORXBTS1ZxRlpKS0lxVndnRllncmJRcGRTUmtoN2fSAcgBQVVfeXFMTWpRN19PZ0VKU2FmNm1UeE9DM0x0bTA2eVhtWEZ2ZFUxelB1TFdSdTFxdXI0MlZuZVNLMkwyZGFrQXg2Q1hHOS1pLW9paFlRY0VlVUlOak1xdUpBRnhvVk9BRE9sdzAzS0IyVkhUY19SRkxWRUIyWlhGajZ2blFEVGtDNHRlYkVkY0pTSmpVU2lJajA2RmV3d05uSWNXNlRMN2NMazIzbk5neS15WWtXaGlCa2pSS0xiT1FUeTJJS1h1Q1VScHVjZUI?oc=5",
-          "published": "23 Apr 2026",
-          "date": "2026-04-23",
-          "source": "Business Standard",
-          "negative": false,
-          "positive": false,
-          "event": "q4 results"
         }
       ],
       "signals": [
@@ -11079,7 +11384,7 @@
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: q1 results, q4 results"
+          "text": "Announcement: q1 results"
         },
         {
           "type": "near_high",
@@ -11273,16 +11578,6 @@
           "event": "q1 results"
         },
         {
-          "title": "NSE IPO: Indian Bank to divest 17.91% of its stake via OFS - BusinessLine",
-          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOOGZHRVFKMFlweWR1T0dRczRsZkJRdVRkQ0xxQ2NDZ0F1ZHg1UUFxYTZGUDlpb1h0X0h1Wi0zMmoxM19vejFwRG1wWnRBcy05dlhSNzlKcjd2OHN2dGY2SDl5MjNYUExkSFFmTmdacnhONG9iamN0TEV5ckJ1TXdJUU9VTHliUEZKNFJ3NHI3dzB4SVFpWDE4ZDVyQXB2cXFxYWlzMjRWS040WTh1MjJVVFdDWWVveG9tNUZtSdIBwwFBVV95cUxQVjVQZU5oT3pDUWJucF9feFJsYnJGc1RVUjIwVU43OE5YLVJOVU4zNl96QUJ4d2Z4ZVdXcVNSeVZra21QMUd0NEExU0k2dlNGd0NGX08zNnhpQ21lQlJvUWFKMEpsVmNXUGthdHAwWlZHNlBsVWFERUhiUTE0czdmQ1ZjOFNwTV8zUHVuVnFwc1BfS0NxaGkwVk5CcFA5SzBKZnJjemk1MzljUDB6VkcyRE9ZdHpTRkhXS2V4MHQ1NU0wQkU?oc=5",
-          "published": "09 Sep 2026",
-          "date": "2026-09-09",
-          "source": "BusinessLine",
-          "negative": false,
-          "positive": false,
-          "event": "stake"
-        },
-        {
           "title": "South Indian Bank stock gains 3% on Q2 business update, can it breach record high? - Business Today",
           "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOVXNPWHIxMEVXNk5ua2RKc2I3V1AtbGtQVHJBTWlLc2ZaQlZZMFQ5WXp6ZFNqZFZFNnV2U1haYVdYaDdhaklSLWUzdjRCOGttdTZoMWpPeHRhdWRFdEdCdU5XZkM2SUxwWWpVZG5fbU91eE9mMVZWTlYybll6VDhGcFlKVURDejNrUmFnRXFxaHJ4Y09zUEpNNWhXRHlLZVhyQUx1dldlUkFyN085cWR6R1dPdHJNWmY4dVdNX09ENFlXZlZIMHdIQTJVb0pqM3BrcDhjcC0wdDUtOGo4blRfOdIB5gFBVV95cUxNbnVncTdiYzkyTFMxbTh4T0tVeF9tem05R3Z6R29rd0o0M3JzSFdMSjdZRllXcDNXdjRGNmNVVTlkUUNCQkdqTkZXY3ZRV21ySkc1eXRORjhnQ0pTYVVLQzZxNXMyM0tLeUlqU3BoRTBhM3BqLWhDM1dRMlBHcGtTajduT0JFZ0VPNHR0YTJUTW9CM0tzN2FhNFVlY3JMNVhzclpMZElmU04yem1pdVoyRUF4TW5zSGFJN3o3eF9mTldBaThXWmF5bjJVR0doZHllVjlveF9PV1FKSlAwZmNEUkV0LTdodw?oc=5",
           "published": "05 Oct 2026",
@@ -11291,13 +11586,23 @@
           "negative": false,
           "positive": true,
           "event": null
+        },
+        {
+          "title": "Fairfax COO says IDBI has potential to be finest universal Indian bank with global reach - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNTlphYVVLbzlFOXNJUXAxOE5LR0VrY2xFb3JwSUd2N0RUMnBUeGVUQlQ3eVBoVzRuSHBtR0dqcFl1OXdHN1ZINGROT2duMVBlTjZDZDFpbTN5ekNwRGVoWk1iXzVOYy0yNi1nMDZ0TU5yMDczZ1NlVmY1UnVqUnprTFNNVW9SRVltT3hQcmd5b215YW9oVl9kV3FMQlhKQnlDZ2JONGxibFJpQ3VkWWlnWVZnakVZcWY4YTg3ODdxdXRmQnhWUVpkNHpla25ObXhYNkRfbjNSc0VEVGY3Sk1Fa0x4RjktQdIB6wFBVV95cUxOM0hyb1lEWVlKcFE5bW9zbVJnbGR1Z2RpOVl5cTEwem51ek9yMVJ0Wm92RGxoV3BYVXRXSWdqUXdQR1Fmc2MwMktfRldWRUtQeHNXSjlfUGVUZklBRHJJUXhVQW9iS1pCUVFDMDRoa0w3ZnlBNkd4VVpEN2I2cnVMYWxlYzhpVTNPWE1tRzlmSnBzbWQ2NzVOVVgycV9teUxmZEp2LXIzbFFqMTdqNmk2b0RhMjhfel9RTFNrU3FkZFd1bVl1S01NODdrQXBucm83Um5RT011amZrUmhOaFVyNG9SWXZ0LUc2MUxN?oc=5",
+          "published": "12 Nov 2026",
+          "date": "2026-11-12",
+          "source": "Moneycontrol.com",
+          "negative": false,
+          "positive": false,
+          "event": null
         }
       ],
       "signals": [
         {
           "type": "corp_event",
           "level": "info",
-          "text": "Announcement: q1 results, stake"
+          "text": "Announcement: q1 results"
         }
       ]
     },
@@ -11911,16 +12216,6 @@
       "cross": null,
       "news": [
         {
-          "title": "JSW Steel Share Price - Live NSE: JSWSTEEL Stock Price & Chart - Upstox",
-          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9KdjIxb1BCYWcxUFFoS2lDRXZBUGgta2Fwc252dml6QVRMSk5MSFVDQ0NMbXBfb0ZiemRvMExqWS00bDNpZ0RUZGdWSDlWYnBMS2VUSGhYaGxIcFRrR1RCQWlEV0RwSDg?oc=5",
-          "published": "12 Nov 2026",
-          "date": "2026-11-12",
-          "source": "Upstox",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
           "title": "JSW Steel publishes November 2026 investor presentation on website - scanx.trade",
           "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUURmM2tnU21jNDZidFVDM0pIWkxTNFhSS2ZOd0Q5TzBtYWd2d0RiSkpOZGlpVzA4SFlBZE5PdlhPbmhjU25PVTN4RE5KeVMwbWhvREljZk5OX1ljekk0OTZpXzdFYm9fMXMtQXNVdGJldTFqb3ZRSWJEeC1lUHlNTjVsYVp4NlNmWjJqNEtGSG14Wi1ycWU1aElBeFY5UDRpYjNtWHE1WFNkVG5CSjJkT3A3QkVQcUJWQjQxbQ?oc=5",
           "published": "11 Nov 2026",
@@ -11931,10 +12226,20 @@
           "event": null
         },
         {
+          "title": "Tata Steel, JSW Steel, SAIL: Steel stocks deliver strong Q2 show despite cost overhang; margin growth in focus next? - Upstox",
+          "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPUU1DVldUMG1iazVKb0R6bGQwSXdfTE5RUFllMGd1cDhaRHFkOFV5SHJXenRnTmM4VVVMRWk5T0toUXFlM2JCb25XdTJhU2NGNVVjYUcxRDc0aFhKWUpyeHBwWDFTcXlyQW9KQ25ybEpLQzNxamJmTXJlYzNOMVk5Q1JBMlgyd3RvV0dsSUhQd0tpNGxUVFdmQU9IR0x2ZzVQeU1MNVMtOWhpTWE1MDBiNTcxUUF6bU9hc3hwMjdqT1RrTlpRcnFDX0NGc09RUDA5TnVndll6Zkt2bjNuOXhpZTdnT0ZhVFdLbFphV1JBcEZMVlY4V1N1SmhILUNKOWc?oc=5",
+          "published": "09 Nov 2026",
+          "date": "2026-11-09",
+          "source": "Upstox",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "JSW Steel (NSEI:JSWSTEEL) Stock Forecast & Analyst Predictions - Simply Wall St",
           "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNdXdnQmlwODBTWkhlRm5qSDBzZUFaUFVIMEEyTl92aTNfcmVYZ0VmbTN1dGlPRV9JZl9qTmFPZU9lc0w2WFJJdE5UUnd1V3NRaVoteFZzaFVxejJTVlBNX1VZdV9wSUg0MUYyS3E0aGs2UTYxUmZ4NGp1Q1hmUXp4aUZ2ang?oc=5",
-          "published": "27 Oct 2026",
-          "date": "2026-10-27",
+          "published": "05 Nov 2026",
+          "date": "2026-11-05",
           "source": "Simply Wall St",
           "negative": false,
           "positive": false,
@@ -12015,16 +12320,6 @@
       "cross": null,
       "news": [
         {
-          "title": "Why Hindustan Zinc Share Price is Falling - Equitymaster",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOQTlnaUh4Q19hQVhtM0dzcVppejdtY2lvRndnaHF3bjRkdmo3dTExTWlNdTVrU2NvSTlPQnpXWXprT0tLZVNhQjhIM1pBVUF5UTlGNGV6amVlZ01PdGdmWDlNYW50dExxUGFjN2hYR2xvQUx1ZnlPMDBBV25HUlRPMlQ3emUwZDNOZ3dtYnZ6VldKOWJvUEVqZzBGRzhKS0RYN3Z5MDJWWFprbWljRWZSYw?oc=5",
-          "published": "08 Oct 2026",
-          "date": "2026-10-08",
-          "source": "Equitymaster",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
           "title": "Hindustan Zinc Shares Fall 3% on Govt Stake-Sale Speculation Worth \u20b94,000 Crore - NiftyTrader",
           "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBhbEQ0RV9YVG4xblhncnhkb1JxN0pyX3Q1VHRSejBXbWU3LTJfbmYyWWpCQnNGMHlZdjlkVVI3UGdxd0pVQmthcVFXU191OUQxQUd3Vy0xYjBxQ1dCMFJxS1hEcHVOTkdKRF9HMlBtMDRidw?oc=5",
           "published": "25 Aug 2026",
@@ -12053,6 +12348,16 @@
           "negative": true,
           "positive": false,
           "event": "stake"
+        },
+        {
+          "title": "Why Hindustan Zinc Share Price is Rising - Equitymaster",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNSThYYXo0T1B6aFRtdkRkNVM3b0FVWW1kUlp0eFFQWGxNb19wc3g3X1g1bk9pWWEyRElka1g3a1kxdUtSYW1kdDNORHQ4cUZjU0NtRlhJUHdTaW9ZME1EZFp3elRxakxQSmkzc21OQ19uSm1TZVhFbWQ5d0JjM0VIamt5aEJxWjVDeDJyYV9uSk9sM1dsSENrTF9yZ0tkcWpkUENTcnN1ZThoMXgzY0Uw?oc=5",
+          "published": "26 Aug 2026",
+          "date": "2026-08-26",
+          "source": "Equitymaster",
+          "negative": false,
+          "positive": false,
+          "event": null
         }
       ],
       "signals": [
@@ -12223,6 +12528,16 @@
       "cross": null,
       "news": [
         {
+          "title": "Maruti Suzuki widens UV lead over Mahindra as three-way SUV and EV battle intensifies - BusinessLine",
+          "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNd0xWcVJ4ckt0UjVldUpBcjdCSGcxcTM4ZFJFZ29wRDdESWN4S3dzWm1hbE9zMmV6QmJhdGNjTFV2TkVHZ21tSjh5OHJwR0NsWldGY1g0bTdQV1pMdFgtVWRRX2JubVdwOGhXcl84eEdSemtiV3hZZjVpQWxicDh6MGRkTWlTc09xbmtTTXg5X2pIYURHSDZEUm03SHYwMUdacEF3ckExakZpc25Td3JVS0x1OTc0eC1sckhqbXAwdWp6OFpPQWMwZUYzVU1nSTRBQUJZeDUzSGtubkxuSkI2c0RZVGpIUHfSAe4BQVVfeXFMTTVfZ1cyeU5EbTNXcXVaX2ZLeGxrSXF5d0o1WkhuVnZwd2p1QWpHZEp1N21TS0JSNHl4SVB6UzhBVG4tMWhrSHZpeHJjOUt2MG9BUlpuZmZrTE9aTHNUeXoxbW1Vc3YxTnRfa29VanNNOXpwNzM3cDVyVW5rMFhieWVUZ1pyVHFGOVlETWc3eWxKUU1UR2F3TmRXcVEtMnJldW1ENV9oOGpHcVY1MmpzSHlGT05obTE3cjY2a3ZtN1NsRWZSZF9iY1RYTWlod1VaUnlHdVdsUVVnZUlTZ3JwQUtnNjVybGZfOGFTVmtvQQ?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "BusinessLine",
+          "negative": false,
+          "positive": false,
+          "event": null
+        },
+        {
           "title": "Maruti Suzuki share price falls over 5% post tepid August export data - Business Standard",
           "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQeVRNNGs5VjhrcENaWW9vbDBQMGpEWXRCeWpuOWZQcldyOC02X2FScDhMMTBrbkxoZ2FhUkczX3VsbDdWbTdTVEZfNVNGNnBIOEUwM0tsWVcyTTNYck53cFVwdHlJSjMyODVHenNESERZN1c3Vmp4azhvYUJCVXRtRDE3MFhTeHZ2WlB1aHVQSnBTRlNHVFlKUnVYbEdVaFJaR3FiWnp6ZHFFN2NzWHIwaTNvZmVmYXJlaDVTaEtxdHVCZmg0dDd3NE5fZGt1SFVi0gHWAUFVX3lxTE9QLVVnWHQxdHJmekhzSlU2Q3BDY0FqYk1TTDkyUmFBVU5aVFROOEhCSTlONjZIUWpac01Ja0R1ZkQ1dWNLWjEzOTJQdHZ1Wm1aVWxILWFPWkoyMTdiUjZ5enNzU3dpcW83NUZhYWs1VlJRVTAxeklsNDN4dzJiaXBwSW5qbzduaTBSOWUxRmFuQnhoaUVmeWEtWFFNeG9lb3ZxeHNnc1hnR2FsRmZxUVhKc3Q4M2dXQXdQOFBENU9EVHlqeEEyYVYyUDlhWnVTTlh6WVk5aXc?oc=5",
           "published": "01 Sep 2026",
@@ -12250,16 +12565,6 @@
           "source": "TradingView",
           "negative": false,
           "positive": true,
-          "event": null
-        },
-        {
-          "title": "Best Selling 6 & 7-Seater Cars October 2026 \u2013 Ertiga Leads, Mahindra Dominates - Autopunditz",
-          "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFA2LWhYZ1dwUzJxaS1Fb3BiLXA4M0VxSENteVFYWjdRdWRVTXgtUC1jRUZFcEFrVEkxSV9neHB4Rmx3VG5Od1F5dmd5T2xXWFZSM3pmR2ltbWw3aHRLQXg2SXdNcmxaRGNfYUQydEFTOWhnUU40YmR0MmhRRGg?oc=5",
-          "published": "11 Nov 2026",
-          "date": "2026-11-11",
-          "source": "Autopunditz",
-          "negative": false,
-          "positive": false,
           "event": null
         }
       ],
@@ -12357,11 +12662,11 @@
           "event": "earnings"
         },
         {
-          "title": "TVS Motor Company Ltd (NSE:TVSMOTOR) Launches TVS Callisto 110 Scooter in Istanbul, T\u00fcrkiye - Kalkine India",
-          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNbTc5N2pjQ1pHekpoOFdqTDNhZms4aktjM29QWElPZ05tZzlJQ21YVy0tWkFFcGxYV3dzVXhVNVhmYUdJYlBkQ3V0TF9xYVFWeDhXbHRMb0NvNGFjWEJaUS1JaldtSXdhaTF3T0dlSGt3OW9sRlN6aU8zdm85Qy1heURsZG9IVEtWREZyT3BEY013YUI0aXZYd1A0Zzk1eUFNMHQ4d09hT2hCQUZMRGQwYklUekFqR1JRYl9CMVpIenZRMkJmeVBtbk9n?oc=5",
-          "published": "12 Nov 2026",
-          "date": "2026-11-12",
-          "source": "Kalkine India",
+          "title": "TVS Motor stock spikes 6% on posting highest-ever quarterly profit in Q1 - Business Standard",
+          "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQMHhUX3ZIYXJ2VjFEM1RReVlVZk5RRHN1d1Q0eXZyRVZGQXlmd3RlZnJtN3JtYUtsdTgzZFl3QWxpU1BsSlJ5SkVkWUhjWmFEb0J2MjhjWkVZbncyQklmRnFlTFoyeHVKVkY0REpreXliTFB3RkFyVlgzLURyMDE5TU9QeFFzRmJ6SUgtR0lkd0RmR2ZIYjJXR01rN3ZlaGhaalloc29QV0R4N25iZEluN1F5VmNkOU5BT19OOWZFTk5vMFhneXM3YkRzdHZpbWlYSUZvajdYWkRvd05yZmN3S3BhNNIB6AFBVV95cUxPdVlkd3ZKWThudGtqS3RwWVppV2I4V0g0NEpINUQ4NGFZVWtmTHpkaXYzZjh1dDFtdU00MEc4d2VISVo4YmxZMWtHdGMyNUF6dm5QNUxSV2diMFhxWjJjeDFhakNOVWljY05hU0RyRzdyLVlIUFlKWTB4eks0VVB3ZmFxb0lBUWJYTXNGcWg4QjhSbHd6VUU0WFVEV2FENGpjZElhcW1nbWY4TElnNnFiekk2cW5zSHdHc0RrSmNJaDlvTW45UDUyYTNOcnF4dFFyb1h5Y0czRDlmYldBcXhONW0yUFZEbWtk?oc=5",
+          "published": "21 Jul 2026",
+          "date": "2026-07-21",
+          "source": "Business Standard",
           "negative": false,
           "positive": false,
           "event": null
@@ -12418,7 +12723,7 @@
         "pb": 0.94435096,
         "roe": null,
         "de": 0.7,
-        "mcap": 1058491924480.0,
+        "mcap": 1058507063296.0,
         "wk_high": 408.0,
         "wk_low": 259.1,
         "div_yield": 1.01
@@ -12436,17 +12741,17 @@
       "cross": null,
       "news": [
         {
-          "title": "Tata Motors PV Q2 Results: PV Arm Swings To Loss On JLR Restructuring Costs, Revenue Up 35%; Misses Estimates - NDTV Profit",
-          "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPWFVBb3R4cGRJRDFUWWVoYmlPQm9wemwtNVB6Z3FRUmhuYnlad2p5dFJSU2tuODk0ZGo0Y3c4WmVUa25JMHd2ajNWT1c5d05WNDlIWDh2RndIWEItUXhIREsycXNCdnJfVXpHWFEwZEpqZkdDSjdQa2RQUm9jTnRmNlgzbF91RWVpQjZwc241VHZ2dmlscXFGS3l1SE41bDM4cWkxanpxY0VnZXZkZW00bkRxZExySS1LUmUwQldjOWwyQzlxX1FFbVpCc3hxVGJabXg4WEpJYzFPODZ0NVRrQnBMV1hrdkpQWjJidnFlRnJwQzE3bkUyc3ZkcHdCd9IBhgJBVV95cUxQRTdIQ2NJZU1HSWhoNFpVRjlQTGpEVXM5a3k4cDFaNHAtY2k0c0lBWC0xZVBTSW1QdS1obnh4dFFzd1JmOW9zX0Njc1pMVEpQVVdXTlBDNlZpU2p3SGtvcjlZdmlXWUFwYldweF8xTFFrSU5mam9LdmliWnVPejhsWFN3NlFBbGtNMVRaQ09YNkNLZ3pvLXRHeW5fNkVGbGMxMFAzSTkxeHYyZjNRM1ZtQWlRTmpYalpJUHcyWC1kWU9mT1NhVHUyT2VRUXhrRmdUczdfcUlIOUtELUJMYVY2LTB2MGVCRXVjUk9NYm1WdGJDWUZQbWpvX2I2NUFkLW5fSXJtazF3?oc=5",
+          "title": "India's Tata Motors PV cuts JLR margin outlook as costs, geopolitical risks bite - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTmU4TzhZUm1PVzY1TWIxNC1kVDJWaGh1VXdxdnk4THdGVkt0YmNiaGtHeWVFSXVkclBubnVVM1ZGUjZHelJNdFFDUjR3bmZhSEVYcm96RmRpc1prYWhTdzVja1MwSENoUFJfRHgtU0tBTHNDV285ZHFVRXBsUFlPX1k4N191dmRxRHlVT1kwQ3NzbktMbEtBNlhzRExxOGV0SlI3M1lYbkF6eS1hTXJ5MWs3cC1nV3NvTjZwbXR1VnJ6QQ?oc=5",
           "published": "13 Nov 2026",
           "date": "2026-11-13",
-          "source": "NDTV Profit",
-          "negative": true,
+          "source": "Reuters",
+          "negative": false,
           "positive": false,
-          "event": "q2 results"
+          "event": null
         },
         {
-          "title": "Tata Motors PV's Q2 net loss at \u20b95,531 cr as JLR restructuring costs bite - Business Standard",
+          "title": "Tata Motors PV narrows Q2FY27 loss to \u20b95,451 cr as revenue rises 34% - Business Standard",
           "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOemszV015eGtLRThZTnVhU0I1Nkh6UVhmUGdjcGk4Z0JCNmxjMWFZSkdwWGFRN1U2bGVhWmpuLVpwdVBBNTRVY2xEbnlwdGZsMUJYdjMzSzVVd0N2SjFDVVVjVVloaUdvcUo4enJwMGtvXzJJMFo4T0lPU3F2VzhSMzgxMFduWjJweThvbk9vQ3NVSmJtcTZ0YWRmQnJUbUNMaERIUVZmbEtHT2lfYm4ycVhtZDFFZ1VtWThTQ3N3T2RXcEd0TkR1YUpyNjhKdHBRd25ocS1xQ04zUnFiQXfSAeMBQVVfeXFMUDF6d2hkdWlBdmhzaUNES3ZScWZGUXREYmd0N25oQzZzcnBYRkM3NVdRSnU2Ul90dDhCU05GRzBWel8zUTVBTE5BSm8tSGJaekFGMzVlRk1Qb3BIbGplb3RFSU5QVmdyeEpRNFUtRHdGOFJjbFRaMFZGdUNWZ1VCVDVuenNuRUVrSm1WQTNKZDVVU0hPakVhVi0xZHdFbVRaOTduTC1vUGpWZjBUNE9hS0xPLTU0enhwTUsyLXhfZVdXck5EWC1hclBPTlM4UW96a21YZXRLdS00NHZRU1E5NFQ3VVk?oc=5",
           "published": "13 Nov 2026",
           "date": "2026-11-13",
@@ -12554,6 +12859,16 @@
       "cross": null,
       "news": [
         {
+          "title": "Samvardhana Motherson Q2FY27 Results: Revenue up 27% to \u20b938,280 crore - scanx.trade",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQeGI0WnZXRndrOTJrZ3c2QS1NODJ4RTNxUGRTcl9VSDRPZE90N3FTTzlNOFdCRHBNemkzeWU3TTl1Ukd6d0c4OEZKaUFQWEx6N1U3bHFFMzdNcWp1WFQtRnRMRVZjSzNoaFdtazhtVW5xY0FWUWh2WjFIU3pWMXhvR0ZsemJKTXpMdXFJZmJnTHprZ3NlZi10cHZxWl9VSFItbW5OUG5vVkxoYVZsUEdpdUYtRXFDQ2hld1dQYw?oc=5",
+          "published": "13 Nov 2026",
+          "date": "2026-11-13",
+          "source": "scanx.trade",
+          "negative": false,
+          "positive": true,
+          "event": null
+        },
+        {
           "title": "India's Samvardhana Motherson posts quarterly profit jump on strong wiring harness demand - Reuters",
           "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOaG1vV0xEd0lOYTRZRm9nWXRJVVJJblVQRnEwQ1poclMxME1QWFFjLUh3QUppWHZDZlJ1Z0Y2VUZwdVAxd3NkQkdvWGVzajFYdW16RGlEc2UzSDhBSFRuT2FaazVWUHFxaGl6T0FpRC1PSzlCNXpGLXlSb2RoX0k4NnQ1NkhEaF9CNXQ3cTg2QnFDNDJOQlJ2bGRrWHFrSmljZjhKa2lGejNCM2lQZjh0VzZnRWN4ZHV4QzhObzBEaXVGUWtn?oc=5",
           "published": "05 Nov 2026",
@@ -12579,16 +12894,6 @@
           "published": "06 Nov 2026",
           "date": "2026-11-06",
           "source": "CNBC TV18",
-          "negative": false,
-          "positive": false,
-          "event": null
-        },
-        {
-          "title": "What Samvardhana Motherson Doubters Overlooked - Yahoo Finance Singapore",
-          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOUGxxVGEwSDFhUTlpQlVPWHBKTTdLWnY4NDRUMEVzeElUQndFVklKREhtcTBWWWdBdDZ5cUpSZkZldzlDTWlmOWQxR3BZdWRKUUd0d1RCdndwTThfX0tDNWZXN1hJVXdSaUJIYk1vek1rQzhsc2J2YTV4NFVfUnpPU3gxcDk1dEY1Q0R4aTJuakR1OGZI?oc=5",
-          "published": "08 Nov 2026",
-          "date": "2026-11-08",
-          "source": "Yahoo Finance Singapore",
           "negative": false,
           "positive": false,
           "event": null
@@ -12859,7 +13164,7 @@
       9340481,
       9399596,
       9468446,
-      9397076,
+      9397075,
       9373353,
       9428436,
       9534624,
@@ -13542,7 +13847,7 @@
       3751425,
       3853283,
       3855475,
-      4008024,
+      4008028,
       4073441,
       4206179,
       4140056,
@@ -13624,7 +13929,7 @@
       10729496,
       10552317,
       10706283,
-      11205562,
+      11205561,
       11260287,
       11164229,
       11217138,
@@ -13636,7 +13941,7 @@
       10083307,
       10393467,
       10609111,
-      10948005,
+      10948004,
       10377950,
       10529287,
       10686172,
@@ -13650,7 +13955,7 @@
       12328535,
       12314600,
       13048012,
-      13044914,
+      13044915,
       13258067,
       12892742,
       12306667,
@@ -14072,7 +14377,7 @@
       2357298,
       2417536,
       2410923,
-      2455504,
+      2455505,
       2446088,
       2490409,
       2562204,
@@ -14138,7 +14443,7 @@
       3864095,
       3970793,
       3973685,
-      4130034,
+      4130038,
       4194701,
       4334249,
       4265396,
@@ -14196,12 +14501,12 @@
       9699334,
       9608299,
       9761083,
-      9324157,
-      9392196,
+      9324156,
+      9392197,
       10505976,
       10290225,
       10594274,
-      10177826,
+      10177827,
       10148384,
       9512577,
       9998211,
@@ -14215,12 +14520,12 @@
       12433158,
       12366290,
       13304190,
-      13486864,
+      13486863,
       13488705,
       13487156,
       13310112,
       13442954,
-      14026063,
+      14026061,
       14100136,
       13949398,
       14029673,
@@ -14255,7 +14560,7 @@
       19177831,
       19054662,
       19914964,
-      19926574,
+      19926575,
       21521243,
       20392927,
       20335402,
@@ -21578,7 +21883,7 @@
       "name": "UltraTech Cement",
       "held": false,
       "price": 12100.0,
-      "pe": 40.38179,
+      "pe": 40.462814,
       "pb": 4.836976,
       "roe": 11.5,
       "de": 0.38,
@@ -21589,7 +21894,7 @@
         {
           "label": "P/E under 20",
           "ok": false,
-          "value": 40.38179
+          "value": 40.462814
         },
         {
           "label": "P/B under 3",
@@ -28133,148 +28438,148 @@
         9332386,
         9269545,
         9171900,
-        9127311,
-        9146274,
-        9075289,
+        9127310,
+        9146273,
+        9075290,
         9081515,
         9024761,
         9022960,
-        9008977,
-        8927087,
+        9008978,
+        8927088,
         8923496,
-        8850965,
-        8845883,
+        8850964,
+        8845884,
         8859114,
-        8764189,
+        8764190,
         8712192,
-        8735122,
+        8735121,
         8740672,
-        8741325,
+        8741328,
         8630681,
-        8627096,
-        8624358,
-        8539109,
-        8583700,
-        8524596,
-        8522053,
-        8477201,
+        8627097,
+        8624360,
+        8539108,
+        8583702,
+        8524595,
+        8522052,
+        8477202,
         8530609,
-        8523246,
-        8451244,
+        8523245,
+        8451243,
         8456832,
-        8429277,
-        8454560,
-        8439383,
-        8421727,
-        8447264,
-        8362837,
-        8422570,
-        8376095,
-        8389480,
-        8382625,
+        8429278,
+        8454562,
+        8439380,
+        8421728,
+        8447263,
+        8362838,
+        8422569,
+        8376094,
+        8389479,
+        8382627,
         8417106,
-        8374817,
+        8374816,
         8363797,
         8408170,
         8419273,
-        8394339,
-        8418698,
-        8425182,
+        8394338,
+        8418697,
+        8425184,
         8352920,
-        8351699,
-        8342364,
-        8310905,
-        8248907,
-        8221900,
-        8185909,
-        8266513,
-        8245951,
+        8351698,
+        8342363,
+        8310907,
+        8248908,
+        8221899,
+        8185910,
+        8266512,
+        8245950,
         8250447,
-        8136877,
+        8136876,
         8234069,
-        8238839,
-        8218737,
+        8238841,
+        8218739,
         8135914,
-        8089680,
-        8118910,
-        8091851,
-        8032322,
+        8089679,
+        8118911,
+        8091850,
+        8032321,
         8128734,
         8072502,
-        8017044,
-        8134577,
-        8168727,
-        8201431,
-        8215771,
-        8149401,
-        8141633,
-        8119221,
-        8060239,
-        8089386,
-        8112845,
-        8109026,
-        8134394,
-        8301051,
-        8319112,
-        8238380,
-        8160702,
-        8123084,
-        8125670,
-        8188947,
+        8017043,
+        8134576,
+        8168731,
+        8201432,
+        8215770,
+        8149402,
+        8141631,
+        8119220,
+        8060241,
+        8089383,
+        8112843,
+        8109025,
+        8134393,
+        8301050,
+        8319115,
+        8238381,
+        8160700,
+        8123086,
+        8125672,
+        8188946,
         8217015,
-        8159338,
-        8146096,
-        8173995,
-        8263187,
-        8221732,
+        8159335,
+        8146093,
+        8173996,
+        8263191,
+        8221739,
         8165201,
-        8160214,
-        8174013,
-        8177598,
-        8220632,
-        8247041,
-        8233448,
-        8257049,
-        8198983,
-        8224709,
-        8186691,
+        8160216,
+        8174010,
+        8177600,
+        8220633,
+        8247040,
+        8233450,
+        8257051,
+        8198985,
+        8224710,
+        8186693,
         8157979,
-        8109344,
-        8093539,
+        8109347,
+        8093542,
         8109156,
-        8169167,
-        8113243,
+        8169166,
+        8113244,
         8140975,
         8174192,
-        8118158,
-        8053386,
-        8077081,
-        8086765,
-        8135648,
-        8075251,
-        8124386,
-        8080274,
-        8137738,
-        8100012,
+        8118161,
+        8053387,
+        8077084,
+        8086767,
+        8135646,
+        8075256,
+        8124383,
+        8080271,
+        8137734,
+        8100013,
         8015380,
-        7987762,
-        8037357,
-        8061208,
-        8000195,
-        8092257,
-        8055305,
-        8028359,
-        7970708,
-        7978258,
+        7987764,
+        8037358,
+        8061204,
+        8000196,
+        8092254,
+        8055308,
+        8028358,
+        7970711,
+        7978262,
         8071565,
-        8020904,
-        8058241,
-        8030342,
-        7998375,
-        7949423,
-        7996849,
+        8020903,
+        8058245,
+        8030343,
+        7998376,
+        7949424,
+        7996852,
         8002205,
-        8014136
+        8014137
       ],
       "p50": [
         10243414,
@@ -28283,151 +28588,151 @@
         10315377,
         10356086,
         10374409,
-        10356115,
-        10364430,
-        10385772,
+        10356117,
+        10364431,
+        10385773,
         10390993,
         10400522,
-        10453114,
+        10453115,
         10502934,
-        10468013,
+        10468012,
         10472280,
         10479643,
-        10524226,
-        10517293,
+        10524225,
+        10517295,
         10552154,
         10603771,
         10570041,
-        10599048,
-        10650400,
+        10599047,
+        10650399,
         10748056,
-        10744597,
-        10743116,
-        10714578,
-        10703314,
-        10740537,
+        10744599,
+        10743115,
+        10714577,
+        10703313,
+        10740536,
         10683803,
-        10732310,
-        10728438,
-        10759980,
+        10732309,
+        10728435,
+        10759981,
         10802898,
-        10805795,
-        10845848,
+        10805796,
+        10845849,
         10856857,
-        10909139,
-        10932488,
-        10983615,
-        10979528,
-        10966907,
+        10909138,
+        10932486,
+        10983614,
+        10979530,
+        10966905,
         11008780,
         11006771,
-        11037170,
-        11084753,
-        11100593,
+        11037171,
+        11084751,
+        11100591,
         11145935,
         11150502,
         11112848,
-        11173381,
-        11160976,
-        11185773,
+        11173380,
+        11160975,
+        11185775,
         11196485,
-        11211141,
-        11289838,
-        11216719,
-        11291353,
+        11211143,
+        11289836,
+        11216721,
+        11291352,
         11258739,
         11311496,
-        11349132,
-        11375302,
-        11387677,
-        11356486,
+        11349133,
+        11375299,
+        11387676,
+        11356487,
         11448308,
         11508407,
         11509026,
-        11474545,
-        11580759,
-        11579788,
+        11474543,
+        11580761,
+        11579787,
         11597851,
-        11561219,
+        11561223,
         11642180,
-        11606642,
-        11629455,
-        11720229,
-        11746062,
-        11808351,
-        11812075,
-        11792823,
+        11606640,
+        11629453,
+        11720226,
+        11746063,
+        11808350,
+        11812077,
+        11792825,
         11721302,
-        11760088,
-        11779463,
+        11760087,
+        11779466,
         11860229,
-        11871617,
-        11856579,
-        11896727,
-        11845666,
+        11871616,
+        11856577,
+        11896725,
+        11845667,
         11851989,
-        11882070,
+        11882069,
         11982110,
-        11948246,
-        11976157,
-        12042859,
-        11994622,
-        12101166,
+        11948248,
+        11976159,
+        12042857,
+        11994624,
+        12101165,
         12122452,
-        12160489,
+        12160488,
         12198107,
-        12196389,
-        12328294,
-        12232878,
-        12255856,
-        12308813,
-        12354308,
-        12367842,
+        12196387,
+        12328295,
+        12232882,
+        12255853,
+        12308811,
+        12354309,
+        12367843,
         12339547,
-        12411711,
-        12398816,
-        12474526,
-        12402121,
-        12415799,
-        12358925,
-        12424007,
+        12411708,
+        12398822,
+        12474528,
+        12402118,
+        12415796,
+        12358924,
+        12424003,
         12471473,
-        12524996,
+        12524998,
         12571842,
-        12598886,
-        12702386,
-        12672733,
-        12629635,
-        12734960,
-        12650572,
-        12696004,
-        12716137,
-        12774056,
-        12827950,
-        12812727,
-        12787199,
-        12846167,
-        12947942,
-        12993624,
+        12598887,
+        12702381,
+        12672737,
+        12629637,
+        12734964,
+        12650576,
+        12696002,
+        12716141,
+        12774055,
+        12827947,
+        12812726,
+        12787201,
+        12846169,
+        12947945,
+        12993626,
         12933399,
-        12962716,
+        12962718,
         13002275,
         13001495,
-        12961835,
-        13013987,
-        13090210,
-        13106234,
-        13125640,
+        12961836,
+        13013992,
+        13090212,
+        13106239,
+        13125637,
         13130605,
-        13139154,
-        13195351,
-        13187862,
-        13196780,
-        13186155,
+        13139151,
+        13195346,
+        13187857,
+        13196779,
+        13186148,
         13243391,
-        13238950,
-        13260864,
-        13277507
+        13238948,
+        13260863,
+        13277512
       ],
       "p90": [
         10662446,
@@ -28437,150 +28742,150 @@
         11294084,
         11360156,
         11495701,
-        11643450,
+        11643452,
         11766262,
         11873531,
         11887575,
         12104193,
         12120848,
-        12227990,
-        12299171,
+        12227992,
+        12299172,
         12439049,
-        12436064,
+        12436063,
         12556068,
-        12596987,
-        12712335,
-        12862135,
-        12911030,
+        12596988,
+        12712334,
+        12862134,
+        12911033,
         13062967,
         13195486,
         13261300,
-        13345661,
-        13505949,
+        13345660,
+        13505948,
         13521896,
         13590131,
-        13684116,
+        13684119,
         13863462,
         13838690,
         13905103,
-        13922277,
+        13922276,
         14040292,
         14089306,
-        14158864,
-        14144147,
-        14326694,
-        14375665,
+        14158861,
+        14144150,
+        14326693,
+        14375667,
         14549830,
-        14548526,
+        14548525,
         14628681,
         14659789,
-        14677164,
-        14689501,
-        14689428,
-        14700621,
-        14757790,
-        14874658,
-        14894379,
-        15054050,
+        14677165,
+        14689500,
+        14689430,
+        14700623,
+        14757788,
+        14874656,
+        14894383,
+        15054052,
         15052548,
-        15182286,
-        15231862,
-        15340288,
-        15361906,
+        15182288,
+        15231863,
+        15340283,
+        15361908,
         15439611,
         15622219,
-        15592402,
-        15652945,
+        15592400,
+        15652947,
         15766357,
-        15849811,
-        16049306,
-        16096452,
-        16058661,
-        16143653,
-        16234659,
-        16070013,
-        16142221,
+        15849813,
+        16049304,
+        16096459,
+        16058659,
+        16143651,
+        16234661,
+        16070011,
+        16142218,
         16253624,
-        16322227,
+        16322232,
         16387090,
         16432740,
-        16572303,
+        16572299,
         16438580,
-        16490596,
+        16490598,
         16596610,
-        16801134,
-        16666815,
-        16729423,
-        16768767,
-        16862609,
-        16898999,
-        17021275,
+        16801138,
+        16666818,
+        16729424,
+        16768765,
+        16862617,
+        16898997,
+        17021286,
         17056362,
         17170597,
-        17276194,
+        17276191,
         17268919,
-        17224572,
-        17333197,
+        17224576,
+        17333190,
         17612718,
-        17684380,
-        17711832,
-        17937608,
-        17872108,
-        18016244,
+        17684393,
+        17711830,
+        17937605,
+        17872109,
+        18016242,
         18139287,
         18171409,
         18200906,
-        18268939,
-        18165495,
+        18268937,
+        18165491,
         18391981,
-        18381366,
-        18548832,
+        18381370,
+        18548838,
         18643917,
-        18816173,
-        18870872,
-        18850318,
-        19072172,
-        19027850,
-        18752102,
-        18952907,
-        19065848,
-        19114273,
-        19242382,
-        19329059,
-        19587228,
-        19573720,
-        19476071,
-        19817704,
-        19924010,
-        19964906,
+        18816171,
+        18870868,
+        18850320,
+        19072178,
+        19027862,
+        18752104,
+        18952903,
+        19065852,
+        19114275,
+        19242380,
+        19329063,
+        19587232,
+        19573722,
+        19476082,
+        19817708,
+        19924014,
+        19964899,
         19930874,
-        19895628,
-        20122297,
-        20348759,
+        19895638,
+        20122307,
+        20348767,
         20453137,
-        20535853,
-        20560928,
-        20545031,
-        20657678,
-        20824894,
-        20823928,
-        20702646,
+        20535860,
+        20560923,
+        20545029,
+        20657680,
+        20824885,
+        20823921,
+        20702648,
         20830601,
-        20942809,
-        20782045,
-        21163747,
-        21281404,
-        21189629,
-        21365458,
-        21352495,
-        21570183,
-        21553664,
-        21596560,
-        21646164,
-        21756200,
-        21860058,
-        22130698,
-        22248279
+        20942796,
+        20782049,
+        21163745,
+        21281407,
+        21189632,
+        21365470,
+        21352500,
+        21570169,
+        21553660,
+        21596572,
+        21646171,
+        21756202,
+        21860056,
+        22130700,
+        22248281
       ],
       "years": 3,
       "sims": 1000
@@ -29038,7 +29343,7 @@
     "gain_marker_months": "6"
   },
   "meta": {
-    "generated": "13 Nov 2026, 05:18 PM IST",
+    "generated": "13 Nov 2026, 09:04 PM IST",
     "demo": false
   }
 }
